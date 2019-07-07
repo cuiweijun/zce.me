@@ -8,13 +8,13 @@
     "zce",
     "zce.me"
   ],
-  "homepage": "https://github.com/zce/zce.github.io#readme",
+  "homepage": "https://github.com/zce/zce.me#readme",
   "bugs": {
-    "url": "https://github.com/zce/zce.github.io/issues"
+    "url": "https://github.com/zce/zce.me/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zce/zce.github.io.git"
+    "url": "git+https://github.com/zce/zce.me.git"
   },
   "license": "MIT",
   "author": {

@@ -37,6 +37,7 @@ exports.plugins = [
     resolve: 'gatsby-transformer-remark',
     options: {
       plugins: [
+        'gatsby-remark-frontmatter',
         'gatsby-remark-images',
         'gatsby-remark-responsive-iframe',
         'gatsby-remark-copy-linked-files',

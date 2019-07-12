@@ -34,6 +34,9 @@
 - [x] Sitemap support
 - [x] RSS Feed (not enabled)
 - [ ] Global style
+- [ ] CSS-in-JS
+  - https://github.com/system-ui/theme-ui
+  - https://github.com/emotion-js/emotion
 - [ ] Comments
 - [ ] Sass?
 - [ ] Theming
@@ -51,6 +54,7 @@
 
 ## References
 
+- https://www.bricolage.io/
 - https://github.com/prichey/prestonrichey.com
 - https://github.com/taniarascia/taniarascia.com
 - https://github.com/fathomlondon/fath.om
@@ -75,6 +79,9 @@
 - https://github.com/GatsbyCentral/gatsby-awesome-pagination
 - https://github.com/graysonhicks/gatsby-plugin-remote-images
 
+- https://www.styleshout.com/
+- https://webflow.com/
+
 ## Snippets
 
 ```js
@@ -86,5 +93,69 @@ const getList = prop => {
     .filter(c => c)
     .reduce((a, i) => a.concat(i), [])
   return [...new Set(allList)]
+}
+```
+
+
+```js
+// ignore markdown dirname or filename, use frontmatter slug instead
+  // const permalink = createFilePath({ node, getNode, basePath: 'posts' })
+```
+
+```js
+
+  // type, template, slug, permalink, comment, private, draft, 
+  // title, description, cover, date, updated, 
+  // authors, categories, tags
+  const fields = Object.assign({
+    type: null,
+    template: null,
+    slug: null,
+    permalink: null,
+    comment: true,
+    private: false,
+    draft: false,
+    title: null,
+    description: null,
+    cover: null,
+    date: null,
+    updated: null,
+    authors: ['Gatsby'],
+    categories: ['Uncategorized'],
+    tags: ['Untagged']
+  }, config, node.frontmatter)
+```
+
+```js
+const createDefaults = ({ node, actions, loadNodeContent, createNodeId, createContentDigest }) => {
+  if (node.internal.mediaType !== `text/yaml`) {
+    return
+  }
+  const { createNode, createParentChildLink } = actions
+
+  if (node.name === 'categories' && !node.children.includes('Uncategorized')) {
+    const uncategorized = {
+      id: 'Uncategorized',
+      slug: 'uncategorized',
+      description: '',
+      cover: 'uncategorized.jpg',
+      meta: {
+        title: '',
+        description: ''
+      }
+    }
+    const uncategorizedNode = {
+      ...uncategorized,
+      children: [],
+      parent: node.id,
+      internal: {
+        contentDigest: createContentDigest(uncategorized),
+        type: 'CategoriesYaml',
+      }
+    }
+    createNode(uncategorizedNode)
+    createParentChildLink({ parent: node, child: uncategorizedNode })
+    return
+  }
 }
 ```

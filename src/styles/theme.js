@@ -1,5 +1,7 @@
 /**
  * Site theme
+ * https://theme-ui.com/theme-spec/
+ * https://system-ui.com/theme/
  */
 
 import oc from 'open-color'

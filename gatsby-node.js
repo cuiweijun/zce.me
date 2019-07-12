@@ -65,7 +65,7 @@ const generatePermalink = (permalink, context) => {
   })
 }
 
-const createMarkdownField = ({ node, getNode, actions }) => {
+const createMarkdownFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   // ignore markdown dirname or filename, use frontmatter slug instead
@@ -118,7 +118,7 @@ const createMarkdownField = ({ node, getNode, actions }) => {
   // createNodeField({ node, name: 'slug', value: getPermalink() })
 }
 
-const createYamlField = ({ node, getNode, actions }) => {
+const createYamlFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   const file = getNode(node.parent)
@@ -148,16 +148,16 @@ const createYamlField = ({ node, getNode, actions }) => {
 exports.onCreateNode = args => {
   switch (args.node.internal.type) {
     case 'MarkdownRemark':
-      return createMarkdownField(args)
+      return createMarkdownFields(args)
     case 'AuthorsYaml':
     case 'CategoriesYaml':
     case 'TagsYaml':
-      return createYamlField(args)
+      return createYamlFields(args)
   }
 }
 
 // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const result = await graphql(`
@@ -217,9 +217,8 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  if (result.errors) {
-    throw result.errors
-  }
+  // errors report
+  result.errors && reporter.panic(result.errors)
 
   const { edges: posts } = result.data.allMarkdownRemark
 

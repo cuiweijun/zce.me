@@ -86,14 +86,14 @@ export default ({ data, pageContext, location }) => {
         <li>
           {prev && (
             <Link to={prev.fields.permalink} rel="prev">
-              ← {prev.frontmatter.title}
+              ← {prev.fields.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
             <Link to={next.fields.permalink} rel="next">
-              {next.frontmatter.title} →
+              {next.fields.title} →
             </Link>
           )}
         </li>

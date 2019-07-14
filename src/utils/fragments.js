@@ -8,7 +8,7 @@
 // // Loads required data to use the `MarkdownSection` component.
 // export const MarkdownFragment = graphql`
 //   fragment MarkdownFragment on MarkdownRemark {
-//     frontmatter {
+//     fields {
 //       title
 //       image {
 //         childImageSharp {

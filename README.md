@@ -89,7 +89,7 @@
 // https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
 const getList = prop => {
   const allList = edges
-    .map(e => e.node.frontmatter[prop])
+    .map(e => e.node.fields[prop])
     .filter(c => c)
     .reduce((a, i) => a.concat(i), [])
   return [...new Set(allList)]

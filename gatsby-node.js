@@ -170,7 +170,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query {
-      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      allMarkdownRemark(sort: { fields: fields___date, order: DESC }) {
         edges {
           node {
             id
@@ -187,6 +187,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allAuthorsYaml {
         edges {
           node {
+            id
             fields {
               type
               template
@@ -198,6 +199,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allCategoriesYaml {
         edges {
           node {
+            id
             fields {
               type
               template
@@ -209,6 +211,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allTagsYaml {
         edges {
           node {
+            id
             fields {
               type
               template
@@ -251,12 +254,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Create taxonomies pages
   meta.forEach(item => {
-    const { slug, fields } = item.node
+    const { id, fields } = item.node
     const template = `./src/templates/${fields.template}.js`
     createPage({
       path: fields.permalink,
       component: require.resolve(template),
-      context: { slug }
+      context: { id }
     })
   })
 }

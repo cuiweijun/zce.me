@@ -9,7 +9,7 @@ export default ({ data, location }) => (
     <ul>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <li key={node.fields.permalink}>
-          <Link to={node.fields.permalink}>{node.frontmatter.title}</Link>
+          <Link to={node.fields.permalink}>{node.fields.title}</Link>
         </li>
       ))}
     </ul>
@@ -20,16 +20,14 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fields: { type: { eq: "post" } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { fields: fields___date, order: DESC }
     ) {
       totalCount
       edges {
         node {
           fields {
-            permalink
-          }
-          frontmatter {
             title
+            permalink
           }
         }
       }

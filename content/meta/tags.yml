@@ -5,6 +5,7 @@
   meta:
     title: ''
     description: ''
+  default: true
 
 - id: Getting Started
   slug: getting-started

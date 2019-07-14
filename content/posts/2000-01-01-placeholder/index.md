@@ -15,7 +15,6 @@ authors:
 categories:
   - Uncategorized
 tags:
-  - Untagged
   - Getting Started
   - Tutorial
 ---

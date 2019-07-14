@@ -5,3 +5,4 @@
   meta:
     title: ''
     description: This is Gatsby Uncategorized contents
+  default: true

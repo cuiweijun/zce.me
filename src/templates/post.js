@@ -8,7 +8,7 @@ import { colors, options, rhythm, scale } from '../styles'
 
 export default ({ data, pageContext, location }) => {
   const { markdownRemark: post } = data
-  const { frontmatter: meta } = post
+  const { fields } = post
   const { prev, next } = pageContext
 
   const postHeader = (
@@ -19,26 +19,26 @@ export default ({ data, pageContext, location }) => {
           marginBottom: rhythm(0.25),
           textTransform: 'uppercase'
         }}>
-        {meta.authors && <span aria-label="Posted by">
-          {meta.authors.map(i => (
+        <span aria-label="Posted by">
+          {fields.authors.map(i => (
             <Link key={i.id} to={i.fields.permalink}>{i.id}</Link>
           ))}
-        </span>}
+        </span>
         <span role="separator" aria-hidden="true"> / </span>
-        <time dateTime={meta.date} aria-label="Posted on">
-          {moment.utc(meta.date).format('MMMM Do, YYYY')}
+        <time dateTime={fields.date} aria-label="Posted on">
+          {moment.utc(fields.date).format('MMMM Do, YYYY')}
         </time>
       </p>
-      <h1 style={{ fontWeight: options.boldWeight }}>{meta.title}</h1>
+      <h1 style={{ fontWeight: options.boldWeight }}>{fields.title}</h1>
     </header>
   )
 
-  const postCover = meta.cover && (
+  const postCover = fields.cover && (
     <Image
       Tag="figure"
-      alt={meta.title}
-      title={meta.title}
-      fixed={meta.cover.childImageSharp.fixed}
+      alt={fields.title}
+      title={fields.title}
+      fixed={fields.cover.childImageSharp.fixed}
       style={{
         alignSelf: 'center',
         margin: `0 -10vw ${rhythm(1)}`,
@@ -53,7 +53,7 @@ export default ({ data, pageContext, location }) => {
     <main>
       <section dangerouslySetInnerHTML={{ __html: post.html }} />
       <section>
-        {meta.tags && (
+        {fields.tags && (
           <ul
             style={{
               display: `flex`,
@@ -61,7 +61,7 @@ export default ({ data, pageContext, location }) => {
               listStyle: `none`,
               padding: 0
             }}>
-            {meta.tags.map(tag => (
+            {fields.tags.map(tag => (
               <li key={tag.id}>
                 <Link to={tag.fields.permalink}>{tag.id}</Link>,
               </li>
@@ -104,8 +104,8 @@ export default ({ data, pageContext, location }) => {
 
   return (
     <Layout
-      title={meta.title}
-      description={meta.description || post.excerpt}
+      title={fields.title}
+      description={fields.description || post.excerpt}
       location={location}>
       <article
         style={{
@@ -125,10 +125,8 @@ export const query = graphql`
   query($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
-        permalink
-      }
-      frontmatter {
         title
+        description
         date
         cover {
           childImageSharp {
@@ -137,6 +135,7 @@ export const query = graphql`
             }
           }
         }
+        permalink
         authors {
           id
           fields {
@@ -149,7 +148,6 @@ export const query = graphql`
             permalink
           }
         }
-        description
       }
       excerpt(pruneLength: 160)
       html

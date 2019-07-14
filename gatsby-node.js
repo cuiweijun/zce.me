@@ -83,9 +83,9 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     comment = true,
     private = false,
     draft = false,
-    authors = ['Gatsby'],
-    categories = ['Uncategorized'],
-    tags = ['Untagged']
+    authors = [],
+    categories = [],
+    tags = []
   } = node.frontmatter
 
   if (!slug) {
@@ -94,6 +94,10 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
 
   date = new Date(date)
   updated = new Date(updated)
+
+  authors.length || authors.push('Gatsby')
+  categories.length || categories.push('Uncategorized')
+  tags.length || tags.push('Untagged')
 
   if (!permalink) {
     // generate permalink if permalink not defined in frontmatter
@@ -106,10 +110,6 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     const context = { slug, year, month, day, author, category, tag }
     permalink = generatePermalink(options.permalink, context)
   }
-
-  authors.length || authors.push('Gatsby')
-  categories.length || categories.push('Uncategorized')
-  tags.length || tags.push('Untagged')
 
   createNodeField({ node, name: 'title', value: title })
   createNodeField({ node, name: 'slug', value: slug })

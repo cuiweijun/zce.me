@@ -73,7 +73,7 @@ exports.plugins = [
 
 // https://www.gatsbyjs.org/docs/gatsby-config/#mapping-node-types
 exports.mapping = {
-  'MarkdownRemark.frontmatter.authors': 'AuthorsYaml',
-  'MarkdownRemark.frontmatter.categories': 'CategoriesYaml',
-  'MarkdownRemark.frontmatter.tags': 'TagsYaml'
+  'MarkdownRemark.fields.authors': 'AuthorsYaml',
+  'MarkdownRemark.fields.categories': 'CategoriesYaml',
+  'MarkdownRemark.fields.tags': 'TagsYaml'
 }

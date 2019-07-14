@@ -1,26 +1,17 @@
 /**
  * https://www.gatsbyjs.org/docs/remark-plugin-tutorial/
  */
-module.exports = ({ markdownNode }, pluginOptions) => {
-  console.log(markdownNode)
-  // // Manipulate Node
-  // if (!(markdownNode.frontmatter.categories && markdownNode.frontmatter.categories.length)) {
-  //   markdownNode.frontmatter.categories = ['Uncategorized']
-  // }
-  // if (!(markdownNode.frontmatter.tags && markdownNode.frontmatter.tags.length)) {
-  //   markdownNode.frontmatter.tags = ['Untagged']
-  // }
-  // if (!(markdownNode.frontmatter.authors && markdownNode.frontmatter.authors.length)) {
-  //   markdownNode.frontmatter.authors = ['Gatsby']
-  // }
-}
 
-module.exports.mutateSource = ({ markdownNode }, pluginOptions) => {
-  console.log(11111)
-  if (!(markdownNode.frontmatter.authors && markdownNode.frontmatter.authors.length)) {
-    markdownNode.frontmatter.authors = ['Gatsby']
-  }
-}
+// https://github.com/gatsbyjs/gatsby/blob/2a566a9e6b04963ba5797226d6da1cffc53f827d/packages/gatsby-transformer-remark/src/extend-node-type.js#L254-L274
+// const plugin = () => {}
+
+// https://github.com/gatsbyjs/gatsby/blob/2a566a9e6b04963ba5797226d6da1cffc53f827d/packages/gatsby-transformer-remark/src/extend-node-type.js#L141-L155
+// plugin.setParserPlugins = () => {}
+
+// https://github.com/gatsbyjs/gatsby/blob/2a566a9e6b04963ba5797226d6da1cffc53f827d/packages/gatsby-transformer-remark/src/extend-node-type.js#L186-L204
+// plugin.mutateSource = () => {}
+
+// module.exports = plugin
 
 // files,
 // markdownNode,

@@ -22,7 +22,7 @@ exports.siteMetadata = {
     { text: 'About', link: '/about/' },
     { text: 'Contact', link: '/contact/' }
   ],
-  siteUrl: url, // for gatsby-plugin-sitemap
+  siteUrl: url // for gatsby-plugin-sitemap
 }
 
 exports.plugins = [
@@ -37,7 +37,6 @@ exports.plugins = [
     resolve: 'gatsby-transformer-remark',
     options: {
       plugins: [
-        'gatsby-remark-frontmatter',
         'gatsby-remark-images',
         'gatsby-remark-responsive-iframe',
         'gatsby-remark-copy-linked-files',

@@ -52,7 +52,6 @@ const taxonomies = {
   }
 }
 
-
 const generatePermalink = (permalink, context) => {
   // // replacement
   // for (const key in context) {
@@ -68,64 +67,78 @@ const generatePermalink = (permalink, context) => {
 const createMarkdownFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  // ignore markdown dirname or filename, use frontmatter slug instead
-  // const permalink = createFilePath({ node, getNode, basePath: 'posts' })
+  const { relativeDirectory } = getNode(node.parent)
+  const options = collections[path.dirname(relativeDirectory)]
+  if (!options) return
 
-  const file = getNode(node.parent)
-  //
-  const config = collections[path.dirname(file.relativeDirectory)]
-  if (!config) return
+  let {
+    title,
+    slug,
+    description,
+    cover,
+    date,
+    updated,
+    type = options.type,
+    template = options.template,
+    permalink,
+    comment = true,
+    private = false,
+    draft = false,
+    authors = ['Gatsby'],
+    categories = ['Uncategorized'],
+    tags = ['Untagged']
+  } = node.frontmatter
 
-  const template = node.frontmatter.template || config.template
-
-  const getPermalink = () => {
-    if (node.frontmatter.permalink) {
-      return node.frontmatter.permalink
-    }
-
-    // generate permalink if permalink not defined in frontmatter
-    const {
-      title,
-      slug,
-      date,
-      authors: [authorId] = [],
-      categories: [categoryId] = [],
-      tags: [tagId] = []
-    } = node.frontmatter
-
-    const datetime = new Date(date)
-    const author = getNode(authorId || 'Gatsby').slug
-    const category = getNode(categoryId || 'Uncategorized').slug
-    const tag = getNode(tagId || 'Untagged').slug
-
-    const context = {
-      slug: slug || slugify(title, { lower: true }),
-      year: datetime.getFullYear(),
-      month: ('0' + (datetime.getMonth() + 1)).substr(-2),
-      day: ('0' + datetime.getDate()).substr(-2),
-      author: author,
-      category: category,
-      tag: tag
-    }
-
-    return generatePermalink(config.permalink, context)
+  if (!slug) {
+    slug = slugify(title, { lower: true })
   }
 
-  createNodeField({ node, name: 'type', value: config.type })
+  date = new Date(date)
+  updated = new Date(updated)
+
+  if (!permalink) {
+    // generate permalink if permalink not defined in frontmatter
+    const year = date.getFullYear()
+    const month = ('0' + (date.getMonth() + 1)).substr(-2)
+    const day = ('0' + date.getDate()).substr(-2)
+    const author = getNode(authors[0]).slug
+    const category = getNode(categories[0]).slug
+    const tag = getNode(tags[0]).slug
+    const context = { slug, year, month, day, author, category, tag }
+    permalink = generatePermalink(options.permalink, context)
+  }
+
+  authors.length || authors.push('Gatsby')
+  categories.length || categories.push('Uncategorized')
+  tags.length || tags.push('Untagged')
+
+  createNodeField({ node, name: 'title', value: title })
+  createNodeField({ node, name: 'slug', value: slug })
+  createNodeField({ node, name: 'description', value: description })
+  createNodeField({ node, name: 'cover', value: cover })
+  createNodeField({ node, name: 'date', value: date })
+  createNodeField({ node, name: 'updated', value: updated })
+
+  createNodeField({ node, name: 'type', value: type })
   createNodeField({ node, name: 'template', value: template })
-  createNodeField({ node, name: 'permalink', value: getPermalink() })
-  // for RSS Feed
-  // createNodeField({ node, name: 'slug', value: getPermalink() })
+  createNodeField({ node, name: 'permalink', value: permalink })
+  createNodeField({ node, name: 'comment', value: comment })
+  createNodeField({ node, name: 'private', value: private })
+  createNodeField({ node, name: 'draft', value: draft })
+
+  createNodeField({ node, name: 'authors', value: authors })
+  createNodeField({ node, name: 'categories', value: categories })
+  createNodeField({ node, name: 'tags', value: tags })
 }
 
 const createYamlFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  const file = getNode(node.parent)
-  const config = taxonomies[path.basename(file.base, file.ext)]
-  if (!config) return
+  const { base, ext } = getNode(node.parent)
+  const options = taxonomies[path.basename(base, ext)]
+  if (!options) return
 
-  const template = node.template || config.template
+  const template = node.template || options.template
 
   const getPermalink = () => {
     if (node.permalink) {
@@ -137,10 +150,10 @@ const createYamlFields = ({ node, getNode, actions }) => {
       slug: node.slug || slugify(node.name, { lower: true })
     }
 
-    return generatePermalink(config.permalink, context)
+    return generatePermalink(options.permalink, context)
   }
 
-  createNodeField({ node, name: 'type', value: config.type })
+  createNodeField({ node, name: 'type', value: options.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: getPermalink() })
 }
@@ -158,7 +171,6 @@ exports.onCreateNode = args => {
 
 // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  console.log(22222)
   const { createPage } = actions
 
   const result = await graphql(`

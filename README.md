@@ -96,34 +96,9 @@ const getList = prop => {
 }
 ```
 
-
 ```js
 // ignore markdown dirname or filename, use frontmatter slug instead
-  // const permalink = createFilePath({ node, getNode, basePath: 'posts' })
-```
-
-```js
-
-  // type, template, slug, permalink, comment, private, draft, 
-  // title, description, cover, date, updated, 
-  // authors, categories, tags
-  const fields = Object.assign({
-    type: null,
-    template: null,
-    slug: null,
-    permalink: null,
-    comment: true,
-    private: false,
-    draft: false,
-    title: null,
-    description: null,
-    cover: null,
-    date: null,
-    updated: null,
-    authors: ['Gatsby'],
-    categories: ['Uncategorized'],
-    tags: ['Untagged']
-  }, config, node.frontmatter)
+// const permalink = createFilePath({ node, getNode, basePath: 'posts' })
 ```
 
 ```js

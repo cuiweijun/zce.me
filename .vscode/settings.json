@@ -5,7 +5,7 @@
   "files.exclude": {
     ".cache": true,
     "node_modules": true,
-    "public": false,
+    "public": true,
     "yarn.lock": true
   },
   "workbench.editor.showTabs": false

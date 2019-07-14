@@ -1,11 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
 import Layout from '../components/layout'
 
 export default ({ data: { authorsYaml }, location }) => (
   <Layout location={location}>
+    <Image fixed={authorsYaml.avatar.childImageSharp.fixed} />
     <h1>Author {authorsYaml.id}</h1>
+    <Image fixed={authorsYaml.cover.childImageSharp.fixed} />
   </Layout>
 )
 
@@ -14,27 +17,19 @@ export const query = graphql`
     authorsYaml(id: { eq: $id }) {
       id
       slug
-      email
-      avatar
-      bio
-      website
-      location
-      social {
-        weibo
-        wechat
-        qq
-        zhihu
-        github
-        medium
-        twitter
-        facebook
+      avatar {
+        childImageSharp {
+          fixed(width: 512) {
+            ...GatsbyImageSharpFixed
+          }
+        }
       }
-      meta {
-        title
-        description
-      }
-      fields {
-        permalink
+      cover {
+        childImageSharp {
+          fixed(width: 1024) {
+            ...GatsbyImageSharpFixed
+          }
+        }
       }
     }
   }

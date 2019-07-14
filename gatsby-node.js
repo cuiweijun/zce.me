@@ -52,15 +52,10 @@ const taxonomies = {
   }
 }
 
-const generatePermalink = (permalink, context) => {
-  // // replacement
-  // for (const key in context) {
-  //   permalink = permalink.replace(`{${key}}`, context[key])
-  // }
-  // return permalink
-  return permalink.replace(/{([a-z_]+)}/g, (_, prop) => {
-    if (context.hasOwnProperty(prop)) return context[prop]
-    throw new Error(`Permalink template does not support {${prop}} Tags`)
+const generatePermalink = (template, context) => {
+  return template.replace(/{([a-z_]+)}/g, (_, key) => {
+    if (context.hasOwnProperty(key)) return context[key]
+    throw new Error(`Permalink template does not support {${key}} Tag`)
   })
 }
 

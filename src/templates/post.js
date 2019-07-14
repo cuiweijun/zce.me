@@ -8,7 +8,7 @@ import { colors, options, rhythm, scale } from '../styles'
 
 export default ({ data, pageContext, location }) => {
   const { markdownRemark: post } = data
-  const { fields } = post
+  const { fields, frontmatter } = post
   const { prev, next } = pageContext
 
   const postHeader = (
@@ -21,10 +21,15 @@ export default ({ data, pageContext, location }) => {
         }}>
         <span aria-label="Posted by">
           {fields.authors.map(i => (
-            <Link key={i.id} to={i.fields.permalink}>{i.id}</Link>
+            <Link key={i.id} to={i.fields.permalink}>
+              {i.id}
+            </Link>
           ))}
         </span>
-        <span role="separator" aria-hidden="true"> / </span>
+        <span role="separator" aria-hidden="true">
+          {' '}
+          /{' '}
+        </span>
         <time dateTime={fields.date} aria-label="Posted on">
           {moment.utc(fields.date).format('MMMM Do, YYYY')}
         </time>
@@ -33,12 +38,12 @@ export default ({ data, pageContext, location }) => {
     </header>
   )
 
-  const postCover = fields.cover && (
+  const postCover = frontmatter.cover && (
     <Image
       Tag="figure"
       alt={fields.title}
       title={fields.title}
-      fixed={fields.cover.childImageSharp.fixed}
+      fixed={frontmatter.cover.childImageSharp.fixed}
       style={{
         alignSelf: 'center',
         margin: `0 -10vw ${rhythm(1)}`,
@@ -124,10 +129,7 @@ export default ({ data, pageContext, location }) => {
 export const query = graphql`
   query PostTemplate($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      fields {
-        title
-        description
-        date
+      frontmatter {
         cover {
           childImageSharp {
             fixed(width: 1024) {
@@ -135,6 +137,11 @@ export const query = graphql`
             }
           }
         }
+      }
+      fields {
+        title
+        description
+        date
         permalink
         authors {
           id

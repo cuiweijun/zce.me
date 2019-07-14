@@ -85,6 +85,12 @@
 ## Snippets
 
 ```js
+// replacement
+for (const key in context) {
+  permalink = permalink.replace(`{${key}}`, context[key])
+}
+return permalink
+
 // Create pages based on different taxonomies: authors, categories, tags
 // https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
 const getList = prop => {
@@ -102,7 +108,13 @@ const getList = prop => {
 ```
 
 ```js
-const createDefaults = ({ node, actions, loadNodeContent, createNodeId, createContentDigest }) => {
+const createDefaults = ({
+  node,
+  actions,
+  loadNodeContent,
+  createNodeId,
+  createContentDigest
+}) => {
   if (node.internal.mediaType !== `text/yaml`) {
     return
   }
@@ -125,7 +137,7 @@ const createDefaults = ({ node, actions, loadNodeContent, createNodeId, createCo
       parent: node.id,
       internal: {
         contentDigest: createContentDigest(uncategorized),
-        type: 'CategoriesYaml',
+        type: 'CategoriesYaml'
       }
     }
     createNode(uncategorizedNode)

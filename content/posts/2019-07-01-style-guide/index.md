@@ -101,9 +101,9 @@ Sometimes you want numbered lists:
 
 1. List Item 1
 2. List Item 2
-  1. Nested list item A
-  2. Nested list item B
-3. List Item 3
+3. Nested list item A
+4. Nested list item B
+5. List Item 3
 
 #### Unordered List
 
@@ -181,15 +181,15 @@ Code can be presented inline, like `<?php bloginfo('stylesheet_url'); ?>`, or wi
 ```
 
 ```javascript
-import React from "react";
-import Layout from "../components/layout";
+import React from 'react'
+import Layout from '../components/layout'
 
 export default ({ location }) => (
   <Layout title="404 Not found" location={location}>
     <h1>404</h1>
     <p>Not found</p>
   </Layout>
-);
+)
 ```
 
 ---

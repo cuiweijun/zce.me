@@ -164,99 +164,99 @@ exports.onCreateNode = args => {
   }
 }
 
-// exports.createPages = async ({ graphql, actions, reporter }) => {
-//   // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
-//   const { createPage } = actions
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
+  const { createPage } = actions
 
-//   const result = await graphql(`
-//     query {
-//       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
-//         edges {
-//           node {
-//             id
-//             fields {
-//               title
-//               date
-//               type
-//               template
-//               permalink
-//             }
-//           }
-//         }
-//       }
-//       allAuthorsYaml {
-//         edges {
-//           node {
-//             fields {
-//               type
-//               template
-//               permalink
-//             }
-//           }
-//         }
-//       }
-//       allCategoriesYaml {
-//         edges {
-//           node {
-//             fields {
-//               type
-//               template
-//               permalink
-//             }
-//           }
-//         }
-//       }
-//       allTagsYaml {
-//         edges {
-//           node {
-//             fields {
-//               type
-//               template
-//               permalink
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
+  const result = await graphql(`
+    query {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+        edges {
+          node {
+            id
+            fields {
+              title
+              date
+              type
+              template
+              permalink
+            }
+          }
+        }
+      }
+      allAuthorsYaml {
+        edges {
+          node {
+            fields {
+              type
+              template
+              permalink
+            }
+          }
+        }
+      }
+      allCategoriesYaml {
+        edges {
+          node {
+            fields {
+              type
+              template
+              permalink
+            }
+          }
+        }
+      }
+      allTagsYaml {
+        edges {
+          node {
+            fields {
+              type
+              template
+              permalink
+            }
+          }
+        }
+      }
+    }
+  `)
 
-//   // errors report
-//   result.errors && reporter.panic(result.errors)
+  // errors report
+  result.errors && reporter.panic(result.errors)
 
-//   const { edges: posts } = result.data.allMarkdownRemark
+  const { edges: posts } = result.data.allMarkdownRemark
 
-//   // https://www.gatsbyjs.org/docs/adding-pagination/
-//   // Create pages based on different content types
-//   Object.values(collections)
-//     .map(c => c.type)
-//     .forEach(type => {
-//       const items = posts.filter(e => e.node.fields.type === type)
-//       items.forEach(({ node: { id, fields } }, i) => {
-//         const prev = i === items.length - 1 ? null : items[i + 1].node
-//         const next = i === 0 ? null : items[i - 1].node
-//         const template = `./src/templates/${fields.template}.js`
-//         createPage({
-//           path: fields.permalink,
-//           component: require.resolve(template),
-//           context: { id, prev, next }
-//         })
-//       })
-//     })
+  // https://www.gatsbyjs.org/docs/adding-pagination/
+  // Create pages based on different content types
+  Object.values(collections)
+    .map(c => c.type)
+    .forEach(type => {
+      const items = posts.filter(e => e.node.fields.type === type)
+      items.forEach(({ node: { id, fields } }, i) => {
+        const prev = i === items.length - 1 ? null : items[i + 1].node
+        const next = i === 0 ? null : items[i - 1].node
+        const template = `./src/templates/${fields.template}.js`
+        createPage({
+          path: fields.permalink,
+          component: require.resolve(template),
+          context: { id, prev, next }
+        })
+      })
+    })
 
-//   // https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
-//   const { edges: authors } = result.data.allAuthorsYaml
-//   const { edges: categories } = result.data.allCategoriesYaml
-//   const { edges: tags } = result.data.allTagsYaml
-//   const meta = [].concat(authors, categories, tags)
+  // https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
+  const { edges: authors } = result.data.allAuthorsYaml
+  const { edges: categories } = result.data.allCategoriesYaml
+  const { edges: tags } = result.data.allTagsYaml
+  const meta = [].concat(authors, categories, tags)
 
-//   // Create taxonomies pages
-//   meta.forEach(item => {
-//     const { slug, fields } = item.node
-//     const template = `./src/templates/${fields.template}.js`
-//     createPage({
-//       path: fields.permalink,
-//       component: require.resolve(template),
-//       context: { slug }
-//     })
-//   })
-// }
+  // Create taxonomies pages
+  meta.forEach(item => {
+    const { slug, fields } = item.node
+    const template = `./src/templates/${fields.template}.js`
+    createPage({
+      path: fields.permalink,
+      component: require.resolve(template),
+      context: { slug }
+    })
+  })
+}

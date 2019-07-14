@@ -8,7 +8,7 @@ import { colors, options, rhythm, scale } from '../styles'
 
 export default ({ data, pageContext, location }) => {
   const { markdownRemark: post } = data
-  const { fields, frontmatter } = post
+  const { fields } = post
   const { prev, next } = pageContext
 
   const postHeader = (
@@ -38,12 +38,12 @@ export default ({ data, pageContext, location }) => {
     </header>
   )
 
-  const postCover = frontmatter.cover && (
+  const postCover = fields.cover && (
     <Image
       Tag="figure"
       alt={fields.title}
       title={fields.title}
-      fixed={frontmatter.cover.childImageSharp.fixed}
+      fixed={fields.cover.childImageSharp.fixed}
       style={{
         alignSelf: 'center',
         margin: `0 -10vw ${rhythm(1)}`,
@@ -129,15 +129,6 @@ export default ({ data, pageContext, location }) => {
 export const query = graphql`
   query PostTemplate($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        cover {
-          childImageSharp {
-            fixed(width: 1024) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
       fields {
         title
         description
@@ -153,6 +144,13 @@ export const query = graphql`
           id
           fields {
             permalink
+          }
+        }
+        cover {
+          childImageSharp {
+            fixed(width: 1024) {
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }

@@ -47,6 +47,7 @@
 - [ ] Global State
 - [ ] Category Hierarchy
 - [ ] Gatsby Theme
+- [ ] Private & draft
 
 ## Deploy
 

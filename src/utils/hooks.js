@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 // hooks/metadata.js
 export const useMetadata = () =>
   useStaticQuery(graphql`
-    query {
+    query SiteMetadata {
       site {
         siteMetadata {
           url

@@ -101,9 +101,9 @@ Sometimes you want numbered lists:
 
 1. List Item 1
 2. List Item 2
-3. Nested list item A
-4. Nested list item B
-5. List Item 3
+  1. Nested list item A
+  2. Nested list item B
+3. List Item 3
 
 #### Unordered List
 

@@ -17,7 +17,7 @@ export default ({ data, location }) => (
 )
 
 export const query = graphql`
-  query {
+  query BlogPage {
     allMarkdownRemark(
       filter: { fields: { type: { eq: "post" } } }
       sort: { fields: fields___date, order: DESC }

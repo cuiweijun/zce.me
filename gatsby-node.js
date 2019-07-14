@@ -74,8 +74,8 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
   let {
     title,
     slug,
-    description,
     cover,
+    description,
     date,
     updated,
     template = options.template,
@@ -114,8 +114,8 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
 
   createNodeField({ node, name: 'title', value: title })
   createNodeField({ node, name: 'slug', value: slug })
-  createNodeField({ node, name: 'description', value: description })
   createNodeField({ node, name: 'cover', value: cover })
+  createNodeField({ node, name: 'description', value: description })
   createNodeField({ node, name: 'date', value: date })
   createNodeField({ node, name: 'updated', value: updated })
 
@@ -169,7 +169,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-    query {
+    query CreatePages {
       allMarkdownRemark(sort: { fields: fields___date, order: DESC }) {
         edges {
           node {

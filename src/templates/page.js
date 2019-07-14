@@ -11,7 +11,7 @@ export default ({ data: { markdownRemark }, location }) => (
 )
 
 export const query = graphql`
-  query($id: String!) {
+  query PageTemplate($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
         title

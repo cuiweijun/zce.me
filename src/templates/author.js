@@ -10,7 +10,7 @@ export default ({ data: { authorsYaml }, location }) => (
 )
 
 export const query = graphql`
-  query($id: String!) {
+  query AuthorTemplate($id: String!) {
     authorsYaml(id: { eq: $id }) {
       id
       slug

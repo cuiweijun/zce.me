@@ -10,7 +10,7 @@ export default ({ data: { tagsYaml }, location }) => (
 )
 
 export const query = graphql`
-  query($id: String!) {
+  query TagTemplate($id: String!) {
     tagsYaml(id: { eq: $id }) {
       id
       slug

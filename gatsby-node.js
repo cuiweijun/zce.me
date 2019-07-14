@@ -158,6 +158,7 @@ exports.onCreateNode = args => {
 
 // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
 exports.createPages = async ({ graphql, actions, reporter }) => {
+  console.log(22222)
   const { createPage } = actions
 
   const result = await graphql(`

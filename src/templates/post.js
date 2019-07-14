@@ -19,11 +19,11 @@ export default ({ data, pageContext, location }) => {
           marginBottom: rhythm(0.25),
           textTransform: 'uppercase'
         }}>
-        <span aria-label="Posted by">
+        {meta.authors && <span aria-label="Posted by">
           {meta.authors.map(i => (
             <Link key={i.id} to={i.fields.permalink}>{i.id}</Link>
           ))}
-        </span>
+        </span>}
         <span role="separator" aria-hidden="true"> / </span>
         <time dateTime={meta.date} aria-label="Posted on">
           {moment.utc(meta.date).format('MMMM Do, YYYY')}

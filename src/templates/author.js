@@ -16,7 +16,6 @@ export const query = graphql`
       slug
       email
       avatar
-      cover
       bio
       website
       location

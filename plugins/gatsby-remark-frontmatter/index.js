@@ -2,7 +2,7 @@
  * https://www.gatsbyjs.org/docs/remark-plugin-tutorial/
  */
 module.exports = ({ markdownNode }, pluginOptions) => {
-  // console.log(markdownNode)
+  console.log(markdownNode)
   // // Manipulate Node
   // if (!(markdownNode.frontmatter.categories && markdownNode.frontmatter.categories.length)) {
   //   markdownNode.frontmatter.categories = ['Uncategorized']
@@ -13,6 +13,13 @@ module.exports = ({ markdownNode }, pluginOptions) => {
   // if (!(markdownNode.frontmatter.authors && markdownNode.frontmatter.authors.length)) {
   //   markdownNode.frontmatter.authors = ['Gatsby']
   // }
+}
+
+module.exports.mutateSource = ({ markdownNode }, pluginOptions) => {
+  console.log(11111)
+  if (!(markdownNode.frontmatter.authors && markdownNode.frontmatter.authors.length)) {
+    markdownNode.frontmatter.authors = ['Gatsby']
+  }
 }
 
 // files,

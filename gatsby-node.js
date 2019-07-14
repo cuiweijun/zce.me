@@ -78,7 +78,6 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     cover,
     date,
     updated,
-    type = options.type,
     template = options.template,
     permalink,
     comment = true,
@@ -119,7 +118,7 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
   createNodeField({ node, name: 'date', value: date })
   createNodeField({ node, name: 'updated', value: updated })
 
-  createNodeField({ node, name: 'type', value: type })
+  createNodeField({ node, name: 'type', value: options.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
   createNodeField({ node, name: 'comment', value: comment })
@@ -138,24 +137,19 @@ const createYamlFields = ({ node, getNode, actions }) => {
   const options = taxonomies[path.basename(base, ext)]
   if (!options) return
 
-  const template = node.template || options.template
+  let { id, slug, template = options.template, permalink } = node
 
-  const getPermalink = () => {
-    if (node.permalink) {
-      return node.permalink
-    }
+  if (!slug) {
+    slug = slugify(id, { lower: true })
+  }
 
-    // generate permalink if permalink not defined in frontmatter
-    const context = {
-      slug: node.slug || slugify(node.name, { lower: true })
-    }
-
-    return generatePermalink(options.permalink, context)
+  if (!permalink) {
+    permalink = generatePermalink(options.permalink, { slug })
   }
 
   createNodeField({ node, name: 'type', value: options.type })
   createNodeField({ node, name: 'template', value: template })
-  createNodeField({ node, name: 'permalink', value: getPermalink() })
+  createNodeField({ node, name: 'permalink', value: permalink })
 }
 
 exports.onCreateNode = args => {

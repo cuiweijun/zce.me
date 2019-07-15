@@ -21,12 +21,24 @@ const collections = {
   posts: {
     type: 'post',
     permalink: '/{year}/{month}/{slug}/',
-    template: 'post'
+    template: 'post',
+    comment: true,
+    private: false,
+    draft: false,
+    authors: ['Lei Wang'],
+    categories: ['Uncategorized'],
+    tags: ['Untagged']
   },
   pages: {
     type: 'page',
     permalink: '/{slug}/',
-    template: 'page'
+    template: 'page',
+    comment: true,
+    private: false,
+    draft: false,
+    authors: ['Lei Wang'],
+    categories: ['Uncategorized'],
+    tags: ['Untagged']
   }
 }
 
@@ -74,10 +86,10 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     date,
     updated,
     template = options.template,
-    permalink,
-    comment = true,
-    private = false,
-    draft = false,
+    permalink = options.permalink,
+    comment = options.comment,
+    private = options.private,
+    draft = options.draft,
     authors = [],
     categories = [],
     tags = []
@@ -87,24 +99,23 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     slug = slugify(title, { lower: true })
   }
 
-  date = new Date(date)
-  updated = new Date(updated)
+  date = new Date(date || null)
+  updated = updated ? new Date(updated) : date
 
-  // TODO: change default author
-  authors.length || authors.push('Lei Wang')
-  categories.length || categories.push('Uncategorized')
-  tags.length || tags.push('Untagged')
+  authors.length || authors.push(...options.authors)
+  categories.length || categories.push(...options.categories)
+  tags.length || tags.push(...options.tags)
 
-  if (!permalink) {
+  if (permalink.test(/{([a-z_]+)}/)) {
     // generate permalink if permalink not defined in frontmatter
     const year = date.getFullYear()
     const month = ('0' + (date.getMonth() + 1)).substr(-2)
     const day = ('0' + date.getDate()).substr(-2)
-    const author = getNode(authors[0]).slug
-    const category = getNode(categories[0]).slug
-    const tag = getNode(tags[0]).slug
+    const author = authors.length ? getNode(authors[0]).slug : 'ghost'
+    const category = categories.length ? getNode(categories[0]).slug : 'uncategorized'
+    const tag = tags.length ? getNode(tags[0]).slug : 'untagged'
     const context = { slug, year, month, day, author, category, tag }
-    permalink = generatePermalink(options.permalink, context)
+    permalink = generatePermalink(permalink, context)
   }
 
   createNodeField({ node, name: 'title', value: title })
@@ -133,14 +144,19 @@ const createYamlFields = ({ node, getNode, actions }) => {
   const options = taxonomies[path.basename(base, ext)]
   if (!options) return
 
-  let { id, slug, template = options.template, permalink } = node
+  let {
+    id,
+    slug,
+    template = options.template,
+    permalink = options.permalink
+  } = node
 
   if (!slug) {
     slug = slugify(id, { lower: true })
   }
 
-  if (!permalink) {
-    permalink = generatePermalink(options.permalink, { slug })
+  if (permalink.test(/{([a-z_]+)}/)) {
+    permalink = generatePermalink(permalink, { slug })
   }
 
   createNodeField({ node, name: 'type', value: options.type })
@@ -221,9 +237,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // errors report
   result.errors && reporter.panic(result.errors)
 
+  // https://www.gatsbyjs.org/docs/adding-pagination/
   const { edges: posts } = result.data.allMarkdownRemark
 
-  // https://www.gatsbyjs.org/docs/adding-pagination/
   // Create pages based on different content types
   Object.values(collections)
     .map(c => c.type)
@@ -245,10 +261,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { edges: authors } = result.data.allAuthorsYaml
   const { edges: categories } = result.data.allCategoriesYaml
   const { edges: tags } = result.data.allTagsYaml
-  const meta = [].concat(authors, categories, tags)
+  const terms = [].concat(authors, categories, tags)
 
   // Create taxonomies pages
-  meta.forEach(item => {
+  terms.forEach(item => {
     const { id, fields } = item.node
     const template = `./src/templates/${fields.template}.js`
     createPage({

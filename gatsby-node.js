@@ -106,7 +106,7 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
   categories.length || categories.push(...options.categories)
   tags.length || tags.push(...options.tags)
 
-  if (permalink.test(/{([a-z_]+)}/)) {
+  if (/{([a-z_]+)}/.test(permalink)) {
     // generate permalink if permalink not defined in frontmatter
     const year = date.getFullYear()
     const month = ('0' + (date.getMonth() + 1)).substr(-2)
@@ -155,7 +155,7 @@ const createYamlFields = ({ node, getNode, actions }) => {
     slug = slugify(id, { lower: true })
   }
 
-  if (permalink.test(/{([a-z_]+)}/)) {
+  if (/{([a-z_]+)}/.test(permalink)) {
     permalink = generatePermalink(permalink, { slug })
   }
 

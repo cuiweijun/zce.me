@@ -28,8 +28,7 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
-    "dev": "yarn develop",
-    "start": "yarn serve"
+    "dev": "yarn develop"
   },
   "prettier": {
     "endOfLine": "lf",

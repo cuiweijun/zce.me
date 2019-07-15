@@ -4,10 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-const url = 'http://localhost:8000' // no trailing slash!
-
 exports.siteMetadata = {
-  url: url,
+  url: 'http://localhost:8000', // no trailing slash!
   title: 'Lei’s Personal Website',
   slogan: 'MAKE IT BETTER!',
   description: 'Thoughts, stories and ideas.',
@@ -21,8 +19,7 @@ exports.siteMetadata = {
     { text: 'Blog', link: '/blog/' },
     { text: 'About', link: '/about/' },
     { text: 'Contact', link: '/contact/' }
-  ],
-  siteUrl: url // for gatsby-plugin-sitemap
+  ]
 }
 
 exports.plugins = [
@@ -48,7 +45,7 @@ exports.plugins = [
   },
   'gatsby-transformer-yaml',
   'gatsby-transformer-sharp',
-  // 'gatsby-plugin-sharp', useless?
+  'gatsby-plugin-sharp', // TODO: no need?
   'gatsby-plugin-react-helmet',
   {
     resolve: 'gatsby-plugin-typography',
@@ -64,7 +61,7 @@ exports.plugins = [
     }
   },
   // 'gatsby-plugin-feed',
-  'gatsby-plugin-sitemap',
+  // 'gatsby-plugin-sitemap',
   'gatsby-plugin-offline'
 ]
 

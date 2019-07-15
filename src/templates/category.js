@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 export default ({ data: { categoriesYaml }, location }) => (
   <Layout location={location}>
     <h1>Category {categoriesYaml.id}</h1>
-    <Image fixed={categoriesYaml.cover.childImageSharp.fixed} />
+    {categoriesYaml.cover && <Image fixed={categoriesYaml.cover.childImageSharp.fixed} />}
   </Layout>
 )
 
@@ -18,7 +18,7 @@ export const query = graphql`
       slug
       cover {
         childImageSharp {
-          fixed(width: 1024) {
+          fixed(width: 800) {
             ...GatsbyImageSharpFixed
           }
         }

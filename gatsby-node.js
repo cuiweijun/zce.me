@@ -118,19 +118,19 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     permalink = generatePermalink(permalink, context)
   }
 
-  createNodeField({ node, name: 'title', value: title })
-  createNodeField({ node, name: 'slug', value: slug })
-  createNodeField({ node, name: 'cover', value: cover })
-  createNodeField({ node, name: 'description', value: description })
-  createNodeField({ node, name: 'date', value: date })
-  createNodeField({ node, name: 'updated', value: updated })
-
   createNodeField({ node, name: 'type', value: options.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
   createNodeField({ node, name: 'comment', value: comment })
   createNodeField({ node, name: 'private', value: private })
   createNodeField({ node, name: 'draft', value: draft })
+
+  createNodeField({ node, name: 'title', value: title })
+  createNodeField({ node, name: 'slug', value: slug })
+  createNodeField({ node, name: 'cover', value: cover })
+  createNodeField({ node, name: 'description', value: description })
+  createNodeField({ node, name: 'date', value: date })
+  createNodeField({ node, name: 'updated', value: updated })
 
   createNodeField({ node, name: 'authors', value: authors })
   createNodeField({ node, name: 'categories', value: categories })
@@ -187,8 +187,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             fields {
               title
-              slug
-              date
               type
               template
               permalink
@@ -247,14 +245,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     .forEach(type => {
       const items = posts.filter(e => e.node.fields.type === type)
       items.forEach(({ node: { id, fields } }, i) => {
-        const slug = fields.slug
         const prev = i === items.length - 1 ? null : items[i + 1].node
         const next = i === 0 ? null : items[i - 1].node
         const template = `./src/templates/${fields.template}.js`
         createPage({
           path: fields.permalink,
           component: require.resolve(template),
-          context: { id, slug, prev, next }
+          context: { id, prev, next }
         })
       })
     })

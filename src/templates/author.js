@@ -8,7 +8,7 @@ export default ({ data: { authorsYaml }, location }) => (
   <Layout location={location}>
     <Image fixed={authorsYaml.avatar.childImageSharp.fixed} />
     <h1>Author {authorsYaml.id}</h1>
-    <Image fixed={authorsYaml.cover.childImageSharp.fixed} />
+    {authorsYaml.cover && <Image fixed={authorsYaml.cover.childImageSharp.fixed} />}
   </Layout>
 )
 
@@ -26,7 +26,7 @@ export const query = graphql`
       }
       cover {
         childImageSharp {
-          fixed(width: 1024) {
+          fixed(width: 800) {
             ...GatsbyImageSharpFixed
           }
         }

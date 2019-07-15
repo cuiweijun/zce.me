@@ -127,8 +127,8 @@ export default ({ data, pageContext, location }) => {
 }
 
 export const query = graphql`
-  query PostTemplate($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query PostTemplate($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       fields {
         title
         cover {

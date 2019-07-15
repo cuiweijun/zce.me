@@ -187,6 +187,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             fields {
               title
+              slug
               date
               type
               template
@@ -246,13 +247,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     .forEach(type => {
       const items = posts.filter(e => e.node.fields.type === type)
       items.forEach(({ node: { id, fields } }, i) => {
+        const slug = fields.slug
         const prev = i === items.length - 1 ? null : items[i + 1].node
         const next = i === 0 ? null : items[i - 1].node
         const template = `./src/templates/${fields.template}.js`
         createPage({
           path: fields.permalink,
           component: require.resolve(template),
-          context: { id, prev, next }
+          context: { id, slug, prev, next }
         })
       })
     })

@@ -127,12 +127,20 @@ export default ({ data, pageContext, location }) => {
 }
 
 export const query = graphql`
-  query PostTemplate($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query PostTemplate($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       fields {
         title
+        cover {
+          childImageSharp {
+            fixed(width: 1024) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
         description
         date
+        updated
         permalink
         authors {
           id
@@ -144,13 +152,6 @@ export const query = graphql`
           id
           fields {
             permalink
-          }
-        }
-        cover {
-          childImageSharp {
-            fixed(width: 1024) {
-              ...GatsbyImageSharpFixed
-            }
           }
         }
       }

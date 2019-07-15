@@ -1,7 +1,7 @@
 - id: Uncategorized
   slug: uncategorized
   description: Gatsby Uncategorized contents
-  cover: unknown.jpg
+  cover: images/unknown.jpg
   meta:
     title: ''
     description: This is Gatsby Uncategorized contents

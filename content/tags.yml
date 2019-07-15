@@ -1,7 +1,7 @@
 - id: Untagged
   slug: untagged
   description: Gatsby untagged contents
-  cover: unknown.jpg
+  cover: images/unknown.jpg
   meta:
     title: ''
     description: ''

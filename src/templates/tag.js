@@ -5,7 +5,7 @@ import Image from 'gatsby-image'
 import Layout from '../components/layout'
 
 export default ({ data: { tagsYaml }, location }) => (
-  <Layout location={location}>
+  <Layout title="Tag" location={location}>
     <h1>Tag {tagsYaml.id}</h1>
     {tagsYaml.cover && <Image fixed={tagsYaml.cover.childImageSharp.fixed} />}
   </Layout>

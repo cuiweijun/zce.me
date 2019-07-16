@@ -33,13 +33,11 @@
 - [x] Gatsby image
 - [x] Sitemap support
 - [x] RSS Feed (not enabled)
+- [ ] CSS-in-JS（Typography.js)
 - [ ] Global style
-- [ ] CSS-in-JS
-  - https://github.com/system-ui/theme-ui
-  - https://github.com/emotion-js/emotion
 - [ ] Comments
 - [ ] Sass?
-- [ ] Theming
+- [ ] Emotion & Theming?
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
 - [ ] SSR Support
@@ -146,4 +144,9 @@ const createDefaults = ({
     return
   }
 }
+```
+
+```js
+// echo node_modules/gatsby/dist/redux/actions/public.js:816
+// node = trackInlineObjectsInRootNode(node, true)
 ```

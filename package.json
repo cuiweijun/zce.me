@@ -40,10 +40,8 @@
     "tabWidth": 2
   },
   "devDependencies": {
-    "@emotion/core": "latest",
     "gatsby": "latest",
     "gatsby-image": "latest",
-    "gatsby-plugin-emotion": "latest",
     "gatsby-plugin-feed": "latest",
     "gatsby-plugin-nprogress": "latest",
     "gatsby-plugin-offline": "latest",

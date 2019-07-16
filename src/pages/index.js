@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 
 export default ({ location }) => (
   <Layout location={location}>
-    <p>hello world</p>
+    <h1><a href="">hello world</a></h1>
+    <h1>hello world</h1>
   </Layout>
 )

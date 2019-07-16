@@ -112,7 +112,9 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     const month = ('0' + (date.getMonth() + 1)).substr(-2)
     const day = ('0' + date.getDate()).substr(-2)
     const author = authors.length ? getNode(authors[0]).slug : 'ghost'
-    const category = categories.length ? getNode(categories[0]).slug : 'uncategorized'
+    const category = categories.length
+      ? getNode(categories[0]).slug
+      : 'uncategorized'
     const tag = tags.length ? getNode(tags[0]).slug : 'untagged'
     const context = { slug, year, month, day, author, category, tag }
     permalink = generatePermalink(permalink, context)
@@ -273,6 +275,3 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
-
-// echo node_modules/gatsby/dist/redux/actions/public.js:816
-// node = trackInlineObjectsInRootNode(node, true)

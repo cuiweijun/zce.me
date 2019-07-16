@@ -1,6 +1,6 @@
-import { colors, breakpoints } from './theme'
+import { colors, media } from './theme'
 
-export default ({ rhythm, scale }, options) => ({
+export default ({ rhythm, scale }) => ({
   body: {
     border: `${rhythm(0.5)} solid ${colors.lighter}`,
     minHeight: '100vh',
@@ -9,7 +9,6 @@ export default ({ rhythm, scale }, options) => ({
     textRendering: `optimizeLegibility`
   },
   a: {
-    fontWeight: 400,
     color: colors.primary,
     textDecoration: 'none'
   },
@@ -20,9 +19,6 @@ export default ({ rhythm, scale }, options) => ({
   'a:active': {
     opacity: 0.95
   },
-  'h1 a,h2 a,h3 a,h4 a,h5 a,h6 a': {
-    fontWeight: options.headerWeight
-  },
   blockquote: {
     padding: `${rhythm(1 / 2)} ${rhythm(3 / 4)}`,
     marginLeft: 0,
@@ -30,7 +26,7 @@ export default ({ rhythm, scale }, options) => ({
     borderLeft: `${rhythm(1 / 4)} solid ${colors.light}`,
     color: colors.muted
   },
-  [breakpoints.down.sm]: {
+  [media.down.sm]: {
     body: {
       borderWidth: rhythm(0.25)
     },

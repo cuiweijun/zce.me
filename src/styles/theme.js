@@ -1,50 +1,33 @@
 /**
- * Site theme
- * https://theme-ui.com/theme-spec/
- * https://system-ui.com/theme/
+ * Site theme preset & typography.js options
+ *
+ * - https://theme-ui.com/theme-spec/
+ * - https://system-ui.com/theme/
+ * - https://getbootstrap.com/docs/4.3/layout/overview/#responsive-breakpoints
+ * - https://github.com/KyleAMathews/typography.js#configuration
+ *
+ * > quaternary, quinary, senary, septenary, octonary, nonary, denary
  */
 
 import oc from 'open-color'
 
-// quaternary, quinary, senary, septenary, octonary, nonary, denary
 export const colors = {
+  text: oc.gray[8],
+  background: oc.gray[0],
   primary: oc.red[5],
   secondary: oc.grape[4],
-  tertiary: oc.pink[4],
+  accent: oc.red[6],
+  muted: oc.gray[6],
+
   darkest: oc.gray[9],
   darker: oc.gray[8],
   dark: oc.gray[7],
-  muted: oc.gray[6],
+  gray: oc.gray[5],
   light: oc.gray[3],
   lighter: oc.gray[1],
   lightest: oc.gray[0]
 }
 
-// https://getbootstrap.com/docs/4.3/layout/overview/#responsive-breakpoints
-export const breakpoints = {
-  up: {
-    // Small devices (landscape phones, 576px and up)
-    sm: '@media (min-width: 576px)',
-    // Medium devices (tablets, 768px and up)
-    md: '@media (min-width: 768px)',
-    // Large devices (desktops, 992px and up)
-    lg: '@media (min-width: 992px)',
-    // Extra large devices (large desktops, 1200px and up)
-    xl: '@media (min-width: 1200px)'
-  },
-  down: {
-    // Extra small devices (portrait phones, less than 576px)
-    sm: '@media (max-width: 575.98px)',
-    // Small devices (landscape phones, less than 768px)
-    md: '@media (max-width: 767.98px)',
-    // Medium devices (tablets, less than 992px)
-    lg: '@media (max-width: 991.98px)',
-    // Large devices (desktops, less than 1200px)
-    xl: '@media (max-width: 1199.98px)'
-  }
-}
-
-// https://github.com/KyleAMathews/typography.js#configuration
 export const options = {
   title: 'zce.me',
   baseFontSize: '18px',
@@ -56,13 +39,37 @@ export const options = {
     }
   ],
   scaleRatio: 2.5,
+  // body: 'system-ui, sans-serif', heading: 'Georgia, serif', monospace: 'Menlo, monospace'
   headerFontFamily: ['Source Sans Pro', 'sans-serif'],
   bodyFontFamily: ['Source Sans Pro', 'sans-serif'],
-  headerColor: colors.darker,
-  bodyColor: colors.dark,
+  headerColor: colors.text,
+  bodyColor: colors.text,
   headerWeight: 200,
   bodyWeight: 400,
   boldWeight: 700,
   blockMarginBottom: 1,
-  includeNormalize: true
+  includeNormalize: false
+}
+
+export const breakpoints = {
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200
+}
+
+export const media = {
+  up: {
+    sm: `@media (min-width: ${breakpoints.sm}px)`,
+    md: `@media (min-width: ${breakpoints.md}px)`,
+    lg: `@media (min-width: ${breakpoints.lg}px)`,
+    xl: `@media (min-width: ${breakpoints.xl}px)`
+  },
+  down: {
+    sm: `@media (max-width: ${breakpoints.sm - 0.02}px)`,
+    md: `@media (max-width: ${breakpoints.md - 0.02}px)`,
+    lg: `@media (max-width: ${breakpoints.lg - 0.02}px)`,
+    xl: `@media (max-width: ${breakpoints.xl - 0.02}px)`
+  }
 }

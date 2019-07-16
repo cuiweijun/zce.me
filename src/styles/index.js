@@ -1,24 +1,27 @@
 /**
  * Typography.js
+ *
+ * TODO: plugin toolbox args
  */
 
 import Typography from 'typography'
+
+import { colors, options, breakpoints, media } from './theme'
 
 import global from './global'
 import code from './code'
 import sample from './sample'
 
-import * as theme from './theme'
-
 // load module styles as plugin
-// TODO: plugin toolbox
-theme.options.plugins = [global, code, sample]
+options.plugins = [global, code, sample]
 
-const styles = new Typography(theme.options)
+const typography = new Typography(options)
 
-// export utilities
-export const { colors, breakpoints } = theme
-export const { options, rhythm, scale } = styles
+// export theme preset
+export { colors, options, breakpoints, media }
 
-// for gatsby-plugin-typography
-export default styles
+// export typography utilities
+export const { rhythm, scale } = typography
+
+// export for gatsby-plugin-typography
+export default typography

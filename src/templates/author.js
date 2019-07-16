@@ -5,10 +5,12 @@ import Image from 'gatsby-image'
 import Layout from '../components/layout'
 
 export default ({ data: { authorsYaml }, location }) => (
-  <Layout location={location}>
+  <Layout title="Author" location={location}>
     <Image fixed={authorsYaml.avatar.childImageSharp.fixed} />
     <h1>Author {authorsYaml.id}</h1>
-    {authorsYaml.cover && <Image fixed={authorsYaml.cover.childImageSharp.fixed} />}
+    {authorsYaml.cover && (
+      <Image fixed={authorsYaml.cover.childImageSharp.fixed} />
+    )}
   </Layout>
 )
 

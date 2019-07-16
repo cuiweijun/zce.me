@@ -45,21 +45,10 @@ exports.plugins = [
   },
   'gatsby-transformer-yaml',
   'gatsby-transformer-sharp',
-  'gatsby-plugin-sharp', // TODO: no need?
+  // 'gatsby-plugin-sharp', // TODO: no need?
   'gatsby-plugin-react-helmet',
-  {
-    resolve: 'gatsby-plugin-typography',
-    options: {
-      pathToConfigModule: 'src/styles'
-    }
-  },
-  {
-    resolve: 'gatsby-plugin-nprogress',
-    options: {
-      // sync with ./src/styles/theme.js:9:12
-      color: '#ff6b6b'
-    }
-  },
+  'gatsby-plugin-nprogress',
+  'gatsby-plugin-sass',
   // 'gatsby-plugin-feed',
   // 'gatsby-plugin-sitemap',
   'gatsby-plugin-offline'

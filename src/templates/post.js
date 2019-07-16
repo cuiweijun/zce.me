@@ -4,7 +4,6 @@ import Image from 'gatsby-image'
 import moment from 'moment'
 
 import Layout from '../components/layout'
-import { colors, options, rhythm, scale } from '../styles'
 
 export default ({ data, pageContext, location }) => {
   const { markdownRemark: post } = data
@@ -12,13 +11,8 @@ export default ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
 
   const postHeader = (
-    <header style={{ color: colors.muted, textAlign: 'center' }}>
-      <p
-        style={{
-          ...scale(-1 / 5),
-          marginBottom: rhythm(0.25),
-          textTransform: 'uppercase'
-        }}>
+    <header>
+      <p>
         <span aria-label="Posted by">
           {fields.authors.map(i => (
             <Link key={i.id} to={i.fields.permalink}>
@@ -26,15 +20,12 @@ export default ({ data, pageContext, location }) => {
             </Link>
           ))}
         </span>
-        <span role="separator" aria-hidden="true">
-          {' '}
-          /{' '}
-        </span>
+        <span role="separator" aria-hidden="true"></span>
         <time dateTime={fields.date} aria-label="Posted on">
           {moment.utc(fields.date).format('MMMM Do, YYYY')}
         </time>
       </p>
-      <h1 style={{ fontWeight: options.boldWeight }}>{fields.title}</h1>
+      <h1>{fields.title}</h1>
     </header>
   )
 
@@ -44,12 +35,7 @@ export default ({ data, pageContext, location }) => {
       alt={fields.title}
       title={fields.title}
       fixed={fields.cover.childImageSharp.fixed}
-      style={{
-        alignSelf: 'center',
-        margin: `0 -10vw ${rhythm(1)}`,
-        borderRadius: rhythm(0.25),
-        maxWidth: '100vw'
-      }}
+      style={{}}
       imgStyle={{}}
     />
   )
@@ -59,13 +45,7 @@ export default ({ data, pageContext, location }) => {
       <section dangerouslySetInnerHTML={{ __html: post.html }} />
       <section>
         {fields.tags && (
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              listStyle: `none`,
-              padding: 0
-            }}>
+          <ul>
             {fields.tags.map(tag => (
               <li key={tag.id}>
                 <Link to={tag.fields.permalink}>{tag.id}</Link>,
@@ -79,15 +59,8 @@ export default ({ data, pageContext, location }) => {
 
   const postFooter = (
     <footer>
-      <hr style={{ marginBottom: rhythm(1) }} />
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0
-        }}>
+      <hr />
+      <ul>
         <li>
           {prev && (
             <Link to={prev.fields.permalink} rel="prev">
@@ -112,11 +85,7 @@ export default ({ data, pageContext, location }) => {
       title={fields.title}
       description={fields.description || post.excerpt}
       location={location}>
-      <article
-        style={{
-          display: 'flex',
-          flexDirection: 'column'
-        }}>
+      <article>
         {postHeader}
         {postCover}
         {postMain}

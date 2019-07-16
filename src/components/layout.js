@@ -13,13 +13,6 @@ import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 
 import { useMetadata } from '../utils/hooks'
-import { colors, options, rhythm, scale } from '../styles'
-
-const wrapperStyle = {
-  margin: '0 auto',
-  padding: `0 ${rhythm(1.25)}`,
-  maxWidth: rhythm(30)
-}
 
 export default ({ title, description, image, location, children }) => {
   const site = useMetadata()
@@ -37,7 +30,7 @@ export default ({ title, description, image, location, children }) => {
   const year = new Date().getFullYear()
 
   return (
-    <div style={wrapperStyle}>
+    <div>
       <Helmet>
         <html lang={site.language} />
         <title>{title}</title>
@@ -55,29 +48,12 @@ export default ({ title, description, image, location, children }) => {
         <link rel="canonical" href={url} />
       </Helmet>
 
-      <header style={{ marginBottom: rhythm(1), padding: `${rhythm(1.5)} 0` }}>
-        <nav
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}>
-          <Link
-            style={{
-              ...scale(0.75),
-              fontWeight: options.headerWeight
-            }}
-            to="/">
-            {site.title}
-          </Link>
-          <ul style={{ marginBottom: 0, listStyle: 'none' }}>
+      <header>
+        <nav>
+          <Link to="/">{site.title}</Link>
+          <ul>
             {site.menus.map(i => (
-              <li
-                style={{
-                  margin: `0 0 0 ${rhythm(0.8)}`,
-                  display: `inline-block`
-                }}
-                key={i.link}>
+              <li key={i.link}>
                 <Link to={i.link}>{i.text}</Link>
               </li>
             ))}
@@ -87,13 +63,8 @@ export default ({ title, description, image, location, children }) => {
 
       <main>{children}</main>
 
-      <footer style={{ padding: `${rhythm(1)} 0` }}>
-        <p
-          style={{
-            margin: 0,
-            textAlign: 'center',
-            color: colors.muted
-          }}>
+      <footer>
+        <p>
           &copy; {year} by {site.author}, Built with{' '}
           <a
             href="https://gatsbyjs.org"

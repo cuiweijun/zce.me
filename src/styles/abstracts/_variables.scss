@@ -1,0 +1,95 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// https://system-ui.com/theme
+// -----------------------------------------------------------------------------
+
+@import 'open-color';
+
+$grays: (
+  0: $oc-gray-0,
+  1: $oc-gray-1,
+  2: $oc-gray-2,
+  3: $oc-gray-3,
+  4: $oc-gray-4,
+  5: $oc-gray-5,
+  6: $oc-gray-6,
+  7: $oc-gray-7,
+  8: $oc-gray-8,
+  9: $oc-gray-9,
+);
+
+$colors: (
+  text: $oc-gray-8,
+  background: $oc-gray-0,
+  primary: $oc-red-5,
+  secondary: $oc-grape-4,
+  accent: $oc-red-6,
+  muted: $oc-gray-6,
+);
+
+$spaces: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 2rem,
+  6: 2.5rem,
+  7: 3rem,
+  8: 4rem,
+  9: 5rem
+);
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// typography
+
+$font-family-sans-serif: Roboto, sans-serif;
+$font-family-serif: Georgia, serif;
+$font-family-monospace: Menlo, monospace;
+
+$font-size-large: 1.25rem;
+$font-size-normal: 1.1rem;
+$font-size-small: 0.875rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$line-height-compact: 1.125;
+$line-height-normal: 1.5;
+$line-height-loose: 1.75;
+
+// global
+
+$block-bottom: space();
+
+$body-font-family: $font-family-sans-serif;
+$body-font-size: $font-size-normal;
+$body-font-weight: $font-weight-normal;
+$body-line-height: $line-height-normal;
+$body-color: gray(7);
+$body-bg: gray(0);
+
+$headings-margin-bottom: $block-bottom / 2;
+$headings-font-family: null;
+$headings-font-weight: 500;
+$headings-line-height: 1.2;
+$headings-color: null;
+
+$h1-font-size: 2.5rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.75rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.25rem;
+$h6-font-size: 1rem;
+
+$paragraph-margin-bottom: $block-bottom;
+
+$link-color: color('primary');

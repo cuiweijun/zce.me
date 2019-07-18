@@ -1,0 +1,10 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the wrapper of the site/application.
+// -----------------------------------------------------------------------------
+
+#___gatsby {
+  margin: 0 auto;
+  padding: 0 4vw;
+  max-width: px-to-rem(750px);
+  min-height: 100vh;
+}

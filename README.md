@@ -10,20 +10,6 @@
 
 <!-- TODO -->
 
-## Pages
-
-- /
-- /blog/
-- /{year}/{month}/{slug}/
-- /archives/
-- /authors/
-- /authors/{slug}/
-- /categories/
-- /categories/{slug}/
-- /tags/
-- /tags/{slug}/
-- /not-found/
-
 ## Todos
 
 - [x] Content pages
@@ -33,8 +19,8 @@
 - [x] Gatsby image
 - [x] Sitemap support
 - [x] RSS Feed (not enabled)
-- [ ] CSS-in-JS（Typography.js)
-- [ ] Global style
+- [-] CSS-in-JS（Typography.js)
+- [ ] Global style (Bootstrap)
 - [ ] Comments
 - [ ] Sass?
 - [ ] Emotion & Theming?

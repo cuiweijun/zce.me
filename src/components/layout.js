@@ -10,8 +10,8 @@
 
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
 
+import Header from './header'
 import { useMetadata } from '../utils/hooks'
 
 export default ({ title, description, image, location, children }) => {
@@ -48,20 +48,7 @@ export default ({ title, description, image, location, children }) => {
         <link rel="canonical" href={url} />
       </Helmet>
 
-      <header className="site-header">
-        <nav className="site-nav">
-          <Link className="site-brand" to="/">
-            {site.title}
-          </Link>
-          <ul className="site-menu">
-            {site.menus.map(i => (
-              <li key={i.link}>
-                <Link to={i.link}>{i.text}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      <Header title={site.title} logo={site.logo} menus={site.menus} />
 
       <main className="site-main">{children}</main>
 

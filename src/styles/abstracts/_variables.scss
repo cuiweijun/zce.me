@@ -3,93 +3,144 @@
 // https://system-ui.com/theme
 // -----------------------------------------------------------------------------
 
-@import 'open-color';
+@import 'node_modules/open-color/open-color.scss';
+
+$white: $oc-white;
+$gray-000: $oc-gray-0;
+$gray-100: $oc-gray-1;
+$gray-200: $oc-gray-2;
+$gray-300: $oc-gray-3;
+$gray-400: $oc-gray-4;
+$gray-500: $oc-gray-5;
+$gray-600: $oc-gray-6;
+$gray-700: $oc-gray-7;
+$gray-800: $oc-gray-8;
+$gray-900: $oc-gray-9;
+$black: $oc-black;
 
 $grays: (
-  0: $oc-gray-0,
-  1: $oc-gray-1,
-  2: $oc-gray-2,
-  3: $oc-gray-3,
-  4: $oc-gray-4,
-  5: $oc-gray-5,
-  6: $oc-gray-6,
-  7: $oc-gray-7,
-  8: $oc-gray-8,
-  9: $oc-gray-9,
+  '000': $gray-000
 );
 
-$colors: (
-  text: $oc-gray-8,
-  background: $oc-gray-0,
-  primary: $oc-red-5,
-  secondary: $oc-grape-4,
-  accent: $oc-red-6,
-  muted: $oc-gray-6,
+$blue: $oc-blue-5;
+$indigo: $oc-indigo-5;
+$purple: $oc-grape-5;
+$pink: $oc-pink-5;
+$red: $oc-red-5;
+$orange: $oc-orange-5;
+$yellow: $oc-yellow-5;
+$green: $oc-green-5;
+$teal: $oc-teal-5;
+$cyan: $oc-cyan-5;
+
+$primary: $blue;
+$secondary: $gray-600;
+$accent: $red;
+$light: $gray-100;
+$dark: $gray-800;
+
+$theme-colors: (
+  'accent': $accent
 );
 
-$spaces: (
-  0: 0,
-  1: 0.25rem,
-  2: 0.5rem,
-  3: 1rem,
-  4: 1.5rem,
-  5: 2rem,
-  6: 2.5rem,
-  7: 3rem,
-  8: 4rem,
-  9: 5rem
-);
-
-$breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-);
-
-// typography
-
-$font-family-sans-serif: Roboto, sans-serif;
+// $font-family-sans-serif: Roboto, sans-serif;
 $font-family-serif: Georgia, serif;
-$font-family-monospace: Menlo, monospace;
+// $font-family-monospace: Menlo, monospace;
 
-$font-size-large: 1.25rem;
-$font-size-normal: 1.1rem;
-$font-size-small: 0.875rem;
+$body-color: $gray-700;
+$body-bg: $gray-000;
 
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-bold: 700;
+@import 'node_modules/bootstrap/scss/variables';
 
-$line-height-compact: 1.125;
-$line-height-normal: 1.5;
-$line-height-loose: 1.75;
+$theme-colors: map-remove(
+  $theme-colors,
+  'success',
+  'info',
+  'warning',
+  'danger'
+);
 
-// global
+// $grays: (
+//   0: $oc-gray-0,
+//   1: $oc-gray-1,
+//   2: $oc-gray-2,
+//   3: $oc-gray-3,
+//   4: $oc-gray-4,
+//   5: $oc-gray-5,
+//   6: $oc-gray-6,
+//   7: $oc-gray-7,
+//   8: $oc-gray-8,
+//   9: $oc-gray-9,
+// );
 
-$block-bottom: space();
+// $colors: (
+//   text: $oc-gray-8,
+//   background: $oc-gray-0,
+//   primary: $oc-red-5,
+//   secondary: $oc-grape-4,
+//   accent: $oc-red-6,
+//   muted: $oc-gray-6,
+// );
 
-$body-font-family: $font-family-sans-serif;
-$body-font-size: $font-size-normal;
-$body-font-weight: $font-weight-normal;
-$body-line-height: $line-height-normal;
-$body-color: gray(7);
-$body-bg: gray(0);
+// $spaces: (
+//   0: 0,
+//   1: 0.25rem,
+//   2: 0.5rem,
+//   3: 1rem,
+//   4: 1.5rem,
+//   5: 2rem,
+//   6: 2.5rem,
+//   7: 3rem,
+//   8: 4rem,
+//   9: 5rem
+// );
 
-$headings-margin-bottom: $block-bottom / 2;
-$headings-font-family: null;
-$headings-font-weight: 500;
-$headings-line-height: 1.2;
-$headings-color: null;
+// $breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// );
 
-$h1-font-size: 2.5rem;
-$h2-font-size: 2rem;
-$h3-font-size: 1.75rem;
-$h4-font-size: 1.5rem;
-$h5-font-size: 1.25rem;
-$h6-font-size: 1rem;
+// // typography
 
-$paragraph-margin-bottom: $block-bottom;
+// $font-size-large: 1.25rem;
+// $font-size-normal: 1.1rem;
+// $font-size-small: 0.875rem;
 
-$link-color: color('primary');
+// $font-weight-light: 300;
+// $font-weight-normal: 400;
+// $font-weight-bold: 700;
+
+// $line-height-compact: 1.125;
+// $line-height-normal: 1.5;
+// $line-height-loose: 1.75;
+
+// // global
+
+// $block-bottom: space();
+
+// $body-font-family: $font-family-sans-serif;
+// $body-font-size: $font-size-normal;
+// $body-font-weight: $font-weight-normal;
+// $body-line-height: $line-height-normal;
+// $body-color: gray(7);
+// $body-bg: gray(0);
+
+// $headings-margin-bottom: $block-bottom / 2;
+// $headings-font-family: null;
+// $headings-font-weight: 500;
+// $headings-line-height: 1.2;
+// $headings-color: null;
+
+// $h1-font-size: 2.5rem;
+// $h2-font-size: 2rem;
+// $h3-font-size: 1.75rem;
+// $h4-font-size: 1.5rem;
+// $h5-font-size: 1.25rem;
+// $h6-font-size: 1rem;
+
+// $paragraph-margin-bottom: $block-bottom;
+
+// $link-color: color('primary');

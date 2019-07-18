@@ -2,18 +2,8 @@
 // This file contains all application-wide Sass functions.
 // -----------------------------------------------------------------------------
 
-@function px-to-rem($pixels, $root: 16px) {
-  @return ($pixels / $root * 1rem);
-}
+@import 'node_modules/bootstrap/scss/functions';
 
-@function color($key: "primary") {
-  @return map-get($colors, $key);
-}
-
-@function gray($key: 3) {
-  @return map-get($grays, $key);
-}
-
-@function space($key: 3) {
-  @return map-get($spaces, $key);
+@function spacer($key: 3) {
+  @return map-get($spacers, $key);
 }

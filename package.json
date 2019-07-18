@@ -23,7 +23,7 @@
     "url": "https://zce.me"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.{js,jsx,json,yml,yaml,md}\"",
+    "format": "prettier --write \"**/*.{js,json,yml,yaml,md,scss}\"",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
@@ -40,6 +40,7 @@
     "tabWidth": 2
   },
   "devDependencies": {
+    "bootstrap": "latest",
     "gatsby": "latest",
     "gatsby-image": "latest",
     "gatsby-plugin-nprogress": "latest",
@@ -58,6 +59,7 @@
     "gatsby-transformer-sharp": "latest",
     "gatsby-transformer-yaml": "latest",
     "node-sass": "latest",
+    "open-color": "latest",
     "prettier": "latest",
     "prismjs": "latest",
     "react": "latest",

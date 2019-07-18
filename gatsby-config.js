@@ -48,7 +48,6 @@ exports.plugins = [
   // 'gatsby-plugin-sharp', // TODO: no need?
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-nprogress',
-  'gatsby-plugin-sass',
   // 'gatsby-plugin-feed',
   // 'gatsby-plugin-sitemap',
   'gatsby-plugin-offline'

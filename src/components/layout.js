@@ -8,7 +8,7 @@
  * - https://www.gatsbyjs.org/docs/layout-components/#how-to-prevent-layout-components-from-unmounting
  */
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 
@@ -30,7 +30,7 @@ export default ({ title, description, image, location, children }) => {
   const year = new Date().getFullYear()
 
   return (
-    <div>
+    <Fragment>
       <Helmet>
         <html lang={site.language} />
         <title>{title}</title>
@@ -48,10 +48,12 @@ export default ({ title, description, image, location, children }) => {
         <link rel="canonical" href={url} />
       </Helmet>
 
-      <header>
-        <nav>
-          <Link to="/">{site.title}</Link>
-          <ul>
+      <header className="site-header">
+        <nav className="site-nav">
+          <Link className="site-brand" to="/">
+            {site.title}
+          </Link>
+          <ul className="site-menu">
             {site.menus.map(i => (
               <li key={i.link}>
                 <Link to={i.link}>{i.text}</Link>
@@ -61,9 +63,9 @@ export default ({ title, description, image, location, children }) => {
         </nav>
       </header>
 
-      <main>{children}</main>
+      <main className="site-main">{children}</main>
 
-      <footer>
+      <footer className="site-footer">
         <p>
           &copy; {year} by {site.author}, Built with{' '}
           <a
@@ -82,6 +84,6 @@ export default ({ title, description, image, location, children }) => {
           .
         </p>
       </footer>
-    </div>
+    </Fragment>
   )
 }

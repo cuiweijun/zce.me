@@ -5,7 +5,7 @@ export default ({ title, logo, menus }) => {
   const [ collapse, toggleCollapse ] = useState(false)
   return (
     <header className="site-header">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
             {/* <img className="d-inline-block align-top" alt={title} src={logo} width="30" height="30" /> */}

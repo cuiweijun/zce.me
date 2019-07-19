@@ -6,7 +6,7 @@
 
 exports.siteMetadata = {
   url: 'http://localhost:8000', // no trailing slash!
-  title: 'Lei’s Personal Website',
+  title: 'Lei’s', // Lei’s Personal Website
   slogan: 'MAKE IT BETTER!',
   description: 'Thoughts, stories and ideas.',
   keywords: 'zce, blog, personal, homepage',

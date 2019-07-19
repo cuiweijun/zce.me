@@ -12,6 +12,7 @@ import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 
 import Header from './header'
+import Footer from './footer'
 import { useMetadata } from '../utils/hooks'
 
 export default ({ title, description, image, location, children }) => {
@@ -26,8 +27,6 @@ export default ({ title, description, image, location, children }) => {
 
   const img = image || site.cover
   image = img.startsWith('http') ? img : site.url + img
-
-  const year = new Date().getFullYear()
 
   return (
     <Fragment>
@@ -52,25 +51,7 @@ export default ({ title, description, image, location, children }) => {
 
       <main className="site-main">{children}</main>
 
-      <footer className="site-footer">
-        <p>
-          &copy; {year} by {site.author}, Built with{' '}
-          <a
-            href="https://gatsbyjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-            Gatsby
-          </a>
-          . Visit the{' '}
-          <a
-            href="https://github.com/zce/zce.me"
-            target="_blank"
-            rel="noopener noreferrer">
-            Source
-          </a>
-          .
-        </p>
-      </footer>
+      <Footer author={site.author} />
     </Fragment>
   )
 }

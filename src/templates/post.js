@@ -100,6 +100,8 @@ export const query = graphql`
     markdownRemark(id: { eq: $id }) {
       fields {
         title
+        date
+        updated
         cover {
           childImageSharp {
             fixed(width: 1024) {
@@ -108,8 +110,6 @@ export const query = graphql`
           }
         }
         description
-        date
-        updated
         permalink
         authors {
           id

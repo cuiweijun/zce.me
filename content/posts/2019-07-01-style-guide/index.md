@@ -1,8 +1,8 @@
 ---
 title: Style Guide
 slug: style-guide
-cover: media/cover.png
 date: 2019-07-01 13:56:37
+cover: media/cover.png
 ---
 
 Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.

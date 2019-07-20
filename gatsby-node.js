@@ -81,10 +81,10 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
   let {
     title,
     slug,
-    cover,
-    description,
     date,
     updated,
+    cover,
+    description,
     template = options.template,
     permalink = options.permalink,
     comment = options.comment,
@@ -129,10 +129,10 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
 
   createNodeField({ node, name: 'title', value: title })
   createNodeField({ node, name: 'slug', value: slug })
-  createNodeField({ node, name: 'cover', value: cover })
-  createNodeField({ node, name: 'description', value: description })
   createNodeField({ node, name: 'date', value: date })
   createNodeField({ node, name: 'updated', value: updated })
+  createNodeField({ node, name: 'cover', value: cover })
+  createNodeField({ node, name: 'description', value: description })
 
   createNodeField({ node, name: 'authors', value: authors })
   createNodeField({ node, name: 'categories', value: categories })

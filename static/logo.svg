@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472 450">
+  <desc>design by @zce (https://zce.me)</desc>
+  <defs>
+    <filter id="shadow" x="-12.7%" y="-13.4%" width="125.4%" height="126.7%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="offset-outer" />
+      <feGaussianBlur stdDeviation="20" in="offset-outer" result="blue-outer" />
+      <feComposite in="blue-outer" in2="SourceAlpha" operator="out" result="blue-outer" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" in="blue-outer" />
+    </filter>
+  </defs>
+  <mask id="mask" fill="#fff">
+    <path d="M472 114.26L203.029 335.74H407.1L472 449.48H64.9L0 335.74l268.971-221.48H64.9L0 .52h407.1z" />
+  </mask>
+  <g mask="url(#mask)" fill="#339AF0">
+    <path d="M0 0h472v449H0z" />
+  </g>
+  <g mask="url(#mask)">
+    <path d="M0 335.74l64.9 113.74L472 114.26 407.1.52z" filter="url(#shadow)" />
+  </g>
+</svg>

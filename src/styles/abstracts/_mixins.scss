@@ -7,7 +7,11 @@
   @if not $n {
     @error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
   }
-  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+  @return if(
+    $n < length($breakpoint-names),
+    nth($breakpoint-names, $n + 1),
+    null
+  );
 }
 
 @function breakpoint-min($name) {
@@ -17,7 +21,7 @@
 
 @function breakpoint-max($name) {
   $next: breakpoint-next($name);
-  @return if($next, breakpoint-min($next) - .02, null);
+  @return if($next, breakpoint-min($next) - 0.02, null);
 }
 
 @mixin media-breakpoint-up($name) {

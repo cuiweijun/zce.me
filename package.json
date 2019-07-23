@@ -23,7 +23,7 @@
     "url": "https://zce.me"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.{js,json,yml,yaml,md}\"",
+    "format": "prettier --write \"**/*.{js,json,yml,yaml,md,scss}\"",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "serve": "gatsby serve",

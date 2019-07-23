@@ -5,7 +5,6 @@
 
 @import 'node_modules/open-color/open-color.scss';
 
-
 $grays: (
   0: $oc-gray-0,
   1: $oc-gray-1,
@@ -16,19 +15,17 @@ $grays: (
   6: $oc-gray-6,
   7: $oc-gray-7,
   8: $oc-gray-8,
-  9: $oc-gray-9,
+  9: $oc-gray-9
 );
 
 $colors: (
   primary: $oc-blue-5,
   secondary: $oc-gray-6,
   accent: $oc-red-5,
-  light: $oc-gray-1,
+  light: $oc-gray-2,
   dark: $oc-gray-8,
-
   white: $oc-white,
   black: $oc-black,
-
   blue: $oc-blue-5,
   indigo: $oc-indigo-5,
   purple: $oc-grape-5,
@@ -38,7 +35,7 @@ $colors: (
   yellow: $oc-yellow-5,
   green: $oc-green-5,
   teal: $oc-teal-5,
-  cyan: $oc-cyan-5,
+  cyan: $oc-cyan-5
 );
 
 $spaces: (

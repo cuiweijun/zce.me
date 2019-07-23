@@ -3,25 +3,65 @@
 // -----------------------------------------------------------------------------
 
 .site-header {
-  .navbar-nav {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  background-color: color(dark);
 
-    &::-webkit-scrollbar {
-      display: none;
+  > .container {
+    display: flex;
+    align-items: center;
+    color: color('light');
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+  }
+
+  a {
+    color: rgba(color('light'), 0.75);
+
+    &:hover,
+    &[aria-current='page'] {
+      color: rgba(color('light'), 1);
+    }
+  }
+
+  .site-brand {
+    display: flex;
+    align-items: center;
+    padding: space(2) 0;
+    margin-right: space();
+    font-size: $font-size-large;
+
+    img {
+      margin-right: space(1);
+    }
+  }
+
+  .site-nav {
+    flex-grow: 1;
+
+    a {
+      display: inline-block;
+      padding: space(2);
     }
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
+      max-width: 100%;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
       mask-image: linear-gradient(
         to right,
-        transparent,
-        black 20px,
-        black 90%,
-        transparent
+        rgba(0, 0, 0, 0),
+        #000 8%,
+        #000 92%,
+        rgba(0, 0, 0, 0)
       );
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }

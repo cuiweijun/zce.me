@@ -10,8 +10,6 @@ exports.siteMetadata = {
   slogan: 'MAKE IT BETTER!',
   description: 'Thoughts, stories and ideas.',
   keywords: 'zce, blog, personal, homepage',
-  logo: '/logo.svg',
-  cover: '/cover.jpg',
   author: 'Lei Wang',
   language: 'en',
   menus: [

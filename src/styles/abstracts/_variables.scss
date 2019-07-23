@@ -79,9 +79,6 @@ $line-height-dense: 1.125;
 $line-height-default: 1.5;
 $line-height-loose: 1.75;
 
-$body-color: gray(7);
-$body-bg: gray(0);
-
 // global
 
 $body-font-family: $font-family-sans-serif;
@@ -107,3 +104,5 @@ $h6-font-size: 1rem;
 $paragraph-margin-bottom: space();
 
 $link-color: color('primary');
+
+$container-width: 1140px;

@@ -3,28 +3,28 @@
 // -----------------------------------------------------------------------------
 
 .site-header {
+  position: relative;
+}
+
+.site-nav {
   background-color: color(dark);
+
+    a {
+      color: rgba(color('light'), 0.75);
+
+      &:hover,
+      &[aria-current='page'] {
+        color: rgba(color('light'), 1);
+      }
+    }
 
   > .container {
     display: flex;
     align-items: center;
     color: color('light');
-
-    @include media-breakpoint-down(sm) {
-      flex-direction: column;
-    }
   }
 
-  a {
-    color: rgba(color('light'), 0.75);
-
-    &:hover,
-    &[aria-current='page'] {
-      color: rgba(color('light'), 1);
-    }
-  }
-
-  .site-brand {
+  .nav-brand {
     display: flex;
     align-items: center;
     padding: space(2) 0;
@@ -36,15 +36,28 @@
     }
   }
 
-  .site-nav {
-    flex-grow: 1;
+  .nav-menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
     a {
       display: inline-block;
       padding: space(2);
     }
+  }
 
-    @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(sm) {
+    > .container {
+      flex-direction: column;
+    }
+
+    .nav-brand {
+      margin-right: 0;
+    }
+
+    .nav-menu {
       max-width: 100%;
       white-space: nowrap;
       overflow-x: auto;
@@ -64,4 +77,16 @@
       }
     }
   }
+}
+
+.site-heading {
+  text-align: center;
+  color: color('light');
+}
+
+.site-cover {
+  position: absolute !important;
+  top: 0;
+  z-index: -1;
+  width: 100%;
 }

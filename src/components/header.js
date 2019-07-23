@@ -1,22 +1,31 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Image from 'gatsby-image'
 
-export default ({ title, logo, menus }) => {
+export default ({ title, menus, cover, children }) => {
   return (
     <header className="site-header">
-      <div className="container">
-        <Link className="site-brand" to="/">
-          <img alt={title} src={logo} width="25" height="25" />
-          <span>{title}</span>
-        </Link>
-        <nav className="site-nav">
-          {menus.map(i => (
-            <Link to={i.link} key={i.link}>
-              {i.text}
-            </Link>
-          ))}
-        </nav>
-      </div>
+      <nav className="site-nav">
+        <div className="container">
+          <Link className="nav-brand" to="/">
+            <img alt={title} src="/logo.svg" width="25" height="25" />
+            <span>{title}</span>
+          </Link>
+          <ul className="nav-menu">
+            {menus.map(i => (
+              <li key={i.link}>
+                <Link to={i.link}>{i.text}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+      {children && (
+        <div className="site-heading">
+          {children}
+        </div>
+      )}
+      <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
     </header>
   )
 }

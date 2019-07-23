@@ -10,48 +10,98 @@
 
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
-import { useMetadata } from '../utils/hooks'
 
-export default ({ title, description, image, location, children }) => {
-  const site = useMetadata()
+const query = graphql`
+  query LayoutComponent {
+    site {
+      siteMetadata {
+        url
+        title
+        slogan
+        description
+        keywords
+        author
+        language
+        menus {
+          text
+          link
+        }
+      }
+    }
+    siteCover: file(relativePath: { eq: "images/cover.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1280) {
+          ...GatsbyImageSharpFluid
+          presentationWidth
+          presentationHeight
+        }
+      }
+    }
+  }
+`
 
-  const url = site.url + location.pathname
+export default ({ title, description, cover, location, children }) => {
+  const {
+    site: { siteMetadata },
+    siteCover
+  } = useStaticQuery(query)
 
-  const suffix = `${site.title} | ${site.slogan}`
+  const url = siteMetadata.url + location.pathname
+
+  const suffix = `${siteMetadata.title} | ${siteMetadata.slogan}`
   title = title ? `${title} - ${suffix}` : suffix
 
-  description = description || site.description
+  description = description || siteMetadata.description
 
-  const img = image || site.cover
-  image = img.startsWith('http') ? img : site.url + img
+  cover = cover || siteCover
+
+  console.log(cover.childImageSharp.fluid)
 
   return (
     <Fragment>
       <Helmet>
-        <html lang={site.language} />
+        <html lang={siteMetadata.language} />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="author" content={site.author} />
+        <meta name="author" content={siteMetadata.author} />
         {/* OpenGraph tags */}
-        <meta property="og:site_name" content={site.title} />
+        <meta property="og:site_name" content={siteMetadata.title} />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta
+          property="og:image"
+          content={siteMetadata.url + cover.childImageSharp.fluid.src}
+        />
+        <meta
+          property="og:image:width"
+          content={cover.childImageSharp.fluid.presentationWidth}
+        />
+        <meta
+          property="og:image:height"
+          content={cover.childImageSharp.fluid.presentationHeight}
+        />
         {/* TODO: website or article? http://ogp.me/#no_vertical */}
         <meta property="og:type" content={`website`} />
         {/* TODO: Twitter & Fackbook Card tags? */}
         <link rel="canonical" href={url} />
       </Helmet>
 
-      <Header title={site.title} logo={site.logo} menus={site.menus} />
+      <Header
+        title={siteMetadata.title}
+        menus={siteMetadata.menus}
+        cover={cover}>
+        <h1>{siteMetadata.title}</h1>
+        <p>{description}</p>
+      </Header>
 
       <main className="site-main">{children}</main>
 
-      <Footer author={site.author} />
+      <Footer author={siteMetadata.author} />
     </Fragment>
   )
 }

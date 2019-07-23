@@ -19,11 +19,9 @@
 - [x] Gatsby image
 - [x] Sitemap support
 - [x] RSS Feed (not enabled)
-- [-] CSS-in-JS（Typography.js)
-- [ ] Global style (Bootstrap)
+- [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
+- [ ] Global style
 - [ ] Comments
-- [ ] Sass?
-- [ ] Emotion & Theming?
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
 - [ ] SSR Support
@@ -39,7 +37,9 @@
 
 ## References
 
+- https://daveceddia.com/
 - https://www.bricolage.io/
+- https://github.com/kentcdodds/kentcdodds.com
 - https://github.com/prichey/prestonrichey.com
 - https://github.com/taniarascia/taniarascia.com
 - https://github.com/fathomlondon/fath.om

@@ -24,7 +24,9 @@ export default ({ data, location }) => (
       <div className="container">
         <div className="row">
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div className="col-md-6 col-lg-4 d-flex" key={node.fields.permalink}>
+            <div
+              className="col-md-6 col-lg-4 d-flex"
+              key={node.fields.permalink}>
               <div className="card mb-4 shadow-sm">
                 {node.fields.cover ? (
                   <Image

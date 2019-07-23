@@ -1,9 +1,0 @@
-// -----------------------------------------------------------------------------
-// This file contains all application-wide Sass functions.
-// -----------------------------------------------------------------------------
-
-@import 'node_modules/bootstrap/scss/functions';
-
-@function spacer($key: 3) {
-  @return map-get($spacers, $key);
-}

@@ -4,9 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// global styles
-import './src/styles/main.scss'
-
 // https://www.gatsbyjs.org/docs/browser-apis/#wrapRootElement
 // https://www.gatsbyjs.org/blog/2019-01-31-using-react-context-api-with-gatsby/
 export const wrapRootElement = ({ element }) => element

@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+@function gray($key: 3) {
+  @return map-get($grays, $key);
+}
+
+@function color($key: primary) {
+  @return map-get($colors, $key);
+}
+
+@function space($key: 3) {
+  @return map-get($spaces, $key);
+}

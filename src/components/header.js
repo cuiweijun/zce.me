@@ -23,11 +23,7 @@ export default ({ title, menus, cover, children }) => {
           </form>
         </div>
       </nav>
-      {children && (
-        <div className="site-heading">
-          {children}
-        </div>
-      )}
+      {children && <div className="site-heading">{children}</div>}
       <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
     </header>
   )

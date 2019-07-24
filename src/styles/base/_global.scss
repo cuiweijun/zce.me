@@ -2,38 +2,45 @@
 // This file contains very basic styles.
 // -----------------------------------------------------------------------------
 
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: $body-font-family;
-  font-size: $body-font-size;
-  font-weight: $body-font-weight;
-  line-height: $body-line-height;
-  color: $body-color;
   background-color: $body-bg;
-  -webkit-text-size-adjust: 100%;
+  color: $body-color;
+  font-weight: $body-font-weight;
+  font-size: $body-font-size;
+  font-family: $body-font-family;
+  line-height: $body-line-height;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   // better Font Rendering
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 hr {
   margin: space() 0;
   height: 1px;
-  color: inherit;
-  background-color: currentColor;
   border: 0;
+  background-color: currentColor;
+  color: inherit;
   opacity: 0.25;
 }
 
 %heading {
   margin-top: 0;
   margin-bottom: $headings-margin-bottom;
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
-  line-height: $headings-line-height;
   color: $headings-color;
+  font-weight: $headings-font-weight;
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
 }
 
 h1 {

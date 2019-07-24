@@ -9,35 +9,36 @@
 .site-nav {
   background-color: color(dark);
 
-    a {
-      color: rgba(color('light'), 0.75);
+  a {
+    color: rgba(color(light), 0.75);
 
-      &:hover,
-      &[aria-current='page'] {
-        color: rgba(color('light'), 1);
-      }
+    &:hover,
+    &[aria-current='page'] {
+      color: rgba(color(light), 1);
     }
+  }
 
   > .container {
     display: flex;
     align-items: center;
-    color: color('light');
+    color: color(light);
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
+    margin-right: space(3);
     padding: space(2) 0;
-    margin-right: space();
     font-size: $font-size-large;
 
     img {
-      margin-right: space(1);
+      margin-right: space(2);
     }
   }
 
   .nav-menu {
     display: flex;
+    flex: 1 0 0;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -48,40 +49,41 @@
     }
   }
 
-  @include media-breakpoint-down(sm) {
-    > .container {
-      flex-direction: column;
-    }
+  .nav-search {
+    input {
+      padding: space(1) space(1) space(1) space(4);
+      width: space(4);
+      border: 0;
+      border-radius: space(1);
+      background-color: transparent;
+      background-image: url(escape-svg('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#{color(light)}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>'));
+      background-position: space(1) center;
+      background-size: space(3);
+      background-repeat: no-repeat;
+      color: color(light);
+      font-size: $font-size-small;
+      line-height: $line-height-default;
+      transition: width 0.2s;
 
-    .nav-brand {
-      margin-right: 0;
-    }
+      -webkit-appearance: textfield;
 
-    .nav-menu {
-      max-width: 100%;
-      white-space: nowrap;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: none;
-      mask-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0),
-        #000 8%,
-        #000 92%,
-        rgba(0, 0, 0, 0)
-      );
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
 
-      &::-webkit-scrollbar {
-        display: none;
+      &:focus,
+      &:not(:placeholder-shown) {
+        width: 8rem;
+        outline: 0;
+        background-color: rgba(color(white), 0.25);
       }
     }
   }
 }
 
 .site-heading {
+  color: color(light);
   text-align: center;
-  color: color('light');
 }
 
 .site-cover {
@@ -89,4 +91,36 @@
   top: 0;
   z-index: -1;
   width: 100%;
+}
+
+@include media-breakpoint-down(xs) {
+  .site-nav {
+    // > .container {
+    //   flex-direction: column;
+    // }
+
+    // .nav-brand {
+    //   margin-right: 0;
+    // }
+
+    .nav-menu {
+      overflow-x: auto;
+      white-space: nowrap;
+
+      mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      #000 6%,
+      #000 94%,
+      rgba(0, 0, 0, 0)
+      );
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 }

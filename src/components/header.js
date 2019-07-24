@@ -18,6 +18,9 @@ export default ({ title, menus, cover, children }) => {
               </li>
             ))}
           </ul>
+          <form className="nav-search" action="/search/">
+            <input type="search" placeholder="Search" autoComplete="off" />
+          </form>
         </div>
       </nav>
       {children && (

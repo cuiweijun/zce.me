@@ -9,19 +9,9 @@
 .site-nav {
   background-color: color(dark);
 
-  a {
-    color: rgba(color(light), 0.75);
-
-    &:hover,
-    &[aria-current='page'] {
-      color: rgba(color(light), 1);
-    }
-  }
-
   > .container {
     display: flex;
     align-items: center;
-    color: color(light);
   }
 
   .nav-brand {
@@ -29,6 +19,7 @@
     align-items: center;
     margin-right: space(3);
     padding: space(2) 0;
+    color: color(light);
     font-size: $font-size-large;
 
     img {
@@ -46,6 +37,12 @@
     a {
       display: inline-block;
       padding: space(2);
+      color: rgba(color(light), 0.75);
+
+      &:hover,
+      &[aria-current='page'] {
+        color: rgba(color(light), 1);
+      }
     }
   }
 

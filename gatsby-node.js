@@ -4,8 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require('path')
-const slugify = require('slugify')
+const { kebabCase } = require('lodash')
 
 /**
  * collections permalink tags:
@@ -71,12 +70,12 @@ const generatePermalink = (template, context) => {
   })
 }
 
-const createMarkdownFields = ({ node, getNode, actions }) => {
+const createCollectionFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  const { relativeDirectory } = getNode(node.parent)
-  const options = collections[path.dirname(relativeDirectory)]
-  if (!options) return
+  const { relativePath } = getNode(node.parent)
+  const collection = collections[relativePath.split('/')[0]]
+  if (!collection) return
 
   let {
     title,
@@ -85,26 +84,24 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     updated,
     cover,
     description,
-    template = options.template,
-    permalink = options.permalink,
-    comment = options.comment,
-    private = options.private,
-    draft = options.draft,
+    template = collection.template,
+    permalink = collection.permalink,
+    comment = collection.comment,
+    private = collection.private,
+    draft = collection.draft,
     authors = [],
     categories = [],
     tags = []
   } = node.frontmatter
 
-  if (!slug) {
-    slug = slugify(title, { lower: true })
-  }
+  slug = slug || kebabCase(title)
 
   date = new Date(date || null)
   updated = updated ? new Date(updated) : date
 
-  authors.length || authors.push(...options.authors)
-  categories.length || categories.push(...options.categories)
-  tags.length || tags.push(...options.tags)
+  authors.length || authors.push(...collection.authors)
+  categories.length || categories.push(...collection.categories)
+  tags.length || tags.push(...collection.tags)
 
   if (/{([a-z_]+)}/.test(permalink)) {
     // generate permalink if permalink not defined in frontmatter
@@ -120,7 +117,7 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     permalink = generatePermalink(permalink, context)
   }
 
-  createNodeField({ node, name: 'type', value: options.type })
+  createNodeField({ node, name: 'type', value: collection.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
   createNodeField({ node, name: 'comment', value: comment })
@@ -139,29 +136,27 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
   createNodeField({ node, name: 'tags', value: tags })
 }
 
-const createYamlFields = ({ node, getNode, actions }) => {
+const createTaxonomyFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  const { base, ext } = getNode(node.parent)
-  const options = taxonomies[path.basename(base, ext)]
-  if (!options) return
+  const { name } = getNode(node.parent)
+  const taxonomy = taxonomies[name]
+  if (!taxonomy) return
 
   let {
     id,
     slug,
-    template = options.template,
-    permalink = options.permalink
+    template = taxonomy.template,
+    permalink = taxonomy.permalink
   } = node
 
-  if (!slug) {
-    slug = slugify(id, { lower: true })
-  }
+  slug = slug || kebabCase(id)
 
   if (/{([a-z_]+)}/.test(permalink)) {
     permalink = generatePermalink(permalink, { slug })
   }
 
-  createNodeField({ node, name: 'type', value: options.type })
+  createNodeField({ node, name: 'type', value: taxonomy.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
 }
@@ -169,11 +164,11 @@ const createYamlFields = ({ node, getNode, actions }) => {
 exports.onCreateNode = args => {
   switch (args.node.internal.type) {
     case 'MarkdownRemark':
-      return createMarkdownFields(args)
+      return createCollectionFields(args)
     case 'AuthorsYaml':
     case 'CategoriesYaml':
     case 'TagsYaml':
-      return createYamlFields(args)
+      return createTaxonomyFields(args)
   }
 }
 
@@ -245,7 +240,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   Object.values(collections)
     .map(c => c.type)
     .forEach(type => {
-      const items = posts.filter(e => e.node.fields.type === type)
+      const items = posts.filter(i => i.node.fields && i.node.fields.type === type)
       items.forEach(({ node: { id, fields } }, i) => {
         const prev = i === items.length - 1 ? null : items[i + 1].node
         const next = i === 0 ? null : items[i - 1].node

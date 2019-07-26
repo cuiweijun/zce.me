@@ -63,6 +63,7 @@
 - https://github.com/KyleAMathews/typography.js
 - https://github.com/GatsbyCentral/gatsby-awesome-pagination
 - https://github.com/graysonhicks/gatsby-plugin-remote-images
+- https://www.gatsbycentral.com/
 
 - https://www.styleshout.com/
 - https://webflow.com/

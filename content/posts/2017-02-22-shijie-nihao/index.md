@@ -1,7 +1,7 @@
 ---
 title: 世界，你好
 slug: shijie-nihao
-date: 2010-02-25 13:00:00
+date: 2017-02-22 15:32:00
 authors:
   - Ziwen Wang
   - Lei Wang

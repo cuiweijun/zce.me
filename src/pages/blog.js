@@ -23,48 +23,40 @@ export default ({ data, location }) => (
     <div className="container">
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <article className="card" key={node.id}>
-          {node.fields.cover ? (
-            <Image
-              Tag="figure"
-              className="card-image"
-              width="100%"
-              height="225"
-              fluid={node.fields.cover.childImageSharp.fluid}
-            />
-          ) : (
-            <Image
-              Tag="figure"
-              className="card-image"
-              width="100%"
-              height="225"
-              fluid={data.file.childImageSharp.fluid}
-            />
-          )}
-          <header className="card-header">
-            <span>{node.fields.categories[0].id}</span>
-            <h3>{node.fields.title}</h3>
-          </header>
-          <div className="card-excerpt">
-            <p>{node.excerpt}</p>
+          <Link className="card-link" to={node.fields.permalink}></Link>
+          <Image
+            className="card-image"
+            fluid={node.fields.cover ? node.fields.cover.childImageSharp.fluid : data.file.childImageSharp.fluid}
+            alt={node.fields.title}
+            title={node.fields.title}
+          />
+          <div className="card-content">
+            <header>
+              <span>{node.fields.categories[0].id}</span>
+              <h3>{node.fields.title}</h3>
+            </header>
+            <main>
+              <p>{node.excerpt}</p>
+            </main>
+            <footer>
+              <ul>
+                {node.fields.authors.map((author, i) => (
+                  <li key={author.id} style={{
+                    zIndex: node.fields.authors.length - i
+                  }}>
+                    <Link to={author.fields.permalink} title={author.id}>
+                      <Image
+                        Tag="span"
+                        fixed={author.avatar.childImageSharp.fixed}
+                        alt={author.id}
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <small>{`${node.timeToRead} min${node.timeToRead === 1 ? '' : 's'}`}</small>
+            </footer>
           </div>
-          <footer className="card-meta">
-            <ul>
-              {node.fields.authors.map((author, i) => (
-                <li key={author.id} style={{
-                  zIndex: node.fields.authors.length - i
-                }}>
-                  <Link to={author.fields.permalink} title={author.id}>
-                    <Image
-                      Tag="span"
-                      fixed={author.avatar.childImageSharp.fixed}
-                      alt={author.id}
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <small>{`${node.timeToRead} min${node.timeToRead === 1 ? '' : 's'}`}</small>
-          </footer>
         </article>
       ))}
     </div>

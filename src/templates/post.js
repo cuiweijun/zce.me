@@ -84,8 +84,9 @@ export default ({ data, pageContext, location }) => {
     <Layout
       title={fields.title}
       description={fields.description || post.excerpt}
+      bodyClass={`post`}
       location={location}>
-      <article>
+      <article className="container">
         {postHeader}
         {postCover}
         {postMain}

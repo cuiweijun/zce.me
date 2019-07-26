@@ -44,7 +44,7 @@ const query = graphql`
   }
 `
 
-export default ({ title, description, cover, location, children }) => {
+export default ({ title, description, cover, bodyClass, location, children }) => {
   const {
     site: { siteMetadata },
     siteCover
@@ -87,6 +87,7 @@ export default ({ title, description, cover, location, children }) => {
         <meta property="og:type" content={`website`} />
         {/* TODO: Twitter & Fackbook Card tags? */}
         <link rel="canonical" href={url} />
+        {bodyClass && <body className={bodyClass} />}
       </Helmet>
 
       <Header

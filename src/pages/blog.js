@@ -5,7 +5,7 @@ import Image from 'gatsby-image'
 import Layout from '../components/layout'
 
 export default ({ data, location }) => (
-  <Layout title={`All posts`} location={location}>
+  <Layout title={`All posts`} bodyClass={`blog`} location={location}>
     {/* <section className="jumbotron text-center">
       <div className="container">
         <h1 className="jumbotron-heading">

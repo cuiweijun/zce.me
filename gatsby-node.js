@@ -7,7 +7,7 @@
 const { kebabCase } = require('lodash')
 
 /**
- * collections permalink tags:
+ * collection permalink tags:
  * - {slug} - the post slug, eg. my-post
  * - {year} - publication year, eg. 2019
  * - {month} - publication month, eg. 04
@@ -15,12 +15,19 @@ const { kebabCase } = require('lodash')
  * - {author} - slug of first author, eg. cameron
  * - {category} - slug of first category, eg. tutorial
  * - {tag} - slug of first tag listed in the post, eg. news
+ *
+ * collection status:
+ * - draft
+ * - private
+ * - published
+ * - deprecated
+ * - trashed
  */
 const collections = {
   posts: {
     type: 'post',
-    permalink: '/{year}/{month}/{slug}/',
     template: 'post',
+    permalink: '/{year}/{month}/{slug}/',
     draft: false,
     comment: true,
     private: false,
@@ -30,10 +37,10 @@ const collections = {
   },
   pages: {
     type: 'page',
-    permalink: '/{slug}/',
     template: 'page',
+    permalink: '/{slug}/',
     draft: false,
-    comment: true,
+    comment: false,
     private: false,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
@@ -48,18 +55,18 @@ const collections = {
 const taxonomies = {
   authors: {
     type: 'author',
-    permalink: '/authors/{slug}/',
-    template: 'author'
+    template: 'author',
+    permalink: '/authors/{slug}/'
   },
   categories: {
     type: 'category',
-    permalink: '/categories/{slug}/',
-    template: 'category'
+    template: 'category',
+    permalink: '/categories/{slug}/'
   },
   tags: {
     type: 'tag',
-    permalink: '/tags/{slug}/',
-    template: 'tag'
+    template: 'tag',
+    permalink: '/tags/{slug}/'
   }
 }
 
@@ -108,11 +115,9 @@ const createCollectionFields = ({ node, getNode, actions }) => {
     const year = date.getFullYear()
     const month = ('0' + (date.getMonth() + 1)).substr(-2)
     const day = ('0' + date.getDate()).substr(-2)
-    const author = authors.length ? getNode(authors[0]).slug : 'ghost'
-    const category = categories.length
-      ? getNode(categories[0]).slug
-      : 'uncategorized'
-    const tag = tags.length ? getNode(tags[0]).slug : 'untagged'
+    const author = getNode(authors[0]).slug
+    const category = getNode(categories[0]).slug
+    const tag = getNode(tags[0]).slug
     const context = { slug, year, month, day, author, category, tag }
     permalink = generatePermalink(permalink, context)
   }

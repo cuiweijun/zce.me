@@ -5,11 +5,11 @@ date: 2000-01-01 00:00:00
 updated: 2000-01-01 00:00:00
 cover: placeholder.png
 description: ''
-permalink: /placeholder/
 template: post
+permalink: /frontmatter-placeholder.html
 draft: false
 comment: false
-private: false
+private: true
 authors:
   - Lei Wang
 categories:

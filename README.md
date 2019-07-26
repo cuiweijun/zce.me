@@ -18,6 +18,7 @@
 - [x] Meta tags
 - [x] Gatsby image
 - [x] Sitemap support
+- [x] Post status
 - [x] RSS Feed (not enabled)
 - [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
 - [ ] Global style
@@ -63,6 +64,7 @@
 - https://github.com/KyleAMathews/typography.js
 - https://github.com/GatsbyCentral/gatsby-awesome-pagination
 - https://github.com/graysonhicks/gatsby-plugin-remote-images
+- https://www.gatsbycentral.com/
 
 - https://www.styleshout.com/
 - https://webflow.com/

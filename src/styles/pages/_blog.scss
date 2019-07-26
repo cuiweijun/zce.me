@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the blog page.
+// -----------------------------------------------------------------------------
+
+.blog {
+  .site-main {
+    > .container {
+      display: grid;
+      grid-gap: space(4);
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .site-main {
+      > .container {
+        grid-template-columns: repeat(2, 1fr);
+
+        > .card:first-child {
+          flex-direction: row;
+          grid-column-start: 1;
+          grid-column-end: 3;
+
+          .card-image {
+            flex-grow: 2;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .site-main {
+      > .container {
+        grid-template-columns: repeat(3, 1fr);
+
+        > .card:first-child {
+          flex-direction: row;
+          grid-column-start: 1;
+          grid-column-end: 4;
+
+          .card-image {
+            flex-grow: 2;
+          }
+        }
+      }
+    }
+  }
+}

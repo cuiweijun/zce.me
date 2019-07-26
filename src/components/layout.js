@@ -44,7 +44,7 @@ const query = graphql`
   }
 `
 
-export default ({ title, description, cover, location, children }) => {
+export default ({ title, description, cover, bodyClass, location, children }) => {
   const {
     site: { siteMetadata },
     siteCover
@@ -58,8 +58,6 @@ export default ({ title, description, cover, location, children }) => {
   description = description || siteMetadata.description
 
   cover = cover || siteCover
-
-  console.log(cover.childImageSharp.fluid)
 
   return (
     <Fragment>
@@ -89,14 +87,15 @@ export default ({ title, description, cover, location, children }) => {
         <meta property="og:type" content={`website`} />
         {/* TODO: Twitter & Fackbook Card tags? */}
         <link rel="canonical" href={url} />
+        {bodyClass && <body className={bodyClass} />}
       </Helmet>
 
       <Header
         title={siteMetadata.title}
         menus={siteMetadata.menus}
         cover={cover}>
-        <h1>{siteMetadata.title}</h1>
-        <p>{description}</p>
+        {/* <h1>{siteMetadata.title}</h1>
+        <p>{description}</p> */}
       </Header>
 
       <main className="site-main">{children}</main>

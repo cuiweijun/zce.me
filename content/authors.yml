@@ -9,12 +9,34 @@
   social:
     weibo: zceme
     wechat: wedn-net
-    qq: 27102514
+    qq: '27102514'
     zhihu: zceme
     github: zce
     medium: zce
     twitter: w_zce
     facebook: zccce
+  meta:
+    title: ''
+    description: ''
+  default: true
+
+- id: Ziwen Wang
+  slug: ziwen
+  email: z@zce.me
+  avatar: images/ziwen.jpg
+  cover: images/unknown.jpg
+  bio: MAKE IT BETTER!
+  website: https://zce.me
+  location: Beijing, China
+  social:
+    weibo: ''
+    wechat: ''
+    qq: ''
+    zhihu: ''
+    github: ''
+    medium: ''
+    twitter: ''
+    facebook: ''
   meta:
     title: ''
     description: ''

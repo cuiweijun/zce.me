@@ -4,11 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require('path')
-const slugify = require('slugify')
+const { kebabCase } = require('lodash')
 
 /**
- * collections permalink tags:
+ * collection permalink tags:
  * - {slug} - the post slug, eg. my-post
  * - {year} - publication year, eg. 2019
  * - {month} - publication month, eg. 04
@@ -16,26 +15,33 @@ const slugify = require('slugify')
  * - {author} - slug of first author, eg. cameron
  * - {category} - slug of first category, eg. tutorial
  * - {tag} - slug of first tag listed in the post, eg. news
+ *
+ * collection status:
+ * - draft
+ * - private
+ * - published
+ * - deprecated
+ * - trashed
  */
 const collections = {
   posts: {
     type: 'post',
-    permalink: '/{year}/{month}/{slug}/',
     template: 'post',
+    permalink: '/{year}/{month}/{slug}/',
+    draft: false,
     comment: true,
     private: false,
-    draft: false,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
     tags: ['Untagged']
   },
   pages: {
     type: 'page',
-    permalink: '/{slug}/',
     template: 'page',
-    comment: true,
-    private: false,
+    permalink: '/{slug}/',
     draft: false,
+    comment: false,
+    private: false,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
     tags: ['Untagged']
@@ -49,18 +55,18 @@ const collections = {
 const taxonomies = {
   authors: {
     type: 'author',
-    permalink: '/authors/{slug}/',
-    template: 'author'
+    template: 'author',
+    permalink: '/authors/{slug}/'
   },
   categories: {
     type: 'category',
-    permalink: '/categories/{slug}/',
-    template: 'category'
+    template: 'category',
+    permalink: '/categories/{slug}/'
   },
   tags: {
     type: 'tag',
-    permalink: '/tags/{slug}/',
-    template: 'tag'
+    template: 'tag',
+    permalink: '/tags/{slug}/'
   }
 }
 
@@ -71,12 +77,12 @@ const generatePermalink = (template, context) => {
   })
 }
 
-const createMarkdownFields = ({ node, getNode, actions }) => {
+const createCollectionFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  const { relativeDirectory } = getNode(node.parent)
-  const options = collections[path.dirname(relativeDirectory)]
-  if (!options) return
+  const { relativePath } = getNode(node.parent)
+  const collection = collections[relativePath.split('/')[0]]
+  if (!collection) return
 
   let {
     title,
@@ -85,47 +91,43 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
     updated,
     cover,
     description,
-    template = options.template,
-    permalink = options.permalink,
-    comment = options.comment,
-    private = options.private,
-    draft = options.draft,
+    template = collection.template,
+    permalink = collection.permalink,
+    draft = collection.draft,
+    comment = collection.comment,
+    private = collection.private,
     authors = [],
     categories = [],
     tags = []
   } = node.frontmatter
 
-  if (!slug) {
-    slug = slugify(title, { lower: true })
-  }
+  slug = slug || kebabCase(title)
 
   date = new Date(date || null)
   updated = updated ? new Date(updated) : date
 
-  authors.length || authors.push(...options.authors)
-  categories.length || categories.push(...options.categories)
-  tags.length || tags.push(...options.tags)
+  authors.length || authors.push(...collection.authors)
+  categories.length || categories.push(...collection.categories)
+  tags.length || tags.push(...collection.tags)
 
   if (/{([a-z_]+)}/.test(permalink)) {
     // generate permalink if permalink not defined in frontmatter
     const year = date.getFullYear()
     const month = ('0' + (date.getMonth() + 1)).substr(-2)
     const day = ('0' + date.getDate()).substr(-2)
-    const author = authors.length ? getNode(authors[0]).slug : 'ghost'
-    const category = categories.length
-      ? getNode(categories[0]).slug
-      : 'uncategorized'
-    const tag = tags.length ? getNode(tags[0]).slug : 'untagged'
+    const author = getNode(authors[0]).slug
+    const category = getNode(categories[0]).slug
+    const tag = getNode(tags[0]).slug
     const context = { slug, year, month, day, author, category, tag }
     permalink = generatePermalink(permalink, context)
   }
 
-  createNodeField({ node, name: 'type', value: options.type })
+  createNodeField({ node, name: 'type', value: collection.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
+  createNodeField({ node, name: 'draft', value: draft })
   createNodeField({ node, name: 'comment', value: comment })
   createNodeField({ node, name: 'private', value: private })
-  createNodeField({ node, name: 'draft', value: draft })
 
   createNodeField({ node, name: 'title', value: title })
   createNodeField({ node, name: 'slug', value: slug })
@@ -139,29 +141,27 @@ const createMarkdownFields = ({ node, getNode, actions }) => {
   createNodeField({ node, name: 'tags', value: tags })
 }
 
-const createYamlFields = ({ node, getNode, actions }) => {
+const createTaxonomyFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  const { base, ext } = getNode(node.parent)
-  const options = taxonomies[path.basename(base, ext)]
-  if (!options) return
+  const { name } = getNode(node.parent)
+  const taxonomy = taxonomies[name]
+  if (!taxonomy) return
 
   let {
     id,
     slug,
-    template = options.template,
-    permalink = options.permalink
+    template = taxonomy.template,
+    permalink = taxonomy.permalink
   } = node
 
-  if (!slug) {
-    slug = slugify(id, { lower: true })
-  }
+  slug = slug || kebabCase(id)
 
   if (/{([a-z_]+)}/.test(permalink)) {
     permalink = generatePermalink(permalink, { slug })
   }
 
-  createNodeField({ node, name: 'type', value: options.type })
+  createNodeField({ node, name: 'type', value: taxonomy.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
 }
@@ -169,11 +169,11 @@ const createYamlFields = ({ node, getNode, actions }) => {
 exports.onCreateNode = args => {
   switch (args.node.internal.type) {
     case 'MarkdownRemark':
-      return createMarkdownFields(args)
+      return createCollectionFields(args)
     case 'AuthorsYaml':
     case 'CategoriesYaml':
     case 'TagsYaml':
-      return createYamlFields(args)
+      return createTaxonomyFields(args)
   }
 }
 
@@ -183,15 +183,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query CreatePages {
-      allMarkdownRemark(sort: { fields: fields___date, order: DESC }) {
+      allMarkdownRemark(
+        filter: { fields: { draft: { eq: false }, private: { eq: false } } }
+        sort: { fields: fields___date, order: DESC }
+      ) {
         edges {
           node {
             id
             fields {
-              title
               type
               template
               permalink
+              title
             }
           }
         }
@@ -245,7 +248,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   Object.values(collections)
     .map(c => c.type)
     .forEach(type => {
-      const items = posts.filter(e => e.node.fields.type === type)
+      const items = posts
+        .filter(i => i.node.fields.type === type)
+        .filter(i => !i.node.fields.draft)
+        .filter(i => !i.node.fields.private)
+
       items.forEach(({ node: { id, fields } }, i) => {
         const prev = i === items.length - 1 ? null : items[i + 1].node
         const next = i === 0 ? null : items[i - 1].node

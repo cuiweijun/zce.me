@@ -64,7 +64,6 @@
     "prismjs": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-helmet": "latest",
-    "slugify": "latest"
+    "react-helmet": "latest"
   }
 }

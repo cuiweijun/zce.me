@@ -72,7 +72,8 @@
 
       &:focus,
       &:not(:placeholder-shown) {
-        width: 8rem;
+        width: 10rem;
+        max-width: 30vw;
         outline: 0;
         background-color: rgba(color(white), 0.25);
       }

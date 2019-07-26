@@ -34,7 +34,7 @@ const query = graphql`
     }
     siteCover: file(relativePath: { eq: "images/cover.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1280) {
+        fluid(maxWidth: 1080, maxHeight: 720) {
           ...GatsbyImageSharpFluid
           presentationWidth
           presentationHeight

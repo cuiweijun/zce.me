@@ -3,11 +3,11 @@
   &.prolog,
   &.doctype,
   &.cdata {
-    color: gray('600');
+    color: gray(6);
   }
 
   &.punctuation {
-    color: gray('300');
+    color: gray(3);
   }
 
   &.property,
@@ -15,12 +15,12 @@
   &.constant,
   &.symbol,
   &.deleted {
-    color: color('red');
+    color: color(red);
   }
 
   &.boolean,
   &.number {
-    color: color('purple');
+    color: color(purple);
   }
 
   &.selector,
@@ -29,7 +29,7 @@
   &.char,
   &.builtin,
   &.inserted {
-    color: color('teal');
+    color: color(teal);
   }
 
   &.operator,
@@ -38,23 +38,23 @@
   &.url,
   .language-css &.string,
   .style &.string {
-    color: gray('100');
+    color: gray(1);
   }
 
   &.atrule,
   &.attr-value,
   &.function,
   &.class-name {
-    color: color('yellow');
+    color: color(yellow);
   }
 
   &.keyword {
-    color: color('cyan');
+    color: color(cyan);
   }
 
   &.regex,
   &.important {
-    color: color('orange');
+    color: color(orange);
   }
 
   &.important,

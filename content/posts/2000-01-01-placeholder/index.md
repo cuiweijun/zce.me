@@ -9,7 +9,7 @@ permalink: /placeholder/
 template: post
 draft: false
 comment: false
-private: false
+private: true
 authors:
   - Lei Wang
 categories:

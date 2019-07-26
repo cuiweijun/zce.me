@@ -67,7 +67,13 @@ export default ({ data, location }) => (
 export const query = graphql`
   query BlogPage {
     allMarkdownRemark(
-      filter: { fields: { type: { eq: "post" } } }
+      filter: {
+        fields: {
+          type: { eq: "post" }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
       sort: { fields: fields___date, order: DESC }
     ) {
       totalCount

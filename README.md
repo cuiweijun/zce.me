@@ -18,6 +18,7 @@
 - [x] Meta tags
 - [x] Gatsby image
 - [x] Sitemap support
+- [x] Post status
 - [x] RSS Feed (not enabled)
 - [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
 - [ ] Global style

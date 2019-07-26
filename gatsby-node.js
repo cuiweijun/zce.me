@@ -21,9 +21,9 @@ const collections = {
     type: 'post',
     permalink: '/{year}/{month}/{slug}/',
     template: 'post',
+    draft: false,
     comment: true,
     private: false,
-    draft: false,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
     tags: ['Untagged']
@@ -32,9 +32,9 @@ const collections = {
     type: 'page',
     permalink: '/{slug}/',
     template: 'page',
+    draft: false,
     comment: true,
     private: false,
-    draft: false,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
     tags: ['Untagged']
@@ -86,9 +86,9 @@ const createCollectionFields = ({ node, getNode, actions }) => {
     description,
     template = collection.template,
     permalink = collection.permalink,
+    draft = collection.draft,
     comment = collection.comment,
     private = collection.private,
-    draft = collection.draft,
     authors = [],
     categories = [],
     tags = []
@@ -120,9 +120,9 @@ const createCollectionFields = ({ node, getNode, actions }) => {
   createNodeField({ node, name: 'type', value: collection.type })
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
+  createNodeField({ node, name: 'draft', value: draft })
   createNodeField({ node, name: 'comment', value: comment })
   createNodeField({ node, name: 'private', value: private })
-  createNodeField({ node, name: 'draft', value: draft })
 
   createNodeField({ node, name: 'title', value: title })
   createNodeField({ node, name: 'slug', value: slug })
@@ -178,15 +178,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query CreatePages {
-      allMarkdownRemark(sort: { fields: fields___date, order: DESC }) {
+      allMarkdownRemark(
+        filter: { fields: { draft: { eq: false }, private: { eq: false } } }
+        sort: { fields: fields___date, order: DESC }
+      ) {
         edges {
           node {
             id
             fields {
-              title
               type
               template
               permalink
+              title
             }
           }
         }
@@ -240,7 +243,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   Object.values(collections)
     .map(c => c.type)
     .forEach(type => {
-      const items = posts.filter(i => i.node.fields && i.node.fields.type === type)
+      const items = posts
+        .filter(i => i.node.fields.type === type)
+        .filter(i => !i.node.fields.draft)
+        .filter(i => !i.node.fields.private)
+
       items.forEach(({ node: { id, fields } }, i) => {
         const prev = i === items.length - 1 ? null : items[i + 1].node
         const next = i === 0 ? null : items[i - 1].node

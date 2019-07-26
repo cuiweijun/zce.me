@@ -6,6 +6,7 @@
   .site-main {
     > .container {
       display: grid;
+
       grid-gap: space(4);
     }
   }
@@ -17,8 +18,9 @@
 
         > .card:first-child {
           flex-direction: row;
-          grid-column-start: 1;
+
           grid-column-end: 3;
+          grid-column-start: 1;
 
           .card-image {
             flex-grow: 2;
@@ -35,8 +37,9 @@
 
         > .card:first-child {
           flex-direction: row;
-          grid-column-start: 1;
+
           grid-column-end: 4;
+          grid-column-start: 1;
 
           .card-image {
             flex-grow: 2;

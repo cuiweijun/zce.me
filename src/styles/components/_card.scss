@@ -29,10 +29,11 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
 }
 
 .card-image {
-  margin: 0;
+  background-color: color(light);
 }
 
 .card-content {
@@ -64,7 +65,7 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      z-index: 1;
+      z-index: 2;
 
       li ~ li {
         margin-left: - space(3);
@@ -72,7 +73,7 @@
       }
 
       span {
-        border: 2px solid color(muted);
+        border: 2px solid color(light);
         border-radius: 50%;
         vertical-align: middle;
       }

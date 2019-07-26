@@ -10,10 +10,8 @@
 
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
-import { graphql, useStaticQuery } from 'gatsby'
-
-import Header from './header'
-import Footer from './footer'
+import { graphql, useStaticQuery, Link } from 'gatsby'
+import Image from 'gatsby-image'
 
 const query = graphql`
   query LayoutComponent {
@@ -65,7 +63,7 @@ export default ({ title, description, cover, bodyClass, location, children }) =>
         <html lang={siteMetadata.language} />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="author" content={siteMetadata.author} />
+        <meta name="siteMetadata.author" content={siteMetadata.author} />
         {/* OpenGraph tags */}
         <meta property="og:site_name" content={siteMetadata.title} />
         <meta property="og:url" content={url} />
@@ -90,17 +88,50 @@ export default ({ title, description, cover, bodyClass, location, children }) =>
         {bodyClass && <body className={bodyClass} />}
       </Helmet>
 
-      <Header
-        title={siteMetadata.title}
-        menus={siteMetadata.menus}
-        cover={cover}>
-        {/* <h1>{siteMetadata.title}</h1>
-        <p>{description}</p> */}
-      </Header>
+      <header className="site-header">
+        <nav className="site-nav">
+          <div className="container">
+            <Link className="nav-brand" to="/">
+              <img alt={siteMetadata.title} src="/logo.svg" width="25" height="25" />
+              <span>{siteMetadata.title}</span>
+            </Link>
+            <ul className="nav-menu">
+              {siteMetadata.menus.map(i => (
+                <li key={i.link}>
+                  <Link to={i.link}>{i.text}</Link>
+                </li>
+              ))}
+            </ul>
+            <form className="nav-search" action="/search/">
+              <input type="search" placeholder="Search" autoComplete="off" />
+            </form>
+          </div>
+        </nav>
+        {/* <div className="site-heading">
+          <h1>{siteMetadata.title}</h1>
+          <p>{description}</p>
+        </div> */}
+        <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
+      </header>
 
       <main className="site-main">{children}</main>
 
-      <Footer author={siteMetadata.author} />
+      <footer className="site-footer">
+        <p className="container">
+          &copy; {new Date().getFullYear()} by {siteMetadata.author}, Built with{' '}
+          <a href="https://gatsbyjs.org" target="_blank" rel="noopener noreferrer">
+            Gatsby
+          </a>
+          . Visit the{' '}
+          <a
+            href="https://github.com/zce/zce.me"
+            target="_blank"
+            rel="noopener noreferrer">
+            Source
+          </a>
+          .
+        </p>
+      </footer>
     </Fragment>
   )
 }

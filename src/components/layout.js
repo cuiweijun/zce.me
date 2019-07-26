@@ -59,8 +59,6 @@ export default ({ title, description, cover, location, children }) => {
 
   cover = cover || siteCover
 
-  console.log(cover.childImageSharp.fluid)
-
   return (
     <Fragment>
       <Helmet>
@@ -95,8 +93,8 @@ export default ({ title, description, cover, location, children }) => {
         title={siteMetadata.title}
         menus={siteMetadata.menus}
         cover={cover}>
-        <h1>{siteMetadata.title}</h1>
-        <p>{description}</p>
+        {/* <h1>{siteMetadata.title}</h1>
+        <p>{description}</p> */}
       </Header>
 
       <main className="site-main">{children}</main>

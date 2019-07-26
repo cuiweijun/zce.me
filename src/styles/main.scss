@@ -34,12 +34,14 @@
 // components
 // --------------------------------------------------
 
+@import 'components/card';
 @import 'components/prism';
 
 // pages
 // --------------------------------------------------
 
 @import 'pages/home';
+@import 'pages/blog';
 @import 'pages/author';
 @import 'pages/category';
 @import 'pages/tag';

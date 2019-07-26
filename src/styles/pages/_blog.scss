@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the blog page.
+// -----------------------------------------------------------------------------
+
+.site-main {
+  > .container {
+    display: grid;
+    grid-gap: space(4);
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .site-main {
+    > .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .site-main {
+    > .container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

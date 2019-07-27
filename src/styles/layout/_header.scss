@@ -82,16 +82,33 @@
 }
 
 .site-heading {
-  color: color(light);
+  // position: absolute;
+  // width: 100%;
+  padding: 10vw 4vw;
+  color: color('light');
   text-align: center;
 }
 
 .site-cover {
-  // position: absolute !important;
-  // top: 0;
-  // z-index: -1;
-  max-height: 100vh;
+  position: absolute !important;
+  top: 0;
+  z-index: -1;
+  max-height: 75vh;
   width: 100%;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+  }
+
+  &::after {
+    background: linear-gradient(rgba($body-bg, 0), rgba($body-bg, 0.4) 60%, $body-bg), 0 / 1px url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><g><rect x="0" y="0" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/></g></svg>');
+  }
 }
 
 @include media-breakpoint-down(xs) {

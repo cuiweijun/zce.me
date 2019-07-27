@@ -107,10 +107,10 @@ export default ({ title, description, cover, bodyClass, location, children }) =>
             </form>
           </div>
         </nav>
-        {/* <div className="site-heading">
+        <div className="site-heading">
           <h1>{siteMetadata.title}</h1>
           <p>{description}</p>
-        </div> */}
+        </div>
         <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
       </header>
 

@@ -90,14 +90,6 @@
 
 @include media-breakpoint-down(xs) {
   .site-nav {
-    // > .container {
-    //   flex-direction: column;
-    // }
-
-    // .nav-brand {
-    //   margin-right: 0;
-    // }
-
     .nav-menu {
       overflow-x: auto;
       white-space: nowrap;

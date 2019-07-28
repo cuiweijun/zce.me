@@ -26,7 +26,11 @@ export default ({ data, location }) => (
           <Link className="card-link" to={node.fields.permalink}></Link>
           <Image
             className="card-image"
-            fluid={node.fields.cover ? node.fields.cover.childImageSharp.fluid : data.file.childImageSharp.fluid}
+            fluid={
+              node.fields.cover
+                ? node.fields.cover.childImageSharp.fluid
+                : data.file.childImageSharp.fluid
+            }
             alt={node.fields.title}
             title={node.fields.title}
           />
@@ -41,9 +45,11 @@ export default ({ data, location }) => (
             <footer>
               <ul>
                 {node.fields.authors.map((author, i) => (
-                  <li key={author.id} style={{
-                    zIndex: node.fields.authors.length - i
-                  }}>
+                  <li
+                    key={author.id}
+                    style={{
+                      zIndex: node.fields.authors.length - i
+                    }}>
                     <Link to={author.fields.permalink} title={author.id}>
                       <Image
                         Tag="span"
@@ -54,7 +60,9 @@ export default ({ data, location }) => (
                   </li>
                 ))}
               </ul>
-              <small>{`${node.timeToRead} min${node.timeToRead === 1 ? '' : 's'}`}</small>
+              <small>{`${node.timeToRead} min${
+                node.timeToRead === 1 ? '' : 's'
+              }`}</small>
             </footer>
           </div>
         </article>

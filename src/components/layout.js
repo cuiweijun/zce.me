@@ -42,7 +42,14 @@ const query = graphql`
   }
 `
 
-export default ({ title, description, cover, bodyClass, location, children }) => {
+export default ({
+  title,
+  description,
+  cover,
+  bodyClass,
+  location,
+  children
+}) => {
   const {
     site: { siteMetadata },
     siteCover
@@ -92,7 +99,12 @@ export default ({ title, description, cover, bodyClass, location, children }) =>
         <nav className="site-nav">
           <div className="container">
             <Link className="nav-brand" to="/">
-              <img alt={siteMetadata.title} src="/logo.svg" width="25" height="25" />
+              <img
+                alt={siteMetadata.title}
+                src="/logo.svg"
+                width="25"
+                height="25"
+              />
               <span>{siteMetadata.title}</span>
             </Link>
             <ul className="nav-menu">
@@ -119,7 +131,10 @@ export default ({ title, description, cover, bodyClass, location, children }) =>
       <footer className="site-footer">
         <p className="container">
           &copy; {new Date().getFullYear()} by {siteMetadata.author}, Built with{' '}
-          <a href="https://gatsbyjs.org" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://gatsbyjs.org"
+            target="_blank"
+            rel="noopener noreferrer">
             Gatsby
           </a>
           . Visit the{' '}

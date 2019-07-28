@@ -54,7 +54,7 @@
       border-radius: space(1);
       background-color: transparent;
       background-image: url(escape-svg(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#{color(light)}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>'
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#{color(light)}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>'
       ));
       background-position: space(1) center;
       background-size: space(3);
@@ -103,11 +103,23 @@
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 1;
     content: '';
   }
 
+  &::before {
+    background: 0 / 4px
+      url(escape-svg(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 4" stroke="#000"><line x1="0" y1="1" x2="1" y2="0"/><line x1="1" y1="4" x2="4" y2="1"/></svg>'
+      ));
+  }
+
   &::after {
-    background: linear-gradient(rgba($body-bg, 0), rgba($body-bg, 0.4) 60%, $body-bg), 0 / 1px url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><g><rect x="0" y="0" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/></g></svg>');
+    background: linear-gradient(
+      rgba($body-bg, 0),
+      rgba($body-bg, 0.4) 60%,
+      $body-bg
+    );
   }
 }
 
@@ -126,11 +138,11 @@
       white-space: nowrap;
 
       mask-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0),
-      #000 6%,
-      #000 94%,
-      rgba(0, 0, 0, 0)
+        to right,
+        rgba(0, 0, 0, 0),
+        #000 6%,
+        #000 94%,
+        rgba(0, 0, 0, 0)
       );
       -webkit-overflow-scrolling: touch;
       -ms-overflow-style: none;

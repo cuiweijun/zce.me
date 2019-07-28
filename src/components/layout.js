@@ -16,28 +16,10 @@ import Image from 'gatsby-image'
 const query = graphql`
   query LayoutComponent {
     site {
-      siteMetadata {
-        url
-        title
-        slogan
-        description
-        keywords
-        author
-        language
-        menus {
-          text
-          link
-        }
-      }
+      ...SiteMetadata
     }
     siteCover: file(relativePath: { eq: "images/cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1080, maxHeight: 720) {
-          ...GatsbyImageSharpFluid
-          presentationWidth
-          presentationHeight
-        }
-      }
+      ...SiteCoverImage
     }
   }
 `
@@ -46,6 +28,7 @@ export default ({
   title,
   description,
   cover,
+  heading,
   bodyClass,
   location,
   children
@@ -55,14 +38,26 @@ export default ({
     siteCover
   } = useStaticQuery(query)
 
+  // canonical url
   const url = siteMetadata.url + location.pathname
 
+  // title
   const suffix = `${siteMetadata.title} | ${siteMetadata.slogan}`
   title = title ? `${title} - ${suffix}` : suffix
 
+  // description
   description = description || siteMetadata.description
 
+  // cover image
   cover = cover || siteCover
+
+  // heading
+  heading = heading || (
+    <div className="container">
+      <h1>{siteMetadata.title}</h1>
+      <p>{siteMetadata.description}</p>
+    </div>
+  )
 
   return (
     <Fragment>
@@ -95,13 +90,15 @@ export default ({
         {bodyClass && <body className={bodyClass} />}
       </Helmet>
 
+      <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
+
       <header className="site-header">
         <nav className="site-nav">
           <div className="container">
             <Link className="nav-brand" to="/">
               <img
                 alt={siteMetadata.title}
-                src="/logo.svg"
+                src={siteMetadata.logo}
                 width="25"
                 height="25"
               />
@@ -119,11 +116,7 @@ export default ({
             </form>
           </div>
         </nav>
-        <div className="site-heading">
-          <h1>{siteMetadata.title}</h1>
-          <p>{description}</p>
-        </div>
-        <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
+        {heading && <div className="site-heading">{heading}</div>}
       </header>
 
       <main className="site-main">{children}</main>

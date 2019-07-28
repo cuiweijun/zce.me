@@ -5,21 +5,16 @@ import Image from 'gatsby-image'
 import Layout from '../components/layout'
 
 export default ({ data, location }) => (
-  <Layout title={`All posts`} bodyClass={`blog`} location={location}>
-    {/* <section className="jumbotron text-center">
+  <Layout
+    title="All posts"
+    bodyClass="blog"
+    heading={(
       <div className="container">
-        <h1 className="jumbotron-heading">
-          {data.allMarkdownRemark.totalCount} Posts
-        </h1>
-        <p className="lead text-muted">{`hi~`}</p>
-        <p>
-          <a href="/" className="btn btn-primary my-3">
-            Getting started
-          </a>
-        </p>
+        <h1>Blog</h1>
+        <p>A collection of {data.allMarkdownRemark.totalCount} posts</p>
       </div>
-    </section> */}
-
+    )}
+    location={location}>
     <div className="container">
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <article className="card" key={node.id}>
@@ -92,11 +87,7 @@ export const query = graphql`
           fields {
             title
             cover {
-              childImageSharp {
-                fluid(maxWidth: 540, maxHeight: 360, cropFocus: CENTER) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              ...PostCardImage
             }
             permalink
             authors {
@@ -123,10 +114,14 @@ export const query = graphql`
       }
     }
     file(relativePath: { eq: "images/unknown.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 540, maxHeight: 360, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid
-        }
+      ...PostCardImage
+    }
+  }
+
+  fragment PostCardImage on File {
+    childImageSharp {
+      fluid(maxWidth: 540, maxHeight: 360, cropFocus: CENTER) {
+        ...GatsbyImageSharpFluid
       }
     }
   }

@@ -8,12 +8,12 @@ export default ({ data, location }) => (
   <Layout
     title="All posts"
     bodyClass="blog"
-    heading={(
+    heading={
       <div className="container">
         <h1>Blog</h1>
         <p>A collection of {data.allMarkdownRemark.totalCount} posts</p>
       </div>
-    )}
+    }
     location={location}>
     <div className="container">
       {data.allMarkdownRemark.edges.map(({ node }) => (

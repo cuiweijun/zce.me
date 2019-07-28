@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 
 export default ({ data, location }) => {
   return (
-    <Layout bodyClass="home"location={location}>
+    <Layout bodyClass="home" location={location}>
       <section>
         <div className="container">
           <p>Hello world</p>

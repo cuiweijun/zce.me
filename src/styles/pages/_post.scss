@@ -3,7 +3,32 @@
 // -----------------------------------------------------------------------------
 
 .post {
-  .site-main {
-    margin-top: 0;
+  .site-cover img {
+    filter: blur(0.5rem);
+    transform: translateZ(0) scale(1.0825);
   }
+
+  .site-heading {
+    text-shadow: 0 0 space(1) color(dark);
+
+    a {
+      color: inherit;
+    }
+
+    [role='separator']::before {
+      display: inline-block;
+      padding: 0 space(1);
+      content: '/';
+    }
+  }
+}
+
+.post-meta {
+
+}
+
+.post-content {
+  margin: 0 auto;
+  padding: 6vw 4vw;
+  max-width: 700px;
 }

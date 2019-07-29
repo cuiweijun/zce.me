@@ -5,41 +5,18 @@
 // abstracts
 // --------------------------------------------------
 
-@import 'abstracts/functions';
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-@import 'abstracts/placeholders';
+@import '../../node_modules/normalize.css/normalize.css';
 
-// vendors
-// --------------------------------------------------
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+@import 'placeholders';
 
-// @import 'vendors/bootstrap';
-@import '/node_modules/normalize.css/normalize.css';
-
-// base
-// --------------------------------------------------
-
-@import 'base/fonts';
-@import 'base/helpers';
-@import 'base/global';
-
-// layout
-// --------------------------------------------------
-
-@import 'layout/wrapper';
-@import 'layout/cover';
-@import 'layout/header';
-@import 'layout/main';
-@import 'layout/footer';
-
-// components
-// --------------------------------------------------
+@import 'global';
+@import 'layout';
 
 @import 'components/card';
 @import 'components/prism';
-
-// pages
-// --------------------------------------------------
 
 @import 'pages/home';
 @import 'pages/blog';
@@ -49,8 +26,5 @@
 @import 'pages/page';
 @import 'pages/post';
 @import 'pages/error';
-
-// themes
-// --------------------------------------------------
 
 @import 'themes/default';

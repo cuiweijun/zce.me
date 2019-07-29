@@ -15,8 +15,10 @@ export default ({ data, pageContext, location }) => {
       title={fields.title}
       description={fields.description || post.excerpt}
       cover={fields.cover}
-      heading={
-        <div className="container">
+      bodyClass="post"
+      location={location}>
+      <article class="container" role="main">
+        <header className="post-header">
           <small className="post-meta">
             <span aria-label="Posted by">
               {fields.authors.map(i => (
@@ -38,22 +40,18 @@ export default ({ data, pageContext, location }) => {
               </Link>
             ))}
           </span>
-        </div>
-      }
-      bodyClass="post"
-      location={location}>
-      <div class="container">
+        </header>
         {fields.cover && (
           <Image
+            Tag="figure"
+            className="post-cover"
             alt={fields.title}
             title={fields.title}
             fluid={fields.cover.childImageSharp.fluid}
-            style={{}}
-            imgStyle={{}}
           />
         )}
-        <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
-        <footer>
+        <section className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <footer className="post-footer">
           {fields.tags && (
             <ul>
               {fields.tags.map(tag => (
@@ -82,7 +80,7 @@ export default ({ data, pageContext, location }) => {
           </ul>
           <Link to="/blog/">Back to all Posts</Link>
         </footer>
-      </div>
+      </article>
     </Layout>
   )
 }

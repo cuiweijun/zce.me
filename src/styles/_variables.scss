@@ -3,7 +3,7 @@
 // https://system-ui.com/theme
 // -----------------------------------------------------------------------------
 
-@import '../../../node_modules/open-color/open-color.scss';
+@import '../../node_modules/open-color/open-color.scss';
 
 $grays: (
   0: $oc-gray-0,
@@ -105,4 +105,4 @@ $paragraph-margin-bottom: space();
 
 $link-color: color('primary');
 
-$container-width: 960px; // 1140px;
+$container-width: 1040px; // 1140px;

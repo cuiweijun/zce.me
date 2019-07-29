@@ -46,7 +46,7 @@ export const SiteMetadata = graphql`
 export const SiteCoverImage = graphql`
   fragment SiteCoverImage on File {
     childImageSharp {
-      fluid(maxWidth: 1080, maxHeight: 720) {
+      fluid(maxWidth: 1080, maxHeight: 720, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
         presentationWidth
         presentationHeight

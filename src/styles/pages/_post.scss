@@ -4,17 +4,16 @@
 
 .post {
   .site-cover img {
-    filter: blur(0.5rem);
+    filter: blur(0.75rem);
     transform: translateZ(0) scale(1.0825);
   }
 }
 
 .post-header {
   padding: 6vw 4vw;
-  color: color('light');
+  color: color(white);
   text-align: center;
   text-shadow: 0 0 space(1) color(dark);
-  font-weight: $font-weight-normal;
   font-size: $font-size-large;
 
   h1 {
@@ -23,6 +22,11 @@
 
   a {
     color: inherit;
+
+    &:hover {
+      border-bottom: 1px solid;
+      opacity: 0.9;
+    }
   }
 
   [role='separator']::before {
@@ -32,8 +36,50 @@
   }
 }
 
+.post-cover {
+  overflow: visible !important;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 10%;
+    z-index: -1;
+    width: 1.25rem;
+    height: 130%;
+    background: rgba(gray(4), 0.5);
+    content: '';
+    filter: blur(1rem);
+  }
+
+  &::before {
+    left: -0.5rem;
+    transform: rotate(-1deg);
+  }
+
+  &::after {
+    right: -0.5rem;
+    transform: rotate(1deg);
+  }
+}
+
 .post-content {
-  margin: 0 auto;
-  padding: 6vw 4vw;
-  max-width: 700px;
+  padding: 6% 8%;
+  background: $body-bg;
+  font-family: $font-family-serif;
+  line-height: $line-height-loose;
+
+  .footnotes {
+    overflow: hidden;
+    background: gray(1);
+    font-size: $font-size-small;
+
+    hr {
+      margin-top: 0;
+      opacity: 0.1;
+    }
+
+    p {
+      display: inline-block;
+    }
+  }
 }

@@ -51,13 +51,13 @@ export default ({
   // cover image
   cover = cover || siteCover
 
-  // heading
-  heading = heading || (
-    <div className="container">
-      <h1>{siteMetadata.title}</h1>
-      <p>{siteMetadata.description}</p>
-    </div>
-  )
+  // // heading
+  // heading = heading || (
+  //   <div className="container">
+  //     <h1>{siteMetadata.title}</h1>
+  //     <p>{siteMetadata.description}</p>
+  //   </div>
+  // )
 
   return (
     <Fragment>

@@ -115,6 +115,7 @@
   padding: 10vw 4vw;
   color: color('light');
   text-align: center;
+  text-shadow: 0 0 space(1) color(dark);
   font-size: $font-size-large;
 
   h1 {
@@ -148,6 +149,6 @@
 
 .site-footer {
   padding: space() 0;
-  text-align: center;
   color: color('muted');
+  text-align: center;
 }

@@ -33,13 +33,13 @@ export default ({ data, pageContext, location }) => {
             </time>
           </small>
           <h1>{fields.title}</h1>
-          <span aria-label="Posted on">
+          <small aria-label="Posted on">
             {fields.categories.map(i => (
               <Link key={i.id} to={i.fields.permalink}>
                 {i.id}
               </Link>
             ))}
-          </span>
+          </small>
         </header>
         {fields.cover && (
           <Image
@@ -50,7 +50,10 @@ export default ({ data, pageContext, location }) => {
             fluid={fields.cover.childImageSharp.fluid}
           />
         )}
-        <section className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <footer className="post-footer">
           {fields.tags && (
             <ul>

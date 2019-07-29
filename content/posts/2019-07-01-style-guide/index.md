@@ -212,6 +212,4 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 Labore et dolore.
 
----
-
 [^footnote]: Here is the _text_ of the **footnote**.

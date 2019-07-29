@@ -38,6 +38,7 @@
 
 .post-cover {
   overflow: visible !important;
+  background: color(dark) linear-gradient(135deg, lighten(color(dark), 30), color(dark));
 
   &::before,
   &::after {

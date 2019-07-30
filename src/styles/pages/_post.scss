@@ -40,7 +40,7 @@
 .post-cover {
   overflow: visible !important;
   background: color(dark)
-    linear-gradient(135deg, lighten(color(dark), 30), color(dark));
+  linear-gradient(135deg, lighten(color(dark), 30), color(dark));
 
   &::before,
   &::after {
@@ -85,6 +85,42 @@
 
     p {
       display: inline-block;
+    }
+  }
+}
+
+.post-footer {
+  .tags {
+    margin-right: auto;
+    margin-bottom: space(4);
+    margin-left: auto;
+    padding: 0 8%;
+    color: color(accent);
+    text-align: center;
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 0.25rem;
+
+        &:after {
+          content: '\002C';
+        }
+      }
+    }
+
+    a {
+      color: inherit;
+
+      &:before {
+        content: '\0023';
+      }
     }
   }
 }

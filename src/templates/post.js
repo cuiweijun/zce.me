@@ -56,20 +56,26 @@ export default ({ data, pageContext, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <footer className="post-footer">
-          <section className="post-tags">
+          <section className="tags">
+            <h3 className="sr-only">Tags</h3>
             {fields.tags && (
               <ul>
                 {fields.tags.map(tag => (
                   <li key={tag.id}>
-                    <Link to={tag.fields.permalink}>{tag.id}</Link>,
+                    <Link to={tag.fields.permalink}>{tag.id}</Link>
                   </li>
                 ))}
               </ul>
             )}
           </section>
-          <section className="post-share"></section>
-          <section className="post-authors"></section>
-          <section className="post-license"></section>
+          <section className="authors">
+            {fields.authors.map(i => (
+              <Link key={i.id} to={i.fields.permalink}>
+                {i.id}
+              </Link>
+            ))}
+          </section>
+          <section className="license"></section>
           <ul>
             <li>
               {prev && (

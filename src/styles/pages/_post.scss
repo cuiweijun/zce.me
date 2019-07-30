@@ -18,6 +18,7 @@
 
   h1 {
     font-size: $h1-font-size * 1.25;
+    font-family: $font-family-sans-serif;
   }
 
   a {
@@ -38,7 +39,8 @@
 
 .post-cover {
   overflow: visible !important;
-  background: color(dark) linear-gradient(135deg, lighten(color(dark), 30), color(dark));
+  background: color(dark)
+    linear-gradient(135deg, lighten(color(dark), 30), color(dark));
 
   &::before,
   &::after {
@@ -65,7 +67,9 @@
 
 .post-content {
   padding: 6% 8%;
+  min-height: 50vh;
   background: $body-bg;
+  font-size: calc(#{$font-size-medium} + 0.33vw);
   font-family: $font-family-serif;
   line-height: $line-height-loose;
 

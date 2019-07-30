@@ -18,28 +18,10 @@ export default ({ data, location }) => {
 export const query = graphql`
   query IndexPage {
     site {
-      siteMetadata {
-        url
-        title
-        slogan
-        description
-        keywords
-        author
-        language
-        menus {
-          text
-          link
-        }
-      }
+      ...SiteMetadata
     }
     cover: file(relativePath: { eq: "images/cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1080, maxHeight: 720) {
-          ...GatsbyImageSharpFluid
-          presentationWidth
-          presentationHeight
-        }
-      }
+      ...SiteCoverImage
     }
   }
 `

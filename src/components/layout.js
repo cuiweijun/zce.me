@@ -9,6 +9,7 @@
  */
 
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import Image from 'gatsby-image'
@@ -24,40 +25,35 @@ const query = graphql`
   }
 `
 
-export default ({
-  title,
-  description,
-  cover,
-  heading,
-  bodyClass,
-  location,
-  children
-}) => {
+const Layout = props => {
   const {
     site: { siteMetadata },
     siteCover
   } = useStaticQuery(query)
 
   // canonical url
-  const url = siteMetadata.url + location.pathname
+  const url = siteMetadata.url + props.location.pathname
 
   // title
   const suffix = `${siteMetadata.title} | ${siteMetadata.slogan}`
-  title = title ? `${title} - ${suffix}` : suffix
+  const title = props.title ? `${props.title} - ${suffix}` : suffix
 
   // description
-  description = description || siteMetadata.description
+  const description = props.description || siteMetadata.description
 
-  // cover image
-  cover = cover || siteCover
+  // image
+  const cover = props.cover !== undefined ? props.cover : siteCover
 
-  // // heading
-  // heading = heading || (
-  //   <div className="container">
-  //     <h1>{siteMetadata.title}</h1>
-  //     <p>{siteMetadata.description}</p>
-  //   </div>
-  // )
+  // heading
+  const heading =
+    props.heading !== undefined ? (
+      props.heading
+    ) : (
+      <div className="container">
+        <h1>{siteMetadata.title}</h1>
+        <p>{siteMetadata.description}</p>
+      </div>
+    )
 
   return (
     <Fragment>
@@ -65,32 +61,40 @@ export default ({
         <html lang={siteMetadata.language} />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="siteMetadata.author" content={siteMetadata.author} />
+        <meta name="author" content={siteMetadata.author} />
         {/* OpenGraph tags */}
         <meta property="og:site_name" content={siteMetadata.title} />
+        {/* TODO: website or article? http://ogp.me/#no_vertical */}
+        <meta property="og:type" content={`website`} />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta
-          property="og:image"
-          content={siteMetadata.url + cover.childImageSharp.fluid.src}
-        />
-        <meta
-          property="og:image:width"
-          content={cover.childImageSharp.fluid.presentationWidth}
-        />
-        <meta
-          property="og:image:height"
-          content={cover.childImageSharp.fluid.presentationHeight}
-        />
-        {/* TODO: website or article? http://ogp.me/#no_vertical */}
-        <meta property="og:type" content={`website`} />
+        {cover && (
+          <meta
+            property="og:image"
+            content={siteMetadata.url + cover.childImageSharp.fluid.src}
+          />
+        )}
+        {cover && (
+          <meta
+            property="og:image:width"
+            content={cover.childImageSharp.fluid.presentationWidth}
+          />
+        )}
+        {cover && (
+          <meta
+            property="og:image:height"
+            content={cover.childImageSharp.fluid.presentationHeight}
+          />
+        )}
         {/* TODO: Twitter & Fackbook Card tags? */}
         <link rel="canonical" href={url} />
-        {bodyClass && <body className={bodyClass} />}
+        {props.bodyClass && <body className={props.bodyClass} />}
       </Helmet>
 
-      <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
+      {cover && (
+        <Image className="site-cover" fluid={cover.childImageSharp.fluid} />
+      )}
 
       <header className="site-header">
         <nav className="site-nav">
@@ -119,7 +123,7 @@ export default ({
         {heading && <div className="site-heading">{heading}</div>}
       </header>
 
-      <main className="site-main">{children}</main>
+      <main className="site-main">{props.children}</main>
 
       <footer className="site-footer">
         <p className="container">
@@ -143,3 +147,15 @@ export default ({
     </Fragment>
   )
 }
+
+Layout.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  bodyClass: PropTypes.string,
+  cover: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  heading: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+  location: PropTypes.object.isRequired,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired
+}
+
+export default Layout

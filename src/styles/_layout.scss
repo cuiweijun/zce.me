@@ -23,8 +23,9 @@
   &::before {
     background: 0 / 4px
       url(escape-svg(
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 4" stroke="#000" stroke-linecap="square"><line x1="0" y1="1" x2="1" y2="0"/><line x1="1" y1="4" x2="4" y2="1"/></svg>'
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2" stroke="#000" stroke-linecap="square"><line x1="0" y1="1" x2="1" y2="0"/><line x1="1" y1="2" x2="2" y2="1"/></svg>'
       ));
+    opacity: 0.6;
   }
 
   &::after {
@@ -113,7 +114,7 @@
 
 .site-heading {
   padding: 10vw 4vw;
-  color: color('light');
+  color: color(light);
   text-align: center;
   text-shadow: 0 0 space(1) color(dark);
   font-size: $font-size-large;
@@ -132,11 +133,12 @@
       mask-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0),
-        #000 6%,
-        #000 94%,
+        #000 space(3),
+        #000 93%,
         rgba(0, 0, 0, 0)
       );
       -webkit-overflow-scrolling: touch;
+      -ms-overflow-scrolling: touch;
       -ms-overflow-style: none;
       scrollbar-width: none;
 
@@ -148,7 +150,7 @@
 }
 
 .site-footer {
-  padding: space() 0;
-  color: color('muted');
+  padding: space(3) 0;
+  color: color(muted);
   text-align: center;
 }

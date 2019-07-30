@@ -14,10 +14,11 @@ export default ({ data, pageContext, location }) => {
     <Layout
       title={fields.title}
       description={fields.description || post.excerpt}
-      cover={fields.cover}
+      cover={fields.cover || undefined}
+      heading={false}
       bodyClass="post"
       location={location}>
-      <article class="container" role="main">
+      <article className="container" role="main">
         <header className="post-header">
           <small className="post-meta">
             <span aria-label="Posted by">
@@ -55,16 +56,20 @@ export default ({ data, pageContext, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <footer className="post-footer">
-          {fields.tags && (
-            <ul>
-              {fields.tags.map(tag => (
-                <li key={tag.id}>
-                  <Link to={tag.fields.permalink}>{tag.id}</Link>,
-                </li>
-              ))}
-            </ul>
-          )}
-          <hr />
+          <section className="post-tags">
+            {fields.tags && (
+              <ul>
+                {fields.tags.map(tag => (
+                  <li key={tag.id}>
+                    <Link to={tag.fields.permalink}>{tag.id}</Link>,
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+          <section className="post-share"></section>
+          <section className="post-authors"></section>
+          <section className="post-license"></section>
           <ul>
             <li>
               {prev && (
@@ -81,7 +86,6 @@ export default ({ data, pageContext, location }) => {
               )}
             </li>
           </ul>
-          <Link to="/blog/">Back to all Posts</Link>
         </footer>
       </article>
     </Layout>

@@ -17,7 +17,8 @@ exports.siteMetadata = {
     { text: 'Home', link: '/' },
     { text: 'Blog', link: '/blog/' },
     { text: 'About', link: '/about/' },
-    { text: 'Contact', link: '/contact/' }
+    { text: 'Contact', link: '/contact/' },
+    { text: 'Discuss', link: '/discuss/' }
   ]
 }
 
@@ -54,7 +55,7 @@ exports.plugins = [
 ]
 
 // https://www.gatsbyjs.org/docs/path-prefix/
-// exports.pathPrefix = ''
+exports.pathPrefix = '/'
 
 // https://www.gatsbyjs.org/docs/gatsby-config/#mapping-node-types
 exports.mapping = {

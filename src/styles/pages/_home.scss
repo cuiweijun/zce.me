@@ -1,3 +1,10 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+
+.home {
+  .site-main {
+    min-height: 80vh;
+    background: $body-bg;
+  }
+}

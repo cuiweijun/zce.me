@@ -3,6 +3,20 @@
 // -----------------------------------------------------------------------------
 
 .home {
+  .site-cover {
+    &::before {
+      opacity: 0.3;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .site-heading {
+    padding: 15vw 0;
+  }
+
   .site-main {
     min-height: 80vh;
     background: $body-bg;

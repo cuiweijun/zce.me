@@ -69,6 +69,7 @@
   padding: 6% 8%;
   min-height: 50vh;
   background: $body-bg;
+  word-break: break-all;
   font-size: calc(#{$font-size-medium} + 0.33vw);
   font-family: $font-family-serif;
   line-height: $line-height-loose;
@@ -91,9 +92,7 @@
 
 .post-footer {
   .tags {
-    margin-right: auto;
     margin-bottom: space(4);
-    margin-left: auto;
     padding: 0 8%;
     color: color(accent);
     text-align: center;
@@ -118,9 +117,49 @@
     a {
       color: inherit;
 
-      &:before {
+      &::before {
         content: '\0023';
       }
+
+      &:hover {
+        border-bottom: 1px solid;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .license {
+    margin-bottom: space(4);
+    padding: space(5);
+    color: gray(7);
+    text-align: center;
+    font-size: $font-size-large;
+
+    a {
+      color: inherit;
+
+      &:hover {
+        border-bottom: 1px solid;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.post-related {
+  padding: space(5);
+  background: darken($body-bg, 3);
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    list-style: none;
+
+    a {
+      display: inline-block;
+      padding: space(3);
+      border: 1px solid gray(6);
     }
   }
 }

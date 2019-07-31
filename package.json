@@ -64,6 +64,9 @@
     "prismjs": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-helmet": "latest"
+    "react-helmet": "latest",
+    "typeface-merriweather": "^0.0.72",
+    "typeface-source-code-pro": "^0.0.71",
+    "typeface-source-sans-pro": "^0.0.75"
   }
 }

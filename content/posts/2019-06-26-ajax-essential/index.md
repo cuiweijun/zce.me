@@ -5,9 +5,7 @@ date: 2019-06-26 19:07:29
 cover: browser-server.png
 ---
 
-## 快速掌握 AJAX - 基础
-
-### 背景介绍
+## 背景介绍
 
 在了解 AJAX 之前我们可以简单的认为「JavaScript 能力有限」，因为在此之前 Web 平台提供所有的 API 都只停留在「单机」的阶段。
 
@@ -33,13 +31,13 @@ cover: browser-server.png
 
 > 对 XXX 进行编程指的就是用代码的方式操作它。
 
-#### Google Suggest
+### Google Suggest
 
 AJAX（Asynchronous JavaScript and XML），最早出现在 2005 年的 [Google Suggest](http://google-suggest.tumblr.com/)，是在浏览器端进行网络编程（发送请求、接收响应）的技术方案，它使我们可以通过 JavaScript 直接获取服务端最新的内容而不必重新加载页面。让 Web 更能接近桌面应用的用户体验。
 
 ![google-suggest](google-suggest.png)
 
-### AJAX 定义
+## AJAX 定义
 
 > 全称：Asynchronous Javascript And XML
 
@@ -49,7 +47,7 @@ AJAX（Asynchronous JavaScript and XML），最早出现在 2005 年的 [Google 
 
 > BTW. 个人认为应用层开发大多数情况下无外乎就是通过特定的逻辑将一堆 API 调用拼凑在一起罢了，没有太多技术含量。
 
-#### 应用场景总结
+### 应用场景总结
 
 对于每一个未知的技术，我们在了解了过后第一反应就是在什么情况下用？
 
@@ -60,7 +58,7 @@ AJAX 一般在开发中的用途我总结为以下四类：
 - 自动更新页面上内容
 - 提升用户体验 - 无刷新的体验
 
-### 快速上手
+## 快速上手
 
 AJAX API 中核心提供的是一个 `XMLHttpRequest` 类型，所有的 AJAX 操作都需要使用到这个类型。
 
@@ -85,7 +83,7 @@ xhr.onreadystatechange = function() {
 
 > 注意：涉及到 AJAX 操作的页面不能使用文件协议访问（文件的方式访问）
 
-#### readyState
+### readyState
 
 由于 `readystatechange` 事件是在 `xhr` 对象状态变化时触发（不单是在得到响应时），也就意味着这个事件会被触发多次，所以我们有必要了解每一个状态值代表的含义：
 
@@ -97,7 +95,7 @@ xhr.onreadystatechange = function() {
 | 3          | LOADING          | 响应体下载中， `responseText` 属性可能已经包含部分数据。  |
 | 4          | DONE             | 响应体下载完成，可以直接使用 `responseText`。             |
 
-##### 时间轴
+#### 时间轴
 
 ```flow
 s=>start: UNSENT
@@ -174,7 +172,7 @@ xhr.onreadystatechange = function() {
 }
 ```
 
-#### 遵循 HTTP
+### 遵循 HTTP
 
 本质上 XMLHttpRequest 就是 JavaScript 在 Web 平台中发送 HTTP 请求的手段，所以我们发送出去的请求任然是 HTTP 请求，同样符合 HTTP 约定的格式：
 
@@ -207,9 +205,9 @@ xhr.onreadystatechange = function() {
 > - https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest
 > - https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
 
-### 具体用法
+## 具体用法
 
-#### GET 请求
+### GET 请求
 
 > 通常在一次 GET 请求过程中，参数传递都是通过 URL 地址中的 `?` 参数传递。
 
@@ -229,7 +227,7 @@ xhr.onreadystatechange = function() {
 // 一般情况下 URL 传递的都是参数性质的数据，而 POST 一般都是业务数据
 ```
 
-#### POST 请求
+### POST 请求
 
 > POST 请求过程中，都是采用请求体承载需要提交的数据。
 
@@ -250,7 +248,7 @@ xhr.onreadystatechange = function() {
 }
 ```
 
-#### 同步与异步
+### 同步与异步
 
 关于同步与异步的概念在生活中有很多常见的场景，举例说明。
 
@@ -304,11 +302,11 @@ console.log('after ajax')
 
 至此，我们已经大致了解了 AJAX 所的提供的基本 API 。
 
-#### XMLHttpRequest API 总结
+### XMLHttpRequest API 总结
 
 > https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest
 
-#### 属性
+### 属性
 
 - `readyState`
 - `status`
@@ -316,20 +314,20 @@ console.log('after ajax')
 - `responseXML`
 - `onreadystatechange`
 
-#### 方法
+### 方法
 
 - `open(method, url, async)`
 - `send(requsetBody)`
 - `setRequestHeader(key, value)`
 - `getResponseHeader(key)`
 
-### 响应数据格式
+## 响应数据格式
 
 > 提问：如果希望服务端返回一个复杂数据，该如何处理？
 
 关心的问题就是服务端发出何种格式的数据，这种格式如何在客户端用 JavaScript 解析。
 
-#### XML
+### XML
 
 一种数据描述手段
 
@@ -337,7 +335,7 @@ console.log('after ajax')
 
 淘汰的原因：数据冗余太多
 
-#### JSON
+### JSON
 
 也是一种数据描述手段，类似于 JavaScript 字面量方式
 
@@ -349,7 +347,7 @@ console.log('after ajax')
 > - 不管服务端是采用 XML 还是采用 JSON 本质上都是将数据返回给客户端。
 > - 服务端应该根据响应内容的格式设置一个合理的 Content-Type。
 
-#### 处理响应数据渲染
+### 处理响应数据渲染
 
 客户端中拿到请求的数据过后最常见的就是把这些数据呈现到界面上。
 
@@ -357,7 +355,7 @@ console.log('after ajax')
 
 > 模板引擎有很多种，使用方式大同小异，目的都是为了可以更容易的将数据渲染到 HTML 字符串中。
 
-### 缓存问题
+## 缓存问题
 
 缓存问题指的是：多次 AJAX GET 请求同一个 URL 得到的结果是相同的，目前绝大多数浏览器已经没有这个问题了，只有早期的 IE 浏览器（<= IE 9）任然存在这个问题
 
@@ -372,9 +370,9 @@ xhr.onreadystatechange = function() {
 }
 ```
 
-#### 解决方案
+### 解决方案
 
-##### URL 加戳
+#### URL 加戳
 
 这个办法的核心就是让浏览器认为每次请求的地址都是不同的。
 
@@ -391,7 +389,7 @@ xhr.onreadystatechange = function() {
 }
 ```
 
-##### 服务端设置响应头
+#### 服务端设置响应头
 
 由服务端通过 HTTP 响应报文中的响应头告知客户端浏览器不要缓存当前地址。
 
@@ -406,7 +404,7 @@ app.get('/time', (req, res) => {
 
 了解即可，更多的情况下前端开发中还是通过加戳的方式解决此问题，因为在前端可控范围之内。
 
-### 兼容方案
+## 兼容方案
 
 XMLHttpRequest 在老版本浏览器（IE5/6）中有兼容问题，可以通过另外一种方式代替。
 
@@ -417,13 +415,13 @@ var xhr = window.XMLHttpRequest
 // xhr 的成员相同
 ```
 
-### XMLHttpRequest 2.0
+## XMLHttpRequest 2.0
 
 介绍完老版本的问题，接下来介绍一下新版本的特性。
 
 HTML5 中对 XMLHttpRequest 类型全面升级，更易用，更强大
 
-#### onload / onprogress
+### onload / onprogress
 
 ```javascript
 var xhr = new XMLHttpRequest()
@@ -446,7 +444,7 @@ xhr.send(null)
 > - https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequestEventTarget/onload
 > - https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequestEventTarget/onprogress
 
-#### response 属性
+### response 属性
 
 以对象的形式表述响应体，其类型取决于 `responseType` 的值。你可以尝试设置 `responseType` 的值，以便通过特定的类型请求数据。
 
@@ -473,7 +471,7 @@ xhr.send(null)
 | "json"        | response 是一个 JavaScript 对象。这个对象是通过将接收到的数据类型视为 JSON 解析得到的。                                                                      |
 | "text"        | response 是包含在 DOMString 对象中的文本。                                                                                                                   |
 
-#### FormData
+### FormData
 
 以前 AJAX 操作只能提交字符串，现在可以提交 **二进制** 的数据。
 
@@ -497,9 +495,9 @@ xhr.onload = function() {
 
 > https://developer.mozilla.org/zh-CN/docs/Web/API/FormData
 
-### 封装 AJAX 库
+## 封装 AJAX 库
 
-#### 自己封装一个 AJAX 函数
+### 自己封装一个 AJAX 函数
 
 > 这里主要是为了了解封装的过程，一般情况在开发中都是使用第三方提供的 AJAX 库，因为它们可能更加严谨。
 
@@ -571,7 +569,7 @@ ajax('post', '/addsomthing', { foo: 'posted data' }, function(data) {
 
 > **委托**：将函数作为参数传递，就像是你将一个事情交给别人，你制定这件事怎么做，但是具体的是由别人去做，这就是委托的概念
 
-#### jQuery 中的 AJAX
+### jQuery 中的 AJAX
 
 jQuery 中有一套专门针对 AJAX 的封装，功能十分完善，经常使用，需要着重注意。
 
@@ -582,7 +580,7 @@ jQuery 中有一套专门针对 AJAX 的封装，功能十分完善，经常使�
 > - http://www.jquery123.com/category/ajax/
 > - http://www.w3school.com.cn/jquery/jquery_ref_ajax.asp
 
-##### \$.ajax
+#### \$.ajax
 
 ```javascript
 $.ajax({
@@ -618,29 +616,29 @@ $.ajax({
 - error：请求失败触发
 - complete：请求完成触发（不管成功与否）
 
-##### \$.get
+#### \$.get
 
 GET 请求快捷方法
 
 `$.get(url, data, callback)`
 
-##### \$.post
+#### \$.post
 
 POST 请求快捷方法
 
 `$.post(url, data, callback)`
 
-##### 全局事件处理
+#### 全局事件处理
 
 > 参考：http://www.jquery123.com/category/ajax/global-ajax-event-handlers/
 
-##### 其他常见 API
+#### 其他常见 API
 
 - `$(selector).load()` - 局部区域加载服务端返回的内容，有点类似 `iframe`
 - `$.getJSON()` - 忽略服务端响应的 `Content-Type` 响应头，主观按照 JSON 格式解析响应体
 - `$.getScript()` - 加载并执行服务端返回的一段 JavaScript 代码
 
-#### Axios
+### Axios
 
 > https://github.com/axios/axios
 
@@ -657,6 +655,6 @@ axios
   })
 ```
 
-### 总结
+## 总结
 
 假设你是一位刚刚进入 JavaScript 领域的开发者，至此，你应该是已经了解到了 AJAX 基础所有的方方面面了，后续可能会再分享一些关于 AJAX 的经验和技巧，感兴趣的可以持续关注。

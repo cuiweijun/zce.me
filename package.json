@@ -65,8 +65,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-helmet": "latest",
-    "typeface-merriweather": "^0.0.72",
-    "typeface-source-code-pro": "^0.0.71",
-    "typeface-source-sans-pro": "^0.0.75"
+    "typeface-merriweather": "latest",
+    "typeface-source-code-pro": "latest",
+    "typeface-source-sans-pro": "latest"
   }
 }

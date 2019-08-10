@@ -1,14 +1,12 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import moment from 'moment'
 
 import Layout from '../components/layout'
 
 export default ({ data, pageContext, location }) => {
   const { markdownRemark: post } = data
   const { fields } = post
-  const { prev, next } = pageContext
 
   return (
     <Layout

@@ -10,13 +10,12 @@
 @import 'functions';
 @import 'variables';
 @import 'mixins';
-@import 'placeholders';
+// @import 'placeholders';
 
 @import 'global';
 @import 'layout';
-
-@import 'components/card';
-@import 'components/prism';
+@import 'card';
+@import 'prism';
 
 @import 'pages/home';
 @import 'pages/blog';

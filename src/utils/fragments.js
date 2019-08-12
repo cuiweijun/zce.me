@@ -5,23 +5,6 @@
 
 import { graphql } from 'gatsby'
 
-// // Loads required data to use the `MarkdownSection` component.
-// export const MarkdownFragment = graphql`
-//   fragment MarkdownFragment on MarkdownRemark {
-//     fields {
-//       title
-//       image {
-//         childImageSharp {
-//           sizes(maxWidth: 540, traceSVG: { color: "#f6f1fa" }) {
-//             ...GatsbyImageSharpSizes_tracedSVG
-//           }
-//         }
-//       }
-//     }
-//     html
-//   }
-// `
-
 // Loads all site metadata.
 export const SiteMetadata = graphql`
   fragment SiteMetadata on Site {

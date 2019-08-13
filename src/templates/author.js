@@ -6,8 +6,8 @@ import Layout from '../components/layout'
 
 export default ({ data: { authorsYaml }, location }) => (
   <Layout
-    title={authorsYaml.meta.title || authorsYaml.id}
-    description={authorsYaml.meta.description || authorsYaml.bio}
+    title={authorsYaml.meta && authorsYaml.meta.title || authorsYaml.id}
+    description={authorsYaml.meta && authorsYaml.meta.description || authorsYaml.bio}
     bodyClass="author"
     cover={authorsYaml.cover}
     heading={

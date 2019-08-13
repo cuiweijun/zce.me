@@ -25,14 +25,14 @@ export default ({ post }) => {
         title={post.fields.title}
       />
       <div className="card-content">
-        <header>
+        <header className="card-header">
           <span>{post.fields.categories[0].id}</span>
           <h3>{post.fields.title}</h3>
         </header>
-        <main>
+        <main className="card-main">
           <p>{post.excerpt}</p>
         </main>
-        <footer>
+        <footer className="card-footer">
           <ul>
             {post.fields.authors.map((author, i) => (
               <li
@@ -50,7 +50,9 @@ export default ({ post }) => {
               </li>
             ))}
           </ul>
-          <small>{`${post.timeToRead} min${post.timeToRead === 1 ? '' : 's'}`}</small>
+          <small>{`${post.timeToRead} min${
+            post.timeToRead === 1 ? '' : 's'
+          }`}</small>
         </footer>
       </div>
     </article>

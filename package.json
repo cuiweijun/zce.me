@@ -5,8 +5,8 @@
   "description": "zce's personal homepage",
   "keywords": [
     "homepage",
-    "zce",
-    "zce.me"
+    "zce.me",
+    "zce"
   ],
   "homepage": "https://github.com/zce/zce.me#readme",
   "bugs": {
@@ -27,8 +27,7 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "build": "gatsby build",
-    "dev": "yarn develop"
+    "build": "gatsby build"
   },
   "prettier": {
     "endOfLine": "lf",

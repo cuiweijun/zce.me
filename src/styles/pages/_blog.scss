@@ -2,7 +2,7 @@
 // This file contains styles that are specific to the blog page.
 // -----------------------------------------------------------------------------
 
-.blog {
+body.blog {
   .site-main {
     > .container {
       display: grid;
@@ -24,6 +24,10 @@
 
           .card-image {
             flex-grow: 2;
+          }
+
+          .card-content {
+            min-width: 16rem;
           }
         }
       }

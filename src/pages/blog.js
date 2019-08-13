@@ -17,7 +17,7 @@ export default ({ data, location }) => (
     location={location}>
     <div className="container">
       {data.allMarkdownRemark.nodes.map(node => (
-        <Card post={node} key={node.id}/>
+        <Card post={node} key={node.id} />
       ))}
     </div>
   </Layout>

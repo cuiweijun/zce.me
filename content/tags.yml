@@ -1,24 +1,15 @@
 - id: Untagged
   slug: untagged
-  description: Gatsby untagged contents
+  description: Untagged contents
   cover: images/unknown.jpg
   meta:
-    title: ''
-    description: ''
-  default: true
+    title: Untagged
+    description: This is Untagged contents
 
 - id: Getting Started
   slug: getting-started
-  description: Gatsby getting started contents
-  cover: ''
-  meta:
-    title: ''
-    description: ''
+  description: Getting started contents
 
 - id: Tutorial
   slug: tutorial
-  description: Gatsby Tutorial contents
-  cover: ''
-  meta:
-    title: ''
-    description: ''
+  description: Tutorial contents

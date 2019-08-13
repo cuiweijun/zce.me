@@ -110,7 +110,9 @@ const Layout = props => {
             </Link>
             <ul className="nav-menu">
               {siteMetadata.menus.map(i => (
-                <li key={i.link}><Link to={i.link}>{i.text}</Link></li>
+                <li key={i.link}>
+                  <Link to={i.link}>{i.text}</Link>
+                </li>
               ))}
             </ul>
             <form className="nav-search" action="/search/">

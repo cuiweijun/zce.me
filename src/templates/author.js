@@ -5,12 +5,20 @@ import Image from 'gatsby-image'
 import Layout from '../components/layout'
 
 export default ({ data: { authorsYaml }, location }) => (
-  <Layout title="Author" location={location}>
-    <Image fixed={authorsYaml.avatar.childImageSharp.fixed} />
-    <h1>Author {authorsYaml.id}</h1>
-    {authorsYaml.cover && (
-      <Image fixed={authorsYaml.cover.childImageSharp.fixed} />
-    )}
+  <Layout
+    title={authorsYaml.meta.title || authorsYaml.id}
+    description={authorsYaml.meta.description || authorsYaml.bio}
+    bodyClass="author"
+    cover={authorsYaml.cover}
+    heading={
+      <div className="container">
+        <Image fixed={authorsYaml.avatar.childImageSharp.fixed} />
+        <h1>{authorsYaml.id}</h1>
+        <p>{authorsYaml.bio}</p>
+      </div>
+    }
+    location={location}>
+
   </Layout>
 )
 
@@ -21,17 +29,18 @@ export const query = graphql`
       slug
       avatar {
         childImageSharp {
-          fixed(width: 512) {
+          fixed(width: 160) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       cover {
-        childImageSharp {
-          fixed(width: 800) {
-            ...GatsbyImageSharpFixed
-          }
-        }
+        ...SiteCoverImage
+      }
+      bio
+      meta {
+        title
+        description
       }
     }
   }

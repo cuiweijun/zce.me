@@ -1,4 +1,19 @@
+// https://code.visualstudio.com/docs/editor/userdefinedsnippets
 {
+	"component": {
+		"scope": "javascript",
+		"prefix": "comp",
+		"body": [
+			"import React from 'react'",
+      "",
+      "export default () => (",
+      "  <div className=\"${2:Component}\">",
+      "    <p>${1:Component}</p>",
+      "  </div>",
+      ")"
+		],
+		"description": "Page component"
+	},
 	"Page component": {
 		"scope": "javascript",
 		"prefix": "page",

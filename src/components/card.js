@@ -10,14 +10,19 @@ const query = graphql`
   }
 `
 
-export default ({ post }) => {
+export default ({ post, rel }) => {
   if (!post.fields.cover) {
     post.fields.cover = useStaticQuery(query).file
   }
 
   return (
     <article className="card">
-      <Link className="card-link" to={post.fields.permalink}></Link>
+      <Link
+        className="card-link"
+        to={post.fields.permalink}
+        title={post.fields.title}
+        rel={rel}
+      />
       <Image
         className="card-image"
         fluid={post.fields.cover.childImageSharp.fluid}

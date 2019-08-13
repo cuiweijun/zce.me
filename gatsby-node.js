@@ -127,51 +127,42 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         filter: { fields: { draft: { eq: false }, private: { eq: false } } }
         sort: { fields: fields___date, order: DESC }
       ) {
-        edges {
-          node {
-            id
-            fields {
-              type
-              template
-              permalink
-              title
-            }
+        nodes {
+          id
+          fields {
+            type
+            template
+            permalink
           }
         }
       }
       allAuthorsYaml {
-        edges {
-          node {
-            id
-            fields {
-              type
-              template
-              permalink
-            }
+        nodes {
+          id
+          fields {
+            type
+            template
+            permalink
           }
         }
       }
       allCategoriesYaml {
-        edges {
-          node {
-            id
-            fields {
-              type
-              template
-              permalink
-            }
+        nodes {
+          id
+          fields {
+            type
+            template
+            permalink
           }
         }
       }
       allTagsYaml {
-        edges {
-          node {
-            id
-            fields {
-              type
-              template
-              permalink
-            }
+        nodes {
+          id
+          fields {
+            type
+            template
+            permalink
           }
         }
       }
@@ -182,20 +173,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   result.errors && reporter.panic(result.errors)
 
   // https://www.gatsbyjs.org/docs/adding-pagination/
-  const { edges: posts } = result.data.allMarkdownRemark
+  const { nodes: posts } = result.data.allMarkdownRemark
 
   // Create pages based on different content types
   Object.values(collections)
     .map(c => c.type)
     .forEach(type => {
-      const items = posts
-        .filter(i => i.node.fields.type === type)
-        .filter(i => !i.node.fields.draft)
-        .filter(i => !i.node.fields.private)
-
-      items.forEach(({ node: { id, fields } }, i) => {
-        const prev = i === items.length - 1 ? null : items[i + 1].node
-        const next = i === 0 ? null : items[i - 1].node
+      const items = posts.filter(i => i.fields.type === type)
+      items.forEach(({ id, fields }, i) => {
+        const prev = i === items.length - 1 ? null : items[i + 1].id
+        const next = i === 0 ? null : items[i - 1].id
         const template = `./src/templates/${fields.template}.js`
         createPage({
           path: fields.permalink,
@@ -206,14 +193,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
 
   // https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
-  const { edges: authors } = result.data.allAuthorsYaml
-  const { edges: categories } = result.data.allCategoriesYaml
-  const { edges: tags } = result.data.allTagsYaml
+  const { nodes: authors } = result.data.allAuthorsYaml
+  const { nodes: categories } = result.data.allCategoriesYaml
+  const { nodes: tags } = result.data.allTagsYaml
   const terms = [].concat(authors, categories, tags)
 
   // Create taxonomies pages
-  terms.forEach(item => {
-    const { id, fields } = item.node
+  terms.forEach(({ id, fields }) => {
     const template = `./src/templates/${fields.template}.js`
     createPage({
       path: fields.permalink,

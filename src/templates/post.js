@@ -4,11 +4,11 @@ import Image from 'gatsby-image'
 import moment from 'moment'
 
 import Layout from '../components/layout'
+import Card from '../components/card'
 
-export default ({ data, pageContext, location }) => {
-  const { markdownRemark: post } = data
+export default ({ data, location }) => {
+  const { post, prev, next } = data
   const { fields } = post
-  const { prev, next } = pageContext
 
   return (
     <Layout
@@ -28,7 +28,7 @@ export default ({ data, pageContext, location }) => {
                 </Link>
               ))}
             </span>
-            <span role="separator" aria-hidden="true"></span>
+            <span role="separator" aria-hidden="true" />
             <time dateTime={fields.date} aria-label="Posted on">
               {moment.utc(fields.date).format('MMMM Do, YYYY')}
             </time>
@@ -133,22 +133,10 @@ export default ({ data, pageContext, location }) => {
       <section className="post-related">
         <div className="container">
           <h3 className="sr-only">Related posts</h3>
-          <ul>
-            <li>
-              {prev && (
-                <Link to={prev.fields.permalink} rel="prev">
-                  ← {prev.fields.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.permalink} rel="next">
-                  {next.fields.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
+          <div className="grid">
+            {prev && <Card post={prev} rel="prev" />}
+            {next && <Card post={next} rel="next" />}
+          </div>
         </div>
       </section>
     </Layout>
@@ -156,8 +144,8 @@ export default ({ data, pageContext, location }) => {
 }
 
 export const query = graphql`
-  query PostTemplate($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query PostTemplate($id: String!, $prev: String, $next: String) {
+    post: markdownRemark(id: { eq: $id }) {
       fields {
         title
         date
@@ -188,6 +176,12 @@ export const query = graphql`
       }
       excerpt(pruneLength: 160)
       html
+    }
+    prev: markdownRemark(id: { eq: $prev }) {
+      ...PostCard
+    }
+    next: markdownRemark(id: { eq: $next }) {
+      ...PostCard
     }
   }
 `

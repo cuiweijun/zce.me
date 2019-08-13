@@ -129,14 +129,24 @@ dd {
 blockquote {
   margin: 0 0 space(3);
   padding: space(2) space(3);
-  border-left: space(1) solid color(secondary);
+  border-left: space(1) solid lighten(color(primary), 15);
 }
 
 // pre {}
 
-// table {}
+table {
+  width: 100%;
+  margin: 0 0 space(3);
+  border-collapse: collapse;
+}
 
 // tr {}
+
+th,
+td {
+  padding: space(2) space(3);
+  border: 1px solid color(muted);
+}
 
 // th {}
 
@@ -152,6 +162,7 @@ a {
 }
 
 img {
+  max-width: 100%;
   vertical-align: middle;
 }
 
@@ -173,8 +184,8 @@ img {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-right: space();
-  padding-left: space();
+  padding-right: $container-padding;
+  padding-left: $container-padding;
   max-width: $container-width;
 }
 

@@ -84,7 +84,8 @@ export default ({ data, pageContext, location }) => {
             <h3 className="sr-only">License</h3>
             <a
               href="https://creativecommons.org/licenses/by-sa/4.0/"
-              rel="license">
+              target="_blank"
+              rel="noopener noreferrer">
               <svg width="160" viewBox="0 0 120 42" aria-hidden="true">
                 <path
                   fill="#fff"
@@ -119,9 +120,9 @@ export default ({ data, pageContext, location }) => {
               This work is licensed under a{' '}
               <a
                 href="https://creativecommons.org/licenses/by-sa/4.0/"
-                rel="license">
-                Creative Commons Attribution-ShareAlike 4.0 International
-                License
+                target="_blank"
+                rel="noopener noreferrer">
+                Creative Commons Attribution-ShareAlike 4.0 International License
               </a>
             </p>
           </section>

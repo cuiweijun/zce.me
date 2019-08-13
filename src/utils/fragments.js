@@ -5,7 +5,7 @@
 
 import { graphql } from 'gatsby'
 
-// Loads all site metadata.
+// Load all site metadata.
 export const SiteMetadata = graphql`
   fragment SiteMetadata on Site {
     siteMetadata {
@@ -25,7 +25,7 @@ export const SiteMetadata = graphql`
   }
 `
 
-// Loads layout cover image required data.
+// Load layout cover image required data.
 export const SiteCoverImage = graphql`
   fragment SiteCoverImage on File {
     childImageSharp {
@@ -33,6 +33,51 @@ export const SiteCoverImage = graphql`
         ...GatsbyImageSharpFluid
         presentationWidth
         presentationHeight
+      }
+    }
+  }
+`
+
+export const PostCardImage = graphql`
+  fragment PostCardImage on File {
+    childImageSharp {
+      fluid(maxWidth: 540, maxHeight: 360, cropFocus: CENTER) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+// Load post card component required data.
+export const PostCard = graphql`
+  fragment PostCard on MarkdownRemark {
+    id
+    excerpt
+    timeToRead
+    fields {
+      title
+      cover {
+        ...PostCardImage
+      }
+      permalink
+      authors {
+        id
+        avatar {
+          childImageSharp {
+            fixed(width: 30, height: 30) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        fields {
+          permalink
+        }
+      }
+      categories {
+        id
+        fields {
+          permalink
+        }
       }
     }
   }

@@ -16,14 +16,21 @@ notifications:
 script:
   - yarn build
 
-# https://docs.travis-ci.com/user/deployment/pages/
+# # https://docs.travis-ci.com/user/deployment/pages/
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   keep_history: true
+#   github_token: $GITHUB_TOKEN
+#   local_dir: public
+#   # repo: zce.github.io
+#   # target_branch: master
+#   on:
+#     branch: gatsby
+
+# https://docs.travis-ci.com/user/deployment/surge/
 deploy:
-  provider: pages
+  provider: surge
   skip_cleanup: true
-  keep_history: true
-  github_token: $GITHUB_TOKEN
-  local_dir: public
-  # repo: zce.github.io
-  # target_branch: master
-  on:
-    branch: gatsby
+  project: public
+  domain: zce.surge.sh

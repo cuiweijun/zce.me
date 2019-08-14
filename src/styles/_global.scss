@@ -157,7 +157,8 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: darken($link-color, 10);
+    // color: darken($link-color, 10);
+    opacity: 0.8;
   }
 }
 
@@ -187,6 +188,13 @@ img {
   padding-right: $container-padding;
   padding-left: $container-padding;
   max-width: $container-width;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: (- $container-padding);
+  margin-right: (- $container-padding);
 }
 
 .sr-only {

@@ -3,22 +3,10 @@
 // -----------------------------------------------------------------------------
 
 body.blog {
-
-}
-
-.collection {
-  display: grid;
-
-  grid-gap: space(4);
-
-  @include media-breakpoint-up(sm) {
-    grid-template-columns: repeat(2, 1fr);
-
+  @include media-breakpoint-up(md) {
     .card:first-child {
+      flex-basis: 100%;
       flex-direction: row;
-
-      grid-column-end: 3;
-      grid-column-start: 1;
 
       .card-image {
         flex-grow: 2;
@@ -30,12 +18,37 @@ body.blog {
     }
   }
 
-  @include media-breakpoint-up(lg) {
-    grid-template-columns: repeat(3, 1fr);
+  // .row {
+  //   display: grid;
 
-    .card:first-child {
-      grid-column-end: 4;
-      grid-column-start: 1;
-    }
-  }
+  //   grid-gap: space(4);
+
+  //   @include media-breakpoint-up(sm) {
+  //     grid-template-columns: repeat(2, 1fr);
+
+  //     .card:first-child {
+  //       flex-direction: row;
+
+  //       grid-column-end: 3;
+  //       grid-column-start: 1;
+
+  //       .card-image {
+  //         flex-grow: 2;
+  //       }
+
+  //       .card-content {
+  //         min-width: 16rem;
+  //       }
+  //     }
+  //   }
+
+  //   @include media-breakpoint-up(lg) {
+  //     grid-template-columns: repeat(3, 1fr);
+
+  //     .card:first-child {
+  //       grid-column-end: 4;
+  //       grid-column-start: 1;
+  //     }
+  //   }
+  // }
 }

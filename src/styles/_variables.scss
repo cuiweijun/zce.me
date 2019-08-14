@@ -19,14 +19,18 @@ $grays: (
 );
 
 $colors: (
+  // themes
   primary: $oc-blue-5,
   secondary: $oc-gray-6,
   accent: $oc-red-5,
   muted: $oc-gray-5,
-  light: $oc-gray-2,
-  dark: $oc-gray-8,
+  // grays
   white: $oc-white,
+  light: $oc-gray-2,
+  gray: $oc-gray-7,
+  dark: $oc-gray-8,
   black: $oc-black,
+  // colors
   blue: $oc-blue-5,
   indigo: $oc-indigo-5,
   purple: $oc-grape-5,
@@ -72,7 +76,7 @@ $font-size-large: 1.25rem;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
-$font-weight-bold: 700;
+$font-weight-bold: 600;
 
 $line-height-solid: 1;
 $line-height-dense: 1.125;
@@ -90,7 +94,7 @@ $body-bg: gray(0);
 
 $headings-margin-bottom: space(2);
 $headings-font-family: $font-family-serif;
-$headings-font-weight: 500;
+$headings-font-weight: $font-weight-bold;
 $headings-line-height: 1.2;
 $headings-color: null;
 

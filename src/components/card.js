@@ -27,7 +27,6 @@ export default ({ post, rel }) => {
         className="card-image"
         fluid={post.fields.cover.childImageSharp.fluid}
         alt={post.fields.title}
-        title={post.fields.title}
       />
       <div className="card-content">
         <header className="card-header">

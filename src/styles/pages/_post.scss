@@ -216,7 +216,7 @@ body.post {
   }
 
   &-license {
-    margin-bottom: space(4);
+    margin-bottom: space(6);
     color: lighten(color(dark), 20);
     text-align: center;
     font-size: $font-size-large;
@@ -224,6 +224,11 @@ body.post {
     a {
       color: inherit;
     }
+  }
+
+  &-comments {
+    margin-bottom: space(6);
+    padding: space(5);
   }
 
   &-related {

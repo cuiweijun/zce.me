@@ -39,6 +39,7 @@
     "tabWidth": 2
   },
   "devDependencies": {
+    "disqus-react": "latest",
     "gatsby": "latest",
     "gatsby-image": "latest",
     "gatsby-plugin-nprogress": "latest",

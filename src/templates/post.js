@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
+import { DiscussionEmbed } from 'disqus-react'
 import moment from 'moment'
 
 import Layout from '../components/layout'
@@ -172,7 +173,18 @@ export default ({ data, location }) => {
             </p>
           </section>
 
-          <section className="post-comments"></section>
+          {fields.comment && (
+            <section className="post-comments">
+              <DiscussionEmbed
+                shortname={'zce-sandbox'}
+                config={{
+                  url: url,
+                  identifier: post.id,
+                  title: fields.title
+                }}
+              />
+            </section>
+          )}
         </footer>
       </article>
 
@@ -240,6 +252,7 @@ export const query = graphql`
     }
     post: markdownRemark(id: { eq: $id }) {
       fields {
+        comment
         title
         date
         updated

@@ -3,8 +3,9 @@ import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 import Layout from '../components/layout'
+import Card from '../components/card'
 
-export default ({ data: { authorsYaml }, location }) => (
+export default ({ data: { authorsYaml, allMarkdownRemark }, location }) => (
   <Layout
     title={(authorsYaml.meta && authorsYaml.meta.title) || authorsYaml.id}
     description={
@@ -19,7 +20,15 @@ export default ({ data: { authorsYaml }, location }) => (
         <p>{authorsYaml.bio}</p>
       </div>
     }
-    location={location}></Layout>
+    location={location}>
+    <div className="container">
+      <div className="row">
+        {allMarkdownRemark.nodes.map(node => (
+          <Card post={node} key={node.id} />
+        ))}
+      </div>
+    </div>
+  </Layout>
 )
 
 export const query = graphql`
@@ -40,6 +49,22 @@ export const query = graphql`
       meta {
         title
         description
+      }
+    }
+    allMarkdownRemark(
+      filter: {
+        fields: {
+          type: { eq: "post" }
+          draft: { eq: false }
+          private: { eq: false }
+          authors: { elemMatch: { id: { eq: $id } } }
+        }
+      }
+      sort: { fields: fields___date, order: DESC }
+    ) {
+      totalCount
+      nodes {
+        ...PostCard
       }
     }
   }

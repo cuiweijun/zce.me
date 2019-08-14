@@ -1,13 +1,31 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
 
 import Layout from '../components/layout'
+import Card from '../components/card'
 
-export default ({ data: { tagsYaml }, location }) => (
-  <Layout title="Tag" location={location}>
-    <h1>Tag {tagsYaml.id}</h1>
-    {tagsYaml.cover && <Image fixed={tagsYaml.cover.childImageSharp.fixed} />}
+export default ({ data: { tagsYaml, allMarkdownRemark }, location }) => (
+  <Layout
+    title={(tagsYaml.meta && tagsYaml.meta.title) || tagsYaml.id}
+    description={
+      (tagsYaml.meta && tagsYaml.meta.description) || tagsYaml.description
+    }
+    bodyClass="tag"
+    cover={tagsYaml.cover}
+    heading={
+      <div className="container">
+        <h1>{tagsYaml.id}</h1>
+        <p>{tagsYaml.description}</p>
+      </div>
+    }
+    location={location}>
+    <div className="container">
+      <div className="row">
+        {allMarkdownRemark.nodes.map(node => (
+          <Card post={node} key={node.id} />
+        ))}
+      </div>
+    </div>
   </Layout>
 )
 
@@ -15,13 +33,29 @@ export const query = graphql`
   query TagTemplate($id: String!) {
     tagsYaml(id: { eq: $id }) {
       id
-      slug
+      description
       cover {
-        childImageSharp {
-          fixed(width: 800) {
-            ...GatsbyImageSharpFixed
-          }
+        ...SiteCoverImage
+      }
+      meta {
+        title
+        description
+      }
+    }
+    allMarkdownRemark(
+      filter: {
+        fields: {
+          type: { eq: "post" }
+          draft: { eq: false }
+          private: { eq: false }
+          tags: { elemMatch: { id: { eq: $id } } }
         }
+      }
+      sort: { fields: fields___date, order: DESC }
+    ) {
+      totalCount
+      nodes {
+        ...PostCard
       }
     }
   }

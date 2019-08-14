@@ -1,5 +1,6 @@
 ---
 title: About
+cover: about.jpg
 ---
 
 汪磊

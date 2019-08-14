@@ -3,4 +3,15 @@
 // -----------------------------------------------------------------------------
 
 body.page {
+  .site-heading {
+    padding: 6vw 4vw;
+    color: color(dark);
+    text-shadow: none;
+  }
+}
+
+.page {
+  &-cover {
+    margin-bottom: space(3);
+  }
 }

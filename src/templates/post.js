@@ -294,6 +294,7 @@ export const query = graphql`
           categories: { elemMatch: { id: { eq: $category } } }
         }
       }
+      sort: { fields: fields___date, order: DESC }
       limit: 3
     ) {
       totalCount

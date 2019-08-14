@@ -20,17 +20,16 @@
 - [x] Sitemap support
 - [x] Post status
 - [x] RSS Feed (not enabled)
-- [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
+- [x] Private & draft
+- [ ] Comments (disqus)
 - [ ] Global style
-- [ ] Comments
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
-- [ ] SSR Support
 - [ ] Create default nodes by programming
 - [ ] Global State
 - [ ] Category Hierarchy
 - [ ] Gatsby Theme
-- [ ] Private & draft
+- [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
 
 ## Deploy
 

@@ -44,7 +44,7 @@ body.post {
   &-cover {
     overflow: visible !important; // for box-shadow
     background: color(dark)
-      linear-gradient(135deg, lighten(color(dark), 30), color(dark));
+    linear-gradient(135deg, lighten(color(dark), 30), color(dark));
 
     &::before,
     &::after {
@@ -73,7 +73,6 @@ body.post {
     padding: 6% 10%;
     min-height: 50vh;
     background: $body-bg;
-    // word-break: break-all;
     font-size: calc(#{$font-size-medium} + 0.33vw);
     font-family: $font-family-serif;
     line-height: $line-height-loose;
@@ -169,13 +168,14 @@ body.post {
     }
   }
 
-  &-author {
-    margin-bottom: space(9);
+  &-authors {
+    margin-bottom: space(6);
     border-top: 1px solid color(light);
 
     .author {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       padding: space(3) space(2);
     }
 
@@ -189,11 +189,12 @@ body.post {
     }
 
     .content {
-      flex: 1 0 0;
+      flex: 1 0 10rem;
     }
 
     .link {
       display: inline-block;
+      margin: 0 auto;
       padding: space(2) space(3);
       border: 1px solid color(muted);
     }
@@ -237,7 +238,7 @@ body.post {
       padding: space(4);
       border-radius: 0.25rem;
       background: color(primary)
-        linear-gradient(135deg, rgba(color(dark), 0.7), rgba(color(dark), 0.9));
+      linear-gradient(135deg, rgba(color(dark), 0.7), rgba(color(dark), 0.9));
       color: color(light);
       text-align: center;
 

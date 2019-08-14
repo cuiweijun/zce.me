@@ -97,7 +97,7 @@ export default ({ data, location }) => {
             </div>
           </section>
 
-          <section className="post-author">
+          <section className="post-authors">
             <h3 className="sr-only">Author</h3>
             <div className="author">
               <Image

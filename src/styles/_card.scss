@@ -9,11 +9,11 @@
   flex-direction: column;
   border-radius: 0.25rem;
   background: color(white);
-  box-shadow: 0 space(1) space(2) rgba(color(dark), 0.15);
+  box-shadow: 0 0.25rem 0.5rem rgba(color(dark), 0.15);
   transition: box-shadow 0.3s, transform 0.3s;
 
   &:hover {
-    box-shadow: 0 space(1) space(3) rgba(color(dark), 0.15);
+    box-shadow: 0 0.25rem 1rem rgba(color(dark), 0.15);
     transform: translate(0, -0.25rem);
   }
 
@@ -70,7 +70,7 @@
       list-style: none;
 
       li ~ li {
-        margin-left: (- space(3));
+        margin-left: (-space(3));
         transition: margin-left 0.2s;
       }
 

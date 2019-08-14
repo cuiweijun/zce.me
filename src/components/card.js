@@ -54,9 +54,9 @@ export default ({ post, rel }) => {
               </li>
             ))}
           </ul>
-          <small>{`${post.timeToRead} min${
-            post.timeToRead === 1 ? '' : 's'
-          }`}</small>
+          <small>
+            {post.timeToRead} min{post.timeToRead === 1 ? '' : 's'}
+          </small>
         </footer>
       </div>
     </article>

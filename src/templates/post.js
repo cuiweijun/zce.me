@@ -7,8 +7,9 @@ import Layout from '../components/layout'
 import Card from '../components/card'
 
 export default ({ data, location }) => {
-  const { site, post, prev, next } = data
+  const { site, post, prev, next, relatedPosts } = data
   const { fields } = post
+  const url = site.siteMetadata.url + location.pathname
 
   return (
     <Layout
@@ -25,7 +26,9 @@ export default ({ data, location }) => {
               {moment.utc(fields.date).format('ll')}
             </time>
             <span role="separator" aria-hidden="true" />
-            <Link to={fields.categories[0].fields.permalink} aria-label="Posted in">
+            <Link
+              to={fields.categories[0].fields.permalink}
+              aria-label="Posted in">
               {fields.categories[0].id}
             </Link>
           </span>
@@ -48,29 +51,76 @@ export default ({ data, location }) => {
         />
 
         <footer className="post-footer">
-          <section className="post-tags">
-            <h3 className="sr-only">Tags</h3>
-            {fields.tags && (
-              <ul>
+          <section className="post-more">
+            <div className="post-tags">
+              <svg viewBox="0 0 24 24">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7" y2="7"></line>
+              </svg>
+              <ul className="tags">
                 {fields.tags.map(i => (
                   <li key={i.id}>
                     <Link to={i.fields.permalink}>{i.id}</Link>
                   </li>
                 ))}
               </ul>
-            )}
+            </div>
+            <div className="post-share">
+              <span>Share this:</span>
+              <a
+                href={`https://twitter.com/share?text=${fields.title}&url=${url}`}
+                title="Twitter">
+                <svg viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+              </a>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+                title="Facebook">
+                <svg viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a
+                href={`http://qr.topscan.com/api.php?text=${url}`}
+                title="Moment">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                  <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                  <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                  <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                  <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                  <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                </svg>
+              </a>
+            </div>
           </section>
 
-          <section className="post-authors">
-            <h3 className="sr-only">Authors</h3>
-            {fields.authors && (
-              <ul>
-                {fields.authors.map(i => (
-                  <li key={i.id}>
-                    <Link to={i.fields.permalink}>{i.id}</Link>
-                  </li>
+          <section className="post-author">
+            <h3 className="sr-only">Author</h3>
+            <div className="author">
+              <Image
+                className="avatar"
+                fixed={fields.authors[0].avatar.childImageSharp.fixed}
+              />
+              <div className="content">
+                <h4>{fields.authors[0].id}</h4>
+                <p>{fields.authors[0].bio}</p>
+              </div>
+              <Link className="link" to={fields.authors[0].fields.permalink}>
+                Read More
+              </Link>
+            </div>
+            {fields.authors.length > 1 && (
+              <p className="contributors">
+                <span>Contributors: </span>
+                {fields.authors.slice(1).map(i => (
+                  <Link to={i.fields.permalink} key={i.id}>
+                    {i.id}
+                  </Link>
                 ))}
-              </ul>
+              </p>
             )}
           </section>
 
@@ -116,13 +166,13 @@ export default ({ data, location }) => {
                 href="https://creativecommons.org/licenses/by-sa/4.0/"
                 target="_blank"
                 rel="noopener noreferrer">
-                Creative Commons Attribution-ShareAlike 4.0 International License
+                Creative Commons Attribution-ShareAlike 4.0 International
+                License
               </a>
             </p>
           </section>
-          <section className="post-comments">
 
-          </section>
+          <section className="post-comments"></section>
         </footer>
       </article>
 
@@ -140,21 +190,29 @@ export default ({ data, location }) => {
                 </h3>
               </header>
               <div className="category-divider">
-                <svg viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+                <svg viewBox="0 0 24 24">
+                  <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+                </svg>
               </div>
               <ul className="category-posts">
-                <li>
-                  <Link to="/foo" title="Github Source">Github Source</Link>
-                </li>
-                <li>
-                  <Link to="/foo">Github Source</Link>
-                </li>
-                <li>
-                  <Link to="/foo">Github Source Github Source Github Source Github Source</Link>
-                </li>
+                {relatedPosts.nodes.map(post => (
+                  <li key={post.id}>
+                    <Link to={post.fields.permalink} title={post.fields.title}>
+                      {post.fields.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
               <footer className="category-footer">
-                <Link to="/foo">See all posts &rarr;</Link>
+                {relatedPosts.totalCount > 1 ? (
+                  <Link to={fields.categories[0].fields.permalink}>
+                    See all {relatedPosts.totalCount} posts &rarr;
+                  </Link>
+                ) : (
+                  <Link to={fields.categories[0].fields.permalink}>
+                    See 1 post &rarr;
+                  </Link>
+                )}
               </footer>
             </section>
 
@@ -168,9 +226,15 @@ export default ({ data, location }) => {
 }
 
 export const query = graphql`
-  query PostTemplate($id: String!, $prev: String, $next: String) {
+  query PostTemplate(
+    $id: String!
+    $category: String!
+    $prev: String
+    $next: String
+  ) {
     site {
       siteMetadata {
+        url
         title
       }
     }
@@ -186,6 +250,14 @@ export const query = graphql`
         permalink
         authors {
           id
+          avatar {
+            childImageSharp {
+              fixed(width: 160) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          bio
           fields {
             permalink
           }
@@ -211,6 +283,27 @@ export const query = graphql`
     }
     next: markdownRemark(id: { eq: $next }) {
       ...PostCard
+    }
+    relatedPosts: allMarkdownRemark(
+      filter: {
+        id: { ne: $id }
+        fields: {
+          type: { eq: "post" }
+          draft: { eq: false }
+          private: { eq: false }
+          categories: { elemMatch: { id: { eq: $category } } }
+        }
+      }
+      limit: 3
+    ) {
+      totalCount
+      nodes {
+        id
+        fields {
+          permalink
+          title
+        }
+      }
     }
   }
 `

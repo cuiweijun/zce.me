@@ -6,9 +6,12 @@ import Card from '../components/card'
 
 export default ({ data: { categoriesYaml, allMarkdownRemark }, location }) => (
   <Layout
-    title={(categoriesYaml.meta && categoriesYaml.meta.title) || categoriesYaml.id}
+    title={
+      (categoriesYaml.meta && categoriesYaml.meta.title) || categoriesYaml.id
+    }
     description={
-      (categoriesYaml.meta && categoriesYaml.meta.description) || categoriesYaml.description
+      (categoriesYaml.meta && categoriesYaml.meta.description) ||
+      categoriesYaml.description
     }
     bodyClass="category"
     cover={categoriesYaml.cover}

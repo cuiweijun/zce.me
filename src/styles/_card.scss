@@ -70,7 +70,7 @@
       list-style: none;
 
       li ~ li {
-        margin-left: (-space(3));
+        margin-left: (0 - space(3));
         transition: margin-left 0.2s;
       }
 

@@ -44,7 +44,7 @@ body.post {
   &-cover {
     overflow: visible !important; // for box-shadow
     background: color(dark)
-    linear-gradient(135deg, lighten(color(dark), 30), color(dark));
+      linear-gradient(135deg, lighten(color(dark), 30), color(dark));
 
     &::before,
     &::after {
@@ -238,7 +238,7 @@ body.post {
       padding: space(4);
       border-radius: 0.25rem;
       background: color(primary)
-      linear-gradient(135deg, rgba(color(dark), 0.7), rgba(color(dark), 0.9));
+        linear-gradient(135deg, rgba(color(dark), 0.7), rgba(color(dark), 0.9));
       color: color(light);
       text-align: center;
 

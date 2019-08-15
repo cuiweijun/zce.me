@@ -2,17 +2,43 @@
 // Style entry file
 // -----------------------------------------------------------------------------
 
-@import 'base/functions';
-@import 'base/variables';
-@import 'base/mixins';
-@import 'base/placeholders';
+// abstracts
+// --------------------------------------------------
 
-@import 'components/global';
-@import 'components/layout';
+@import 'abstracts/functions';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+// vendors
+// --------------------------------------------------
+
+@import 'vendors/normalize';
+
+// base
+// --------------------------------------------------
+
+@import 'base/fonts';
+@import 'base/helpers';
+@import 'base/global';
+
+// layout
+// --------------------------------------------------
+
+@import 'layout/wrapper';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/footer';
+
+// components
+// --------------------------------------------------
+
 @import 'components/buttons';
 @import 'components/card';
 @import 'components/prism';
-@import 'components/helpers';
+
+// pages
+// --------------------------------------------------
 
 @import 'pages/home';
 @import 'pages/blog';
@@ -22,3 +48,8 @@
 @import 'pages/page';
 @import 'pages/post';
 @import 'pages/error';
+
+// themes
+// --------------------------------------------------
+
+@import 'themes/default';

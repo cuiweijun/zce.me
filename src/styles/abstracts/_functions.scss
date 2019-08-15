@@ -22,6 +22,10 @@
   @return mix(black, $color, $percentage);
 }
 
+@function px-to-rem($pixels, $root: 16px) {
+  @return ($pixels / $root * 1rem);
+}
+
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
   @if $index {

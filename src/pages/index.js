@@ -8,9 +8,7 @@ export default ({ data, location }) => {
   return (
     <Layout bodyClass="home" location={location}>
       <section className="home-section">
-        <div className="container">
-
-        </div>
+        <div className="container"></div>
       </section>
 
       <section className="home-section">
@@ -25,28 +23,44 @@ export default ({ data, location }) => {
             ))}
           </main>
           <footer className="home-section-footer">
-            <Link to="/blog/">Find More <span aria-hidden="true">&rarr;</span></Link>
+            <Link to="/blog/">
+              Find More <span aria-hidden="true">&rarr;</span>
+            </Link>
           </footer>
         </div>
       </section>
 
       <section className="home-section">
-        <div className="container">
-
-        </div>
+        <div className="container"></div>
       </section>
 
       <section className="home-section">
-        <div className="container">
-
-        </div>
+        <div className="container"></div>
       </section>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query IndexPage {
+  query HomePage {
+    featuredPosts: allMarkdownRemark(
+      filter: { fields: { featured: { eq: true } } }
+    ) {
+      nodes {
+        id
+        fields {
+          title
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 360, maxHeight: 540, cropFocus: CENTER) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          permalink
+        }
+      }
+    }
     recentPosts: allMarkdownRemark(
       filter: {
         fields: {
@@ -58,7 +72,6 @@ export const query = graphql`
       sort: { fields: fields___date, order: DESC }
       limit: 3
     ) {
-      totalCount
       nodes {
         ...PostCard
       }

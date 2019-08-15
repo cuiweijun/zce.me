@@ -1,7 +1,9 @@
 ---
 title: Welcome to Ghost
+slug: welcome
 date: 2019-06-01 22:47:36
 cover: welcome-to-ghost.jpg
+featured: true
 ---
 
 👋 Welcome, it's great to have you here.

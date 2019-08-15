@@ -21,8 +21,9 @@ exports.collections = {
     template: 'post',
     permalink: '/{year}/{month}/{slug}/',
     draft: false,
-    comment: true,
     private: false,
+    featured: false,
+    comment: true,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
     tags: ['Untagged']
@@ -32,8 +33,9 @@ exports.collections = {
     template: 'page',
     permalink: '/{slug}/',
     draft: false,
-    comment: false,
     private: false,
+    featured: false,
+    comment: false,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
     tags: ['Untagged']

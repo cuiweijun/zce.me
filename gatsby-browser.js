@@ -4,10 +4,14 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+// Import global styles
+
 // typefaces
 // import 'typeface-source-sans-pro'
 // import 'typeface-merriweather'
 // import 'typeface-source-code-pro'
+
+import 'normalize.css'
 
 // global styles
 import './src/styles/main.scss'

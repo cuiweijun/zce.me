@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 // https://system-ui.com/theme
 
-@import '../../node_modules/open-color/open-color.scss';
+@import 'node_modules/open-color/open-color.scss';
 
 $grays: (
   0: $oc-gray-0,
@@ -20,18 +20,18 @@ $grays: (
 
 $colors: (
   // themes
-    primary: $oc-blue-5,
+  primary: $oc-blue-5,
   secondary: $oc-gray-6,
   accent: $oc-red-5,
   muted: $oc-gray-5,
   // grays
-    white: $oc-white,
+  white: $oc-white,
   light: $oc-gray-2,
   gray: $oc-gray-7,
   dark: $oc-gray-8,
   black: $oc-black,
   // colors
-    blue: $oc-blue-5,
+  blue: $oc-blue-5,
   indigo: $oc-indigo-5,
   purple: $oc-grape-5,
   pink: $oc-pink-5,
@@ -66,9 +66,12 @@ $breakpoints: (
 
 // typography
 
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-family-serif: "Times New Roman", Times, Georgia, serif;
-$font-family-monospace: "Fira Code", "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$font-family-serif: 'Times New Roman', Times, Georgia, serif;
+$font-family-monospace: 'Fira Code', 'Source Code Pro', SFMono-Regular, Menlo,
+  Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
 $font-size-small: 0.875rem;
 $font-size-medium: 1rem;

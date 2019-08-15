@@ -31,8 +31,9 @@ const createCollectionFields = ({ node, getNode, actions }) => {
     template = collection.template,
     permalink = collection.permalink,
     draft = collection.draft,
-    comment = collection.comment,
     private = collection.private,
+    featured = collection.featured,
+    comment = collection.comment,
     authors = [],
     categories = [],
     tags = []
@@ -66,8 +67,9 @@ const createCollectionFields = ({ node, getNode, actions }) => {
   createNodeField({ node, name: 'template', value: template })
   createNodeField({ node, name: 'permalink', value: permalink })
   createNodeField({ node, name: 'draft', value: draft })
-  createNodeField({ node, name: 'comment', value: comment })
   createNodeField({ node, name: 'private', value: private })
+  createNodeField({ node, name: 'featured', value: featured })
+  createNodeField({ node, name: 'comment', value: comment })
 
   createNodeField({ node, name: 'title', value: title })
   createNodeField({ node, name: 'slug', value: slug })

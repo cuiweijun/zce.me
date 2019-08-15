@@ -2,20 +2,16 @@
 // Style entry file
 // -----------------------------------------------------------------------------
 
-// abstracts
-// --------------------------------------------------
+@import 'base/functions';
+@import 'base/variables';
+@import 'base/mixins';
+// @import 'base/placeholders';
 
-@import '../../node_modules/normalize.css/normalize.css';
+@import 'base/global';
 
-@import 'functions';
-@import 'variables';
-@import 'mixins';
-// @import 'placeholders';
-
-@import 'global';
-@import 'layout';
-@import 'card';
-@import 'prism';
+@import 'components/layout';
+@import 'components/card';
+@import 'components/prism';
 
 @import 'pages/home';
 @import 'pages/blog';

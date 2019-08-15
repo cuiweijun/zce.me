@@ -182,32 +182,3 @@ code {
 // b {}
 
 // i {}
-
-// CSS helper classes.
-// -----------------------------------------------------------------------------
-
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: $container-padding;
-  padding-left: $container-padding;
-  max-width: $container-width;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: (-$container-padding);
-  margin-right: (-$container-padding);
-}
-
-.sr-only {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  border: 0;
-  white-space: nowrap;
-}

@@ -21,8 +21,10 @@
 - [x] Post status
 - [x] RSS Feed (not enabled)
 - [x] Private & draft
-- [ ] Comments (disqus)
+- [x] Comments (disqus)
 - [ ] Global style
+- [ ] Netlify Deploy
+- [ ] Netlify CMS
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
 - [ ] Create default nodes by programming

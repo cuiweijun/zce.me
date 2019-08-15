@@ -5,9 +5,9 @@
  */
 
 // typefaces
-import 'typeface-source-sans-pro'
-import 'typeface-merriweather'
-import 'typeface-source-code-pro'
+// import 'typeface-source-sans-pro'
+// import 'typeface-merriweather'
+// import 'typeface-source-code-pro'
 
 // global styles
 import './src/styles/main.scss'

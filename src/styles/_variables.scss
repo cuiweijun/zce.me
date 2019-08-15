@@ -66,9 +66,9 @@ $breakpoints: (
 
 // typography
 
-$font-family-sans-serif: Source Sans Pro, system-ui, sans-serif;
-$font-family-serif: Merriweather, Georgia, serif;
-$font-family-monospace: Source Code Pro, Menlo, monospace;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-serif: "Times New Roman", Times, Georgia, serif;
+$font-family-monospace: "Fira Code", "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
 $font-size-small: 0.875rem;
 $font-size-medium: 1rem;
@@ -90,11 +90,11 @@ $body-font-size: $font-size-medium;
 $body-font-weight: $font-weight-normal;
 $body-line-height: $line-height-default;
 $body-color: gray(7);
-$body-bg: gray(0);
+$body-bg: #f4f8fb; // gray(0);
 
 $headings-margin-bottom: space(2);
 $headings-font-family: $font-family-serif;
-$headings-font-weight: $font-weight-bold;
+$headings-font-weight: 500;
 $headings-line-height: 1.2;
 $headings-color: null;
 

@@ -1,14 +1,44 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/layout'
+import Card from '../components/card'
 
 export default ({ data, location }) => {
   return (
     <Layout bodyClass="home" location={location}>
-      <section>
+      <section className="home-section">
         <div className="container">
-          <p>Hello world</p>
+
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="container">
+          <header className="home-section-header">
+            <h2>Latest Posts</h2>
+            <p>Keep the dots in your life.</p>
+          </header>
+          <main className="home-section-main row">
+            {data.recentPosts.nodes.map(node => (
+              <Card post={node} key={node.id} />
+            ))}
+          </main>
+          <footer className="home-section-footer">
+            <Link to="/blog/">Find More <span aria-hidden="true">&rarr;</span></Link>
+          </footer>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="container">
+
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="container">
+
         </div>
       </section>
     </Layout>
@@ -17,11 +47,21 @@ export default ({ data, location }) => {
 
 export const query = graphql`
   query IndexPage {
-    site {
-      ...SiteMetadata
-    }
-    cover: file(relativePath: { eq: "images/cover.jpg" }) {
-      ...SiteCoverImage
+    recentPosts: allMarkdownRemark(
+      filter: {
+        fields: {
+          type: { eq: "post" }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
+      sort: { fields: fields___date, order: DESC }
+      limit: 3
+    ) {
+      totalCount
+      nodes {
+        ...PostCard
+      }
     }
   }
 `

@@ -1,15 +1,42 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import Image from 'gatsby-image'
 
 import Layout from '../components/layout'
 import Card from '../components/card'
 
-export default ({ data, location }) => {
+const FeaturedSection = ({ post }) => (
+  <section className="home-section">
+    <div className="container">
+      <article className="featured">
+        {post.fields.cover && (
+          <Image
+            Tag="figure"
+            className="featured-cover"
+            alt={post.fields.title}
+            title={post.fields.title}
+            fluid={post.fields.cover.childImageSharp.fluid}
+          />
+        )}
+        <div className="featured-content">
+          <h2 className="featured-title">{post.fields.title}</h2>
+          <main
+            className="featured-main"
+            dangerouslySetInnerHTML={{ __html: post.excerpt }}
+          />
+          <Link className="featured-link" to={post.fields.permalink}>
+            Continue reading <span>&rarr;</span>
+          </Link>
+        </div>
+      </article>
+    </div>
+  </section>
+)
+
+export default ({ data: { featured, latest, about }, location }) => {
   return (
     <Layout bodyClass="home" location={location}>
-      <section className="home-section">
-        <div className="container"></div>
-      </section>
+      <FeaturedSection post={featured.nodes[0]} />
 
       <section className="home-section">
         <div className="container">
@@ -18,7 +45,7 @@ export default ({ data, location }) => {
             <p>Keep the dots in your life.</p>
           </header>
           <main className="home-section-main row">
-            {data.recentPosts.nodes.map(node => (
+            {latest.nodes.map(node => (
               <Card post={node} key={node.id} />
             ))}
           </main>
@@ -30,12 +57,18 @@ export default ({ data, location }) => {
         </div>
       </section>
 
-      <section className="home-section">
-        <div className="container"></div>
-      </section>
+      <FeaturedSection post={featured.nodes[1]} />
 
       <section className="home-section">
-        <div className="container"></div>
+        <div className="container">
+          <div className="about">
+            <h2 className="about-title">{about.fields.title}</h2>
+            <div
+              className="about-content"
+              dangerouslySetInnerHTML={{ __html: about.html }}
+            />
+          </div>
+        </div>
       </section>
     </Layout>
   )
@@ -43,25 +76,27 @@ export default ({ data, location }) => {
 
 export const query = graphql`
   query HomePage {
-    featuredPosts: allMarkdownRemark(
+    featured: allMarkdownRemark(
       filter: { fields: { featured: { eq: true } } }
+      sort: { fields: fields___date, order: DESC }
+      limit: 2
     ) {
       nodes {
-        id
         fields {
           title
           cover {
             childImageSharp {
-              fluid(maxWidth: 360, maxHeight: 540, cropFocus: CENTER) {
+              fluid(maxWidth: 360, maxHeight: 480, cropFocus: CENTER) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
           permalink
         }
+        excerpt(format: HTML, pruneLength: 500)
       }
     }
-    recentPosts: allMarkdownRemark(
+    latest: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "post" }
@@ -70,11 +105,17 @@ export const query = graphql`
         }
       }
       sort: { fields: fields___date, order: DESC }
-      limit: 3
+      limit: 6
     ) {
       nodes {
         ...PostCard
       }
+    }
+    about: markdownRemark(fields: { slug: { eq: "about" } }) {
+      fields {
+        title
+      }
+      html
     }
   }
 `

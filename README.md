@@ -25,6 +25,7 @@
 - [ ] Global style
 - [ ] Netlify Deploy
 - [ ] Netlify CMS
+- [ ] write-good
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
 - [ ] Create default nodes by programming

@@ -68,17 +68,24 @@ body.home {
 .featured {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 
   &-cover {
-    order: 2;
-    width: 360px;
+    flex: 0 0 22rem;
+    margin-bottom: space(3);
     border: space(4) solid color(white);
     box-shadow: 0 0 1rem color(light);
+
+    @include media-breakpoint-up(md) {
+      order: 2;
+      margin-bottom: 0;
+    }
   }
 
   &-content {
-    flex: 1 0 0;
-    padding: space(3);
+    flex: 1 0 23rem;
+    padding: space(4);
   }
 
   &-title {

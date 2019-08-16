@@ -31,15 +31,16 @@ exports.plugins = [
     }
   },
   {
+    // https://using-remark.gatsbyjs.org
     resolve: 'gatsby-transformer-remark',
     options: {
       plugins: [
-        'gatsby-remark-images',
-        'gatsby-remark-responsive-iframe',
-        'gatsby-remark-copy-linked-files',
-        'gatsby-remark-autolink-headers',
         'gatsby-remark-smartypants',
-        'gatsby-remark-prismjs'
+        'gatsby-remark-autolink-headers',
+        'gatsby-remark-images',
+        'gatsby-remark-prismjs',
+        'gatsby-remark-responsive-iframe',
+        'gatsby-remark-copy-linked-files'
       ]
     }
   },

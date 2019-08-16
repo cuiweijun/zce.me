@@ -46,7 +46,7 @@ export default ({ data, location }) => {
           />
         )}
 
-        <main
+        <section
           className="post-main"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />

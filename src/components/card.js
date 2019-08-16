@@ -33,9 +33,9 @@ export default ({ post, rel }) => {
           <span>{post.fields.categories[0].id}</span>
           <h3>{post.fields.title}</h3>
         </header>
-        <main className="card-main">
+        <div className="card-main">
           <p>{post.excerpt}</p>
-        </main>
+        </div>
         <footer className="card-footer">
           <ul>
             {post.fields.authors.map((author, i) => (

@@ -20,7 +20,7 @@ const FeaturedSection = ({ post }) => (
         )}
         <div className="featured-content">
           <h2 className="featured-title">{post.fields.title}</h2>
-          <main
+          <div
             className="featured-main"
             dangerouslySetInnerHTML={{ __html: post.excerpt }}
           />
@@ -44,11 +44,11 @@ export default ({ data: { featured, latest, about }, location }) => {
             <h2>Latest Posts</h2>
             <p>Keep the dots in your life.</p>
           </header>
-          <main className="home-section-main row">
+          <div className="home-section-main row">
             {latest.nodes.map(node => (
               <Card post={node} key={node.id} />
             ))}
-          </main>
+          </div>
           <footer className="home-section-footer">
             <Link to="/blog/">
               Find More <span aria-hidden="true">&rarr;</span>

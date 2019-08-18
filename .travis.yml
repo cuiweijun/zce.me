@@ -37,5 +37,3 @@ deploy:
   skip_cleanup: true
   project: public
   domain: zce.surge.sh
-  on:
-    branch: gatsby

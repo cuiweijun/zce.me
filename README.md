@@ -62,7 +62,7 @@ $ yarn build
 
 ## Deploy
 
-[![[Deploy to Netlify][deploy-image]][deploy-url]
+[![Deploy to Netlify][deploy-image]][deploy-url]
 
 ## License
 

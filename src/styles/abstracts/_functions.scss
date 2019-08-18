@@ -2,17 +2,7 @@
 // This file contains all application-wide Sass functions.
 // -----------------------------------------------------------------------------
 
-@function gray($key: 3) {
-  @return map-get($grays, $key);
-}
-
-@function color($key: primary) {
-  @return map-get($colors, $key);
-}
-
-@function space($key: 3) {
-  @return map-get($spaces, $key);
-}
+// functions
 
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
@@ -22,7 +12,17 @@
   @return mix(black, $color, $percentage);
 }
 
-@function px-to-rem($pixels, $root: 16px) {
+@function yiq($color, $dark: gray(7), $light: gray(1), $threshold: 150) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @return if($yiq >= $threshold, $dark, $light);
+}
+
+@function rem($pixels, $root: 16px) {
   @return ($pixels / $root * 1rem);
 }
 
@@ -67,6 +67,7 @@
     ']': '%5D'
   );
   $new: $input;
+
   @each $search, $replace in $map {
     $new: str-replace($new, $search, $replace);
   }
@@ -76,4 +77,62 @@
 
 @function escape-svg($svg) {
   @return 'data:image/svg+xml;charset=utf-8,#{urlencode($svg)}';
+}
+
+// token getters
+
+@function gray($key) {
+  @return map-get($grays, $key);
+}
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+@function font($key) {
+  @return map-get($fonts, $key);
+}
+
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+@function font-weight($key) {
+  @return map-get($font-weights, $key);
+}
+
+@function line-height($key) {
+  @return map-get($line-heights, $key);
+}
+
+@function breakpoint($key) {
+  @return map-get($breakpoints, $key);
+}
+
+@function spacing($key) {
+  @return map-get($spacings, $key);
+}
+
+@function size($key) {
+  @return map-get($sizes, $key);
+}
+
+@function border($key) {
+  @return map-get($borders, $key);
+}
+
+@function radius($key) {
+  @return map-get($radii, $key);
+}
+
+@function shadow($key) {
+  @return map-get($shadows, $key);
+}
+
+@function z-index($key) {
+  @return map-get($z-indices, $key);
+}
+
+@function transition($key) {
+  @return map-get($transitions, $key);
 }

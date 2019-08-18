@@ -1,3 +1,44 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+// https://github.com/sanographix/rin/blob/master/src/scss/components/_button.scss
+// https://github.com/twbs/bootstrap/blob/master/scss/mixins/_buttons.scss
+
+.btn {
+  display: inline-block;
+  padding: $btn-padding-y $btn-padding-x;
+  border: $btn-border;
+  border-radius: $btn-radius;
+  background: $btn-bg;
+  color: $btn-color;
+  text-decoration: none;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: transparent;
+    background: $btn-color;
+    color: yiq($btn-color);
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+    background: $btn-color;
+    color: yiq($btn-color);
+    box-shadow: 0 0 0 $btn-focus-width rgba(tint($btn-color, 15%), 0.5);
+  }
+}
+
+.btn-sm {
+  padding: ($btn-padding-y * 0.8) ($btn-padding-x * 0.8);
+  font-size: ($btn-font-size * 0.8);
+}
+
+.btn-lg {
+  padding: ($btn-padding-y * 1.25) ($btn-padding-x * 1.25);
+  font-size: ($btn-font-size * 1.25);
+}

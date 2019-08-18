@@ -11,8 +11,6 @@
 // import 'typeface-merriweather'
 // import 'typeface-source-code-pro'
 
-import 'normalize.css'
-
 // global styles
 import './src/styles/main.scss'
 

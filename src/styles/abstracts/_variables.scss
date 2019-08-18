@@ -2,105 +2,35 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-// https://system-ui.com/theme
-// https://www.lightningdesignsystem.com/
-// https://www.lightningdesignsystem.com/design-tokens/
-// https://www.bigeng.io/how-we-use-sass-maps-for-design-tokens-and-developer-happiness/
-// http://smm.zoomquiet.top/data/20110511083224/index.html
+@import 'tokens';
 
-@import '../../../node_modules/open-color/open-color.scss';
+$block-margin-bottom: spacing(3);
+$border-width: 1px;
+$border-color: gray(3);
 
-$grays: (
-  0: #f8f9fa,
-  1: #f1f3f5,
-  2: #e9ecef,
-  3: #dee2e6,
-  4: #ced4da,
-  5: #adb5bd,
-  6: #868e96,
-  7: #495057,
-  8: #343a40,
-  9: #212529
-);
+// ## global
+// ----------------------------------------
 
-$colors: (
-  // themes
-  primary: $oc-blue-5,
-  secondary: $oc-gray-6,
-  accent: $oc-red-5,
-  muted: $oc-gray-5,
-  // grays
-  white: $oc-white,
-  light: $oc-gray-2,
-  gray: $oc-gray-7,
-  dark: $oc-gray-8,
-  black: $oc-black,
-  // colors
-  blue: $oc-blue-5,
-  indigo: $oc-indigo-5,
-  purple: $oc-grape-5,
-  pink: $oc-pink-5,
-  red: $oc-red-5,
-  orange: $oc-orange-5,
-  yellow: $oc-yellow-5,
-  green: $oc-green-5,
-  teal: $oc-teal-5,
-  cyan: $oc-cyan-5
-);
+// ### body
 
-$spaces: (
-  0: 0,
-  1: 0.25rem,
-  2: 0.5rem,
-  3: 1rem,
-  4: 1.5rem,
-  5: 2rem,
-  6: 2.5rem,
-  7: 3rem,
-  8: 4rem,
-  9: 5rem
-);
+$body-font-family: font(sans);
+$body-font-size: font-size(medium);
+$body-font-weight: font-weight(normal);
+$body-line-height: line-height(normal);
+$body-color: color(dark);
+$body-bg: #f4f8fb;
 
-$breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-);
+// ### divider
 
-// typography
+$hr-margin: spacing(3);
+$hr-height: $border-width;
+$hr-color: currentColor;
+$hr-opacity: 0.2;
 
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-$font-family-serif: Georgia, 'Times New Roman', Times, serif;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+// ### headings
 
-$font-size-small: 0.875rem;
-$font-size-medium: 1rem;
-$font-size-large: 1.25rem;
-
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-bold: 600;
-
-$line-height-solid: 1;
-$line-height-dense: 1.125;
-$line-height-default: 1.5;
-$line-height-loose: 1.75;
-
-// global
-
-$body-font-family: $font-family-sans-serif;
-$body-font-size: $font-size-medium;
-$body-font-weight: $font-weight-normal;
-$body-line-height: $line-height-default;
-$body-color: gray(7);
-$body-bg: #f4f8fb; // gray(0);
-
-$headings-margin-bottom: space(2);
-$headings-font-family: $font-family-serif;
+$headings-margin-bottom: spacing(2);
+$headings-font-family: null;
 $headings-font-weight: 500;
 $headings-line-height: 1.2;
 $headings-color: null;
@@ -112,9 +42,106 @@ $h4-font-size: 1.5em;
 $h5-font-size: 1.25em;
 $h6-font-size: 1em;
 
-$paragraph-margin-bottom: space(3);
+// ### paragraph
+
+$paragraph-margin-bottom: $block-margin-bottom;
+
+// ### list
+
+$list-margin-bottom: $block-margin-bottom;
+$list-padding: spacing(5);
+
+// ### blockquote
+
+$blockquote-margin-bottom: $block-margin-bottom;
+$blockquote-padding-x: spacing(3);
+$blockquote-padding-y: spacing(2);
+$blockquote-border: 0.25rem solid tint(color(primary), 20%);
+
+// ### pre
+
+$pre-margin-bottom: $block-margin-bottom;
+$pre-padding-x: spacing(3);
+$pre-padding-y: spacing(2);
+
+// ### table
+
+$table-margin-bottom: $block-margin-bottom;
+$table-cell-padding-x: spacing(3);
+$table-cell-padding-y: spacing(2);
+$table-cell-border: $border-width solid $border-color;
+
+// ### link
 
 $link-color: color(primary);
+$link-decoration: none;
+$link-hover-color: shade($link-color, 15%);
+$link-hover-decoration: none;
+$link-hover-opacity: 0.8;
 
-$container-width: 1040px; // 1140px;
-$container-padding: space(3);
+// ## layout
+// ----------------------------------------
+
+// ### cover
+
+$cover-height: 85vh;
+$cover-mask-1: 0 / 4px
+  url(escape-svg(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2" stroke="#000" stroke-linecap="square" stroke-width="0.5"><line x1="0" y1="1" x2="1" y2="0"/><line x1="1" y1="2" x2="2" y2="1"/></svg>'
+  ));
+$cover-mask-2: linear-gradient(
+  rgba($body-bg, 0),
+  rgba($body-bg, 0.4) 61.8%,
+  $body-bg
+);
+
+// ### nav
+
+$nav-color: color(light);
+$nav-bg: color(dark);
+
+$nav-brand-height: 1.5625rem;
+$nav-brand-font-size: font-size(large);
+
+// ### heading
+
+$heading-padding: 10vw;
+$heading-color: color(light);
+$heading-shadow-color: color(dark);
+$heading-font-size: font-size(xlarge);
+
+// ## components
+// ----------------------------------------
+
+$gap-width: spacing(5);
+
+// ### container
+
+$container-width: size(xl);
+$container-padding: ($gap-width / 2);
+
+// ### row
+
+$row-margin: -($gap-width / 2);
+
+// ### button
+
+$btn-padding-x: spacing(3);
+$btn-padding-y: spacing(2);
+$btn-border: $border-width solid color(secondary);
+$btn-radius: radius(medium);
+$btn-bg: transparent;
+$btn-color: color(secondary);
+$btn-font-size: font-size(base);
+$btn-line-height: line-height(normal);
+$btn-focus-width: 0.25rem;
+
+// ### card
+
+$card-width: 18rem;
+$card-margin: ($gap-width / 2);
+$card-padding: spacing(3);
+$card-radius: radius(medium);
+$card-bg: #fff;
+$card-shadow: shadow(light);
+$card-hover-shadow: shadow(medium);

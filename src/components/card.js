@@ -23,19 +23,23 @@ export default ({ post, rel }) => {
         title={post.fields.title}
         rel={rel}
       />
+
       <Image
         className="card-image"
         fluid={post.fields.cover.childImageSharp.fluid}
         alt={post.fields.title}
       />
-      <div className="card-content">
+
+      <div className="card-main">
         <header className="card-header">
           <span>{post.fields.categories[0].id}</span>
           <h3>{post.fields.title}</h3>
         </header>
-        <div className="card-main">
+
+        <div className="card-content">
           <p>{post.excerpt}</p>
         </div>
+
         <footer className="card-footer">
           <ul>
             {post.fields.authors.map((author, i) => (

@@ -1,3 +1,180 @@
 // -----------------------------------------------------------------------------
 // This file contains typography styles.
 // -----------------------------------------------------------------------------
+
+// https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
+// http://smm.zoomquiet.top/data/20110511083224/index.html
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font-weight: $body-font-weight;
+  font-size: $body-font-size;
+  font-family: $body-font-family;
+  line-height: $body-line-height;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+hr {
+  margin: $hr-margin 0;
+  height: $hr-height;
+  border: 0;
+  background: $hr-color;
+  opacity: $hr-opacity;
+}
+
+%heading {
+  margin: 0 0 $headings-margin-bottom;
+  color: $headings-color;
+  font-weight: $headings-font-weight;
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+}
+
+h1 {
+  font-size: $h1-font-size;
+
+  @extend %heading;
+}
+
+h2 {
+  font-size: $h2-font-size;
+
+  @extend %heading;
+}
+
+h3 {
+  font-size: $h3-font-size;
+
+  @extend %heading;
+}
+
+h4 {
+  font-size: $h4-font-size;
+
+  @extend %heading;
+}
+
+h5 {
+  font-size: $h5-font-size;
+
+  @extend %heading;
+}
+
+h6 {
+  font-size: $h6-font-size;
+
+  @extend %heading;
+}
+
+p {
+  margin: 0 0 $paragraph-margin-bottom;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ol,
+ul {
+  margin: 0 0 $list-margin-bottom;
+  padding-left: $list-padding;
+
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// li {}
+
+dl {
+  margin: 0 0 $list-margin-bottom;
+}
+
+// dt {}
+
+dd {
+  margin-left: $list-padding;
+}
+
+blockquote {
+  margin: 0 0 $blockquote-margin-bottom;
+  padding: $blockquote-padding-y $blockquote-padding-x;
+  border-left: $blockquote-border;
+}
+
+pre {
+  margin: 0 0 $pre-margin-bottom;
+  padding: $pre-padding-y $pre-padding-x;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  margin: 0 0 $table-margin-bottom;
+  border-collapse: collapse;
+}
+
+// tr {}
+
+th,
+td {
+  padding: $table-cell-padding-y $table-cell-padding-x;
+  border: $table-cell-border;
+}
+
+th {
+  font-weight: font-weight(bold);
+}
+
+// td {}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    opacity: $link-hover-opacity;
+  }
+}
+
+code {
+  font-family: font(monospace);
+  font-size: 90%;
+}
+
+// em {}
+
+// small {}
+
+// strong {}
+
+// delete {}
+
+// b {}
+
+// i {}
+
+// mark {}
+
+// kbd {}

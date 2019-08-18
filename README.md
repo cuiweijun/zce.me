@@ -22,7 +22,8 @@
 - [x] RSS Feed (not enabled)
 - [x] Private & draft
 - [x] Comments (disqus)
-- [ ] Global style
+- [x] Global styles
+- [ ] Site Footer
 - [ ] Netlify Deploy
 - [ ] Netlify CMS
 - [ ] write-good

@@ -18,10 +18,10 @@ const FeaturedSection = ({ post }) => (
             fluid={post.fields.cover.childImageSharp.fluid}
           />
         )}
-        <div className="featured-content">
+        <div className="featured-main">
           <h2 className="featured-title">{post.fields.title}</h2>
           <div
-            className="featured-main"
+            className="featured-content"
             dangerouslySetInnerHTML={{ __html: post.excerpt }}
           />
           <Link className="featured-link" to={post.fields.permalink}>
@@ -44,13 +44,13 @@ export default ({ data: { featured, latest, about }, location }) => {
             <h2>Latest Posts</h2>
             <p>Keep the dots in your life.</p>
           </header>
-          <div className="home-section-main row">
+          <div className="home-section-content row">
             {latest.nodes.map(node => (
               <Card post={node} key={node.id} />
             ))}
           </div>
           <footer className="home-section-footer">
-            <Link to="/blog/">
+            <Link className="btn" to="/blog/">
               Find More <span aria-hidden="true">&rarr;</span>
             </Link>
           </footer>

@@ -5,8 +5,8 @@
 body.author {
   .site-heading {
     img {
-      border: space(1) solid color(secondary);
-      border-radius: 50%;
+      border: spacing(1) solid color(muted);
+      border-radius: radius(circle);
     }
   }
 }

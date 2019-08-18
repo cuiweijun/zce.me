@@ -12,16 +12,15 @@ body.post {
 .post {
   &-header {
     padding: 8vw 4vw 5vw;
-    color: color(white);
+    color: #fff;
     text-align: center;
     text-shadow: 0 0 0.25rem color(dark);
+    font-size: font-size(large);
   }
 
   &-title {
-    // font-weight: $font-weight-normal;
-    font-size: $h1-font-size * 1.25;
-    font-family: $font-family-sans-serif;
-    line-height: $line-height-default;
+    font-size: $h1-font-size * 1.125;
+    line-height: line-height(normal);
   }
 
   &-meta {
@@ -33,18 +32,18 @@ body.post {
 
     [role='separator']::before {
       display: inline-block;
-      margin: 0 space(2);
+      margin: 0 spacing(2);
       content: '\002f';
-      vertical-align: text-top;
-      font-size: $font-size-small;
-      opacity: 0.6;
+      vertical-align: text-bottom;
+      font-size: 80%;
+      opacity: 0.8;
     }
   }
 
   &-cover {
     overflow: visible !important; // for box-shadow
     background: color(dark)
-      linear-gradient(135deg, lighten(color(dark), 30), color(dark));
+      linear-gradient(135deg, tint(color(dark), 40%), color(dark));
 
     &::before,
     &::after {
@@ -69,13 +68,13 @@ body.post {
     }
   }
 
-  &-main {
+  &-content {
     padding: 6% 10%;
     min-height: 65vh;
     background: $body-bg;
-    font-size: calc(#{$font-size-medium} + 0.33vw);
-    font-family: $font-family-serif;
-    line-height: $line-height-loose;
+    font-size: calc(#{font-size(base)} + 0.33vw);
+    font-family: font(serif);
+    line-height: line-height(loose);
 
     @include media-breakpoint-down(md) {
       padding: 3% 5%;
@@ -86,13 +85,13 @@ body.post {
 
     .footnotes {
       overflow: hidden;
-      margin-top: space(5);
-      background: darken($body-bg, 3);
-      font-size: $font-size-small;
+      margin-top: spacing(5);
+      background: darken($body-bg, 5%);
+      font-size: font-size(small);
 
       hr {
         margin-top: 0;
-        opacity: 0.1;
+        opacity: 0.05;
       }
 
       p {
@@ -111,7 +110,7 @@ body.post {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: space(3);
+    margin-bottom: spacing(3);
 
     svg {
       width: 1rem;
@@ -135,7 +134,7 @@ body.post {
     align-items: center;
 
     ul {
-      margin: 0 0 0 space(1);
+      margin: 0 0 0 spacing(1);
       padding: 0;
       list-style: none;
     }
@@ -164,46 +163,39 @@ body.post {
     align-items: center;
 
     svg {
-      margin-left: space(1);
+      margin-left: spacing(1);
     }
   }
 
   &-authors {
-    margin-bottom: space(6);
-    border-top: 1px solid color(light);
+    margin-bottom: spacing(6);
+    border-top: border(default);
 
     .author {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      padding: space(3) space(2);
+      padding: spacing(3) spacing(2);
     }
 
     .avatar {
-      margin-right: space(3);
+      margin-right: spacing(3);
       max-width: 6rem;
       max-height: 6rem;
-      border: 5px solid color(white);
-      border-radius: 50%;
-      box-shadow: 0 0 0.125rem color(secondary);
+      border: 0.25rem solid color(light);
+      border-radius: radius(circle);
+      box-shadow: shadow(light);
     }
 
     .content {
       flex: 1 0 10rem;
     }
 
-    .link {
-      display: inline-block;
-      margin: 0 auto;
-      padding: space(2) space(3);
-      border: 1px solid color(muted);
-    }
-
     .contributors {
       text-align: center;
       font-style: italic;
-      font-size: $font-size-small;
-      font-family: $font-family-serif;
+      font-size: font-size(small);
+      font-family: font(serif);
 
       a:not(:last-child) {
         margin-right: 0.25rem;
@@ -216,10 +208,12 @@ body.post {
   }
 
   &-license {
-    margin-bottom: space(6);
+    margin-bottom: spacing(6);
     color: lighten(color(dark), 20);
     text-align: center;
-    font-size: $font-size-large;
+    font-style: italic;
+    font-size: font-size(large);
+    font-family: font(serif);
 
     a {
       color: inherit;
@@ -227,20 +221,20 @@ body.post {
   }
 
   &-comments {
-    margin-bottom: space(6);
-    padding: space(5);
+    margin-bottom: spacing(6);
+    padding: spacing(5);
   }
 
   &-related {
     padding-top: ($container-padding * 2);
-    background: darken($body-bg, 3);
+    background: darken($body-bg, 4%);
 
     .category {
       position: relative;
       display: flex;
       overflow: hidden;
       flex-direction: column;
-      padding: space(4);
+      padding: spacing(4);
       border-radius: 0.25rem;
       background: color(primary)
         linear-gradient(135deg, rgba(color(dark), 0.7), rgba(color(dark), 0.9));
@@ -253,24 +247,24 @@ body.post {
     }
 
     .category-header {
-      margin-top: space(3);
+      margin-top: spacing(3);
 
       small {
         &::before,
         &::after {
           display: inline-block;
-          margin: 0 space(2);
+          margin: 0 spacing(2);
           content: '\2014';
         }
       }
 
       h3 {
-        font-weight: $font-weight-light;
+        font-weight: font-weight(light);
       }
     }
 
     .category-divider {
-      margin-top: space(2);
+      margin-top: spacing(2);
 
       svg {
         width: 3rem;
@@ -284,24 +278,23 @@ body.post {
 
     .category-posts {
       flex: 1;
-      margin: space(3) space(3) 0;
+      margin: spacing(3) spacing(3) 0;
       padding: 0;
       list-style: none;
 
       li {
-        overflow: hidden;
-        padding: space(3);
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        padding: spacing(3);
+
+        @include ellipsis;
 
         & + li {
-          border-top: 1px solid color(secondary);
+          border-top: $border-width solid rgba(color(light), 0.2);
         }
       }
     }
 
     .category-footer {
-      margin-top: space(3);
+      margin-top: spacing(3);
     }
 
     .row .category {

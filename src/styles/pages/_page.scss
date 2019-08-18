@@ -4,14 +4,14 @@
 
 body.page {
   .site-heading {
-    padding: 6vw 4vw;
-    color: color(dark);
+    padding: 6vw 0;
+    color: $body-color;
     text-shadow: none;
   }
 }
 
 .page {
   &-cover {
-    margin-bottom: space(3);
+    margin-bottom: spacing(3);
   }
 }

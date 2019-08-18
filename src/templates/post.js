@@ -47,7 +47,7 @@ export default ({ data, location }) => {
         )}
 
         <section
-          className="post-main"
+          className="post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
 
@@ -109,7 +109,7 @@ export default ({ data, location }) => {
                 <h4>{fields.authors[0].id}</h4>
                 <p>{fields.authors[0].bio}</p>
               </div>
-              <Link className="link" to={fields.authors[0].fields.permalink}>
+              <Link className="btn" to={fields.authors[0].fields.permalink}>
                 Read More
               </Link>
             </div>

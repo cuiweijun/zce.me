@@ -24,43 +24,25 @@ body.home {
 
 .home {
   &-section {
-    padding: space(9) 0;
+    padding: spacing(9) 0;
 
     &:nth-child(2n) {
-      background: color(white);
+      background: tint($body-bg, 100%);
     }
 
     &-header {
-      margin-bottom: space(5);
+      margin-bottom: spacing(5);
       text-align: center;
-
-      h2 {
-        font-size: $h1-font-size;
-        font-family: $font-family-sans-serif;
-      }
-
-      p {
-        font-weight: $font-weight-light;
-        font-size: $font-size-large;
-      }
+      font-weight: font-weight(light);
+      font-size: font-size(xlarge);
     }
 
-    &-main {
-      margin-bottom: space(3);
+    &-content {
+      margin-bottom: spacing(3);
     }
 
     &-footer {
       text-align: center;
-
-      a {
-        display: inline-block;
-        // @include button-size($btn-padding-y-lg, ($btn-padding-x-lg * 2.5), $font-size-lg, $btn-line-height-lg, 2rem);
-        padding: space(2) space(4);
-        border: 1px solid color(secondary);
-        border-radius: 0.25rem;
-        color: color(secondary);
-        font-size: $font-size-large;
-      }
     }
   }
 }
@@ -73,9 +55,9 @@ body.home {
 
   &-cover {
     flex: 0 0 22rem;
-    margin-bottom: space(3);
-    border: space(4) solid color(white);
-    box-shadow: 0 0 1rem color(light);
+    margin-bottom: spacing(4);
+    border: spacing(4) solid tint($body-bg, 100%);
+    box-shadow: shadow(medium);
 
     @include media-breakpoint-up(md) {
       order: 2;
@@ -83,29 +65,29 @@ body.home {
     }
   }
 
-  &-content {
+  &-main {
     flex: 1 0 23rem;
-    padding: space(4);
+    padding: spacing(4);
   }
 
   &-title {
-    margin-bottom: space(4);
+    margin-bottom: spacing(4);
     font-size: $h1-font-size;
-    font-family: $font-family-sans-serif;
   }
 
-  &-main {
-    margin-bottom: space(4);
+  &-content {
+    margin-bottom: spacing(4);
+
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), #000 10%, #000);
   }
 }
 
 .about {
   &-title {
-    color: color(muted);
     text-align: center;
-    font-weight: $font-weight-bold;
+    font-weight: font-weight(bold);
     font-size: $h1-font-size * 2;
-    font-family: $font-family-sans-serif;
+    opacity: 0.5;
   }
 
   &-content {

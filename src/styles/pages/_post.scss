@@ -92,7 +92,7 @@ body.post {
       margin: 1em 0 0.5em;
     }
 
-    p,
+    p:not(:last-child),
     ol,
     ul,
     dl,

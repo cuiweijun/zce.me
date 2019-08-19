@@ -16,7 +16,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
 }
@@ -115,15 +114,21 @@ blockquote {
 }
 
 pre {
+  overflow: auto;
   margin: 0 0 $pre-margin-bottom;
   padding: $pre-padding-y $pre-padding-x;
-  overflow-x: auto;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
-  width: 100%;
+  display: block;
+  overflow-x: auto;
   margin: 0 0 $table-margin-bottom;
+  width: 100%;
   border-collapse: collapse;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 // tr {}
@@ -159,8 +164,8 @@ a {
 }
 
 code {
-  font-family: font(monospace);
   font-size: 90%;
+  font-family: font(monospace);
 }
 
 // em {}

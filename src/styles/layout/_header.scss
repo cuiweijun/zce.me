@@ -6,8 +6,8 @@
   position: absolute !important;
   top: 0;
   z-index: z-index(low);
-  height: $cover-height;
   width: 100%;
+  height: $cover-height;
 
   &::before,
   &::after {
@@ -41,23 +41,22 @@
   .nav-brand {
     display: flex;
     align-items: center;
-    margin-right: spacing(3);
     padding: spacing(2) 0;
     color: $nav-color;
     font-size: $nav-brand-font-size;
 
     img {
+      margin-right: spacing(2);
       width: $nav-brand-height;
       height: $nav-brand-height;
-      margin-right: spacing(2);
     }
   }
 
   .nav-menu {
     display: flex;
     flex: 1 0 0;
-    margin: 0;
-    padding: 0;
+    margin: 0 spacing(2);
+    padding: 0 spacing(1);
     list-style: none;
 
     @include media-breakpoint-down(xs) {
@@ -74,6 +73,7 @@
       -webkit-overflow-scrolling: touch;
       -ms-overflow-scrolling: touch;
       -ms-overflow-style: none;
+
       // scrollbar-width: none;
 
       &::-webkit-scrollbar {
@@ -107,7 +107,8 @@
       background-size: spacing(3);
       background-repeat: no-repeat;
       color: $nav-color;
-      font-size: font-size(small);
+      font-size: font-size(base);
+      line-height: line-height(dense);
       transition: width 0.2s;
 
       -webkit-appearance: textfield;

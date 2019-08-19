@@ -13,8 +13,8 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: (-$container-padding);
   margin-right: (-$container-padding);
+  margin-left: (-$container-padding);
 }
 
 .sr-only {

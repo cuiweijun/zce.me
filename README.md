@@ -50,7 +50,10 @@ $ yarn build
 - [x] Global styles
 - [ ] Site Footer
 - [ ] Netlify Deploy
-- [ ] Netlify CMS - https://github.com/netlify-templates/gatsby-starter-netlify-cms
+- [ ] Netlify CMS
+  - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
+  - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/
+  - https://github.com/netlify-templates/gatsby-starter-netlify-cms
 - [ ] write-good
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
@@ -72,8 +75,6 @@ $ yarn build
 [netlify-url]: https://app.netlify.com/sites/zce/deploys
 [deploy-image]: https://www.netlify.com/img/deploy/button.svg
 [deploy-url]: https://app.netlify.com/start/deploy?repository=https://github.com/zce/zce.me
-
-
 [travis-image]: https://img.shields.io/travis/zce/zce.me.svg
 [travis-url]: https://travis-ci.org/zce/zce.me
 [license-image]: https://img.shields.io/github/license/zce/zce.me.svg

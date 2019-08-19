@@ -28,8 +28,8 @@
   &.focus {
     border-color: transparent;
     background: $btn-color;
-    color: yiq($btn-color);
     box-shadow: 0 0 0 $btn-focus-width rgba(tint($btn-color, 15%), 0.5);
+    color: yiq($btn-color);
   }
 }
 

@@ -10,15 +10,15 @@ export default ({ data, location }) => {
 
   return (
     <Layout
+      className="page"
       title={fields.title}
       description={fields.description || post.excerpt}
       cover={false}
-      heading={
+      header={
         <div className="container">
           <h1>{fields.title}</h1>
         </div>
       }
-      bodyClass="page"
       location={location}>
       {fields.cover && (
         <Image

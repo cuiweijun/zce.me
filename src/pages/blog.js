@@ -6,9 +6,9 @@ import Card from '../components/card'
 
 export default ({ data, location }) => (
   <Layout
+    className="blog"
     title="All posts"
-    bodyClass="blog"
-    heading={
+    header={
       <div className="container">
         <h1>Blog</h1>
         <p>A collection of {data.allMarkdownRemark.totalCount} posts</p>

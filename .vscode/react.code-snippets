@@ -23,7 +23,7 @@
       "import Layout from '../components/layout'",
       "",
       "export default ({ location }) => (",
-      "  <Layout title=\"${1:Page}\" bodyClass=\"${2:page}\" location={location}>",
+      "  <Layout className=\"${2:page}\" title=\"${1:Page}\" location={location}>",
       "    <h1>${1:Page}</h1>",
       "  </Layout>",
       ")"

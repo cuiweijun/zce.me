@@ -14,11 +14,11 @@ export default ({ data, location }) => {
 
   return (
     <Layout
+      className="post"
       title={fields.title}
       description={fields.description || post.excerpt}
-      cover={fields.cover || undefined}
-      heading={false}
-      bodyClass="post"
+      cover={fields.cover}
+      header={false}
       location={location}>
       <article className="container" role="main">
         <header className="post-header">

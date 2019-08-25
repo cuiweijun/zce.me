@@ -42,12 +42,14 @@ const Layout = props => {
   const description = props.description || siteMetadata.description
 
   // image
-  const cover = props.cover !== undefined ? props.cover : siteCover
+  const cover = props.cover === false ? false : props.cover || siteCover
 
-  // heading
-  const heading =
-    props.heading !== undefined ? (
-      props.heading
+  const getDefaultHeader = () =>
+    props.title ? (
+      <div className="container">
+        <h1>{props.title}</h1>
+        {props.description && <p>{props.description}</p>}
+      </div>
     ) : (
       <div className="container">
         <h1>{siteMetadata.title}</h1>
@@ -55,11 +57,19 @@ const Layout = props => {
       </div>
     )
 
+  // header
+  const header =
+    props.header === false ? false : props.header || getDefaultHeader()
+
+  console.log(header)
+
   return (
     <Fragment>
       <Helmet>
         <html lang={siteMetadata.language} />
+
         <title>{title}</title>
+
         <meta name="description" content={description} />
         <meta name="author" content={siteMetadata.author} />
         {/* OpenGraph tags */}
@@ -87,9 +97,12 @@ const Layout = props => {
             content={cover.childImageSharp.fluid.presentationHeight}
           />
         )}
+
         {/* TODO: Twitter & Fackbook Card tags? */}
+
         <link rel="canonical" href={url} />
-        {props.bodyClass && <body className={props.bodyClass} />}
+
+        {props.className && <body className={props.className} />}
       </Helmet>
 
       {cover && (
@@ -120,7 +133,8 @@ const Layout = props => {
             </form>
           </div>
         </nav>
-        {heading && <div className="site-heading">{heading}</div>}
+
+        {header && <div className="site-lead">{header}</div>}
       </header>
 
       <main className="site-main">{props.children}</main>
@@ -149,11 +163,11 @@ const Layout = props => {
 }
 
 Layout.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  bodyClass: PropTypes.string,
   cover: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  heading: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+  header: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
   location: PropTypes.object.isRequired,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired
 }

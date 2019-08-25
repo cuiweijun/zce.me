@@ -28,6 +28,11 @@
   &::after {
     background: $cover-mask-2;
   }
+
+  & + .site-header .site-lead {
+    color: #fff;
+    text-shadow: 0 0 0.25rem color(dark);
+  }
 }
 
 .site-nav {
@@ -55,12 +60,13 @@
   .nav-menu {
     display: flex;
     flex: 1 0 0;
-    margin: 0 spacing(2);
+    margin: 0 spacing(3);
     padding: 0 spacing(1);
     list-style: none;
 
     @include media-breakpoint-down(xs) {
       overflow-x: auto;
+      margin: 0 spacing(2);
       white-space: nowrap;
 
       mask-image: linear-gradient(
@@ -128,12 +134,11 @@
   }
 }
 
-.site-heading {
-  padding: $heading-padding 0;
-  color: $heading-color;
+// jumbotron or masthead
+.site-lead {
+  padding: 10vw 0;
   text-align: center;
-  text-shadow: 0 0 spacing(1) $heading-shadow-color;
-  font-size: $heading-font-size;
+  font-size: font-size(xlarge);
 
   h1 {
     font-size: $h1-font-size * 1.25;

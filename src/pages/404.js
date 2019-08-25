@@ -6,14 +6,14 @@ import Card from '../components/card'
 
 export default ({ data, location }) => (
   <Layout
+    className="error error-404"
     title="404 Not found"
-    bodyClass="error error-404"
     cover={null}
-    heading={
+    header={
       <div className="container">
         <h1>404</h1>
         <p>Page not found</p>
-        <Link to="/">Back to Home &rarr;</Link>
+        <Link className="btn btn-light btn-sm" to="/">Back to Home &rarr;</Link>
       </div>
     }
     location={location}>

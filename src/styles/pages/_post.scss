@@ -4,8 +4,8 @@
 
 body.post {
   .site-cover img {
-    filter: blur(0.75rem);
-    transform: translateZ(0) scale(1.0825);
+    filter: blur(1rem);
+    transform: translateZ(0) scale(1.1);
   }
 }
 
@@ -125,6 +125,7 @@ body.post {
 
       p {
         display: inline-block;
+        margin-bottom: 0;
       }
     }
   }
@@ -132,7 +133,7 @@ body.post {
   &-footer {
     margin: 0 auto;
     padding: 3vw 0;
-    max-width: 760px;
+    max-width: 800px;
   }
 
   &-more {

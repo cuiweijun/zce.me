@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 body.error {
-  .site-heading {
+  .site-lead {
     h1 {
       font-size: 5em;
     }
@@ -13,7 +13,6 @@ body.error {
     }
 
     a {
-      font-size: font-size(base);
       text-shadow: none;
     }
   }

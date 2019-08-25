@@ -3,10 +3,16 @@
 // -----------------------------------------------------------------------------
 
 body.author {
-  .site-heading {
-    img {
-      border: spacing(1) solid color(muted);
-      border-radius: radius(circle);
-    }
-  }
+}
+
+.author-avatar {
+  border: spacing(1) solid color(muted);
+  border-radius: radius(circle);
+}
+
+h1.author-name {
+  font-size: $h1-font-size;
+}
+
+p.author-bio {
 }

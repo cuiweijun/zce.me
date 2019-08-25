@@ -35,7 +35,7 @@ const FeaturedSection = ({ post }) => (
 
 export default ({ data: { featured, latest, about }, location }) => {
   return (
-    <Layout bodyClass="home" location={location}>
+    <Layout className="home" location={location}>
       <FeaturedSection post={featured.nodes[0]} />
 
       <section className="home-section">

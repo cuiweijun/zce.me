@@ -7,17 +7,20 @@ import Card from '../components/card'
 
 export default ({ data: { authorsYaml, allMarkdownRemark }, location }) => (
   <Layout
+    className="author"
     title={(authorsYaml.meta && authorsYaml.meta.title) || authorsYaml.id}
     description={
       (authorsYaml.meta && authorsYaml.meta.description) || authorsYaml.bio
     }
-    bodyClass="author"
     cover={authorsYaml.cover}
-    heading={
+    header={
       <div className="container">
-        <Image fixed={authorsYaml.avatar.childImageSharp.fixed} />
-        <h1>{authorsYaml.id}</h1>
-        <p>{authorsYaml.bio}</p>
+        <Image
+          className="author-avatar"
+          fixed={authorsYaml.avatar.childImageSharp.fixed}
+        />
+        <h1 className="author-name">{authorsYaml.id}</h1>
+        <p className="author-bio">{authorsYaml.bio}</p>
       </div>
     }
     location={location}>

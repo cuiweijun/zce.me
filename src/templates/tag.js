@@ -6,13 +6,13 @@ import Card from '../components/card'
 
 export default ({ data: { tagsYaml, allMarkdownRemark }, location }) => (
   <Layout
+    className="tag"
     title={(tagsYaml.meta && tagsYaml.meta.title) || tagsYaml.id}
     description={
       (tagsYaml.meta && tagsYaml.meta.description) || tagsYaml.description
     }
-    bodyClass="tag"
     cover={tagsYaml.cover}
-    heading={
+    header={
       <div className="container">
         <h1>{tagsYaml.id}</h1>
         <p>{tagsYaml.description}</p>

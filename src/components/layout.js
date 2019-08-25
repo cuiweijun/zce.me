@@ -61,6 +61,21 @@ const Layout = props => {
   const header =
     props.header === false ? false : props.header || getDefaultHeader()
 
+  // const [scrolled, setScrolled] = useState(false)
+
+  // useLayoutEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 20) {
+  //       scrolled || setScrolled(true)
+  //     } else {
+  //       scrolled && setScrolled(false)
+  //     }
+  //   }
+
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => window.removeEventListener('scroll', handleScroll)
+  // })
+
   return (
     <Fragment>
       <Helmet>
@@ -140,7 +155,7 @@ const Layout = props => {
       <footer className="site-footer">
         <div className="container">
           <div className="site-widget">
-            <p align="center">todo: footer widgets</p>
+            <p align="center">TODO: footer widgets</p>
           </div>
 
           <div className="site-info">

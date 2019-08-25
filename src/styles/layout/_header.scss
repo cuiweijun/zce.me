@@ -2,6 +2,11 @@
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
 
+.site-header {
+  // for nav fixed
+  padding-top: $nav-height;
+}
+
 .site-cover {
   position: absolute !important;
   top: 0;
@@ -36,24 +41,23 @@
 }
 
 .site-nav {
-  // // #fixed
-  // position: fixed;
-  // top: 0;
-  // width: 100%;
-  // z-index: z-index(highest);
-  // // /fixed
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: z-index(highest);
   background: $nav-bg;
   box-shadow: shadow(light);
 
   > .container {
     display: flex;
     align-items: center;
+    height: $nav-height;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    padding: spacing(2) 0;
+    padding: $nav-brand-padding 0;
     color: $nav-color;
     font-size: $nav-brand-font-size;
 
@@ -139,6 +143,22 @@
       }
     }
   }
+
+  // &.scrolled {
+  //   > .container {
+  //     height: $nav-scrolled-height;
+  //   }
+
+  //   .nav-brand {
+  //     font-size: $nav-scrolled-brand-font-size;
+
+  //     img {
+  //       margin-right: spacing(2);
+  //       width: $nav-scrolled-brand-height;
+  //       height: $nav-scrolled-brand-height;
+  //     }
+  //   }
+  // }
 }
 
 // jumbotron or masthead

@@ -97,11 +97,17 @@ $cover-mask-2: linear-gradient(
 
 // ### nav
 
+$nav-height: 3rem;
 $nav-color: color(light);
 $nav-bg: color(dark);
 
 $nav-brand-height: 1.5625rem;
+$nav-brand-padding: spacing(2);
 $nav-brand-font-size: font-size(large);
+
+// $nav-scrolled-height: 3rem;
+// $nav-scrolled-brand-height: 1.5625rem;
+// $nav-scrolled-brand-font-size: font-size(large);
 
 // ## components
 // ----------------------------------------

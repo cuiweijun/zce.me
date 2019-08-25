@@ -3,7 +3,6 @@ title: Organising your content
 slug: organising-content
 date: 2019-06-05 00:00:00
 cover: organising-your-content.jpg
-featured: true
 ---
 
 Ghost has a flexible organisational taxonomy called **tags** which can be used to configure your site structure using **dynamic routing**.

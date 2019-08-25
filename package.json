@@ -28,6 +28,7 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
+    "dist": "yarn build --prefix-paths",
     "dev": "yarn develop"
   },
   "prettier": {

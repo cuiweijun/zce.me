@@ -5,7 +5,7 @@
  */
 
 exports.siteMetadata = {
-  url: 'http://localhost:8000', // no trailing slash!
+  url: 'https://blog.zce.me', // no trailing slash!
   title: 'Lei’s', // Lei’s Personal Website
   logo: '/logo.svg',
   slogan: 'MAKE IT BETTER!',

@@ -43,8 +43,8 @@
 .site-nav {
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: z-index(highest);
+  width: 100%;
   background: $nav-bg;
   box-shadow: shadow(light);
 
@@ -81,14 +81,14 @@
       white-space: nowrap;
 
       mask-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0),
-      #000 spacing(3),
-      #000 93%,
-      rgba(0, 0, 0, 0)
+        to right,
+        rgba(0, 0, 0, 0),
+        #000 spacing(3),
+        #000 93%,
+        rgba(0, 0, 0, 0)
       );
       -webkit-overflow-scrolling: touch;
-          -ms-overflow-scrolling: touch;
+      -ms-overflow-scrolling: touch;
       -ms-overflow-style: none;
 
       // scrollbar-width: none;
@@ -118,7 +118,7 @@
       border-radius: spacing(1);
       background-color: transparent;
       background-image: url(escape-svg(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#{$nav-color}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>'
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#{$nav-color}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>'
       ));
       background-position: spacing(1) center;
       background-size: spacing(3);

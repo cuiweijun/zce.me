@@ -159,12 +159,30 @@ const Layout = props => {
           </div>
 
           <div className="site-info">
-            <span>&copy; {new Date().getFullYear()} <a href={siteMetadata.url}>{siteMetadata.title}</a>. All Rights Reserved.</span>
+            <span>
+              &copy; {new Date().getFullYear()}{' '}
+              <a href={siteMetadata.url}>{siteMetadata.title}</a>. All Rights
+              Reserved.
+            </span>
             <ul>
-              <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service/">Terms of Service</Link></li>
+              <li>
+                <Link to="/privacy-policy/">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link to="/terms-of-service/">Terms of Service</Link>
+              </li>
             </ul>
-            <span><a href="https://github.com/zce/zce.me" title="Visit the Source" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a> with <i className="heart">♥</i> by <a href="https://zce.me">zce</a></span>
+            <span>
+              <a
+                href="https://github.com/zce/zce.me"
+                title="Visit the Source"
+                target="_blank"
+                rel="noopener noreferrer">
+                &lt;/&gt;
+              </a>{' '}
+              with <i className="heart">♥</i> by{' '}
+              <a href="https://zce.me">zce</a>
+            </span>
           </div>
         </div>
       </footer>

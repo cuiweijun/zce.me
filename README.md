@@ -45,11 +45,14 @@ $ yarn build
 - [x] Sitemap support
 - [x] Post status
 - [x] RSS Feed (not enabled)
-- [x] Private & draft
-- [x] Comments (disqus)
+- [x] Private & Draft
+- [x] Comments (Disqus)
 - [x] Global styles
+- [x] Netlify Deploy
+- [ ] Navigation style
 - [ ] Site Footer
-- [ ] Netlify Deploy
+- [ ] Comment System (Custom service)
+  - https://www.taniarascia.com/add-comments-to-static-site/
 - [ ] Netlify CMS
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/
@@ -57,11 +60,11 @@ $ yarn build
 - [ ] write-good
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
-- [ ] Create default nodes by programming
-- [ ] Global State
 - [ ] Category Hierarchy
 - [ ] Gatsby Theme
 - [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
+- [ ] Create default nodes by programming
+- [ ] Global State
 
 ## Deploy
 

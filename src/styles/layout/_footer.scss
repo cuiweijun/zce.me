@@ -5,13 +5,13 @@
 .site-footer {
   padding: spacing(5) 0;
   border-top: border(default);
+  background: #fff;
   color: color(secondary);
   font-size: font-size(small);
-  background: #fff;
 
   a {
-    color: inherit;
     border-bottom: 1px solid transparent;
+    color: inherit;
     transition: border-bottom 0.2s;
 
     &:hover {
@@ -37,8 +37,8 @@
   ul {
     flex-grow: 1;
     margin: 0 spacing(2);
-    list-style: none;
     padding: 0;
+    list-style: none;
   }
 
   li {

@@ -44,8 +44,8 @@
 }
 
 @mixin button($color) {
-  color: $color;
   border-color: $color;
+  color: $color;
 
   &:hover {
     background: $color;

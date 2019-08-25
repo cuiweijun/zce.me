@@ -3,4 +3,18 @@
 // -----------------------------------------------------------------------------
 
 body.error {
+  .site-heading {
+    h1 {
+      font-size: 5em;
+    }
+
+    p {
+      font-size: font-size(xlarge);
+    }
+
+    a {
+      font-size: font-size(base);
+      text-shadow: none;
+    }
+  }
 }

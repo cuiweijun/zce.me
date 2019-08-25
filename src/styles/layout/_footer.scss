@@ -3,7 +3,308 @@
 // -----------------------------------------------------------------------------
 
 .site-footer {
-  padding: spacing(3) 0;
-  color: color(muted);
-  text-align: center;
+  padding: spacing(5) 0;
+  border-top: border(default);
+  color: color(secondary);
+  font-size: font-size(small);
+  background: #fff;
+
+  a {
+    color: inherit;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s;
+
+    &:hover {
+      border-color: currentColor;
+    }
+  }
 }
+
+.site-widget {
+  margin-bottom: spacing(4);
+}
+
+.site-info {
+  display: flex;
+  align-items: center;
+  padding-top: spacing(3);
+  border-top: border(default);
+
+  @include media-breakpoint-down(xs) {
+    flex-direction: column;
+  }
+
+  ul {
+    flex-grow: 1;
+    margin: 0 spacing(2);
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: spacing(1);
+  }
+
+  @keyframes beat {
+    from,
+    to {
+      // transform: scale(0.95);
+      transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+      // transform: scale(1.4);
+      transform: scale3d(1.4, 1.4, 1.4);
+    }
+  }
+
+  .heart {
+    display: inline-block;
+    color: color(accent);
+    font-weight: normal;
+    font-style: normal;
+    animation: beat 0.4s ease-in-out infinite;
+  }
+}
+
+/*
+<aside class="site-widget">
+  <section class="site-widget-follow">
+    <h4>Follow me</h4>
+    <p>Get all the latest &amp; greatest posts delivered straight to your inbox.</p>
+    <form class="input-group" action="/subscribe/" method="post">
+      <input class="form-control" type="email" name="email" placeholder="Input your email" autocomplete="off" aria-label="Input your email" aria-describedby="btn_send">
+      <input type="hidden" name="confirm">
+      <input type="hidden" name="location" value="http://wedn.net:2368/">
+      <input type="hidden" name="referrer" value="">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" id="btn_send" title="Subscribe" aria-label="Subscribe"><svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#send"></use>
+</svg></button>
+      </div>
+    </form>
+    <ul>
+      <li><a href="https://twitter.com/w_zce" title="Twitter" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#twitter"></use>
+</svg></a></li>
+      <li><a href="https://www.facebook.com/zccce" title="Facebook" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#facebook"></use>
+</svg></a></li>
+      <li><a href="https://www.linkedin.com/in/zceme" title="LinkedIn" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#linkedin"></use>
+</svg></a></li>
+      <li><a href="https://github.com/zce" title="GitHub" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#github"></use>
+</svg></a></li>
+      <li><a href="https://www.youtube.com/channel/UCFUwWB0v2qYqLaB95z1nv9Q" title="YouTube" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#youtube"></use>
+</svg></a></li>
+      <li><a href="https://weibo.com/zceme" title="Weibo" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#weibo"></use>
+</svg></a></li>
+      <li><a href="#" title="WeChat" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#weixin"></use>
+</svg></a></li>
+      <li><a href="#" title="QQ" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#qq"></use>
+</svg></a></li>
+      <li><a href="https://i.youku.com/zcezce" title="YouKu" target="_blank" rel="noopener"><svg class="brand" width="14" height="14" fill="currentColor" aria-hidden="true">
+<use xlink:href="/assets/dist/brands.svg?v=90d297f346#youku"></use>
+</svg></a></li>
+      <li><a href="https://feedly.com/i/subscription/feed/http://wedn.net:2368/rss/" title="RSS" target="_blank" rel="noopener"><svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#rss"></use>
+</svg></a></li>
+    </ul>
+  </section>
+  <section class="site-widget-tags">
+    <h4>Tags</h4>
+    <ul>
+      <li><a href="/topic/getting-started/">Getting Started</a></li>
+      <li><a href="/topic/fiction/">Fiction</a></li>
+      <li><a href="/topic/speeches/">Speeches</a></li>
+      <li><a href="/topic/fables/">Fables</a></li>
+    </ul>
+  </section>
+  <section class="site-widget-links">
+    <h4>Links</h4>
+    <ul>
+      <li><a href="/story/"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#link"></use>
+</svg> Story</a></li>
+      <li><a href="/about/"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#link"></use>
+</svg> About</a></li>
+      <li><a href="/contact/"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#link"></use>
+</svg> Contact</a></li>
+      <li><a href="/archive/"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#link"></use>
+</svg> Archive</a></li>
+      <li><a href="/privacy-policy/"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#link"></use>
+</svg> Privacy</a></li>
+      <li><a href="/terms-of-service/"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<use xlink:href="/assets/dist/icons.svg?v=90d297f346#link"></use>
+</svg> Terms</a></li>
+    </ul>
+  </section>
+  <section class="site-widget-subscription">
+    <h4>Subscription</h4>
+    <img src="https://s.uieee.com/qrcode/wedn.jpg" alt="WEDN">
+  </section>
+</aside>
+*/
+
+// .site-footer {
+//   padding: spacer(5) 0;
+//   border-top: $border-width solid $border-color;
+//   background: color('white');
+//   color: theme-color('secondary');
+//   font-size: $font-size-sm;
+
+//   @include link;
+// }
+
+// .site-widget {
+//   padding-bottom: spacer(4);
+
+//   @include row;
+//   @include media-breakpoint-down(xs) {
+//     text-align: center;
+//   }
+
+//   h4 {
+//     font-weight: $font-weight-light;
+//     font-size: $h5-font-size;
+//   }
+
+//   &-follow {
+//     @include column((lg: 5));
+//     @include media-breakpoint-down(md) {
+//       margin-bottom: spacer(4);
+//     }
+
+//     form {
+//       margin-bottom: spacer(3);
+//     }
+
+//     ul {
+//       margin-right: (- spacer(1));
+//       margin-left: (- spacer(1));
+
+//       @include list-unstyled;
+//     }
+
+//     li {
+//       display: inline-block;
+//       margin: 0 spacer(1) spacer(2);
+
+//       a {
+//         display: flex;
+//         align-items: center;
+//         border: $btn-border-width solid transparent;
+
+//         user-select: none;
+
+//         @include button-size($btn-padding-x-sm, $btn-padding-x-sm, $font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+//         @include button-outline-variant(theme-color-level('secondary', -3));
+//       }
+//     }
+//   }
+
+//   &-tags {
+//     @include column((sm: 5, lg: 3));
+//     @include media-breakpoint-down(xs) {
+//       margin-bottom: spacer(4);
+//     }
+
+//     ul {
+//       @include list-unstyled;
+//     }
+
+//     li {
+//       display: inline-block;
+//       margin-bottom: spacer(2);
+
+//       &:not(:last-child) {
+//         margin-right: spacer(1);
+
+//         &::after {
+//           content: '\002C';
+//         }
+//       }
+//     }
+
+//     a::before {
+//       content: '\0023';
+//     }
+//   }
+
+//   &-links {
+//     @include column((sm: 3, lg: 2));
+//     @include media-breakpoint-down(xs) {
+//       margin-bottom: spacer(4);
+//     }
+
+//     ul {
+//       margin-right: spacer(2);
+//       margin-left: spacer(2);
+
+//       @include list-unstyled;
+//     }
+//   }
+
+//   &-subscription {
+//     @include column((sm: 4, lg: 2));
+
+//     img {
+//       display: block;
+//       margin: 0 auto;
+//       max-width: 8rem;
+//     }
+//   }
+// }
+
+// .site-info {
+//   display: flex;
+//   align-items: center;
+//   padding-top: spacer(3);
+//   border-top: $border-width solid $border-color;
+
+//   @include media-breakpoint-down(xs) {
+//     flex-direction: column;
+//   }
+
+//   ul {
+//     flex-grow: 1;
+//     margin: 0 spacer(2);
+
+//     @include list-unstyled;
+//   }
+
+//   li {
+//     display: inline-block;
+//   }
+
+//   @keyframes beat {
+//     from,
+//     to {
+//       // transform: scale(0.95);
+//       transform: scale3d(1, 1, 1);
+//     }
+
+//     50% {
+//       // transform: scale(1.4);
+//       transform: scale3d(1.4, 1.4, 1.4);
+//     }
+//   }
+
+//   .heart {
+//     display: inline-block;
+//     color: color('red');
+//     font-weight: normal;
+//     font-style: normal;
+//     animation: beat 0.4s ease-in-out infinite;
+//   }
+// }

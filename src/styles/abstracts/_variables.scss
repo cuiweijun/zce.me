@@ -75,9 +75,9 @@ $table-cell-border: $border-width solid $border-color;
 
 $link-color: color(primary);
 $link-decoration: none;
-$link-hover-color: shade($link-color, 15%);
+$link-hover-color: shade($link-color, 45%);
 $link-hover-decoration: none;
-$link-hover-opacity: 0.8;
+$link-hover-opacity: 0.85;
 
 // ## layout
 // ----------------------------------------

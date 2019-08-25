@@ -61,8 +61,6 @@ const Layout = props => {
   const header =
     props.header === false ? false : props.header || getDefaultHeader()
 
-  console.log(header)
-
   return (
     <Fragment>
       <Helmet>
@@ -140,23 +138,20 @@ const Layout = props => {
       <main className="site-main">{props.children}</main>
 
       <footer className="site-footer">
-        <p className="container">
-          &copy; {new Date().getFullYear()} by {siteMetadata.author}, Built with{' '}
-          <a
-            href="https://gatsbyjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-            Gatsby
-          </a>
-          . Visit the{' '}
-          <a
-            href="https://github.com/zce/zce.me"
-            target="_blank"
-            rel="noopener noreferrer">
-            Source
-          </a>
-          .
-        </p>
+        <div className="container">
+          <div className="site-widget">
+            <p align="center">todo: footer widgets</p>
+          </div>
+
+          <div className="site-info">
+            <span>&copy; {new Date().getFullYear()} <a href={siteMetadata.url}>{siteMetadata.title}</a>. All Rights Reserved.</span>
+            <ul>
+              <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service/">Terms of Service</Link></li>
+            </ul>
+            <span><a href="https://github.com/zce/zce.me" title="Visit the Source" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a> with <i className="heart">♥</i> by <a href="https://zce.me">zce</a></span>
+          </div>
+        </div>
       </footer>
     </Fragment>
   )

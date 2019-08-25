@@ -13,7 +13,9 @@ export default ({ data, location }) => (
       <div className="container">
         <h1>404</h1>
         <p>Page not found</p>
-        <Link className="btn btn-light btn-sm" to="/">Back to Home &rarr;</Link>
+        <Link className="btn btn-light btn-sm" to="/">
+          Back to Home &rarr;
+        </Link>
       </div>
     }
     location={location}>

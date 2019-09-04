@@ -53,6 +53,12 @@ $ yarn build
 - [ ] Site Footer
 - [ ] Comment System (Custom service)
   - https://www.taniarascia.com/add-comments-to-static-site/
+- [ ] Authentication
+  - https://www.gatsbyjs.org/tutorial/authentication-tutorial/
+  - https://www.gatsbyjs.org/blog/2019-03-21-add-auth0-to-gatsby-livestream/
+  - https://auth0.com/blog/securing-gatsby-with-auth0/
+  - https://github.com/auth0-blog/gatsby-auth0
+  - https://github.com/gatsbyjs/gatsby/issues/1100
 - [ ] Netlify CMS
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/

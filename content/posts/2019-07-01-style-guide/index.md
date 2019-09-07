@@ -198,6 +198,10 @@ export default ({ location }) => (
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
 
+#### Wide Image
+
+![](media/img-03.jpg)
+
 #### Big Image
 
 ![](media/img-01.jpg)

@@ -30,7 +30,7 @@ export default ({ data, location }) => {
         />
       )}
       <section
-        className="page-main container"
+        className="page-content container"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </Layout>

@@ -12,4 +12,14 @@ body.page {
   &-cover {
     margin-bottom: spacing(3);
   }
+
+  &-content {
+    margin-bottom: spacing(9);
+    min-height: 65vh;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
 }

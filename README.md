@@ -50,7 +50,7 @@ $ yarn build
 - [x] Global styles
 - [x] Netlify Deploy
 - [x] Navigation style
-- [ ] Site Footer
+- [x] Site Footer
 - [ ] Comment System (Custom service)
   - https://www.taniarascia.com/add-comments-to-static-site/
 - [ ] Authentication

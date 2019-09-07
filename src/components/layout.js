@@ -14,6 +14,8 @@ import Helmet from 'react-helmet'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import Image from 'gatsby-image'
 
+import { useNavState } from '../utils/hooks'
+
 const query = graphql`
   query LayoutComponent {
     site {
@@ -61,20 +63,7 @@ const Layout = props => {
   const header =
     props.header === false ? false : props.header || getDefaultHeader()
 
-  // const [scrolled, setScrolled] = useState(false)
-
-  // useLayoutEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 20) {
-  //       scrolled || setScrolled(true)
-  //     } else {
-  //       scrolled && setScrolled(false)
-  //     }
-  //   }
-
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => window.removeEventListener('scroll', handleScroll)
-  // })
+  const navState = useNavState()
 
   return (
     <Fragment>
@@ -123,7 +112,7 @@ const Layout = props => {
       )}
 
       <header className="site-header">
-        <nav className="site-nav">
+        <nav className={`site-nav ${navState}`}>
           <div className="container">
             <Link className="nav-brand" to="/">
               <img

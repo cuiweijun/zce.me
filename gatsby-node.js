@@ -5,7 +5,6 @@
  */
 
 const { kebabCase } = require('lodash')
-const { collections, taxonomies } = require('./content/config')
 
 const generatePermalink = (template, context) => {
   return template.replace(/{([a-z_]+)}/g, (_, key) => {
@@ -18,6 +17,8 @@ const createCollectionFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   const { relativePath } = getNode(node.parent)
+  // load config from `content/site.yml`
+  const { collections } = getNode('zce.me')
   const collection = collections[relativePath.split('/')[0]]
   if (!collection) return
 
@@ -87,6 +88,8 @@ const createTaxonomyFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   const { name } = getNode(node.parent)
+  // load config from `content/site.yml`
+  const { taxonomies } = getNode('zce.me')
   const taxonomy = taxonomies[name]
   if (!taxonomy) return
 
@@ -119,7 +122,7 @@ exports.onCreateNode = args => {
   }
 }
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, getNode, actions, reporter }) => {
   // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
   const { createPage } = actions
 
@@ -180,6 +183,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // https://www.gatsbyjs.org/docs/adding-pagination/
   const { nodes: posts } = result.data.allMarkdownRemark
 
+  // load config from `content/site.yml`
+  const { collections } = getNode('zce.me')
   // Create pages based on different content types
   Object.values(collections)
     .map(c => c.type)

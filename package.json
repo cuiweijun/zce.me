@@ -59,6 +59,7 @@
     "gatsby-transformer-remark": "latest",
     "gatsby-transformer-sharp": "latest",
     "gatsby-transformer-yaml": "latest",
+    "lodash": "latest",
     "node-sass": "latest",
     "normalize.css": "latest",
     "open-color": "latest",

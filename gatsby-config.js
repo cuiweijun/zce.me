@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+const _ = require(`lodash`)
 
 exports.siteMetadata = {
   url: 'https://blog.zce.me', // no trailing slash!
@@ -44,7 +45,12 @@ exports.plugins = [
       ]
     }
   },
-  'gatsby-transformer-yaml',
+  {
+    resolve: 'gatsby-transformer-yaml',
+    options: {
+      typeName: ({ node }) => _.upperFirst(_.camelCase(`${node.name} Yaml`))
+    }
+  },
   'gatsby-transformer-sharp',
   // 'gatsby-plugin-sharp', // TODO: no need?
   'gatsby-plugin-react-helmet',

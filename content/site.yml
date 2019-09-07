@@ -1,0 +1,124 @@
+id: zce.me #  Do not modify ID
+url: https://blog.zce.me # no trailing slash!
+name: Lei’s
+title: Lei’s Personal Website
+logo: /logo.svg
+slogan: MAKE IT BETTER!
+description: Thoughts, stories and ideas.
+keywords:
+  - zce
+  - blog
+  - personal
+  - homepage
+author: Lei Wang
+language: en
+navigation:
+  - text: Home
+    link: /
+  - text: Blog
+    link: /blog/
+  - text: About
+    link: /about/
+  - text: Contact
+    link: /contact/
+  - text: Discuss
+    link: /discuss/
+socials:
+  - name: Twitter
+    link: https://twitter.com/w_zce
+  - name: Facebook
+    link: https://www.facebook.com/zccce
+  - name: LinkedIn
+    link: https://www.linkedin.com/in/zceme
+  - name: GitHub
+    link: https://github.com/zce
+  - name: YouTube
+    link: https://www.youtube.com/channel/UCFUwWB0v2qYqLaB95z1nv9Q
+  - name: Weibo
+    link: https://weibo.com/zceme
+  - name: Weixin
+    link: ~
+  - name: QQ
+    link: ~
+  - name: Youku
+    link: https://i.youku.com/zcezce
+  - name: Bilibili
+    link: https://space.bilibili.com/210242179
+links:
+  - text: Story
+    link: /story/
+  - text: About
+    link: /about/
+  - text: Contact
+    link: /contact/
+  - text: Archive
+    link: /archive/
+  - text: Privacy
+    link: /privacy-policy/
+  - text: Terms
+    link: /terms-of-service/
+subscription:
+  name: ITBetter
+  qrcode: https://s.uieee.com/qrcode/wedn.jpg
+  link: ~
+
+# collection permalink tags:
+# - {slug} - the post slug, eg. my-post
+# - {year} - publication year, eg. 2019
+# - {month} - publication month, eg. 04
+# - {day} - publication day, eg. 29
+# - {author} - slug of first author, eg. cameron
+# - {category} - slug of first category, eg. tutorial
+# - {tag} - slug of first tag listed in the post, eg. news
+#
+# collection status:
+# - draft
+# - private
+# - published
+# - deprecated
+# - trashed
+collections:
+  posts:
+    type: post
+    template: post
+    permalink: /{year}/{month}/{slug}/
+    draft: false
+    private: false
+    featured: false
+    comment: true
+    authors:
+      - Lei Wang
+    categories:
+      - Uncategorized
+    tags:
+      - Untagged
+  pages:
+    type: page
+    template: page
+    permalink: /{slug}/
+    draft: false
+    private: false
+    featured: false
+    comment: false
+    authors:
+      - Lei Wang
+    categories:
+      - Uncategorized
+    tags:
+      - Untagged
+
+# taxonomies permalink tags:
+# - {slug} - the taxonomy slug, eg. tom-jerry
+taxonomies:
+  authors:
+    type: author
+    template: author
+    permalink: /authors/{slug}/
+  categories:
+    type: category
+    template: category
+    permalink: /categories/{slug}/
+  tags:
+    type: tag
+    template: tag
+    permalink: /tags/{slug}/

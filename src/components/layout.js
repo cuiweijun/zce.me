@@ -24,11 +24,20 @@ const query = graphql`
     siteCover: file(relativePath: { eq: "images/cover.jpg" }) {
       ...SiteCoverImage
     }
+
+    allTagsYaml {
+      nodes {
+        id
+        fields {
+          permalink
+        }
+      }
+    }
   }
 `
 
 const Layout = props => {
-  const { siteMetadata, siteCover } = useStaticQuery(query)
+  const { siteMetadata, siteCover, allTagsYaml } = useStaticQuery(query)
 
   // canonical url
   const url = siteMetadata.url + props.location.pathname
@@ -195,18 +204,11 @@ const Layout = props => {
             <section className="site-widget-tags">
               <h4>Tags</h4>
               <ul>
-                <li>
-                  <Link to="/topic/getting-started/">Getting Started</Link>
-                </li>
-                <li>
-                  <Link to="/topic/fiction/">Fiction</Link>
-                </li>
-                <li>
-                  <Link to="/topic/speeches/">Speeches</Link>
-                </li>
-                <li>
-                  <Link to="/topic/fables/">Fables</Link>
-                </li>
+                {allTagsYaml.nodes.map(i => (
+                  <li key={i.id}>
+                    <Link to={i.fields.permalink}>{i.id}</Link>
+                  </li>
+                ))}
               </ul>
             </section>
             <section className="site-widget-links">

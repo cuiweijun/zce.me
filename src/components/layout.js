@@ -255,7 +255,7 @@ const Layout = props => {
                 href="https://zce.me"
                 target="_blank"
                 rel="noopener noreferrer">
-                >zce
+                zce
               </a>
             </span>
           </div>

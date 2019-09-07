@@ -1,7 +1,6 @@
 {
   "breadcrumbs.enabled": false,
   "editor.fontSize": 12,
-  // "explorer.openEditors.visible": 0,
   "files.exclude": {
     ".cache": true,
     "node_modules": true,

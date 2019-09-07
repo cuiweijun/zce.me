@@ -7,14 +7,14 @@
 			"import React from 'react'",
       "",
       "export default () => (",
-      "  <div className=\"${2:Component}\">",
-      "    <p>${1:Component}</p>",
+      "  <div className=\"${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\">",
+      "    ${3:<p>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</p>}",
       "  </div>",
       ")"
 		],
-		"description": "Page component"
+		"description": "Component"
 	},
-	"Page component": {
+	"page": {
 		"scope": "javascript",
 		"prefix": "page",
 		"body": [
@@ -23,8 +23,8 @@
       "import Layout from '../components/layout'",
       "",
       "export default ({ location }) => (",
-      "  <Layout className=\"${2:page}\" title=\"${1:Page}\" location={location}>",
-      "    <h1>${1:Page}</h1>",
+      "  <Layout className=\"${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\" title=\"${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}\" location={location}>",
+      "    ${3:<h1>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</h1>}",
       "  </Layout>",
       ")"
 		],

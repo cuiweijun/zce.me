@@ -49,7 +49,7 @@ $ yarn build
 - [x] Comments (Disqus)
 - [x] Global styles
 - [x] Netlify Deploy
-- [ ] Navigation style
+- [x] Navigation style
 - [ ] Site Footer
 - [ ] Comment System (Custom service)
   - https://www.taniarascia.com/add-comments-to-static-site/

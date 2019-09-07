@@ -14,6 +14,7 @@ import Helmet from 'react-helmet'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import Image from 'gatsby-image'
 
+import Icon from './icon'
 import { useNavState } from '../utils/hooks'
 
 const query = graphql`
@@ -74,6 +75,7 @@ const Layout = props => {
 
         <meta name="description" content={description} />
         <meta name="author" content={siteMetadata.author} />
+
         {/* OpenGraph tags */}
         <meta property="og:site_name" content={siteMetadata.title} />
         {/* TODO: website or article? http://ogp.me/#no_vertical */}
@@ -143,9 +145,146 @@ const Layout = props => {
 
       <footer className="site-footer">
         <div className="container">
-          <div className="site-widget">
-            <p align="center">TODO: footer widgets</p>
-          </div>
+          <aside className="site-widget row">
+            <section className="site-widget-follow">
+              <h4>Follow me</h4>
+              <p>
+                Get all the latest &amp; greatest posts delivered straight to
+                your inbox.
+              </p>
+              <form action="/subscribe/" method="post">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Input your email"
+                  autoComplete="off"
+                  aria-label="Input your email"
+                  aria-describedby="btn_send"
+                />
+                <button
+                  className="btn"
+                  id="btn_send"
+                  title="Subscribe"
+                  aria-label="Subscribe">
+                  <Icon type="send" />
+                </button>
+              </form>
+              <ul>
+                <li>
+                  <a className="btn" href="https://twitter.com/w_zce">
+                    <Icon.Brand type="twitter" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href="https://www.facebook.com/zccce">
+                    <Icon.Brand type="facebook" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href="https://www.linkedin.com/in/zceme">
+                    <Icon.Brand type="linkedin" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href="https://github.com/zce">
+                    <Icon.Brand type="github" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href="https://www.youtube.com/channel/UCFUwWB0v2qYqLaB95z1nv9Q">
+                    <Icon.Brand type="youtube" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href="https://weibo.com/zceme">
+                    <Icon.Brand type="weibo" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href={siteMetadata.url}>
+                    <Icon.Brand type="weixin" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href={siteMetadata.url}>
+                    <Icon.Brand type="qq" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href="https://i.youku.com/zcezce">
+                    <Icon.Brand type="youku" />
+                  </a>
+                </li>
+                <li>
+                  <a className="btn" href="https://feedly.com/i/subscription/feed/http://wedn.net:2368/rss/">
+                    <Icon type="rss" />
+                  </a>
+                </li>
+              </ul>
+            </section>
+            <section className="site-widget-tags">
+              <h4>Tags</h4>
+              <ul>
+                <li>
+                  <Link to="/topic/getting-started/">Getting Started</Link>
+                </li>
+                <li>
+                  <Link to="/topic/fiction/">Fiction</Link>
+                </li>
+                <li>
+                  <Link to="/topic/speeches/">Speeches</Link>
+                </li>
+                <li>
+                  <Link to="/topic/fables/">Fables</Link>
+                </li>
+              </ul>
+            </section>
+            <section class="site-widget-links">
+              <h4>Links</h4>
+              <ul>
+                <li>
+                  <Link to="/story/">
+                    <Icon type="link" />
+                    Story
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about/">
+                    <Icon type="link" />
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact/">
+                    <Icon type="link" />
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/archive/">
+                    <Icon type="link" />
+                    Archive
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/privacy-policy/">
+                    <Icon type="link" />
+                    Privacy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms-of-service/">
+                    <Icon type="link" />
+                    Terms
+                  </Link>
+                </li>
+              </ul>
+            </section>
+            <section class="site-widget-subscription">
+              <h4>Subscription</h4>
+              <img src="https://s.uieee.com/qrcode/wedn.jpg" alt="WEDN" />
+            </section>
+          </aside>
 
           <div className="site-info">
             <span>

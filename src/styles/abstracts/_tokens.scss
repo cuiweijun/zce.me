@@ -112,8 +112,10 @@ $sizes: (
 );
 
 $borders: (
-  default: 1px solid gray(2),
-  double: 2px solid gray(2)
+  light: 1px solid gray(2),
+  default: 1px solid gray(3),
+  dark: 1px solid gray(4),
+  double: 2px solid gray(3)
 );
 
 $radii: (

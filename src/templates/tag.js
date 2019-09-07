@@ -42,6 +42,7 @@ export const query = graphql`
         description
       }
     }
+
     allMarkdownRemark(
       filter: {
         fields: {

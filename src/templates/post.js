@@ -8,9 +8,9 @@ import Layout from '../components/layout'
 import Card from '../components/card'
 
 export default ({ data, location }) => {
-  const { site, post, prev, next, relatedPosts } = data
+  const { siteMetadata, post, prev, next, relatedPosts } = data
   const { fields } = post
-  const url = site.siteMetadata.url + location.pathname
+  const url = siteMetadata.url + location.pathname
 
   return (
     <Layout
@@ -194,7 +194,7 @@ export default ({ data, location }) => {
           <div className="row">
             <section className="category">
               <header className="category-header">
-                <small>{site.siteMetadata.title}</small>
+                <small>{siteMetadata.name}</small>
                 <h3>
                   <Link to={fields.categories[0].fields.permalink}>
                     {fields.categories[0].id}
@@ -244,12 +244,8 @@ export const query = graphql`
     $prev: String
     $next: String
   ) {
-    site {
-      siteMetadata {
-        url
-        title
-      }
-    }
+    ...SiteMetadata
+
     post: markdownRemark(id: { eq: $id }) {
       fields {
         comment
@@ -291,12 +287,15 @@ export const query = graphql`
       excerpt(pruneLength: 160)
       html
     }
+
     prev: markdownRemark(id: { eq: $prev }) {
       ...PostCard
     }
+
     next: markdownRemark(id: { eq: $next }) {
       ...PostCard
     }
+
     relatedPosts: allMarkdownRemark(
       filter: {
         id: { ne: $id }

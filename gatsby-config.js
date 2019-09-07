@@ -5,23 +5,8 @@
  */
 const _ = require(`lodash`)
 
-exports.siteMetadata = {
-  url: 'https://blog.zce.me', // no trailing slash!
-  title: 'Lei’s', // Lei’s Personal Website
-  logo: '/logo.svg',
-  slogan: 'MAKE IT BETTER!',
-  description: 'Thoughts, stories and ideas.',
-  keywords: 'zce, blog, personal, homepage',
-  author: 'Lei Wang',
-  language: 'en',
-  menus: [
-    { text: 'Home', link: '/' },
-    { text: 'Blog', link: '/blog/' },
-    { text: 'About', link: '/about/' },
-    { text: 'Contact', link: '/contact/' },
-    { text: 'Discuss', link: '/discuss/' }
-  ]
-}
+// use content/site.yml instead
+// exports.siteMetadata = {}
 
 exports.plugins = [
   {

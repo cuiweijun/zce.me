@@ -19,9 +19,8 @@ import { useNavState } from '../utils/hooks'
 
 const query = graphql`
   query LayoutComponent {
-    site {
-      ...SiteMetadata
-    }
+    ...SiteMetadata
+
     siteCover: file(relativePath: { eq: "images/cover.jpg" }) {
       ...SiteCoverImage
     }
@@ -29,20 +28,21 @@ const query = graphql`
 `
 
 const Layout = props => {
-  const {
-    site: { siteMetadata },
-    siteCover
-  } = useStaticQuery(query)
+  const { siteMetadata, siteCover } = useStaticQuery(query)
 
   // canonical url
   const url = siteMetadata.url + props.location.pathname
 
   // title
-  const suffix = `${siteMetadata.title} | ${siteMetadata.slogan}`
-  const title = props.title ? `${props.title} - ${suffix}` : suffix
+  const title = props.title
+    ? `${props.title} - ${siteMetadata.name} | ${siteMetadata.slogan}`
+    : `${siteMetadata.title} | ${siteMetadata.slogan}`
 
   // description
   const description = props.description || siteMetadata.description
+
+  // keywords
+  const keywords = props.keywords || siteMetadata.keywords
 
   // image
   const cover = props.cover === false ? false : props.cover || siteCover
@@ -55,7 +55,7 @@ const Layout = props => {
       </div>
     ) : (
       <div className="container">
-        <h1>{siteMetadata.title}</h1>
+        <h1>{siteMetadata.name}</h1>
         <p>{siteMetadata.description}</p>
       </div>
     )
@@ -74,10 +74,11 @@ const Layout = props => {
         <title>{title}</title>
 
         <meta name="description" content={description} />
-        <meta name="author" content={siteMetadata.author} />
+        <meta name="keywords" content={keywords} />
+        <meta name="author" content={siteMetadata.author.name} />
 
         {/* OpenGraph tags */}
-        <meta property="og:site_name" content={siteMetadata.title} />
+        <meta property="og:site_name" content={siteMetadata.name} />
         {/* TODO: website or article? http://ogp.me/#no_vertical */}
         <meta property="og:type" content={`website`} />
         <meta property="og:url" content={url} />
@@ -118,15 +119,15 @@ const Layout = props => {
           <div className="container">
             <Link className="nav-brand" to="/">
               <img
-                alt={siteMetadata.title}
+                alt={siteMetadata.name}
                 src={siteMetadata.logo}
                 width="25"
                 height="25"
               />
-              <span>{siteMetadata.title}</span>
+              <span>{siteMetadata.name}</span>
             </Link>
             <ul className="nav-menu">
-              {siteMetadata.menus.map(i => (
+              {siteMetadata.navigation.map(i => (
                 <li key={i.link}>
                   <Link to={i.link}>{i.text}</Link>
                 </li>
@@ -170,53 +171,22 @@ const Layout = props => {
                 </button>
               </form>
               <ul>
+                {siteMetadata.socials.map(i => (
+                  <li key={i.name}>
+                    <a
+                      className="btn"
+                      href={i.link}
+                      title={i.name}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <Icon.Brand type={i.name.toLowerCase()} />
+                    </a>
+                  </li>
+                ))}
                 <li>
-                  <a className="btn" href="https://twitter.com/w_zce">
-                    <Icon.Brand type="twitter" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href="https://www.facebook.com/zccce">
-                    <Icon.Brand type="facebook" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href="https://www.linkedin.com/in/zceme">
-                    <Icon.Brand type="linkedin" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href="https://github.com/zce">
-                    <Icon.Brand type="github" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href="https://www.youtube.com/channel/UCFUwWB0v2qYqLaB95z1nv9Q">
-                    <Icon.Brand type="youtube" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href="https://weibo.com/zceme">
-                    <Icon.Brand type="weibo" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href={siteMetadata.url}>
-                    <Icon.Brand type="weixin" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href={siteMetadata.url}>
-                    <Icon.Brand type="qq" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href="https://i.youku.com/zcezce">
-                    <Icon.Brand type="youku" />
-                  </a>
-                </li>
-                <li>
-                  <a className="btn" href="https://feedly.com/i/subscription/feed/http://wedn.net:2368/rss/">
+                  <a
+                    className="btn"
+                    href="https://feedly.com/i/subscription/feed/http://wedn.net:2368/rss/">
                     <Icon type="rss" />
                   </a>
                 </li>
@@ -239,48 +209,20 @@ const Layout = props => {
                 </li>
               </ul>
             </section>
-            <section class="site-widget-links">
+            <section className="site-widget-links">
               <h4>Links</h4>
               <ul>
-                <li>
-                  <Link to="/story/">
-                    <Icon type="link" />
-                    Story
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about/">
-                    <Icon type="link" />
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact/">
-                    <Icon type="link" />
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/archive/">
-                    <Icon type="link" />
-                    Archive
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/privacy-policy/">
-                    <Icon type="link" />
-                    Privacy
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/terms-of-service/">
-                    <Icon type="link" />
-                    Terms
-                  </Link>
-                </li>
+                {siteMetadata.links.map(i => (
+                  <li key={i.text}>
+                    <Link to="/story/">
+                      <Icon type="link" size={14} />
+                      {i.text}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </section>
-            <section class="site-widget-subscription">
+            <section className="site-widget-subscription">
               <h4>Subscription</h4>
               <img src="https://s.uieee.com/qrcode/wedn.jpg" alt="WEDN" />
             </section>
@@ -289,7 +231,7 @@ const Layout = props => {
           <div className="site-info">
             <span>
               &copy; {new Date().getFullYear()}{' '}
-              <a href={siteMetadata.url}>{siteMetadata.title}</a>. All Rights
+              <a href={siteMetadata.url}>{siteMetadata.name}</a>. All Rights
               Reserved.
             </span>
             <ul>
@@ -309,7 +251,12 @@ const Layout = props => {
                 &lt;/&gt;
               </a>{' '}
               with <i className="heart">♥</i> by{' '}
-              <a href="https://zce.me">zce</a>
+              <a
+                href="https://zce.me"
+                target="_blank"
+                rel="noopener noreferrer">
+                >zce
+              </a>
             </span>
           </div>
         </div>
@@ -322,6 +269,7 @@ Layout.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
+  keywords: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   cover: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   header: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
   location: PropTypes.object.isRequired,

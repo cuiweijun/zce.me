@@ -7,19 +7,37 @@ import { graphql } from 'gatsby'
 
 // Load all site metadata.
 export const SiteMetadata = graphql`
-  fragment SiteMetadata on Site {
-    siteMetadata {
+  fragment SiteMetadata on Query {
+    siteMetadata: siteYaml {
+      id
       url
+      name
       title
       logo
       slogan
       description
       keywords
-      author
+      author {
+        name
+        email
+        url
+      }
       language
-      menus {
+      navigation {
         text
         link
+      }
+      socials {
+        name
+        link
+      }
+      links {
+        text
+        link
+      }
+      subscription {
+        name
+        qrcode
       }
     }
   }

@@ -10,7 +10,10 @@ keywords:
   - blog
   - personal
   - homepage
-author: Lei Wang
+author:
+  name: Lei Wang
+  email: w@zce.me
+  url: https://zce.me
 language: en
 navigation:
   - text: Home

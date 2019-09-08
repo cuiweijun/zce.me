@@ -16,7 +16,7 @@ export default ({ data, location }) => (
     }
     location={location}>
     <div className="container">
-      <div className="row">
+      <div className="row row-wrap">
         {data.allMarkdownRemark.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}

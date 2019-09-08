@@ -29,7 +29,30 @@
     "serve": "gatsby serve",
     "build": "gatsby build",
     "dist": "yarn build --prefix-paths",
-    "dev": "yarn develop"
+    "dev": "yarn develop",
+    "commit": "git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,json,yml,yaml,md,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "prettier": {
     "endOfLine": "lf",
@@ -41,32 +64,38 @@
     "tabWidth": 2
   },
   "devDependencies": {
-    "disqus-react": "latest",
-    "gatsby": "latest",
-    "gatsby-image": "latest",
-    "gatsby-plugin-nprogress": "latest",
-    "gatsby-plugin-offline": "latest",
-    "gatsby-plugin-react-helmet": "latest",
-    "gatsby-plugin-sass": "latest",
-    "gatsby-plugin-sharp": "latest",
-    "gatsby-remark-autolink-headers": "latest",
-    "gatsby-remark-copy-linked-files": "latest",
-    "gatsby-remark-images": "latest",
-    "gatsby-remark-prismjs": "latest",
-    "gatsby-remark-responsive-iframe": "latest",
-    "gatsby-remark-smartypants": "latest",
-    "gatsby-source-filesystem": "latest",
-    "gatsby-transformer-remark": "latest",
-    "gatsby-transformer-sharp": "latest",
-    "gatsby-transformer-yaml": "latest",
-    "lodash": "latest",
-    "node-sass": "latest",
-    "normalize.css": "latest",
-    "open-color": "latest",
-    "prettier": "latest",
-    "prismjs": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-helmet": "latest"
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "disqus-react": "^1.0.6",
+    "gatsby": "^2.15.9",
+    "gatsby-image": "^2.2.17",
+    "gatsby-plugin-nprogress": "^2.1.5",
+    "gatsby-plugin-offline": "^3.0.3",
+    "gatsby-plugin-react-helmet": "^3.1.6",
+    "gatsby-plugin-sass": "^2.1.13",
+    "gatsby-plugin-sharp": "^2.2.20",
+    "gatsby-remark-autolink-headers": "^2.1.9",
+    "gatsby-remark-copy-linked-files": "^2.1.17",
+    "gatsby-remark-images": "^3.1.20",
+    "gatsby-remark-prismjs": "^3.3.12",
+    "gatsby-remark-responsive-iframe": "^2.2.14",
+    "gatsby-remark-smartypants": "^2.1.7",
+    "gatsby-source-filesystem": "^2.1.21",
+    "gatsby-transformer-remark": "^2.6.21",
+    "gatsby-transformer-sharp": "^2.2.13",
+    "gatsby-transformer-yaml": "^2.2.8",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.12.0",
+    "normalize.css": "^8.0.1",
+    "open-color": "^1.7.0",
+    "prettier": "^1.18.2",
+    "prismjs": "^1.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
   }
 }

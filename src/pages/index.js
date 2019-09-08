@@ -44,7 +44,7 @@ export default ({ data: { featured, latest, about }, location }) => {
             <h2>Latest Posts</h2>
             <p>Keep the dots in your life.</p>
           </header>
-          <div className="home-section-content row">
+          <div className="home-section-content row row-wrap">
             {latest.nodes.map(node => (
               <Card post={node} key={node.id} />
             ))}

@@ -24,5 +24,6 @@ The default structure is shown below:
    │     └─ index.md ························ post markdown
    ├─ authors.yml ··························· author collections
    ├─ categories.yml ························ category collections
-   └─ tags.yml ······························ tag collections
+   ├─ tags.yml ······························ tag collections
+   └─ site.yml ······························ site metadata & config
 ```

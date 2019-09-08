@@ -51,6 +51,7 @@ $ yarn build
 - [x] Netlify Deploy
 - [x] Navigation style
 - [x] Site Footer
+- [ ] Husky + Lint-staged
 - [ ] Comment System (Custom service)
   - https://www.taniarascia.com/add-comments-to-static-site/
 - [ ] Authentication

@@ -25,7 +25,8 @@
   &:focus {
     border-color: transparent;
     background: $button-color;
-    box-shadow: 0 0 0 $button-focus-shadow-width rgba(tint($button-color, 15%), 0.5);
+    box-shadow: 0 0 0 $button-focus-shadow-width
+      rgba(tint($button-color, 15%), 0.5);
     color: yiq($button-color);
     outline: 0;
   }

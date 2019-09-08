@@ -34,7 +34,8 @@ select {
   &:focus {
     outline: 0;
     border-color: $input-active-border-color;
-    box-shadow: 0 0 0 $input-active-shadow-width rgba($input-active-border-color, 0.5);
+    box-shadow: 0 0 0 $input-active-shadow-width
+      rgba($input-active-border-color, 0.5);
   }
 }
 

@@ -66,6 +66,7 @@ $ yarn build
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/
   - https://github.com/netlify-templates/gatsby-starter-netlify-cms
 - [ ] write-good
+- [ ] Gatsby webpack output config
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
 - [ ] Category Hierarchy

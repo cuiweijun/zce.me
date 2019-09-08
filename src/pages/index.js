@@ -50,7 +50,7 @@ export default ({ data: { featured, latest, about }, location }) => {
             ))}
           </div>
           <footer className="home-section-footer">
-            <Link className="btn" to="/blog/">
+            <Link className="btn btn-lg btn-pill" to="/blog/">
               Find More <span aria-hidden="true">&rarr;</span>
             </Link>
           </footer>

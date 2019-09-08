@@ -1,3 +1,32 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass placeholders.
 // -----------------------------------------------------------------------------
+
+%button {
+  display: inline-block;
+  padding: $button-padding-y $button-padding-x;
+  border: $button-border;
+  border-radius: $button-radius;
+  background: $button-bg;
+  color: $button-color;
+  text-decoration: none;
+  font-size: $button-font-size;
+  line-height: $button-line-height;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: transparent;
+    background: $button-color;
+    color: yiq($button-color);
+    opacity: 1;
+  }
+
+  &:focus {
+    border-color: transparent;
+    background: $button-color;
+    box-shadow: 0 0 0 $button-focus-shadow-width rgba(tint($button-color, 15%), 0.5);
+    color: yiq($button-color);
+    outline: 0;
+  }
+}

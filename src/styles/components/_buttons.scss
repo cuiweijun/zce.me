@@ -6,41 +6,7 @@
 // https://github.com/twbs/bootstrap/blob/master/scss/mixins/_buttons.scss
 
 .btn {
-  display: inline-block;
-  padding: $btn-padding-y $btn-padding-x;
-  border: $btn-border;
-  border-radius: $btn-radius;
-  background: $btn-bg;
-  color: $btn-color;
-  text-decoration: none;
-  font-size: $btn-font-size;
-  line-height: $btn-line-height;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
-
-  &:hover {
-    border-color: transparent;
-    background: $btn-color;
-    color: yiq($btn-color);
-  }
-
-  &:focus,
-  &.focus {
-    border-color: transparent;
-    background: $btn-color;
-    box-shadow: 0 0 0 $btn-focus-width rgba(tint($btn-color, 15%), 0.5);
-    color: yiq($btn-color);
-  }
-}
-
-.btn-sm {
-  padding: ($btn-padding-y * 0.75) ($btn-padding-x * 0.75);
-  font-size: ($btn-font-size * 0.75);
-}
-
-.btn-lg {
-  padding: ($btn-padding-y * 1.25) ($btn-padding-x * 1.25);
-  font-size: ($btn-font-size * 1.25);
+  @extend %button;
 }
 
 @mixin button($color) {
@@ -53,10 +19,32 @@
   }
 }
 
-.btn-light {
-  @include button(color(light));
+@each $name, $color in $colors {
+  .btn-#{$name} {
+    @include button($color);
+  }
 }
 
-.btn-dark {
-  @include button(color(dark));
+.btn-clear {
+  border-color: transparent;
+
+  &:hover {
+    background: transparent;
+    color: inherit;
+    opacity: 0.9;
+  }
+}
+
+.btn-sm {
+  padding: ($button-padding-y * 0.875) ($button-padding-x * 0.875);
+  font-size: ($button-font-size * 0.875);
+}
+
+.btn-lg {
+  padding: ($button-padding-y * 1.25) ($button-padding-x * 1.5);
+  font-size: ($button-font-size * 1.25);
+}
+
+.btn-pill {
+  border-radius: radius(pill);
 }

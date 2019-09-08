@@ -79,6 +79,33 @@ $link-hover-color: shade($link-color, 45%);
 $link-hover-decoration: none;
 $link-hover-opacity: 0.85;
 
+// ### forms
+
+$button-padding-x: spacing(3);
+$button-padding-y: spacing(2);
+$button-border: $border-width solid gray(5);
+$button-radius: radius(medium);
+$button-bg: transparent;
+$button-color: color(secondary);
+$button-font-size: font-size(base);
+$button-line-height: line-height(dense);
+$button-focus-shadow-width: 0.125rem;
+
+$input-padding-x: (spacing(2) * 1.5);
+$input-padding-y: spacing(2);
+$input-border: $border-width solid $border-color;
+$input-radius: radius(medium);
+$input-active-border-color: shade($border-color, 30%);
+$input-active-shadow-width: 0.125rem;
+
+$select-padding-right: spacing(5);
+$select-indicator: url(escape-svg(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 14" width="29" height="14"><path fill="#{$border-color}" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>'
+));
+$select-active-indicator: url(escape-svg(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 14" width="29" height="14"><path fill="#{$input-active-border-color}" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>'
+));
+
 // ## layout
 // ----------------------------------------
 
@@ -122,18 +149,6 @@ $container-padding: ($gap-width / 2);
 // ### row
 
 $row-margin: -($gap-width / 2);
-
-// ### button
-
-$btn-padding-x: spacing(3);
-$btn-padding-y: spacing(2);
-$btn-border: $border-width solid color(secondary);
-$btn-radius: radius(medium);
-$btn-bg: transparent;
-$btn-color: color(secondary);
-$btn-font-size: font-size(base);
-$btn-line-height: line-height(normal);
-$btn-focus-width: 0.25rem;
 
 // ### card
 

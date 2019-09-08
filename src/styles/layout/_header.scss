@@ -136,8 +136,7 @@
       background-repeat: no-repeat;
       color: $nav-color;
       font-size: font-size(base);
-      line-height: line-height(dense);
-      transition: width 0.2s;
+      transition: all 0.2s;
 
       -webkit-appearance: textfield;
 

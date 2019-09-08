@@ -6,7 +6,7 @@
   padding: spacing(5) 0;
   border-top: border(default);
   background: #fff;
-  color: color(secondary);
+  color: color(muted);
   font-size: font-size(small);
 
   a {
@@ -48,24 +48,17 @@
 
     input {
       flex-grow: 1;
-      padding: spacing(2) spacing(3);
-      border: border(default);
-      border-top-left-radius: $btn-radius;
-      border-bottom-left-radius: $btn-radius;
-      color: inherit;
-      transition: border-color 0.2s;
-
-      &:focus {
-        outline: 0;
-        border: border(dark);
-      }
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      font-size: font-size(base);
     }
 
     button {
-      border: border(default);
+      border: $input-border;
       border-left: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      color: color(muted);
     }
 
     ul {

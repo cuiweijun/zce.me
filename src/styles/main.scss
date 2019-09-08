@@ -4,6 +4,11 @@
 
 @charset 'utf-8';
 
+// vendors
+// --------------------------------------------------
+
+@import 'vendors/normalize';
+
 // abstracts
 // --------------------------------------------------
 
@@ -12,17 +17,13 @@
 @import 'abstracts/mixins';
 @import 'abstracts/placeholders';
 
-// vendors
-// --------------------------------------------------
-
-@import 'vendors/normalize';
-
 // base
 // --------------------------------------------------
 
 @import 'base/fonts';
 @import 'base/reset';
 @import 'base/typography';
+@import 'base/forms';
 @import 'base/helpers';
 
 // components

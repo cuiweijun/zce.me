@@ -106,10 +106,11 @@
   margin-left: (-$container-padding);
 }
 
-@mixin column {
-  flex: 1 1 auto;
-  padding-right: $container-padding;
-  padding-left: $container-padding;
+@mixin column($basis: auto) {
+  flex: 1 1 $basis;
+  margin-right: $container-padding;
+  margin-left: $container-padding;
+  margin-bottom: ($container-padding * 2);
   max-width: 100%;
   width: 100%;
 }

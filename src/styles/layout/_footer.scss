@@ -38,7 +38,7 @@
     flex: 3 1 25rem;
     margin: 0 spacing(3);
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       flex-basis: 100%;
       margin-bottom: spacing(4);
     }
@@ -64,8 +64,8 @@
     }
 
     ul {
-      margin-right: (-spacing(1));
-      margin-left: (-spacing(1));
+      margin-right: (0 - spacing(1));
+      margin-left: (0 - spacing(1));
       padding: 0;
       list-style: none;
     }

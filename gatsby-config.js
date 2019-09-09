@@ -40,10 +40,22 @@ exports.plugins = [
   // 'gatsby-plugin-sharp', // TODO: no need?
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-nprogress',
-  'gatsby-plugin-sass',
+  'gatsby-plugin-sass'
   // 'gatsby-plugin-feed',
   // 'gatsby-plugin-sitemap',
-  'gatsby-plugin-offline'
+  // {
+  //   resolve: 'gatsby-plugin-manifest',
+  //   options: {
+  //     name: 'Lei’s',
+  //     short_name: 'Lei’s Personal Website',
+  //     start_url: '/',
+  //     display: 'standalone',
+  //     background_color: '#f7f0eb',
+  //     theme_color: '#f4f8fb',
+  //     icon: 'content/images/icon.png'
+  //   }
+  // },
+  // 'gatsby-plugin-offline'
 ]
 
 // https://www.gatsbyjs.org/docs/path-prefix/

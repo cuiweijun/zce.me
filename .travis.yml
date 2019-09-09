@@ -13,8 +13,8 @@ notifications:
     on_success: never
     on_failure: change
 
-install:
-  - yarn
+# install:
+#   - yarn
 
 script:
   - yarn build

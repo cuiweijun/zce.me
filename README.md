@@ -42,9 +42,7 @@ $ yarn build
 - [x] Taxonomy pages
 - [x] Meta tags
 - [x] Gatsby image
-- [x] Sitemap support
 - [x] Post status
-- [x] RSS Feed (not enabled)
 - [x] Private & Draft
 - [x] Comments (Disqus)
 - [x] Global styles
@@ -65,6 +63,10 @@ $ yarn build
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/
   - https://github.com/netlify-templates/gatsby-starter-netlify-cms
+- [ ] Manifest
+- [ ] Offline support
+- [ ] Sitemap support
+- [ ] RSS feed
 - [ ] write-good
 - [ ] Gatsby webpack output config
 - [ ] Local path & Remote url

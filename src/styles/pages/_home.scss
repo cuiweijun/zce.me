@@ -39,6 +39,8 @@ body.home {
 
     &-content {
       margin-bottom: spacing(3);
+
+      @include row;
     }
 
     &-footer {

@@ -6,16 +6,13 @@
   position: relative;
   display: flex;
   overflow: hidden;
+  flex: 1 1 $card-width;
   flex-direction: column;
+  margin: 0 $card-margin ($card-margin * 2);
   border-radius: $card-radius;
   background: $card-bg;
   box-shadow: $card-shadow;
   transition: box-shadow 0.3s, transform 0.3s;
-
-  .row & {
-    flex: 1 1 $card-width;
-    margin: 0 $card-margin ($card-margin * 2);
-  }
 
   &:hover {
     box-shadow: $card-hover-shadow;

@@ -20,7 +20,7 @@ export default ({ data: { tagsYaml, allMarkdownRemark }, location }) => (
     }
     location={location}>
     <div className="container">
-      <div className="row row-wrap">
+      <div className="row">
         {allMarkdownRemark.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}

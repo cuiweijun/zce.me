@@ -155,7 +155,7 @@ const Layout = props => {
 
       <footer className="site-footer">
         <div className="container">
-          <aside className="site-widget row row-wrap">
+          <aside className="site-widget">
             <section className="site-widget-follow">
               <h4>Follow me</h4>
               <p>

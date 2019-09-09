@@ -83,10 +83,11 @@
   }
 
   &-tags {
-    flex: 1 0 10rem;
+    flex: 1 0 12rem;
     padding: 0 spacing(3);
 
     @include media-breakpoint-down(xs) {
+      flex-basis: 100%;
       margin-bottom: spacing(4);
     }
 
@@ -114,10 +115,11 @@
   }
 
   &-links {
-    flex: 1 0 10rem;
+    flex: 1 0 12rem;
     padding: 0 spacing(3);
 
     @include media-breakpoint-down(xs) {
+      flex-basis: 100%;
       margin-bottom: spacing(4);
     }
 
@@ -133,7 +135,7 @@
   }
 
   &-subscription {
-    flex: 1 0 8rem;
+    flex: 1 0 6rem;
     margin: 0 1rem;
 
     img {
@@ -187,37 +189,3 @@
     animation: beat 0.4s ease-in-out infinite;
   }
 }
-
-//   &-follow {
-//     @include column((lg: 5));
-//     @include media-breakpoint-down(md) {
-//       margin-bottom: spacing(4);
-//     }
-
-//     form {
-//       margin-bottom: spacing(3);
-//     }
-
-//     ul {
-//       margin-right: (- spacing(1));
-//       margin-left: (- spacing(1));
-
-//       @include list-unstyled;
-//     }
-
-//     li {
-//       display: inline-block;
-//       margin: 0 spacing(1) spacing(2);
-
-//       a {
-//         display: flex;
-//         align-items: center;
-//         border: $btn-border-width solid transparent;
-
-//         user-select: none;
-
-//         @include button-size($btn-padding-x-sm, $btn-padding-x-sm, $font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
-//         @include button-outline-variant(theme-color-level('secondary', -3));
-//       }
-//     }
-//   }

@@ -48,22 +48,24 @@ select {
   }
 }
 
-// textarea {
-//   min-height: 6.5rem;
-// }
+textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
 
-// label,
-// legend {
-//   display: block;
-//   margin-bottom: 0.5rem;
-//   font-weight: 700;
-//   font-size: 1.6rem;
-// }
+label,
+legend {
+  display: inline-block;
+  margin-bottom: spacing(2);
+  font-weight: font-weight(bold);
+  font-size: font-size(large);
+}
 
-// fieldset {
-//   padding: 0;
-//   border-width: 0;
-// }
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
 
 // input[type='checkbox'],
 // input[type='radio'] {

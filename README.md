@@ -50,7 +50,9 @@ $ yarn build
 - [x] Navigation style
 - [x] Site Footer
 - [x] Husky + Lint-staged
-- [ ] authors & categories & tags page
+- [ ] Manifest
+- [ ] Sitemap support
+- [ ] RSS feed
 - [ ] Comment System (Custom service)
   - https://www.taniarascia.com/add-comments-to-static-site/
 - [ ] Authentication
@@ -63,10 +65,9 @@ $ yarn build
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/
   - https://github.com/netlify-templates/gatsby-starter-netlify-cms
-- [ ] Manifest
 - [ ] Offline support
-- [ ] Sitemap support
-- [ ] RSS feed
+- [ ] authors & categories & tags page
+- [ ] Search
 - [ ] write-good
 - [ ] Gatsby webpack output config
 - [ ] Local path & Remote url

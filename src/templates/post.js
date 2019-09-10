@@ -137,7 +137,7 @@ export default ({ data, location }) => {
             <Comments
               className="post-comments"
               url={url}
-              id={post.id}
+              slug={fields.slug}
               title={fields.title}
             />
           )}
@@ -204,6 +204,7 @@ export const query = graphql`
       fields {
         comment
         title
+        slug
         date
         updated
         cover {

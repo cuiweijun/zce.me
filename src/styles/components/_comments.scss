@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the comment component.
+// -----------------------------------------------------------------------------
+
+.comment {
+  display: flex;
+  flex-wrap: wrap;
+
+  fieldset {
+    margin: 0 spacing(3) spacing(3);
+  }
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+  }
+
+  &-name,
+  &-email {
+    flex: 1 1 10rem;
+  }
+
+  &-content {
+    flex: 1 1 100%;
+  }
+}

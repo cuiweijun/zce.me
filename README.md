@@ -50,6 +50,7 @@ $ yarn build
 - [x] Navigation style
 - [x] Site Footer
 - [x] Husky + Lint-staged
+- [x] Netlify Forms
 - [ ] Manifest
 - [ ] Sitemap support
 - [ ] RSS feed

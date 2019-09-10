@@ -166,7 +166,7 @@ const Layout = props => {
                 Get all the latest &amp; greatest posts delivered straight to
                 your inbox.
               </p>
-              <form name="subscribers" netlify={1}>
+              <form name="subscribers" data-netlify={true}>
                 <input
                   type="email"
                   name="email"

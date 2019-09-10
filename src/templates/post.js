@@ -1,5 +1,4 @@
 import React from 'react'
-import { DiscussionEmbed } from 'disqus-react'
 import { graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 import moment from 'moment'
@@ -7,6 +6,7 @@ import moment from 'moment'
 import Layout from '../components/layout'
 import Card from '../components/card'
 import Icon from '../components/icon'
+import Comments from '../components/comments'
 
 export default ({ data, location }) => {
   const { siteMetadata, post, prev, next, relatedPosts } = data
@@ -134,16 +134,12 @@ export default ({ data, location }) => {
           </section>
 
           {fields.comment && (
-            <section className="post-comments">
-              <DiscussionEmbed
-                shortname={'zce-sandbox'}
-                config={{
-                  url: url,
-                  identifier: post.id,
-                  title: fields.title
-                }}
-              />
-            </section>
+            <Comments
+              className="post-comments"
+              url={url}
+              id={post.id}
+              title={fields.title}
+            />
           )}
         </footer>
       </article>

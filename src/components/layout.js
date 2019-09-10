@@ -166,7 +166,11 @@ const Layout = props => {
                 Get all the latest &amp; greatest posts delivered straight to
                 your inbox.
               </p>
-              <form name="subscribers" data-netlify={true}>
+              <form
+                name="subscribers"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="subscribers" />
                 <input
                   type="email"
                   name="email"

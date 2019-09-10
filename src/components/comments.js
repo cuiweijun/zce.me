@@ -11,7 +11,8 @@ export default ({ className, url, slug, title }) => (
         title: title
       }}
     />
-    {/* <form className="comment" name="comments" data-netlify={true}>
+    {/* <form className="comment" name="comments" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="comments" />
       <input type="hidden" name="url" value={url}/>
       <input type="hidden" name="slug" value={slug}/>
       <input type="hidden" name="title" value={title}/>

@@ -68,6 +68,7 @@ $ yarn build
 - [ ] Offline support
 - [ ] authors & categories & tags page
 - [ ] Search
+  - [ ] https://www.gatsbyjs.org/docs/adding-search-with-algolia/
 - [ ] write-good
 - [ ] Gatsby webpack output config
 - [ ] Local path & Remote url

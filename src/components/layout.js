@@ -143,7 +143,11 @@ const Layout = props => {
               ))}
             </ul>
             <form className="nav-search" action="/search/">
-              <input type="search" placeholder="Search" autoComplete="off" />
+              <input
+                type="search"
+                placeholder="Search (not yet)"
+                autoComplete="off"
+              />
             </form>
           </div>
         </nav>

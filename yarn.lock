@@ -5911,10 +5911,10 @@ gatsby-remark-autolink-headers@2.1.10:
     mdast-util-to-string "^1.0.6"
     unist-util-visit "^1.4.1"
 
-gatsby-remark-copy-linked-files@2.1.18:
-  version "2.1.18"
-  resolved "https://registry.npm.taobao.org/gatsby-remark-copy-linked-files/download/gatsby-remark-copy-linked-files-2.1.18.tgz#39e78a43e9393e5f15dbedada164947e0d760776"
-  integrity sha1-OeeKQ+k5Pl8V2+2toWSUfg12B3Y=
+gatsby-remark-copy-linked-files@2.1.19:
+  version "2.1.19"
+  resolved "https://registry.npm.taobao.org/gatsby-remark-copy-linked-files/download/gatsby-remark-copy-linked-files-2.1.19.tgz?cache=0&sync_timestamp=1568101862496&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgatsby-remark-copy-linked-files%2Fdownload%2Fgatsby-remark-copy-linked-files-2.1.19.tgz#0126da478edafe05f66120f92875e9b1eea49b64"
+  integrity sha1-ASbaR47a/gX2YSD5KHXpse6km2Q=
   dependencies:
     "@babel/runtime" "^7.6.0"
     cheerio "^1.0.0-rc.3"
@@ -5951,10 +5951,10 @@ gatsby-remark-prismjs@3.3.13:
     parse-numeric-range "^0.0.2"
     unist-util-visit "^1.4.1"
 
-gatsby-remark-responsive-iframe@2.2.15:
-  version "2.2.15"
-  resolved "https://registry.npm.taobao.org/gatsby-remark-responsive-iframe/download/gatsby-remark-responsive-iframe-2.2.15.tgz#19490ed52339c66609a286e3c9cc08f585ac862c"
-  integrity sha1-GUkO1SM5xmYJoobjycwI9YWshiw=
+gatsby-remark-responsive-iframe@2.2.16:
+  version "2.2.16"
+  resolved "https://registry.npm.taobao.org/gatsby-remark-responsive-iframe/download/gatsby-remark-responsive-iframe-2.2.16.tgz?cache=0&sync_timestamp=1568101862344&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgatsby-remark-responsive-iframe%2Fdownload%2Fgatsby-remark-responsive-iframe-2.2.16.tgz#e826eda2ea29d91318852c271d104a9c3f7ba3d6"
+  integrity sha1-6Cbtouop2RMYhSwnHRBKnD97o9Y=
   dependencies:
     "@babel/runtime" "^7.6.0"
     bluebird "^3.5.5"
@@ -6066,10 +6066,10 @@ gatsby-transformer-yaml@2.2.9:
     lodash "^4.17.15"
     unist-util-select "^1.5.0"
 
-gatsby@2.15.13:
-  version "2.15.13"
-  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.15.13.tgz#3de3f2a83ea26f7fdf3bf03f123d29c1acf0225c"
-  integrity sha1-PePyqD6ib3/fO/A/Ej0pwazwIlw=
+gatsby@2.15.14:
+  version "2.15.14"
+  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.15.14.tgz#d72444feee88e1da4bfc6f2d45f3e57b03857dc7"
+  integrity sha1-1yRE/u6I4dpL/G8tRfPlewOFfcc=
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.6.0"

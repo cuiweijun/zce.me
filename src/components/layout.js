@@ -258,10 +258,7 @@ const Layout = props => {
               <ul>
                 {siteMetadata.links.map(i => (
                   <li key={i.text}>
-                    <Link to="/story/">
-                      <Icon type="link" size={14} />
-                      {i.text}
-                    </Link>
+                    <Link to="/story/">{i.text}</Link>
                   </li>
                 ))}
               </ul>

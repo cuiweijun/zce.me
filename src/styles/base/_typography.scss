@@ -152,13 +152,12 @@ img {
 
 a {
   color: $link-color;
-  text-decoration: $link-decoration;
+  text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
     color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
     opacity: $link-hover-opacity;
   }
 }

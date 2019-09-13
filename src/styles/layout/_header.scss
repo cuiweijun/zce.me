@@ -72,7 +72,8 @@
     color: $nav-color;
     font-size: $nav-brand-font-size;
 
-    img {
+    img,
+    svg {
       margin-right: spacing(2);
       width: $nav-brand-height;
       height: $nav-brand-height;

@@ -74,9 +74,7 @@ $table-cell-border: $border-width solid $border-color;
 // ### link
 
 $link-color: color(primary);
-$link-decoration: none;
 $link-hover-color: shade($link-color, 45%);
-$link-hover-decoration: none;
 $link-hover-opacity: 0.85;
 
 // ### forms
@@ -89,14 +87,14 @@ $button-bg: transparent;
 $button-color: color(secondary);
 $button-font-size: font-size(base);
 $button-line-height: line-height(dense);
-$button-focus-shadow-width: 0.125rem;
+$button-focus-shadow-width: 0.1875rem;
 
 $input-padding-x: (spacing(2) * 1.5);
 $input-padding-y: spacing(2);
 $input-border: $border-width solid $border-color;
 $input-radius: radius(medium);
 $input-active-border-color: shade($border-color, 30%);
-$input-active-shadow-width: 0.125rem;
+$input-active-shadow-width: 0.1875rem;
 
 $select-padding-right: spacing(5);
 $select-indicator: url(escape-svg(

@@ -68,7 +68,7 @@
     "@commitlint/config-conventional": "8.2.0",
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.0.2",
-    "disqus-react": "1.0.6",
+    "disqus-react": "1.0.7",
     "gatsby": "2.15.18",
     "gatsby-image": "2.2.19",
     "gatsby-plugin-nprogress": "2.1.6",

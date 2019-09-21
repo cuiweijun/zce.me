@@ -78,6 +78,7 @@
     a {
       display: flex;
       padding: spacing(2);
+      border: $input-border;
       color: inherit;
       opacity: 0.9;
     }
@@ -132,7 +133,8 @@
     li {
       &::before {
         margin-right: spacing(1);
-        content: '\272D'; // ↩ ✡ 272D
+        content: '\279F'; // ↩ ✡ 272D
+        opacity: 0.8;
       }
     }
   }

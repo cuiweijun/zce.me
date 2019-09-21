@@ -4,6 +4,10 @@
 
 // functions
 
+@function rem($pixels, $root: 16px) {
+  @return ($pixels / $root * 1rem);
+}
+
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
 }
@@ -20,10 +24,6 @@
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
   @return if($yiq >= $threshold, $dark, $light);
-}
-
-@function rem($pixels, $root: 16px) {
-  @return ($pixels / $root * 1rem);
 }
 
 @function str-replace($string, $search, $replace: '') {

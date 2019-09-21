@@ -17,6 +17,12 @@
     background: $color;
     color: yiq($color);
   }
+
+  &:focus {
+    background: $color;
+    box-shadow: 0 0 0 $button-focus-shadow-width rgba(tint($color, 15%), 0.5);
+    color: yiq($color);
+  }
 }
 
 @each $name, $color in $colors {
@@ -32,6 +38,11 @@
     background: transparent;
     color: inherit;
     opacity: 0.9;
+  }
+
+  &:focus {
+    background: transparent;
+    color: inherit;
   }
 }
 

@@ -191,6 +191,7 @@
     color: color(accent);
     font-weight: normal;
     font-style: normal;
+    will-change: transform;
     animation: beat 0.4s ease-in-out infinite;
   }
 }

@@ -1,20 +1,22 @@
 id: zce.me #  Do not modify ID
 url: https://blog.zce.me # no trailing slash!
+
 name: Lei’s
 title: Lei’s Personal Website
-logo: /logo.svg
-slogan: MAKE IT BETTER!
 description: Thoughts, stories and ideas. (Developing, coming)
-keywords:
-  - zce
-  - blog
-  - personal
-  - homepage
+slogan: MAKE IT BETTER!
+keywords: [zce, blog, personal, homepage]
+
 author:
   name: Lei Wang
   email: w@zce.me
   url: https://zce.me
+
 language: en
+
+# logo: ../images/logo.svg # inline svg instead
+cover: ../images/cover.jpg
+
 navigation:
   - text: Home
     link: /
@@ -26,6 +28,7 @@ navigation:
     link: /contact/
   - text: Discuss
     link: /discuss/
+
 socials:
   - name: Twitter
     link: https://twitter.com/w_zce
@@ -65,6 +68,12 @@ subscription:
   qrcode: https://s.uieee.com/qrcode/wedn.jpg
   link: ~
 
+card:
+  image: ../images/unknown.jpg
+
+disqus:
+  shortname: zce-sandbox
+
 # collection permalink tags:
 # - {slug} - the post slug, eg. my-post
 # - {year} - publication year, eg. 2019
@@ -73,13 +82,7 @@ subscription:
 # - {author} - slug of first author, eg. cameron
 # - {category} - slug of first category, eg. tutorial
 # - {tag} - slug of first tag listed in the post, eg. news
-#
-# collection status:
-# - draft
-# - private
-# - published
-# - deprecated
-# - trashed
+# collection status: draft, private, published, deprecated, trashed
 collections:
   posts:
     type: post

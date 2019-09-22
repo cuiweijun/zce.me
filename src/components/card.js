@@ -4,15 +4,13 @@ import Image from 'gatsby-image'
 
 const query = graphql`
   query CardComponent {
-    defaultCover: file(relativePath: { eq: "images/unknown.jpg" }) {
-      ...PostCardImage
-    }
+    ...SiteMetadata
   }
 `
 
 export default ({ post, rel }) => {
-  const { defaultCover } = useStaticQuery(query)
-  post.fields.cover = post.fields.cover || defaultCover
+  const { siteMetadata } = useStaticQuery(query)
+  post.fields.cover = post.fields.cover || siteMetadata.card.image
 
   return (
     <article className="card">

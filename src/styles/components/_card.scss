@@ -13,6 +13,7 @@
   background: $card-bg;
   box-shadow: $card-shadow;
   transition: box-shadow 0.3s, transform 0.3s;
+  will-change: transform;
 
   &:hover {
     box-shadow: $card-hover-shadow;

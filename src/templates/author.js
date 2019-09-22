@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import Layout from '../components/layout'
-import Card from '../components/card'
+import { Layout, Card } from '../components'
 
 export default ({ data: { authorsYaml, allMarkdownRemark }, location }) => (
   <Layout

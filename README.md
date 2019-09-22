@@ -62,6 +62,8 @@ $ yarn build
   - https://auth0.com/blog/securing-gatsby-with-auth0/
   - https://github.com/auth0-blog/gatsby-auth0
   - https://github.com/gatsbyjs/gatsby/issues/1100
+  - https://www.gatsbyjs.org/packages/gatsby-plugin-create-client-paths/
+  - https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/
 - [ ] Netlify CMS
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/

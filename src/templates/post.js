@@ -3,10 +3,7 @@ import { graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 import moment from 'moment'
 
-import Layout from '../components/layout'
-import Card from '../components/card'
-import Icon from '../components/icon'
-import Comments from '../components/comments'
+import { Layout, Icon, Card, Comments } from '../components'
 
 export default ({ data, location }) => {
   const { siteMetadata, post, prev, next, relatedPosts } = data
@@ -134,12 +131,9 @@ export default ({ data, location }) => {
           </section>
 
           {fields.comment && (
-            <Comments
-              className="post-comments"
-              url={url}
-              slug={fields.slug}
-              title={fields.title}
-            />
+            <section className="post-comments">
+              <Comments url={url} slug={fields.slug} title={fields.title} />
+            </section>
           )}
         </footer>
       </article>

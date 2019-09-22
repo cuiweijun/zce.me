@@ -13,6 +13,7 @@
   z-index: z-index(low);
   width: 100%;
   height: $cover-height;
+  min-height: 42rem;
 
   &::before,
   &::after {
@@ -48,7 +49,6 @@
   background: $nav-bg;
   box-shadow: shadow(light);
   transition: transform 0.3s linear;
-
   will-change: transform;
 
   &.pinned {

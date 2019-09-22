@@ -3,9 +3,8 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-const _ = require(`lodash`)
 
-// use content/site.yml instead
+// use content/meta/_site.yml instead
 // exports.siteMetadata = {}
 
 exports.plugins = [
@@ -30,17 +29,9 @@ exports.plugins = [
       ]
     }
   },
-  {
-    resolve: 'gatsby-transformer-yaml',
-    options: {
-      typeName: ({ node }) => _.upperFirst(_.camelCase(`${node.name} Yaml`))
-    }
-  },
+  'gatsby-transformer-yaml',
   'gatsby-transformer-sharp',
   // 'gatsby-plugin-sharp', // TODO: no need?
-  'gatsby-plugin-react-helmet',
-  'gatsby-plugin-nprogress',
-  'gatsby-plugin-sass'
   // 'gatsby-plugin-feed',
   // 'gatsby-plugin-sitemap',
   // {
@@ -65,7 +56,11 @@ exports.plugins = [
   //     icon: 'content/images/icon.png'
   //   }
   // },
-  // 'gatsby-plugin-offline'
+  // 'gatsby-plugin-offline',
+  // 'gatsby-plugin-remove-trailing-slashes',
+  'gatsby-plugin-react-helmet',
+  'gatsby-plugin-nprogress',
+  'gatsby-plugin-sass'
 ]
 
 // https://www.gatsbyjs.org/docs/path-prefix/

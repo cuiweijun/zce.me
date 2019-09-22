@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 
-import Layout from '../components/layout'
-import Card from '../components/card'
+import { Layout, Card } from '../components'
 
 const FeaturedSection = ({ post }) => (
   <section className="home-section">
@@ -96,6 +95,7 @@ export const query = graphql`
         excerpt(format: HTML, pruneLength: 500)
       }
     }
+
     latest: allMarkdownRemark(
       filter: {
         fields: {
@@ -111,6 +111,7 @@ export const query = graphql`
         ...PostCard
       }
     }
+
     about: markdownRemark(fields: { slug: { eq: "about" } }) {
       fields {
         title

@@ -21,10 +21,6 @@ const query = graphql`
   query LayoutComponent {
     ...SiteMetadata
 
-    siteCover: file(relativePath: { eq: "images/cover.jpg" }) {
-      ...SiteCoverImage
-    }
-
     allTagsYaml {
       nodes {
         id
@@ -37,7 +33,7 @@ const query = graphql`
 `
 
 const Layout = props => {
-  const { siteMetadata, siteCover, allTagsYaml } = useStaticQuery(query)
+  const { siteMetadata, allTagsYaml } = useStaticQuery(query)
 
   // canonical url
   const url = siteMetadata.url + props.location.pathname
@@ -54,7 +50,8 @@ const Layout = props => {
   const keywords = props.keywords || siteMetadata.keywords
 
   // image
-  const cover = props.cover === false ? false : props.cover || siteCover
+  const cover =
+    props.cover === false ? false : props.cover || siteMetadata.cover
 
   const getDefaultHeader = () =>
     props.title ? (

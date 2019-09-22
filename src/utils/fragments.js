@@ -8,14 +8,13 @@ import { graphql } from 'gatsby'
 // Load all site metadata.
 export const SiteMetadata = graphql`
   fragment SiteMetadata on Query {
-    siteMetadata: siteYaml {
+    siteMetadata: metaYaml {
       id
       url
       name
       title
-      logo
-      slogan
       description
+      slogan
       keywords
       author {
         name
@@ -23,6 +22,9 @@ export const SiteMetadata = graphql`
         url
       }
       language
+      cover {
+        ...SiteCoverImage
+      }
       navigation {
         text
         link
@@ -38,6 +40,14 @@ export const SiteMetadata = graphql`
       subscription {
         name
         qrcode
+      }
+      card {
+        image {
+          ...PostCardImage
+        }
+      }
+      disqus {
+        shortname
       }
     }
   }
@@ -56,6 +66,7 @@ export const SiteCoverImage = graphql`
   }
 `
 
+// Load post card image required data.
 export const PostCardImage = graphql`
   fragment PostCardImage on File {
     childImageSharp {

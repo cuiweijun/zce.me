@@ -17,14 +17,14 @@ const createCollectionFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   const { relativePath } = getNode(node.parent)
-  // load config from `content/site.yml`
+  // load config from `content/meta/_site.yml`
   const { collections } = getNode('zce.me')
   const collection = collections[relativePath.split('/')[0]]
   if (!collection) return
 
   let {
     title,
-    slug,
+    slug = kebabCase(title),
     date,
     updated,
     cover,
@@ -40,8 +40,6 @@ const createCollectionFields = ({ node, getNode, actions }) => {
     tags = []
   } = node.frontmatter
 
-  slug = slug || kebabCase(title)
-
   // cover = cover || path.relative(relativeDirectory, path.normalize('images/unknown.jpg'))
   // console.log(cover)
 
@@ -52,8 +50,8 @@ const createCollectionFields = ({ node, getNode, actions }) => {
   categories.length || categories.push(...collection.categories)
   tags.length || tags.push(...collection.tags)
 
+  // parse permalink if permalink is template
   if (/{([a-z_]+)}/.test(permalink)) {
-    // generate permalink if permalink not defined in frontmatter
     const year = date.getFullYear()
     const month = ('0' + (date.getMonth() + 1)).substr(-2)
     const day = ('0' + date.getDate()).substr(-2)
@@ -88,19 +86,17 @@ const createTaxonomyFields = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   const { name } = getNode(node.parent)
-  // load config from `content/site.yml`
+  // load config from `content/meta/_site.yml`
   const { taxonomies } = getNode('zce.me')
   const taxonomy = taxonomies[name]
   if (!taxonomy) return
 
   let {
     id,
-    slug,
+    slug = kebabCase(id),
     template = taxonomy.template,
     permalink = taxonomy.permalink
   } = node
-
-  slug = slug || kebabCase(id)
 
   if (/{([a-z_]+)}/.test(permalink)) {
     permalink = generatePermalink(permalink, { slug })
@@ -121,6 +117,18 @@ exports.onCreateNode = args => {
       return createTaxonomyFields(args)
   }
 }
+
+// exports.setFieldsOnGraphQLNodeType = ({ type }) => {
+//   if (type.name !== `TagsYaml`) return {}
+//   return {
+//     slug: {
+//       type: 'String',
+//       resolve: (source) => {
+//         return source.slug || kebabCase(source.id)
+//       }
+//     }
+//   }
+// }
 
 exports.createPages = async ({ graphql, getNode, actions, reporter }) => {
   // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/

@@ -85,7 +85,7 @@
     "gatsby-transformer-remark": "2.6.26",
     "gatsby-transformer-sharp": "2.2.19",
     "gatsby-transformer-yaml": "2.2.12",
-    "husky": "3.0.7",
+    "husky": "3.0.8",
     "lint-staged": "9.4.1",
     "lodash": "4.17.15",
     "node-sass": "4.12.0",

@@ -25,10 +25,10 @@
   "scripts": {
     "format": "prettier --write \"**/*.{js,json,yml,yaml,md,scss}\"",
     "clean": "gatsby clean",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve",
     "build": "gatsby build",
     "dist": "yarn build --prefix-paths",
+    "serve": "gatsby serve",
+    "develop": "gatsby develop",
     "dev": "yarn develop",
     "commit": "git-cz"
   },
@@ -63,7 +63,7 @@
     "singleQuote": true,
     "tabWidth": 2
   },
-  "devDependencies": {
+  "dependencies": {
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "commitizen": "4.0.3",
@@ -84,17 +84,21 @@
     "gatsby-source-filesystem": "2.1.29",
     "gatsby-transformer-remark": "2.6.27",
     "gatsby-transformer-sharp": "2.2.20",
-    "gatsby-transformer-yaml": "2.2.12",
     "husky": "3.0.8",
+    "js-yaml": "3.13.1",
     "lint-staged": "9.4.1",
     "lodash": "4.17.15",
     "node-sass": "4.12.0",
     "normalize.css": "8.0.1",
     "open-color": "1.7.0",
+    "pluralize": "8.0.0",
     "prettier": "1.18.2",
     "prismjs": "1.17.1",
     "react": "16.10.2",
     "react-dom": "16.10.2",
     "react-helmet": "5.2.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
   }
 }

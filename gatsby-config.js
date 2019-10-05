@@ -5,9 +5,11 @@
  */
 
 // use content/meta/_site.yml instead
-// exports.siteMetadata = {}
+// https://github.com/gatsbyjs/gatsby/issues/2968
+exports.siteMetadata = {}
 
 exports.plugins = [
+  // source
   {
     resolve: 'gatsby-source-filesystem',
     options: {
@@ -15,6 +17,7 @@ exports.plugins = [
       path: 'content'
     }
   },
+  // transformer
   {
     // https://using-remark.gatsbyjs.org
     resolve: 'gatsby-transformer-remark',
@@ -29,8 +32,53 @@ exports.plugins = [
       ]
     }
   },
-  'gatsby-transformer-yaml',
-  'gatsby-transformer-sharp',
+  {
+    resolve: 'gatsby-transformer-sharp'
+  },
+  {
+    resolve: 'gatsby-transformer-content',
+    options: {
+      collections: {
+        posts: {
+          template: 'post',
+          permalink: '/{year}/{month}/{slug}/',
+          draft: false,
+          private: false,
+          featured: false,
+          comment: true,
+          authors: ['Lei Wang'],
+          categories: ['Uncategorized'],
+          tags: []
+        },
+        pages: {
+          template: 'page',
+          permalink: '/{slug}/',
+          draft: false,
+          private: false,
+          featured: false,
+          comment: false,
+          authors: ['Lei Wang'],
+          categories: ['Uncategorized'],
+          tags: []
+        }
+      },
+      taxonomies: {
+        authors: {
+          template: 'author',
+          permalink: '/authors/{slug}/'
+        },
+        categories: {
+          template: 'category',
+          permalink: '/categories/{slug}/'
+        },
+        tags: {
+          template: 'tag',
+          permalink: '/tags/{slug}/'
+        }
+      }
+    }
+  },
+  // plugin
   // 'gatsby-plugin-sharp', // TODO: no need?
   // 'gatsby-plugin-feed',
   // 'gatsby-plugin-sitemap',
@@ -63,12 +111,16 @@ exports.plugins = [
   'gatsby-plugin-sass'
 ]
 
-// https://www.gatsbyjs.org/docs/path-prefix/
 exports.pathPrefix = '/'
 
-// https://www.gatsbyjs.org/docs/gatsby-config/#mapping-node-types
+exports.polyfill = false
+
 exports.mapping = {
-  'MarkdownRemark.fields.authors': 'AuthorsYaml',
-  'MarkdownRemark.fields.categories': 'CategoriesYaml',
-  'MarkdownRemark.fields.tags': 'TagsYaml'
+  'MarkdownRemark.fields.authors': 'Author.name',
+  'MarkdownRemark.fields.categories': 'Category.name',
+  'MarkdownRemark.fields.tags': 'Tag.name'
 }
+
+exports.proxy = null
+
+exports.developMiddleware = null

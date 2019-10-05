@@ -1,8 +1,8 @@
-- id: Lei Wang
+- name: Lei Wang
   slug: zce
   email: w@zce.me
-  avatar: ../images/zce-avatar.jpg
-  cover: ../images/zce-cover.jpg
+  avatar: images/zce-avatar.jpg
+  cover: images/zce-cover.jpg
   bio: MAKE IT BETTER!
   website: https://zce.me
   location: Beijing, China
@@ -19,7 +19,7 @@
     title: Lei’s speaking
     description: This is Lei’s speaking
 
-- id: Ziwen Wang
+- name: Ziwen Wang
   slug: ziwen
   email: z@zce.me
-  avatar: ../images/ziwen-avatar.jpg
+  avatar: images/ziwen-avatar.jpg

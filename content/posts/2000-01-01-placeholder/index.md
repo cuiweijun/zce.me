@@ -6,7 +6,7 @@ updated: 2000-01-01 00:00:00
 cover: placeholder.png
 description: ''
 template: post
-permalink: /frontmatter-placeholder.html
+permalink: /{author}/{category}/frontmatter-placeholder.html
 draft: false
 private: true
 featured: false
@@ -14,7 +14,8 @@ comment: false
 authors:
   - Lei Wang
 categories:
-  - Uncategorized
+  - Foo
+  - Bar
 tags:
   - Getting Started
   - Tutorial

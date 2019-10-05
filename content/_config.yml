@@ -1,4 +1,5 @@
-id: zce.me #  Do not modify ID
+# https://github.com/hexojs/hexo-starter/blob/master/_config.yml
+
 url: https://blog.zce.me # no trailing slash!
 
 name: Lei’s
@@ -14,8 +15,9 @@ author:
 
 language: en
 
-# logo: ../images/logo.svg # inline svg instead
-cover: ../images/cover.jpg
+# inline svg instead
+# logo: content/images/logo.svg
+cover: content/images/cover.jpg
 
 navigation:
   - text: Home
@@ -50,6 +52,7 @@ socials:
     link: https://i.youku.com/zcezce
   - name: Bilibili
     link: https://space.bilibili.com/210242179
+
 links:
   - text: Story
     link: /story/
@@ -63,68 +66,14 @@ links:
     link: /privacy-policy/
   - text: Terms
     link: /terms-of-service/
+
 subscription:
   name: ITBetter
   qrcode: https://s.uieee.com/qrcode/wedn.jpg
   link: ~
 
 card:
-  image: ../images/unknown.jpg
+  image: content/images/unknown.jpg
 
 disqus:
   shortname: zce-sandbox
-
-# collection permalink tags:
-# - {slug} - the post slug, eg. my-post
-# - {year} - publication year, eg. 2019
-# - {month} - publication month, eg. 04
-# - {day} - publication day, eg. 29
-# - {author} - slug of first author, eg. cameron
-# - {category} - slug of first category, eg. tutorial
-# - {tag} - slug of first tag listed in the post, eg. news
-# collection status: draft, private, published, deprecated, trashed
-collections:
-  posts:
-    type: post
-    template: post
-    permalink: /{year}/{month}/{slug}/
-    draft: false
-    private: false
-    featured: false
-    comment: true
-    authors:
-      - Lei Wang
-    categories:
-      - Uncategorized
-    tags:
-      - Untagged
-  pages:
-    type: page
-    template: page
-    permalink: /{slug}/
-    draft: false
-    private: false
-    featured: false
-    comment: false
-    authors:
-      - Lei Wang
-    categories:
-      - Uncategorized
-    tags:
-      - Untagged
-
-# taxonomies permalink tags:
-# - {slug} - the taxonomy slug, eg. tom-jerry
-taxonomies:
-  authors:
-    type: author
-    template: author
-    permalink: /authors/{slug}/
-  categories:
-    type: category
-    template: category
-    permalink: /categories/{slug}/
-  tags:
-    type: tag
-    template: tag
-    permalink: /tags/{slug}/

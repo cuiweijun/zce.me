@@ -20,6 +20,8 @@ export default ({ data, location }) => (
 
 export const query = graphql`
   query DiscussPage {
-    ...SiteMetadata
+    siteMetadata: config {
+      url
+    }
   }
 `

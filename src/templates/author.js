@@ -4,22 +4,20 @@ import Image from 'gatsby-image'
 
 import { Layout, Card } from '../components'
 
-export default ({ data: { authorsYaml, allMarkdownRemark }, location }) => (
+export default ({ data: { author, allMarkdownRemark }, location }) => (
   <Layout
     className="author"
-    title={(authorsYaml.meta && authorsYaml.meta.title) || authorsYaml.id}
-    description={
-      (authorsYaml.meta && authorsYaml.meta.description) || authorsYaml.bio
-    }
-    cover={authorsYaml.cover}
+    title={(author.meta && author.meta.title) || author.name}
+    description={(author.meta && author.meta.description) || author.bio}
+    cover={author.cover}
     header={
       <div className="container">
         <Image
           className="author-avatar"
-          fixed={authorsYaml.avatar.childImageSharp.fixed}
+          fixed={author.avatar.childImageSharp.fixed}
         />
-        <h1 className="author-name">{authorsYaml.id}</h1>
-        <p className="author-bio">{authorsYaml.bio}</p>
+        <h1 className="author-name">{author.name}</h1>
+        <p className="author-bio">{author.bio}</p>
       </div>
     }
     location={location}>
@@ -35,8 +33,8 @@ export default ({ data: { authorsYaml, allMarkdownRemark }, location }) => (
 
 export const query = graphql`
   query AuthorTemplate($id: String!) {
-    authorsYaml(id: { eq: $id }) {
-      id
+    author(id: { eq: $id }) {
+      name
       avatar {
         childImageSharp {
           fixed(width: 160) {

@@ -170,13 +170,16 @@ body.post {
   &-more {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: spacing(3);
     font-size: font-size(small);
 
     a {
       color: color(accent);
     }
+  }
+
+  &-share {
+    margin-left: auto;
   }
 
   &-tags {

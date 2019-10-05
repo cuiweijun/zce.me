@@ -4,7 +4,13 @@ import Image from 'gatsby-image'
 
 const query = graphql`
   query CardComponent {
-    ...SiteMetadata
+    siteMetadata: config {
+      card {
+        image {
+          ...PostCardImage
+        }
+      }
+    }
   }
 `
 
@@ -29,7 +35,7 @@ export default ({ post, rel }) => {
 
       <div className="card-main">
         <header className="card-header">
-          <span>{post.fields.categories[0].id}</span>
+          <span>{post.fields.categories[0].name}</span>
           <h3>{post.fields.title}</h3>
         </header>
 
@@ -41,15 +47,15 @@ export default ({ post, rel }) => {
           <ul>
             {post.fields.authors.map((author, i) => (
               <li
-                key={author.id}
+                key={author.name}
                 style={{
                   zIndex: post.fields.authors.length - i
                 }}>
-                <Link to={author.fields.permalink} title={author.id}>
+                <Link to={author.permalink} title={author.name}>
                   <Image
                     Tag="span"
                     fixed={author.avatar.childImageSharp.fixed}
-                    alt={author.id}
+                    alt={author.name}
                   />
                 </Link>
               </li>
@@ -63,3 +69,43 @@ export default ({ post, rel }) => {
     </article>
   )
 }
+
+export const GraphQLFragment = graphql`
+  # Load post card image required data.
+  fragment PostCardImage on File {
+    childImageSharp {
+      fluid(maxWidth: 540, maxHeight: 360, cropFocus: CENTER) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+
+  # Load post card component required data.
+  fragment PostCard on MarkdownRemark {
+    id
+    excerpt
+    timeToRead
+    fields {
+      title
+      cover {
+        ...PostCardImage
+      }
+      permalink
+      authors {
+        name
+        avatar {
+          childImageSharp {
+            fixed(width: 30, height: 30) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        permalink
+      }
+      categories {
+        name
+        permalink
+      }
+    }
+  }
+`

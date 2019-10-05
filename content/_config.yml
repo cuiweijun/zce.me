@@ -16,8 +16,8 @@ author:
 language: en
 
 # inline svg instead
-# logo: content/images/logo.svg
-cover: content/images/cover.jpg
+# logo: images/logo.svg
+cover: images/cover.jpg
 
 navigation:
   - text: Home
@@ -73,7 +73,7 @@ subscription:
   link: ~
 
 card:
-  image: content/images/unknown.jpg
+  image: images/unknown.jpg
 
 disqus:
   shortname: zce-sandbox

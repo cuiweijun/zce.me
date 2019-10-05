@@ -4,7 +4,11 @@ import { DiscussionEmbed } from 'disqus-react'
 
 const query = graphql`
   query CommentsComponent {
-    ...SiteMetadata
+    siteMetadata: config {
+      disqus {
+        shortname
+      }
+    }
   }
 `
 

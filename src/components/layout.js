@@ -19,21 +19,49 @@ import { useNavState } from '../utils/hooks'
 
 const query = graphql`
   query LayoutComponent {
-    ...SiteMetadata
+    siteMetadata: config {
+      url
+      name
+      title
+      description
+      slogan
+      keywords
+      author {
+        name
+      }
+      language
+      cover {
+        ...SiteCoverImage
+      }
+      navigation {
+        text
+        link
+      }
+      socials {
+        name
+        link
+      }
+      links {
+        text
+        link
+      }
+      subscription {
+        name
+        qrcode
+      }
+    }
 
-    allTagsYaml {
+    allTag {
       nodes {
-        id
-        fields {
-          permalink
-        }
+        name
+        permalink
       }
     }
   }
 `
 
 const Layout = props => {
-  const { siteMetadata, allTagsYaml } = useStaticQuery(query)
+  const { siteMetadata, allTag } = useStaticQuery(query)
 
   // canonical url
   const url = siteMetadata.url + props.location.pathname
@@ -243,9 +271,9 @@ const Layout = props => {
             <section className="site-widget-tags">
               <h4>Tags</h4>
               <ul>
-                {allTagsYaml.nodes.map(i => (
-                  <li key={i.id}>
-                    <Link to={i.fields.permalink}>{i.id}</Link>
+                {allTag.nodes.map(i => (
+                  <li key={i.name}>
+                    <Link to={i.permalink}>{i.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -315,3 +343,16 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+export const GraphQLFragment = graphql`
+  # Load layout cover image required data.
+  fragment SiteCoverImage on File {
+    childImageSharp {
+      fluid(maxWidth: 1080, maxHeight: 720, cropFocus: CENTER) {
+        ...GatsbyImageSharpFluid
+        presentationWidth
+        presentationHeight
+      }
+    }
+  }
+`

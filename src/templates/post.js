@@ -25,10 +25,8 @@ export default ({ data, location }) => {
               {moment.utc(fields.date).format('ll')}
             </time>
             <span role="separator" aria-hidden="true" />
-            <Link
-              to={fields.categories[0].fields.permalink}
-              aria-label="Posted in">
-              {fields.categories[0].id}
+            <Link to={fields.categories[0].permalink} aria-label="Posted in">
+              {fields.categories[0].name}
             </Link>
           </span>
           <h1 className="post-title">{fields.title}</h1>
@@ -51,16 +49,18 @@ export default ({ data, location }) => {
 
         <footer className="post-footer">
           <section className="post-more">
-            <div className="post-tags">
-              <Icon type="tag" />
-              <ul className="tags">
-                {fields.tags.map(i => (
-                  <li key={i.id}>
-                    <Link to={i.fields.permalink}>{i.id}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {fields.tags && (
+              <div className="post-tags">
+                <Icon type="tag" />
+                <ul className="tags">
+                  {fields.tags.map(i => (
+                    <li key={i.name}>
+                      <Link to={i.permalink}>{i.n}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className="post-share">
               <span>Share this:</span>
               <a
@@ -89,12 +89,10 @@ export default ({ data, location }) => {
                 fixed={fields.authors[0].avatar.childImageSharp.fixed}
               />
               <div className="content">
-                <h4>{fields.authors[0].id}</h4>
+                <h4>{fields.authors[0].name}</h4>
                 <p>{fields.authors[0].bio}</p>
               </div>
-              <Link
-                className="btn btn-pill"
-                to={fields.authors[0].fields.permalink}>
+              <Link className="btn btn-pill" to={fields.authors[0].permalink}>
                 Read More
               </Link>
             </div>
@@ -102,8 +100,8 @@ export default ({ data, location }) => {
               <p className="contributors">
                 <span>Contributors: </span>
                 {fields.authors.slice(1).map(i => (
-                  <Link to={i.fields.permalink} key={i.id}>
-                    {i.id}
+                  <Link to={i.permalink} key={i.name}>
+                    {i.name}
                   </Link>
                 ))}
               </p>
@@ -146,8 +144,8 @@ export default ({ data, location }) => {
               <header className="category-header">
                 <small>{siteMetadata.name}</small>
                 <h3>
-                  <Link to={fields.categories[0].fields.permalink}>
-                    {fields.categories[0].id}
+                  <Link to={fields.categories[0].permalink}>
+                    {fields.categories[0].name}
                   </Link>
                 </h3>
               </header>
@@ -165,11 +163,11 @@ export default ({ data, location }) => {
               </ul>
               <footer className="category-footer">
                 {relatedPosts.totalCount > 1 ? (
-                  <Link to={fields.categories[0].fields.permalink}>
+                  <Link to={fields.categories[0].permalink}>
                     See all {relatedPosts.totalCount} posts &rarr;
                   </Link>
                 ) : (
-                  <Link to={fields.categories[0].fields.permalink}>
+                  <Link to={fields.categories[0].permalink}>
                     See 1 post &rarr;
                   </Link>
                 )}
@@ -192,7 +190,10 @@ export const query = graphql`
     $prev: String
     $next: String
   ) {
-    ...SiteMetadata
+    siteMetadata: config {
+      url
+      name
+    }
 
     post: markdownRemark(id: { eq: $id }) {
       fields {
@@ -207,7 +208,7 @@ export const query = graphql`
         description
         permalink
         authors {
-          id
+          name
           avatar {
             childImageSharp {
               fixed(width: 160) {
@@ -216,21 +217,15 @@ export const query = graphql`
             }
           }
           bio
-          fields {
-            permalink
-          }
+          permalink
         }
         categories {
-          id
-          fields {
-            permalink
-          }
+          name
+          permalink
         }
         tags {
-          id
-          fields {
-            permalink
-          }
+          name
+          permalink
         }
       }
       excerpt(pruneLength: 160)

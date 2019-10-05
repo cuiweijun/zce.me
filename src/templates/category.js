@@ -3,18 +3,18 @@ import { graphql } from 'gatsby'
 
 import { Layout, Card } from '../components'
 
-export default ({ data: { tagsYaml, allMarkdownRemark }, location }) => (
+export default ({ data: { category, allMarkdownRemark }, location }) => (
   <Layout
-    className="tag"
-    title={(tagsYaml.meta && tagsYaml.meta.title) || tagsYaml.id}
+    className="category"
+    title={(category.meta && category.meta.title) || category.name}
     description={
-      (tagsYaml.meta && tagsYaml.meta.description) || tagsYaml.description
+      (category.meta && category.meta.description) || category.description
     }
-    cover={tagsYaml.cover}
+    cover={category.cover}
     header={
       <div className="container">
-        <h1>{tagsYaml.id}</h1>
-        <p>{tagsYaml.description}</p>
+        <h1>{category.name}</h1>
+        <p>{category.description}</p>
       </div>
     }
     location={location}>
@@ -29,9 +29,9 @@ export default ({ data: { tagsYaml, allMarkdownRemark }, location }) => (
 )
 
 export const query = graphql`
-  query TagTemplate($id: String!) {
-    tagsYaml(id: { eq: $id }) {
-      id
+  query CategoryTemplate($id: String!) {
+    category(id: { eq: $id }) {
+      name
       description
       cover {
         ...SiteCoverImage
@@ -48,7 +48,7 @@ export const query = graphql`
           type: { eq: "post" }
           draft: { eq: false }
           private: { eq: false }
-          tags: { elemMatch: { id: { eq: $id } } }
+          categories: { elemMatch: { id: { eq: $id } } }
         }
       }
       sort: { fields: fields___date, order: DESC }

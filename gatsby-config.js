@@ -9,75 +9,6 @@
 exports.siteMetadata = {}
 
 exports.plugins = [
-  // source
-  {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      name: 'content',
-      path: 'content'
-    }
-  },
-  // transformer
-  {
-    // https://using-remark.gatsbyjs.org
-    resolve: 'gatsby-transformer-remark',
-    options: {
-      plugins: [
-        'gatsby-remark-smartypants',
-        'gatsby-remark-autolink-headers',
-        'gatsby-remark-images',
-        'gatsby-remark-prismjs',
-        'gatsby-remark-responsive-iframe',
-        'gatsby-remark-copy-linked-files'
-      ]
-    }
-  },
-  {
-    resolve: 'gatsby-transformer-sharp'
-  },
-  {
-    resolve: 'gatsby-transformer-content',
-    options: {
-      collections: {
-        posts: {
-          template: 'post',
-          permalink: '/{year}/{month}/{slug}/',
-          draft: false,
-          private: false,
-          featured: false,
-          comment: true,
-          authors: ['Lei Wang'],
-          categories: ['Uncategorized'],
-          tags: []
-        },
-        pages: {
-          template: 'page',
-          permalink: '/{slug}/',
-          draft: false,
-          private: false,
-          featured: false,
-          comment: false,
-          authors: ['Lei Wang'],
-          categories: ['Uncategorized'],
-          tags: []
-        }
-      },
-      taxonomies: {
-        authors: {
-          template: 'author',
-          permalink: '/authors/{slug}/'
-        },
-        categories: {
-          template: 'category',
-          permalink: '/categories/{slug}/'
-        },
-        tags: {
-          template: 'tag',
-          permalink: '/tags/{slug}/'
-        }
-      }
-    }
-  },
   // plugin
   // 'gatsby-plugin-sharp', // TODO: no need?
   // 'gatsby-plugin-feed',
@@ -108,7 +39,33 @@ exports.plugins = [
   // 'gatsby-plugin-remove-trailing-slashes',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-nprogress',
-  'gatsby-plugin-sass'
+  'gatsby-plugin-sass',
+  // source
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'content',
+      path: 'content'
+    }
+  },
+  // transformer
+  {
+    // https://using-remark.gatsbyjs.org
+    resolve: 'gatsby-transformer-remark',
+    options: {
+      plugins: [
+        'gatsby-remark-smartypants',
+        'gatsby-remark-autolink-headers',
+        'gatsby-remark-images',
+        'gatsby-remark-prismjs',
+        'gatsby-remark-responsive-iframe',
+        'gatsby-remark-copy-linked-files'
+      ]
+    }
+  },
+  {
+    resolve: 'gatsby-transformer-sharp'
+  }
 ]
 
 exports.pathPrefix = '/'

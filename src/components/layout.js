@@ -47,7 +47,9 @@ const query = graphql`
       }
       subscription {
         name
-        qrcode
+        qrcode {
+          ...QRCodeImage
+        }
       }
     }
 
@@ -290,7 +292,11 @@ const Layout = props => {
             </section>
             <section className="site-widget-subscription">
               <h4>Subscription</h4>
-              <img src="https://s.uieee.com/qrcode/wedn.jpg" alt="WEDN" />
+              <Image
+                fixed={siteMetadata.subscription.qrcode.childImageSharp.fixed}
+                alt={siteMetadata.subscription.name}
+                title={siteMetadata.subscription.name}
+              />
             </section>
           </aside>
 
@@ -352,6 +358,15 @@ export const GraphQLFragment = graphql`
         ...GatsbyImageSharpFluid
         presentationWidth
         presentationHeight
+      }
+    }
+  }
+
+  # Load footer qrcode image required data.
+  fragment QRCodeImage on File {
+    childImageSharp {
+      fixed(width: 128, height: 128) {
+        ...GatsbyImageSharpFixed
       }
     }
   }

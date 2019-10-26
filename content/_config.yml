@@ -45,7 +45,7 @@ socials:
   - name: Weibo
     link: https://weibo.com/zceme
   - name: Weixin
-    link: ~
+    link: https://img.zce.me/wechat.jpg
   - name: QQ
     link: ~
   - name: Youku
@@ -69,7 +69,7 @@ links:
 
 subscription:
   name: ITBetter
-  qrcode: https://s.uieee.com/qrcode/wedn.jpg
+  qrcode: images/qrcode-wedn.jpg
   link: ~
 
 card:

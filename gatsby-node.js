@@ -7,7 +7,7 @@
 const { basename } = require('path')
 const { load } = require('js-yaml')
 const { singular } = require('pluralize')
-const { capitalize, kebabCase } = require('lodash')
+const { capitalize, kebabCase, repeat } = require('lodash')
 
 const options = {
   post: {
@@ -109,36 +109,31 @@ const createCollectionField = async ({
   const { createNode, createNodeField } = actions
 
   const { relativePath } = getNode(node.parent)
-  const type = singular(relativePath.split('/')[0])
+  const pathItems = relativePath.split('/')
+  const type = singular(pathItems[0])
 
-  const defaults = options[type] || {}
+  const fields = { ...options[type], ...node.frontmatter }
 
-  let {
-    title,
-    slug = kebabCase(title),
-    date,
-    updated,
-    cover,
-    description = '',
-    template = defaults.template,
-    permalink = defaults.permalink,
-    draft = defaults.draft,
-    private = defaults.private,
-    featured = defaults.featured,
-    comment = defaults.comment,
-    authors = [],
-    categories = [],
-    tags = []
-  } = node.frontmatter
-
-  // cover = cover || path.relative(relativeDirectory, path.normalize('images/unknown.jpg'))
-
-  date = new Date(date || null)
-  updated = updated ? new Date(updated) : date
-
-  authors.length || authors.push(...defaults.authors)
-  categories.length || categories.push(...defaults.categories)
-  tags.length || tags.push(...defaults.tags)
+  // fallback values
+  fields.slug = fields.slug || kebabCase(fields.title)
+  fields.date = new Date(fields.date || null)
+  fields.updated = fields.updated ? new Date(fields.updated) : fields.date
+  fields.cover =
+    fields.cover || `${repeat('../', pathItems.length - 1)}images/unknown.jpg` // TODO: fallback cover
+  fields.description = fields.description || ''
+  fields.template = fields.template || type
+  fields.permalink = fields.permalink || '/{slug}/'
+  fields.draft = fields.draft !== undefined ? fields.draft : false
+  fields.private = fields.private !== undefined ? fields.private : false
+  fields.featured = fields.featured !== undefined ? fields.featured : false
+  fields.comment = fields.comment !== undefined ? fields.comment : true
+  fields.authors = fields.authors || ['Lei Wang'] // TODO: fallback author
+  fields.categories = fields.categories || ['Uncategorized'] // TODO: fallback category
+  fields.tags = fields.tags || []
+  // TODO: if frontmatter taxonomy is empty
+  // fields.authors.length || fields.authors.push(...defaults.authors)
+  // fields.categories.length || fields.categories.push(...defaults.categories)
+  // fields.tags.length || fields.tags.push(...defaults.tags)
 
   const createMissingTaxonomy = (type, taxonomies) => {
     taxonomies.forEach((item, i) => {
@@ -169,40 +164,40 @@ const createCollectionField = async ({
     })
   }
 
-  createMissingTaxonomy('author', authors)
-  createMissingTaxonomy('category', categories)
-  createMissingTaxonomy('tag', tags)
+  createMissingTaxonomy('author', fields.authors)
+  createMissingTaxonomy('category', fields.categories)
+  createMissingTaxonomy('tag', fields.tags)
 
   // parse permalink if permalink is template
-  if (/{([a-z_]+)}/.test(permalink)) {
-    permalink = generatePermalink(permalink, {
-      slug,
-      year: date.getFullYear(),
-      month: ('0' + (date.getMonth() + 1)).substr(-2),
-      day: ('0' + date.getDate()).substr(-2),
-      author: cache[`author-${authors[0]}`],
-      category: cache[`category-${categories[0]}`]
+  if (/{([a-z_]+)}/.test(fields.permalink)) {
+    fields.permalink = generatePermalink(fields.permalink, {
+      slug: fields.slug,
+      year: fields.date.getFullYear(),
+      month: ('0' + (fields.date.getMonth() + 1)).substr(-2),
+      day: ('0' + fields.date.getDate()).substr(-2),
+      author: cache[`author-${fields.authors[0]}`],
+      category: cache[`category-${fields.categories[0]}`]
     })
   }
 
   createNodeField({ node, name: 'type', value: type })
-  createNodeField({ node, name: 'template', value: template })
-  createNodeField({ node, name: 'permalink', value: permalink })
-  createNodeField({ node, name: 'draft', value: draft })
-  createNodeField({ node, name: 'private', value: private })
-  createNodeField({ node, name: 'featured', value: featured })
-  createNodeField({ node, name: 'comment', value: comment })
+  createNodeField({ node, name: 'template', value: fields.template })
+  createNodeField({ node, name: 'permalink', value: fields.permalink })
+  createNodeField({ node, name: 'draft', value: fields.draft })
+  createNodeField({ node, name: 'private', value: fields.private })
+  createNodeField({ node, name: 'featured', value: fields.featured })
+  createNodeField({ node, name: 'comment', value: fields.comment })
 
-  createNodeField({ node, name: 'title', value: title })
-  createNodeField({ node, name: 'slug', value: slug })
-  createNodeField({ node, name: 'date', value: date })
-  createNodeField({ node, name: 'updated', value: updated })
-  createNodeField({ node, name: 'cover', value: cover })
-  createNodeField({ node, name: 'description', value: description })
+  createNodeField({ node, name: 'title', value: fields.title })
+  createNodeField({ node, name: 'slug', value: fields.slug })
+  createNodeField({ node, name: 'date', value: fields.date })
+  createNodeField({ node, name: 'updated', value: fields.updated })
+  createNodeField({ node, name: 'cover', value: fields.cover })
+  createNodeField({ node, name: 'description', value: fields.description })
 
-  createNodeField({ node, name: 'authors', value: authors })
-  createNodeField({ node, name: 'categories', value: categories })
-  createNodeField({ node, name: 'tags', value: tags })
+  createNodeField({ node, name: 'authors', value: fields.authors })
+  createNodeField({ node, name: 'categories', value: fields.categories })
+  createNodeField({ node, name: 'tags', value: fields.tags })
 }
 
 exports.onCreateNode = async args => {
@@ -214,6 +209,23 @@ exports.onCreateNode = async args => {
     await createCollectionField(args)
   }
 }
+
+// exports.createResolvers = ({ createResolvers }) => {
+//   const resolvers = {
+//     Query: {
+//       allPosts: {
+//         type: ['MarkdownRemark'],
+//         resolve: (source, args, context, info) => {
+//           const posts = context.nodeModel.getAllNodes({ type: 'MarkdownRemark' })
+//           return posts.filter(
+//             post => post.fields.type === 'post'
+//           )
+//         }
+//       }
+//     }
+//   }
+//   createResolvers(resolvers)
+// }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions

@@ -1,0 +1,96 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the course page.
+// -----------------------------------------------------------------------------
+
+body.course {
+  .site-cover {
+    &::before {
+      opacity: 0.3;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .site-lead {
+    text-align: left;
+  }
+
+  .site-main {
+    background: $body-bg;
+  }
+}
+
+.course {
+  &-content {
+    flex: 3 1 32rem;
+    padding: spacing(3);
+    min-height: 60vh;
+    border-right: border(default);
+  }
+
+  &-intro {
+    padding: spacing(3);
+  }
+
+  &-toc {
+    padding: 0;
+    list-style: inside decimal-leading-zero;
+
+    li {
+      padding: spacing(2) spacing(3);
+
+      + li {
+        border-top: border(light);
+      }
+    }
+
+    a {
+      color: inherit;
+      font-size: font-size(small);
+    }
+  }
+
+  &-talk {
+    padding: spacing(3);
+  }
+
+  &-meta {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    flex: 1 1 12rem;
+    padding: spacing(3);
+    color: color(secondary);
+
+    @include media-breakpoint-up(md) {
+      padding-left: 0;
+    }
+
+    section {
+      padding: spacing(3);
+
+      + section {
+        border-top: border(light);
+      }
+    }
+
+    span {
+      font-weight: font-weight(bold);
+    }
+
+    ul {
+      padding: spacing(2) spacing(5);
+
+      a {
+        font-size: font-size(small);
+        line-height: line-height(loose);
+      }
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+}

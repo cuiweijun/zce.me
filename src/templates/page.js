@@ -5,14 +5,14 @@ import Image from 'gatsby-image'
 import { Layout } from '../components'
 
 export default ({ data, location }) => {
-  const { post } = data
-  const { fields } = post
+  const { page } = data
+  const { fields } = page
 
   return (
     <Layout
       className="page"
       title={fields.title}
-      description={fields.description || post.excerpt}
+      description={fields.description || page.excerpt}
       cover={false}
       header={
         <div className="container">
@@ -31,7 +31,7 @@ export default ({ data, location }) => {
       )}
       <section
         className="page-content container"
-        dangerouslySetInnerHTML={{ __html: post.html }}
+        dangerouslySetInnerHTML={{ __html: page.html }}
       />
     </Layout>
   )
@@ -39,14 +39,13 @@ export default ({ data, location }) => {
 
 export const query = graphql`
   query PageTemplate($id: String!) {
-    post: markdownRemark(id: { eq: $id }) {
+    page: markdownRemark(id: { eq: $id }) {
       fields {
         title
         cover {
           ...SiteCoverImage
         }
         description
-        permalink
       }
       excerpt(pruneLength: 160)
       html

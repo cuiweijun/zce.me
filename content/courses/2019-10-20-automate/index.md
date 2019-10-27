@@ -2,6 +2,8 @@
 title: 前端自动化
 slug: automate
 date: 2019-10-20 15:29:00
+cover: cover.jpg
+description: 一切重复工作本应自动化
 categories:
   - Engineering
 sections:

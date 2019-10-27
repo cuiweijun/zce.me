@@ -11,9 +11,10 @@
   position: absolute !important;
   top: 0;
   z-index: z-index(low);
+  min-height: 42rem;
   width: 100%;
   height: $cover-height;
-  min-height: 42rem;
+  background: $cover-bg;
 
   &::before,
   &::after {

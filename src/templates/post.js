@@ -192,7 +192,6 @@ export const query = graphql`
 
     post: markdownRemark(id: { eq: $id }) {
       fields {
-        comment
         title
         slug
         date
@@ -201,7 +200,7 @@ export const query = graphql`
           ...SiteCoverImage
         }
         description
-        permalink
+        comment
         authors {
           name
           avatar {

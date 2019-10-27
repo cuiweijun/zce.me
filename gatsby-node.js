@@ -10,6 +10,17 @@ const { singular } = require('pluralize')
 const { capitalize, kebabCase, repeat } = require('lodash')
 
 const options = {
+  page: {
+    template: 'page',
+    permalink: '/{slug}/',
+    draft: false,
+    private: false,
+    featured: false,
+    comment: false,
+    authors: ['Lei Wang'],
+    categories: ['Uncategorized'],
+    tags: []
+  },
   post: {
     template: 'post',
     permalink: '/{year}/{month}/{slug}/',
@@ -21,13 +32,13 @@ const options = {
     categories: ['Uncategorized'],
     tags: []
   },
-  page: {
-    template: 'page',
-    permalink: '/{slug}/',
+  course: {
+    template: 'course',
+    permalink: '/course/{slug}/',
     draft: false,
     private: false,
     featured: false,
-    comment: false,
+    comment: true,
     authors: ['Lei Wang'],
     categories: ['Uncategorized'],
     tags: []
@@ -248,6 +259,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 id
               }
             }
+            # frontmatter {
+            #   sections {
+            #     name
+            #     url
+            #   }
+            # }
           }
         }
       }
@@ -281,11 +298,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // errors report
   result.errors && reporter.panic(result.errors)
 
-  // TODO: https://www.gatsbyjs.org/docs/adding-pagination/
+  // TODO: Archive pagination?
+  // https://www.gatsbyjs.org/docs/adding-pagination/
+
+  // Create collections page ===================================================
+
   const { group } = result.data.allMarkdownRemark
 
   group.forEach(item => {
-    item.nodes.forEach(({ id, fields }, i) => {
+    item.nodes.forEach(({ id, fields, frontmatter }, i) => {
       const cat = fields.categories[0].id
       const prev = i === item.nodes.length - 1 ? null : item.nodes[i + 1].id
       const next = i === 0 ? null : item.nodes[i - 1].id
@@ -296,15 +317,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // 让页面自己决定需要什么数据
         context: { id, cat, prev, next }
       })
+
+      // // sub page
+      // if (fields.type === 'course') {
+      //   frontmatter.sections.forEach((video, i) => {
+      //     const prev =
+      //       i === frontmatter.sections.length - 1
+      //         ? null
+      //         : frontmatter.sections[i + 1]
+      //     const next = i === 0 ? null : frontmatter.sections[i - 1]
+      //     createPage({
+      //       path: `${fields.permalink}${i}/`,
+      //       component: require.resolve(`./src/templates/video.js`),
+      //       context: { id, video, prev, next }
+      //     })
+      //   })
+      // }
     })
   })
+
+  // Create taxonomies page ====================================================
 
   const { nodes: authors } = result.data.allAuthor
   const { nodes: categories } = result.data.allCategory
   const { nodes: tags } = result.data.allTag
   const terms = [].concat(authors, categories, tags)
 
-  // Create taxonomies pages
   terms.forEach(item => {
     const template = `./src/templates/${item.template}.js`
     createPage({

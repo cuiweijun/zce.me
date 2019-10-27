@@ -2,6 +2,8 @@
 title: 前端模块化
 slug: modular
 date: 2019-10-26 15:29:00
+cover: cover.png
+description: 当下最重要的前端开发范式
 categories:
   - Engineering
 sections:

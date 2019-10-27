@@ -83,7 +83,7 @@ export const GraphQLFragment = graphql`
   # Load post card component required data.
   fragment PostCard on MarkdownRemark {
     id
-    excerpt(pruneLength: 100)
+    excerpt(pruneLength: 60, truncate: true)
     timeToRead
     fields {
       title

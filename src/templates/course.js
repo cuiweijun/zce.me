@@ -2,9 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { graphql, Link } from 'gatsby'
 import moment from 'moment'
 
-import Plyr from 'plyr'
-import 'plyr/dist/plyr.css'
-
 import { Layout, Comments } from '../components'
 
 export default ({ pageContext, data, location }) => {
@@ -27,7 +24,11 @@ export default ({ pageContext, data, location }) => {
   const player = useRef(null)
 
   useEffect(() => {
-    video && new Plyr(player.current)
+    if (!video) return
+    import('plyr/dist/plyr.css')
+    import('plyr').then(m => {
+      const plyr = new m.default(player.current)
+    })
   })
 
   return (
@@ -40,11 +41,9 @@ export default ({ pageContext, data, location }) => {
       location={location}>
       {video && (
         <video className="course-video" ref={player}>
-          {/* {video.sources.map(i => <source src={i}/>)} */}
-          <source src={video.sources[0]} type="video/mp4" sizes="180" />
-          <source src={video.sources[1]} type="video/mp4" sizes="360" />
-          <source src={video.sources[2]} type="video/mp4" sizes="720" />
-          <source src={video.sources[3]} type="video/mp4" sizes="1080" />
+          {video.sources.map(i => (
+            <source key={i.size} size={i.size} src={i.url} type="video/mp4" />
+          ))}
         </video>
       )}
 
@@ -214,7 +213,10 @@ export const query = graphql`
         comment
         sections {
           name
-          sources
+          sources {
+            size
+            url
+          }
         }
         authors {
           name

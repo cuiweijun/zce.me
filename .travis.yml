@@ -17,7 +17,10 @@ notifications:
 #   - yarn
 
 script:
-  - yarn build
+  - yarn dist
+
+after_script:
+  - npx gh-pages -d public -r https://${TOKEN}@git.dev.tencent.com/zce/zce.me.git -b master
 # # https://docs.travis-ci.com/user/deployment/pages/
 # deploy:
 #   provider: pages

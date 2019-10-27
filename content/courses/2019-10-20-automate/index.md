@@ -8,11 +8,23 @@ categories:
   - Engineering
 sections:
   - name: 自动化构建简介
-    url: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8dadf65285890793846028274/v.f40.mp4
+    sources:
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8dadf65285890793846028274/v.f10.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8dadf65285890793846028274/v.f20.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8dadf65285890793846028274/v.f30.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8dadf65285890793846028274/v.f40.mp4
   - name: 自动化构建初体验
-    url: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5ab00ff65285890793844288052/v.f40.mp4
+    sources:
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5ab00ff65285890793844288052/v.f10.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5ab00ff65285890793844288052/v.f20.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5ab00ff65285890793844288052/v.f30.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5ab00ff65285890793844288052/v.f40.mp4
   - name: 常用的自动化构建工具
-    url: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fc07cec5285890793843344500/v.f40.mp4
+    sources:
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fc07cec5285890793843344500/v.f10.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fc07cec5285890793843344500/v.f20.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fc07cec5285890793843344500/v.f30.mp4
+      - http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fc07cec5285890793843344500/v.f40.mp4
 ---
 
 自动化构建是前端工程化中一个非常重要的组成部分，在具体学习之前我们先来解读一下这个开发行业经常提及的名词：

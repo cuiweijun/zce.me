@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { graphql, Link } from 'gatsby'
 import moment from 'moment'
 
@@ -13,7 +13,6 @@ export default ({ pageContext, data, location }) => {
   const { fields } = course
 
   const video = fields.sections[current]
-  console.log(current)
 
   const url = siteMetadata.url + location.pathname
 
@@ -25,8 +24,10 @@ export default ({ pageContext, data, location }) => {
   }
   const [panel, setPanel] = useState(hash)
 
+  const player = useRef(null)
+
   useEffect(() => {
-    video && new Plyr('#player')
+    video && new Plyr(player.current)
   })
 
   return (
@@ -38,7 +39,13 @@ export default ({ pageContext, data, location }) => {
       header={video ? false : undefined}
       location={location}>
       {video && (
-        <video id="player" className="course-video" src={video.url} controls />
+        <video className="course-video" ref={player}>
+          {/* {video.sources.map(i => <source src={i}/>)} */}
+          <source src={video.sources[0]} type="video/mp4" sizes="180" />
+          <source src={video.sources[1]} type="video/mp4" sizes="360" />
+          <source src={video.sources[2]} type="video/mp4" sizes="720" />
+          <source src={video.sources[3]} type="video/mp4" sizes="1080" />
+        </video>
       )}
 
       <div className="container">
@@ -207,7 +214,7 @@ export const query = graphql`
         comment
         sections {
           name
-          url
+          sources
         }
         authors {
           name

@@ -9,6 +9,21 @@ const { load } = require('js-yaml')
 const { singular } = require('pluralize')
 const { capitalize, kebabCase, repeat } = require('lodash')
 
+// collection permalink tags:
+// - {slug} - the post slug, eg. my-post
+// - {year} - publication year, eg. 2019
+// - {month} - publication month, eg. 04
+// - {day} - publication day, eg. 29
+// - {author} - slug of first author, eg. cameron
+// - {category} - slug of first category, eg. tutorial
+// collection status:
+// - draft
+// - private
+// - published
+// - deprecated
+// - trashed
+// taxonomies permalink tags:
+// - {slug} - the taxonomy slug, eg. tom-jerry
 const options = {
   page: {
     template: 'page',
@@ -329,4 +344,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: { id: item.id }
     })
   })
+}
+
+// https://www.gatsbyjs.org/docs/debugging-html-builds/
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [{ test: /plyr/, use: loaders.null() }]
+      }
+    })
+  }
 }

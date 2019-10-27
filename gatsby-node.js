@@ -7,7 +7,7 @@
 const { basename } = require('path')
 const { load } = require('js-yaml')
 const { singular } = require('pluralize')
-const { capitalize, kebabCase, repeat } = require('lodash')
+const { capitalize, kebabCase } = require('lodash')
 
 // collection permalink tags:
 // - {slug} - the post slug, eg. my-post
@@ -144,8 +144,7 @@ const createCollectionField = async ({
   fields.slug = fields.slug || kebabCase(fields.title)
   fields.date = new Date(fields.date || null)
   fields.updated = fields.updated ? new Date(fields.updated) : fields.date
-  fields.cover =
-    fields.cover || `${repeat('../', pathItems.length - 1)}images/unknown.png` // TODO: fallback cover
+  // fields.cover = fields.cover || `${repeat('../', pathItems.length - 1)}images/unknown.png` // TODO: fallback cover
   fields.description = fields.description || ''
   fields.template = fields.template || type
   fields.permalink = fields.permalink || '/{slug}/'

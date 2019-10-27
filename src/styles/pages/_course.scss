@@ -96,7 +96,7 @@ body.course {
     }
   }
 
-  &-video {
-    max-height: 90vh;
+  video {
+    max-height: calc(100vh - #{$nav-height});
   }
 }

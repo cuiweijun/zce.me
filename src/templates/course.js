@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, navigate, Link } from 'gatsby'
 import moment from 'moment'
 
 import { Layout, Comments } from '../components'
@@ -21,13 +21,26 @@ export default ({ pageContext, data, location }) => {
   }
   const [panel, setPanel] = useState(hash)
 
-  const player = useRef(null)
+  const playerEl = useRef(null)
 
   useEffect(() => {
     if (!video) return
     import('plyr/dist/plyr.css')
     import('plyr').then(m => {
-      const plyr = new m.default(player.current)
+      const player = new m.default(playerEl.current)
+      player.source = {
+        type: 'video',
+        title: video.name,
+        sources: video.sources
+      }
+      player.on('ended', e => {
+        // const instance = e.detail.plyr
+        if (current < fields.sections.length) {
+          navigate(`${fields.permalink}${('0' + (current + 1)).substr(-2)}/`)
+        }
+      })
+
+      // TODO: adapte hls
     })
   })
 
@@ -39,13 +52,7 @@ export default ({ pageContext, data, location }) => {
       cover={video ? false : fields.cover}
       header={video ? false : undefined}
       location={location}>
-      {video && (
-        <video className="course-video" ref={player}>
-          {video.sources.map(i => (
-            <source key={i.size} size={i.size} src={i.url} type="video/mp4" />
-          ))}
-        </video>
-      )}
+      {video && <video ref={playerEl} />}
 
       <div className="container">
         <div className="row">
@@ -112,9 +119,7 @@ export default ({ pageContext, data, location }) => {
                     ) : (
                       <li key={item.name}>
                         <Link
-                          to={`${fields.permalink}${('0' + (i + 1)).substr(
-                            -2
-                          )}/`}>
+                          to={`${fields.permalink}${('0' + ++i).substr(-2)}/`}>
                           {item.name}
                         </Link>
                       </li>
@@ -215,7 +220,7 @@ export const query = graphql`
           name
           sources {
             size
-            url
+            src
           }
         }
         authors {

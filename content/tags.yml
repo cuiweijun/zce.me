@@ -1,7 +1,7 @@
 - name: Untagged
   slug: untagged
   description: Untagged contents
-  cover: images/unknown.jpg
+  cover: images/unknown.png
   meta:
     title: Untagged
     description: This is Untagged contents

@@ -13,34 +13,34 @@ const options = {
   page: {
     template: 'page',
     permalink: '/{slug}/',
-    draft: false,
-    private: false,
-    featured: false,
+    // draft: false,
+    // private: false,
+    // featured: false,
     comment: false,
-    authors: ['Lei Wang'],
-    categories: ['Uncategorized'],
+    // authors: ['Lei Wang'],
+    // categories: ['Uncategorized'],
     tags: []
   },
   post: {
     template: 'post',
     permalink: '/{year}/{month}/{slug}/',
-    draft: false,
-    private: false,
-    featured: false,
-    comment: true,
-    authors: ['Lei Wang'],
-    categories: ['Uncategorized'],
+    // draft: false,
+    // private: false,
+    // featured: false,
+    // comment: true,
+    // authors: ['Lei Wang'],
+    // categories: ['Uncategorized'],
     tags: []
   },
   course: {
     template: 'course',
     permalink: '/course/{slug}/',
-    draft: false,
-    private: false,
-    featured: false,
-    comment: true,
-    authors: ['Lei Wang'],
-    categories: ['Uncategorized'],
+    // draft: false,
+    // private: false,
+    // featured: false,
+    // comment: true,
+    // authors: ['Lei Wang'],
+    // categories: ['Uncategorized'],
     tags: []
   },
   author: {
@@ -138,6 +138,7 @@ const createCollectionField = async ({
   fields.private = fields.private !== undefined ? fields.private : false
   fields.featured = fields.featured !== undefined ? fields.featured : false
   fields.comment = fields.comment !== undefined ? fields.comment : true
+  fields.sections = fields.sections || []
   fields.authors = fields.authors || ['Lei Wang'] // TODO: fallback author
   fields.categories = fields.categories || ['Uncategorized'] // TODO: fallback category
   fields.tags = fields.tags || []
@@ -206,6 +207,8 @@ const createCollectionField = async ({
   createNodeField({ node, name: 'cover', value: fields.cover })
   createNodeField({ node, name: 'description', value: fields.description })
 
+  createNodeField({ node, name: 'sections', value: fields.sections })
+
   createNodeField({ node, name: 'authors', value: fields.authors })
   createNodeField({ node, name: 'categories', value: fields.categories })
   createNodeField({ node, name: 'tags', value: fields.tags })
@@ -220,23 +223,6 @@ exports.onCreateNode = async args => {
     await createCollectionField(args)
   }
 }
-
-// exports.createResolvers = ({ createResolvers }) => {
-//   const resolvers = {
-//     Query: {
-//       allPosts: {
-//         type: ['MarkdownRemark'],
-//         resolve: (source, args, context, info) => {
-//           const posts = context.nodeModel.getAllNodes({ type: 'MarkdownRemark' })
-//           return posts.filter(
-//             post => post.fields.type === 'post'
-//           )
-//         }
-//       }
-//     }
-//   }
-//   createResolvers(resolvers)
-// }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -255,16 +241,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               type
               template
               permalink
+              sections {
+                name
+              }
               categories {
                 id
               }
             }
-            # frontmatter {
-            #   sections {
-            #     name
-            #     url
-            #   }
-            # }
           }
         }
       }
@@ -305,11 +288,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const { group } = result.data.allMarkdownRemark
 
-  group.forEach(item => {
-    item.nodes.forEach(({ id, fields, frontmatter }, i) => {
+  group.forEach(({ nodes }) => {
+    nodes.forEach(({ id, fields }, i) => {
       const cat = fields.categories[0].id
-      const prev = i === item.nodes.length - 1 ? null : item.nodes[i + 1].id
-      const next = i === 0 ? null : item.nodes[i - 1].id
+      const prev = i === nodes.length - 1 ? null : nodes[i + 1].id
+      const next = i === 0 ? null : nodes[i - 1].id
       const template = `./src/templates/${fields.template}.js`
       createPage({
         path: fields.permalink,
@@ -318,21 +301,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: { id, cat, prev, next }
       })
 
-      // // sub page
-      // if (fields.type === 'course') {
-      //   frontmatter.sections.forEach((video, i) => {
-      //     const prev =
-      //       i === frontmatter.sections.length - 1
-      //         ? null
-      //         : frontmatter.sections[i + 1]
-      //     const next = i === 0 ? null : frontmatter.sections[i - 1]
-      //     createPage({
-      //       path: `${fields.permalink}${i}/`,
-      //       component: require.resolve(`./src/templates/video.js`),
-      //       context: { id, video, prev, next }
-      //     })
-      //   })
-      // }
+      // sub sections page
+      if (fields.sections) {
+        for (let i = 0; i < fields.sections.length; i++) {
+          createPage({
+            path: `${fields.permalink}${('0' + (i + 1)).substr(-2)}/`,
+            component: require.resolve(template),
+            context: { id, cat, prev, next, current: i }
+          })
+        }
+      }
     })
   })
 

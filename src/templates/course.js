@@ -1,44 +1,81 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import moment from 'moment'
 
+import Plyr from 'plyr'
+import 'plyr/dist/plyr.css'
+
 import { Layout, Comments } from '../components'
 
-export default ({ data, location }) => {
+export default ({ pageContext, data, location }) => {
   const { course, relatedCourses, siteMetadata } = data
-  const { fields, frontmatter } = course
+  const { current } = pageContext
+  const { fields } = course
+
+  const video = fields.sections[current]
+  console.log(current)
+
   const url = siteMetadata.url + location.pathname
 
   let hash = location.hash.substr(1)
-  if (!['intro', 'toc', 'talk'].includes(hash)) {
+  if (video) {
+    hash = 'toc'
+  } else if (!['intro', 'toc', 'talk'].includes(hash)) {
     hash = 'intro'
   }
   const [panel, setPanel] = useState(hash)
 
+  useEffect(() => {
+    video && new Plyr('#player')
+  })
+
   return (
     <Layout
       className="course"
-      title={fields.title}
+      title={video ? video.name : fields.title}
       description={fields.description || course.excerpt}
-      cover={fields.cover}
+      cover={video ? false : fields.cover}
+      header={video ? false : undefined}
       location={location}>
+      {video && (
+        <video id="player" className="course-video" src={video.url} controls />
+      )}
+
       <div className="container">
         <div className="row">
           <section className="course-content">
             <ul className="tabs" role="tablist">
               <li className={panel === 'intro' ? ' active' : ''}>
-                <a href="#intro" onClick={() => setPanel('intro')} role="tab">
+                <a
+                  id="intro-tab"
+                  href="#intro"
+                  onClick={() => setPanel('intro')}
+                  role="tab"
+                  aria-controls="intro"
+                  aria-selected={panel === 'intro'}>
                   介绍
                 </a>
               </li>
               <li className={panel === 'toc' ? ' active' : ''}>
-                <a href="#toc" onClick={() => setPanel('toc')} role="tab">
+                <a
+                  id="toc-tab"
+                  href="#toc"
+                  onClick={() => setPanel('toc')}
+                  role="tab"
+                  aria-controls="toc"
+                  aria-selected={panel === 'toc'}>
                   目录
                 </a>
               </li>
               {fields.comment && (
                 <li className={panel === 'talk' ? ' active' : ''}>
-                  <a href="#talk" onClick={() => setPanel('talk')} role="tab">
+                  <a
+                    id="talk-tab"
+                    href="#talk"
+                    onClick={() => setPanel('talk')}
+                    role="tab"
+                    aria-controls="talk"
+                    aria-selected={panel === 'talk'}>
                     讨论
                   </a>
                 </li>
@@ -46,28 +83,45 @@ export default ({ data, location }) => {
             </ul>
             <div className="tab-content">
               <div
+                id="intro"
                 className={`tab-panel${panel === 'intro' ? ' active' : ''}`}
-                role="tabpanel">
+                role="tabpanel"
+                aria-labelledby="intro-tab">
                 <div
                   className="course-intro"
                   dangerouslySetInnerHTML={{ __html: course.html }}
                 />
               </div>
               <div
+                id="toc"
                 className={`tab-panel${panel === 'toc' ? ' active' : ''}`}
-                role="tabpanel">
+                role="tabpanel"
+                aria-labelledby="toc-tab">
                 <ol className="course-toc">
-                  {frontmatter.sections.map((item, i) => (
-                    <li key={item.name}>
-                      <Link to={`${fields.permalink}${i}/`}>{item.name}</Link>
-                    </li>
-                  ))}
+                  {fields.sections.map((item, i) =>
+                    i === current ? (
+                      <li className="active" key={item.name}>
+                        <span>▶ {item.name}</span>
+                      </li>
+                    ) : (
+                      <li key={item.name}>
+                        <Link
+                          to={`${fields.permalink}${('0' + (i + 1)).substr(
+                            -2
+                          )}/`}>
+                          {item.name}
+                        </Link>
+                      </li>
+                    )
+                  )}
                 </ol>
               </div>
               {fields.comment && (
                 <div
+                  id="talk"
                   className={`tab-panel${panel === 'talk' ? ' active' : ''}`}
-                  role="tabpanel">
+                  role="tabpanel"
+                  aria-labelledby="talk-tab">
                   <div className="course-talk">
                     <Comments
                       url={url}
@@ -151,6 +205,10 @@ export const query = graphql`
         description
         permalink
         comment
+        sections {
+          name
+          url
+        }
         authors {
           name
           avatar {
@@ -170,12 +228,6 @@ export const query = graphql`
         tags {
           name
           permalink
-        }
-      }
-      frontmatter {
-        sections {
-          name
-          url
         }
       }
       excerpt(pruneLength: 160)

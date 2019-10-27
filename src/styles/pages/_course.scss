@@ -28,6 +28,10 @@ body.course {
     padding: spacing(3);
     min-height: 60vh;
     border-right: border(default);
+
+    a {
+      color: inherit;
+    }
   }
 
   &-intro {
@@ -40,15 +44,15 @@ body.course {
 
     li {
       padding: spacing(2) spacing(3);
+      font-size: font-size(small);
 
       + li {
         border-top: border(light);
       }
-    }
 
-    a {
-      color: inherit;
-      font-size: font-size(small);
+      &.active {
+        font-size: font-size(base);
+      }
     }
   }
 
@@ -68,6 +72,10 @@ body.course {
       padding-left: 0;
     }
 
+    a {
+      color: inherit;
+    }
+
     section {
       padding: spacing(3);
 
@@ -82,15 +90,12 @@ body.course {
 
     ul {
       padding: spacing(2) spacing(5);
-
-      a {
-        font-size: font-size(small);
-        line-height: line-height(loose);
-      }
+      font-size: font-size(small);
+      line-height: line-height(loose);
     }
+  }
 
-    a {
-      color: inherit;
-    }
+  &-video {
+    max-height: 90vh;
   }
 }

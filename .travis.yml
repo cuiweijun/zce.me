@@ -18,7 +18,6 @@ notifications:
 
 script:
   - yarn build
-
 # # https://docs.travis-ci.com/user/deployment/pages/
 # deploy:
 #   provider: pages
@@ -29,9 +28,9 @@ script:
 #   # repo: zce.github.io
 #   # target_branch: master
 
-# https://docs.travis-ci.com/user/deployment/surge/
-deploy:
-  provider: surge
-  skip_cleanup: true
-  project: public
-  domain: zce.surge.sh
+# # https://docs.travis-ci.com/user/deployment/surge/
+# deploy:
+#   provider: surge
+#   skip_cleanup: true
+#   project: public
+#   domain: zce.surge.sh

@@ -137,8 +137,8 @@ The default structure is shown below:
 [netlify-url]: https://app.netlify.com/sites/zce/deploys
 [deploy-image]: https://www.netlify.com/img/deploy/button.svg
 [deploy-url]: https://app.netlify.com/start/deploy?repository=https://github.com/zce/zce.me
-[travis-image]: https://img.shields.io/travis/zce/zce.me.svg
-[travis-url]: https://travis-ci.org/zce/zce.me
+[travis-image]: https://img.shields.io/travis/com/zce/zce.me.svg
+[travis-url]: https://travis-ci.com/zce/zce.me
 [license-image]: https://img.shields.io/github/license/zce/zce.me.svg
 [license-url]: https://github.com/zce/zce.me/blob/master/LICENSE
 [dependency-image]: https://img.shields.io/david/zce/zce.me.svg

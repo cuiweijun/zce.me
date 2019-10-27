@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { graphql, navigate, Link } from 'gatsby'
 import moment from 'moment'
+import 'plyr/dist/plyr.css'
 
 import { Layout, Comments } from '../components'
 
@@ -25,7 +26,6 @@ export default ({ pageContext, data, location }) => {
 
   useEffect(() => {
     if (!video) return
-    import('plyr/dist/plyr.css')
     import('plyr').then(m => {
       const player = new m.default(playerEl.current)
       player.source = {

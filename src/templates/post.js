@@ -184,12 +184,7 @@ export default ({ data, location }) => {
 }
 
 export const query = graphql`
-  query PostTemplate(
-    $id: String!
-    $category: String!
-    $prev: String
-    $next: String
-  ) {
+  query PostTemplate($id: String!, $cat: String, $prev: String, $next: String) {
     siteMetadata: config {
       url
       name
@@ -247,7 +242,7 @@ export const query = graphql`
           type: { eq: "post" }
           draft: { eq: false }
           private: { eq: false }
-          categories: { elemMatch: { id: { eq: $category } } }
+          categories: { elemMatch: { id: { eq: $cat } } }
         }
       }
       sort: { fields: fields___date, order: DESC }

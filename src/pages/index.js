@@ -32,39 +32,55 @@ const FeaturedSection = ({ post }) => (
   </section>
 )
 
-export default ({ data: { featured, latest, about }, location }) => {
+const FeedSection = ({ posts, title, subtitle, link }) => (
+  <section className="home-section">
+    <div className="container">
+      <header className="home-section-header">
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
+      </header>
+      <div className="home-section-content">
+        {posts.nodes.map(node => (
+          <Card post={node} key={node.id} />
+        ))}
+      </div>
+      <footer className="home-section-footer">
+        <Link className="btn btn-lg btn-pill" to={link}>
+          Explore more <span aria-hidden="true">&rarr;</span>
+        </Link>
+      </footer>
+    </div>
+  </section>
+)
+
+export default ({ data, location }) => {
   return (
     <Layout className="home" location={location}>
-      <FeaturedSection post={featured.nodes[0]} />
+      <FeaturedSection post={data.featured.nodes[0]} />
 
-      <section className="home-section">
-        <div className="container">
-          <header className="home-section-header">
-            <h2>Latest Posts</h2>
-            <p>Keep the dots in your life.</p>
-          </header>
-          <div className="home-section-content">
-            {latest.nodes.map(node => (
-              <Card post={node} key={node.id} />
-            ))}
-          </div>
-          <footer className="home-section-footer">
-            <Link className="btn btn-lg btn-pill" to="/blog/">
-              Explore more <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </footer>
-        </div>
-      </section>
+      <FeedSection
+        posts={data.latestPosts}
+        title="Latest Posts"
+        subtitle="Keep the dots in your life."
+        link="/blog/"
+      />
 
-      <FeaturedSection post={featured.nodes[1]} />
+      <FeaturedSection post={data.featured.nodes[1]} />
+
+      <FeedSection
+        posts={data.latestCourses}
+        title="Latest Courses"
+        subtitle="Continuous learning is a belief."
+        link="/courses/"
+      />
 
       <section className="home-section">
         <div className="container">
           <div className="about">
-            <h2 className="about-title">{about.fields.title}</h2>
+            <h2 className="about-title">{data.about.fields.title}</h2>
             <div
               className="about-content"
-              dangerouslySetInnerHTML={{ __html: about.html }}
+              dangerouslySetInnerHTML={{ __html: data.about.html }}
             />
           </div>
         </div>
@@ -96,10 +112,26 @@ export const query = graphql`
       }
     }
 
-    latest: allMarkdownRemark(
+    latestPosts: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "post" }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
+      sort: { fields: fields___date, order: DESC }
+      limit: 6
+    ) {
+      nodes {
+        ...PostCard
+      }
+    }
+
+    latestCourses: allMarkdownRemark(
+      filter: {
+        fields: {
+          type: { eq: "course" }
           draft: { eq: false }
           private: { eq: false }
         }

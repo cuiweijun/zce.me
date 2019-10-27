@@ -286,14 +286,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   group.forEach(item => {
     item.nodes.forEach(({ id, fields }, i) => {
-      const category = fields.categories[0].id
+      const cat = fields.categories[0].id
       const prev = i === item.nodes.length - 1 ? null : item.nodes[i + 1].id
       const next = i === 0 ? null : item.nodes[i - 1].id
       const template = `./src/templates/${fields.template}.js`
       createPage({
         path: fields.permalink,
         component: require.resolve(template),
-        context: { id, category, prev, next }
+        // 让页面自己决定需要什么数据
+        context: { id, cat, prev, next }
       })
     })
   })

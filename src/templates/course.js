@@ -145,6 +145,12 @@ export default ({ pageContext, data, location }) => {
             </div>
           </section>
           <aside className="course-meta">
+            {video && (
+              <section>
+                <span>课程：</span>
+                <Link to={fields.permalink}>《{fields.title}》</Link>
+              </section>
+            )}
             <section>
               <span>作者：</span>
               {fields.authors.map(i => (

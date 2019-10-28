@@ -27,7 +27,7 @@ export default ({ pageContext, data, location }) => {
   useEffect(() => {
     if (!video) return
     import('plyr').then(m => {
-      const player = new m.default(playerEl.current)
+      const player = new m.default(playerEl.current, { autoplay: true })
       player.source = {
         type: 'video',
         title: video.name,
@@ -36,11 +36,11 @@ export default ({ pageContext, data, location }) => {
       player.on('ended', e => {
         // const instance = e.detail.plyr
         if (current < fields.sections.length) {
-          navigate(`${fields.permalink}${('0' + (current + 1)).substr(-2)}/`)
+          setTimeout(() => {
+            navigate(`${fields.permalink}${('0' + (current + 2)).substr(-2)}/`)
+          }, 3000)
         }
       })
-
-      // TODO: adapte hls
     })
   })
 

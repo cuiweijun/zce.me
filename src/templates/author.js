@@ -6,7 +6,7 @@ import { Layout, Card } from '../components'
 
 export default ({ data: { author, allMarkdownRemark }, location }) => (
   <Layout
-    className="archive author"
+    className={`archive author ${author.slug}`}
     title={(author.meta && author.meta.title) || author.name}
     description={(author.meta && author.meta.description) || author.bio}
     cover={author.cover}

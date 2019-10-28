@@ -46,7 +46,7 @@ export default ({ pageContext, data, location }) => {
 
   return (
     <Layout
-      className="course"
+      className={`course ${fields.slug}`}
       title={video ? video.name : fields.title}
       description={fields.description || course.excerpt}
       cover={video ? false : fields.cover}

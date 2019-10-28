@@ -12,7 +12,7 @@ export default ({ data, location }) => {
 
   return (
     <Layout
-      className="post"
+      className={`post ${fields.slug}`}
       title={fields.title}
       description={fields.description || post.excerpt}
       cover={fields.cover}

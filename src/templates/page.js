@@ -10,7 +10,7 @@ export default ({ data, location }) => {
 
   return (
     <Layout
-      className="page"
+      className={`page ${fields.slug}`}
       title={fields.title}
       description={fields.description || page.excerpt}
       cover={false}

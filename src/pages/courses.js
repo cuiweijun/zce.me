@@ -5,14 +5,9 @@ import { Layout, Card } from '../components'
 
 export default ({ data, location }) => (
   <Layout
-    className="archive blog"
-    title="All posts"
-    header={
-      <div className="container">
-        <h1>Blog</h1>
-        <p>A collection of {data.allMarkdownRemark.totalCount} posts</p>
-      </div>
-    }
+    className="archive courses"
+    title="Courses"
+    description={`A collection of ${data.allMarkdownRemark.totalCount} courses`}
     location={location}>
     <div className="container">
       <div className="row">
@@ -25,11 +20,11 @@ export default ({ data, location }) => (
 )
 
 export const query = graphql`
-  query BlogPage {
+  query CoursesPage {
     allMarkdownRemark(
       filter: {
         fields: {
-          type: { eq: "post" }
+          type: { eq: "course" }
           draft: { eq: false }
           private: { eq: false }
         }

@@ -5,7 +5,7 @@ import { Layout, Card } from '../components'
 
 export default ({ data: { tag, allMarkdownRemark }, location }) => (
   <Layout
-    className="tag"
+    className="archive tag"
     title={(tag.meta && tag.meta.title) || tag.name}
     description={(tag.meta && tag.meta.description) || tag.description}
     cover={tag.cover}

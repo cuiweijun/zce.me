@@ -3,10 +3,6 @@
 // -----------------------------------------------------------------------------
 
 body.blog {
-  .site-main {
-    margin-bottom: spacing(7);
-  }
-
   @include media-breakpoint-up(md) {
     .card:first-child {
       flex-basis: 100%;

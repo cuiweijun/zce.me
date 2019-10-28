@@ -1,5 +1,7 @@
 # zce.me [![Netlify Status][netlify-image]][netlify-url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zce/zce.me.svg?token=43dcbc7ba925227669cd480416f0dda938133f88f9c85b0a6cf06f29289d0936&ts=1572262387159)](https://greenkeeper.io/)
+
 [![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
 [![Dependency Status][dependency-image]][dependency-url]

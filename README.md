@@ -1,5 +1,6 @@
-# zce.me [![Netlify Status][netlify-image]][netlify-url]
+# zce.me
 
+[![Netlify Status][netlify-image]][netlify-url]
 [![Build Status][travis-image]][travis-url]
 [![Code Style][style-image]][style-url]
 

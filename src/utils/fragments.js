@@ -43,7 +43,7 @@
 //       }
 //       card {
 //         image {
-//           ...PostCardImage
+//           ...CardImage
 //         }
 //       }
 //       disqus {

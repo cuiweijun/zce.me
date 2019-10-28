@@ -4,11 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout, Card } from '../components'
 
 export default ({ data, location }) => (
-  <Layout
-    className="archive courses"
-    title="Courses"
-    description={`A collection of ${data.allMarkdownRemark.totalCount} courses`}
-    location={location}>
+  <Layout className="archive" title="Archive" location={location}>
     <div className="container">
       <div className="row">
         {data.allMarkdownRemark.nodes.map(node => (
@@ -20,15 +16,9 @@ export default ({ data, location }) => (
 )
 
 export const query = graphql`
-  query CoursesPage {
+  query ArchivePage {
     allMarkdownRemark(
-      filter: {
-        fields: {
-          type: { eq: "course" }
-          draft: { eq: false }
-          private: { eq: false }
-        }
-      }
+      filter: { fields: { draft: { eq: false }, private: { eq: false } } }
       sort: { fields: fields___date, order: DESC }
     ) {
       totalCount

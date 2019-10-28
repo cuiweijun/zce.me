@@ -7,7 +7,7 @@ const query = graphql`
     siteMetadata: config {
       card {
         image {
-          ...PostCardImage
+          ...CardImage
         }
       }
     }
@@ -72,7 +72,7 @@ export default ({ post, rel }) => {
 
 export const GraphQLFragment = graphql`
   # Load post card image required data.
-  fragment PostCardImage on File {
+  fragment CardImage on File {
     childImageSharp {
       fluid(maxWidth: 540, maxHeight: 360, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
@@ -81,14 +81,14 @@ export const GraphQLFragment = graphql`
   }
 
   # Load post card component required data.
-  fragment PostCard on MarkdownRemark {
+  fragment Card on MarkdownRemark {
     id
     excerpt(pruneLength: 60, truncate: true)
     timeToRead
     fields {
       title
       cover {
-        ...PostCardImage
+        ...CardImage
       }
       permalink
       authors {

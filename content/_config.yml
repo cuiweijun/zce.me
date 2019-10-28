@@ -22,6 +22,8 @@ cover: images/cover.jpg
 navigation:
   - text: Home
     link: /
+  - text: Courses
+    link: /courses/
   - text: Blog
     link: /blog/
   - text: About

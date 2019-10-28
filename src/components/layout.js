@@ -285,7 +285,7 @@ const Layout = props => {
               <ul>
                 {siteMetadata.links.map(i => (
                   <li key={i.text}>
-                    <Link to="/story/">{i.text}</Link>
+                    <Link to={i.link}>{i.text}</Link>
                   </li>
                 ))}
               </ul>

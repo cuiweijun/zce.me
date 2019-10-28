@@ -10948,7 +10948,7 @@ pluralize@8.0.0:
   resolved "https://registry.npm.taobao.org/pluralize/download/pluralize-8.0.0.tgz#1a6fa16a38d12a1901e0320fa017051c539ce3b1"
   integrity sha1-Gm+hajjRKhkB4DIPoBcFHFOc47E=
 
-plyr@^3.5.6:
+plyr@3.5.6:
   version "3.5.6"
   resolved "https://registry.npm.taobao.org/plyr/download/plyr-3.5.6.tgz#1679d098af3fd0541bba62bc03f662f7c9ae6f2b"
   integrity sha1-FnnQmK8/0FQbumK8A/Zi98mubys=

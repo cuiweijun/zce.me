@@ -1,11 +1,7 @@
 # zce.me [![Netlify Status][netlify-image]][netlify-url]
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/zce/zce.me.svg?token=43dcbc7ba925227669cd480416f0dda938133f88f9c85b0a6cf06f29289d0936&ts=1572262387159)](https://greenkeeper.io/)
-
+[![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 [![Build Status][travis-image]][travis-url]
-[![License][license-image]][license-url]
-[![Dependency Status][dependency-image]][dependency-url]
-[![devDependency Status][devdependency-image]][devdependency-url]
 [![Code Style][style-image]][style-url]
 
 > zce.me site source code, created by [Gatsby](https://www.gatsbyjs.org).
@@ -137,15 +133,11 @@ The default structure is shown below:
 
 [netlify-image]: https://api.netlify.com/api/v1/badges/cabdddaa-eb82-4780-b97e-fdf636c55314/deploy-status
 [netlify-url]: https://app.netlify.com/sites/zce/deploys
-[deploy-image]: https://www.netlify.com/img/deploy/button.svg
-[deploy-url]: https://app.netlify.com/start/deploy?repository=https://github.com/zce/zce.me
 [travis-image]: https://img.shields.io/travis/com/zce/zce.me.svg
 [travis-url]: https://travis-ci.com/zce/zce.me
-[license-image]: https://img.shields.io/github/license/zce/zce.me.svg
-[license-url]: https://github.com/zce/zce.me/blob/master/LICENSE
-[dependency-image]: https://img.shields.io/david/zce/zce.me.svg
-[dependency-url]: https://david-dm.org/zce/zce.me
-[devdependency-image]: https://img.shields.io/david/dev/zce/zce.me.svg
-[devdependency-url]: https://david-dm.org/zce/zce.me?type=dev
+[greenkeeper-image]: https://badges.greenkeeper.io/zce/zce.me.svg?token=43dcbc7ba925227669cd480416f0dda938133f88f9c85b0a6cf06f29289d0936&ts=1572262387159
+[greenkeeper-url]: https://greenkeeper.io
 [style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [style-url]: http://standardjs.com
+[deploy-image]: https://www.netlify.com/img/deploy/button.svg
+[deploy-url]: https://app.netlify.com/start/deploy?repository=https://github.com/zce/zce.me

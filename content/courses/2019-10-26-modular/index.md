@@ -10,35 +10,35 @@ sections:
   - name: 模块化概述
     sources:
       - size: 360
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f20.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f20.mp4
       - size: 720
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f30.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f30.mp4
       - size: 1080
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f40.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f40.mp4
   - name: 模块化演变过程
     sources:
       - size: 360
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f20.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f20.mp4
       - size: 720
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f30.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f30.mp4
       - size: 1080
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f40.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f40.mp4
   - name: 模块化规范的出现
     sources:
       - size: 360
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f20.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f20.mp4
       - size: 720
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f30.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f30.mp4
       - size: 1080
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f40.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f40.mp4
   - name: 模块化标准规范
     sources:
       - size: 360
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f20.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f20.mp4
       - size: 720
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f30.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f30.mp4
       - size: 1080
-        src: http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f40.mp4
+        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f40.mp4
 ---
 
 模块化可以说是当下最重要的前端开发范式之一。随着前端应用的日益复杂，我们的项目代码已经逐渐膨胀到了不得不花大量时间去管理的程度了。而模块化就是一种最主流的代码组织方式，它通过把复杂的代码按照功能的不同划分为不同的模块单独维护，从而提高开发效率、降低维护成本。

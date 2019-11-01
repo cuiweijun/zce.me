@@ -4,4 +4,4 @@
 
 - feat: initial release
 
-<!-- http://keepachangelog.com/ -->
+<!-- https://keepachangelog.com/ -->

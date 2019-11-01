@@ -12,7 +12,7 @@ export default ({ location }) => {
       .then(m => {
         const hls = new m.default()
         hls.loadSource(
-          'http://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/dac9f5465285890795319388797/v.f240.m3u8'
+          'https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/dac9f5465285890795319388797/v.f240.m3u8'
         )
         hls.attachMedia(playerEl.current)
         return import('plyr')

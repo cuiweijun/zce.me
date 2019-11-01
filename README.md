@@ -136,6 +136,6 @@ The default structure is shown below:
 [travis-image]: https://travis-ci.com/zce/zce.me.svg?token=A6sqUmycHXeAV8G2sDiW&branch=master
 [travis-url]: https://travis-ci.com/zce/zce.me
 [style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-[style-url]: http://standardjs.com
+[style-url]: https://standardjs.com
 [deploy-image]: https://www.netlify.com/img/deploy/button.svg
 [deploy-url]: https://app.netlify.com/start/deploy?repository=https://github.com/zce/zce.me

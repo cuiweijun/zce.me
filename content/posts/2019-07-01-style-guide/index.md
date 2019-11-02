@@ -3,8 +3,10 @@ title: Style Guide
 slug: style-guide
 date: 2019-07-01 13:56:37
 cover: cover.png
-tags:
+categories:
   - Guide
+tags:
+  - Getting Started
 ---
 
 Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.

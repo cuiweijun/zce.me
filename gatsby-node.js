@@ -137,16 +137,16 @@ const createCollectionField = async ({
 }) => {
   const { createNode, createNodeField } = actions
 
-  const { relativePath } = getNode(node.parent)
-  const pathItems = relativePath.split('/')
+  const file = getNode(node.parent)
+  const pathItems = file.relativePath.split('/')
   const type = singular(pathItems[0])
 
   const fields = { ...options[type], ...node.frontmatter }
 
   // fallback values
   fields.slug = fields.slug || kebabCase(fields.title)
-  fields.date = new Date(fields.date || null)
-  fields.updated = fields.updated ? new Date(fields.updated) : fields.date
+  fields.date = new Date(fields.date || file.birthtime)
+  fields.updated = new Date(fields.updated || file.mtime)
   // fields.cover = fields.cover || `${repeat('../', pathItems.length - 1)}images/default.png` // TODO: fallback cover
   fields.description = fields.description || ''
   fields.template = fields.template || type

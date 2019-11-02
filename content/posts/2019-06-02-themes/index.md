@@ -4,6 +4,8 @@ slug: themes
 date: 2019-06-02 00:00:00
 cover: cover.jpg
 featured: true
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

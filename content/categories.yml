@@ -5,3 +5,10 @@
   meta:
     title: Uncategorized
     description: This is Uncategorized contents
+
+- name: Guide
+  slug: guide
+
+- name: Tutorial
+  slug: tutorial
+  description: Tutorial contents

@@ -4,6 +4,8 @@ slug: welcome
 date: 2019-06-01 22:47:36
 cover: cover.jpg
 featured: true
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

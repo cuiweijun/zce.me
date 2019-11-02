@@ -18,7 +18,13 @@ export default ({ data, location }) => (
 export const query = graphql`
   query ArchivePage {
     allMarkdownRemark(
-      filter: { fields: { draft: { eq: false }, private: { eq: false } } }
+      filter: {
+        fields: {
+          type: { ne: "page" }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
       sort: { fields: fields___date, order: DESC }
     ) {
       totalCount

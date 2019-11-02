@@ -23,7 +23,7 @@ export default ({ post, rel }) => {
       <Link
         className="card-link"
         to={post.fields.permalink}
-        title={post.fields.type + ' - ' + post.fields.title}
+        title={post.fields.type.toUpperCase() + ' - ' + post.fields.title}
         rel={rel}
       />
 
@@ -96,6 +96,15 @@ export const GraphQLFragment = graphql`
     }
   }
 
+  # Load post card avatar image required data.
+  fragment CardAvatarImage on File {
+    childImageSharp {
+      fixed(width: 30, height: 30) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+
   # Load card component required data.
   fragment Card on MarkdownRemark {
     id
@@ -111,11 +120,7 @@ export const GraphQLFragment = graphql`
       authors {
         name
         avatar {
-          childImageSharp {
-            fixed(width: 30, height: 30) {
-              ...GatsbyImageSharpFixed
-            }
-          }
+          ...CardAvatarImage
         }
         permalink
       }

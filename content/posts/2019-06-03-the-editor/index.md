@@ -3,6 +3,8 @@ title: Writing posts with Ghost ✍️
 slug: the-editor
 date: 2019-06-03 00:00:00
 cover: cover.jpg
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

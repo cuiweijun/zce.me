@@ -5,6 +5,8 @@ date: 2017-02-22 15:32:00
 authors:
   - Ziwen Wang
   - Lei Wang
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

@@ -2,6 +2,8 @@
 title: Sweet Pandas Eating Sweets
 slug: sweet-pandas-eating-sweets
 date: 2019-06-10 00:00:00
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

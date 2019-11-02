@@ -3,6 +3,8 @@ title: Publishing options
 slug: publishing-options
 date: 2019-06-04 00:00:00
 cover: cover.jpg
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

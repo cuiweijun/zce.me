@@ -55,7 +55,7 @@ export default ({ data, location }) => {
                 <ul className="tags">
                   {fields.tags.map(i => (
                     <li key={i.name}>
-                      <Link to={i.permalink}>{i.n}</Link>
+                      <Link to={i.permalink}>{i.name}</Link>
                     </li>
                   ))}
                 </ul>

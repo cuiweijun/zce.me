@@ -5,6 +5,8 @@ date: 1992-02-25 13:00:00
 authors:
   - Ziwen Wang
   - Lei Wang
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

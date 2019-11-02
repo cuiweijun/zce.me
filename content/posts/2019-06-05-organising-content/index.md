@@ -3,6 +3,8 @@ title: Organising your content
 slug: organising-content
 date: 2019-06-05 00:00:00
 cover: cover.jpg
+categories:
+  - Guide
 tags:
   - Getting Started
 ---

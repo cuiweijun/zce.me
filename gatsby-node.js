@@ -342,7 +342,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: require.resolve(template),
       context: { id: item.id }
     })
-    console.log(item.id)
   })
 }
 

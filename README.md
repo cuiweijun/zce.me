@@ -78,6 +78,7 @@ The default structure is shown below:
 
 ## Todos
 
+- [ ] Content type filter
 - [x] Content pages
 - [x] Mapping node types
 - [x] Taxonomy pages

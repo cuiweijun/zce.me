@@ -33,7 +33,7 @@ export const query = graphql`
     ) {
       totalCount
       nodes {
-        ...CourseCard
+        ...Card
       }
     }
   }

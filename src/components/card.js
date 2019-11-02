@@ -14,6 +14,7 @@ const query = graphql`
   }
 `
 
+// TODO: Post or Course
 export default ({ post, rel }) => {
   const { siteMetadata } = useStaticQuery(query)
 
@@ -22,7 +23,7 @@ export default ({ post, rel }) => {
       <Link
         className="card-link"
         to={post.fields.permalink}
-        title={post.fields.title}
+        title={post.fields.type + ' - ' + post.fields.title}
         rel={rel}
       />
 
@@ -68,16 +69,15 @@ export default ({ post, rel }) => {
               </li>
             ))}
           </ul>
-          {post.timeToRead && (
-            <small>
-              {post.timeToRead} min{post.timeToRead === 1 ? '' : 's'}
-            </small>
-          )}
 
-          {post.fields.sections && (
+          {post.fields.type === 'course' ? (
             <small>
               {post.fields.sections.length} video
               {post.fields.sections.length === 1 ? '' : 's'}
+            </small>
+          ) : (
+            <small>
+              {post.timeToRead} min{post.timeToRead === 1 ? '' : 's'}
             </small>
           )}
         </footer>
@@ -99,11 +99,14 @@ export const GraphQLFragment = graphql`
   # Load card component required data.
   fragment Card on MarkdownRemark {
     id
+    excerpt(pruneLength: 60, truncate: true)
+    timeToRead
     fields {
       title
       cover {
         ...CardImage
       }
+      type
       permalink
       authors {
         name
@@ -120,21 +123,6 @@ export const GraphQLFragment = graphql`
         name
         permalink
       }
-    }
-  }
-
-  # Load post card component required data.
-  fragment PostCard on MarkdownRemark {
-    ...Card
-    excerpt(pruneLength: 100, truncate: true)
-    timeToRead
-  }
-
-  # Load course card component required data.
-  fragment CourseCard on MarkdownRemark {
-    ...Card
-    excerpt(pruneLength: 40, truncate: true)
-    fields {
       sections {
         name
       }

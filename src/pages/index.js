@@ -124,7 +124,7 @@ export const query = graphql`
       limit: 6
     ) {
       nodes {
-        ...PostCard
+        ...Card
       }
     }
 
@@ -140,7 +140,7 @@ export const query = graphql`
       limit: 6
     ) {
       nodes {
-        ...CourseCard
+        ...Card
       }
     }
 

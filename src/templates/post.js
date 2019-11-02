@@ -227,11 +227,11 @@ export const query = graphql`
     }
 
     prev: markdownRemark(id: { eq: $prev }) {
-      ...PostCard
+      ...Card
     }
 
     next: markdownRemark(id: { eq: $next }) {
-      ...PostCard
+      ...Card
     }
 
     relatedPosts: allMarkdownRemark(

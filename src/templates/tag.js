@@ -43,7 +43,7 @@ export const query = graphql`
     allMarkdownRemark(
       filter: {
         fields: {
-          type: { eq: "post" }
+          type: { ne: "page" }
           draft: { eq: false }
           private: { eq: false }
           tags: { elemMatch: { id: { eq: $id } } }
@@ -53,7 +53,7 @@ export const query = graphql`
     ) {
       totalCount
       nodes {
-        ...PostCard
+        ...Card
       }
     }
   }

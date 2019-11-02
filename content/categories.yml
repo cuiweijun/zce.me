@@ -1,7 +1,7 @@
 - name: Uncategorized
   slug: uncategorized
   description: Uncategorized contents
-  cover: images/unknown.png
+  cover: images/uncategorized.jpg
   meta:
     title: Uncategorized
     description: This is Uncategorized contents

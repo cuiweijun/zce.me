@@ -49,7 +49,7 @@ const options = {
   },
   course: {
     template: 'course',
-    permalink: '/course/{slug}/',
+    permalink: '/courses/{slug}/',
     // draft: false,
     // private: false,
     // featured: false,
@@ -144,7 +144,7 @@ const createCollectionField = async ({
   fields.slug = fields.slug || kebabCase(fields.title)
   fields.date = new Date(fields.date || null)
   fields.updated = fields.updated ? new Date(fields.updated) : fields.date
-  // fields.cover = fields.cover || `${repeat('../', pathItems.length - 1)}images/unknown.png` // TODO: fallback cover
+  // fields.cover = fields.cover || `${repeat('../', pathItems.length - 1)}images/default.png` // TODO: fallback cover
   fields.description = fields.description || ''
   fields.template = fields.template || type
   fields.permalink = fields.permalink || '/{slug}/'
@@ -342,16 +342,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: require.resolve(template),
       context: { id: item.id }
     })
+    console.log(item.id)
   })
 }
 
-// https://www.gatsbyjs.org/docs/debugging-html-builds/
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {
+        // https://www.gatsbyjs.org/docs/debugging-html-builds/
         rules: [{ test: /plyr/, use: loaders.null() }]
       }
+    })
+  }
+
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      // turn off source-maps
+      devtool: false
     })
   }
 }

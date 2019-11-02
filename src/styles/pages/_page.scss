@@ -16,6 +16,16 @@ body.page {
   &-content {
     margin-bottom: spacing(9);
     max-width: 50rem;
+    line-height: line-height(loose);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 1em 0 0.5em;
+    }
 
     img {
       display: block;

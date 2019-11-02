@@ -7,7 +7,7 @@ const query = graphql`
     siteMetadata: config {
       card {
         image {
-          ...CardImage
+          publicURL
         }
       }
     }
@@ -16,7 +16,6 @@ const query = graphql`
 
 export default ({ post, rel }) => {
   const { siteMetadata } = useStaticQuery(query)
-  post.fields.cover = post.fields.cover || siteMetadata.card.image
 
   return (
     <article className="card">
@@ -27,11 +26,19 @@ export default ({ post, rel }) => {
         rel={rel}
       />
 
-      <Image
-        className="card-image"
-        fluid={post.fields.cover.childImageSharp.fluid}
-        alt={post.fields.title}
-      />
+      {post.fields.cover ? (
+        <Image
+          className="card-image"
+          fluid={post.fields.cover.childImageSharp.fluid}
+          alt={post.fields.title}
+        />
+      ) : (
+        <img
+          className="card-image"
+          src={siteMetadata.card.image.publicURL}
+          alt={post.fields.title}
+        />
+      )}
 
       <div className="card-main">
         <header className="card-header">
@@ -61,9 +68,18 @@ export default ({ post, rel }) => {
               </li>
             ))}
           </ul>
-          <small>
-            {post.timeToRead} min{post.timeToRead === 1 ? '' : 's'}
-          </small>
+          {post.timeToRead && (
+            <small>
+              {post.timeToRead} min{post.timeToRead === 1 ? '' : 's'}
+            </small>
+          )}
+
+          {post.fields.sections && (
+            <small>
+              {post.fields.sections.length} video
+              {post.fields.sections.length === 1 ? '' : 's'}
+            </small>
+          )}
         </footer>
       </div>
     </article>
@@ -80,11 +96,9 @@ export const GraphQLFragment = graphql`
     }
   }
 
-  # Load post card component required data.
+  # Load card component required data.
   fragment Card on MarkdownRemark {
     id
-    excerpt(pruneLength: 60, truncate: true)
-    timeToRead
     fields {
       title
       cover {
@@ -105,6 +119,24 @@ export const GraphQLFragment = graphql`
       categories {
         name
         permalink
+      }
+    }
+  }
+
+  # Load post card component required data.
+  fragment PostCard on MarkdownRemark {
+    ...Card
+    excerpt(pruneLength: 100, truncate: true)
+    timeToRead
+  }
+
+  # Load course card component required data.
+  fragment CourseCard on MarkdownRemark {
+    ...Card
+    excerpt(pruneLength: 40, truncate: true)
+    fields {
+      sections {
+        name
       }
     }
   }

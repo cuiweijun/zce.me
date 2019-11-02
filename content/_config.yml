@@ -75,7 +75,7 @@ subscription:
   link: ~
 
 card:
-  image: images/unknown.png
+  image: images/content.svg
 
 disqus:
   shortname: zce-sandbox

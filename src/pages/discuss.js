@@ -8,6 +8,7 @@ export default ({ data, location }) => (
     className="discuss"
     title="Discuss"
     description="Leave a message for me."
+    cover={false}
     location={location}>
     <div className="container">
       <Comments

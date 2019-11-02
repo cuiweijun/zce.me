@@ -38,7 +38,7 @@
     flex: 3 1 25rem;
     margin: 0 spacing(3);
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
       flex-basis: 100%;
       margin-bottom: spacing(4);
     }
@@ -85,7 +85,7 @@
   }
 
   &-tags {
-    flex: 1 1 12rem;
+    flex: 1 1 14rem;
     margin: 0 spacing(3);
 
     @include media-breakpoint-down(xs) {
@@ -117,13 +117,8 @@
   }
 
   &-links {
-    flex: 1 1 12rem;
+    flex: 1 1 8rem;
     margin: 0 spacing(3);
-
-    @include media-breakpoint-down(xs) {
-      flex-basis: 100%;
-      margin-bottom: spacing(4);
-    }
 
     ul {
       padding: 0 spacing(1);
@@ -140,7 +135,7 @@
   }
 
   &-subscription {
-    flex: 1 1 6rem;
+    flex: 1 1 8rem;
     margin: 0 spacing(3);
 
     img {

@@ -3,7 +3,6 @@ title: Creating a custom theme
 slug: themes
 date: 2019-06-02 00:00:00
 cover: cover.jpg
-featured: true
 categories:
   - Guide
 tags:

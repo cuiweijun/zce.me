@@ -7,7 +7,7 @@ import { Layout, Card } from '../components'
 const FeaturedSection = ({ post }) => (
   <section className="home-section">
     <div className="container">
-      <article className="featured">
+      <article className={`${post.fields.slug} featured`}>
         {post.fields.cover && (
           <Image
             Tag="figure"
@@ -23,8 +23,11 @@ const FeaturedSection = ({ post }) => (
             className="featured-content"
             dangerouslySetInnerHTML={{ __html: post.excerpt }}
           />
-          <Link className="featured-link" to={post.fields.permalink}>
-            Continue reading <span>&rarr;</span>
+          <Link
+            className="featured-link"
+            to={post.fields.permalink}
+            title={post.fields.title}>
+            Continue reading <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </article>
@@ -45,7 +48,7 @@ const FeedSection = ({ posts, title, subtitle, link }) => (
         ))}
       </div>
       <footer className="home-section-footer">
-        <Link className="btn btn-lg btn-pill" to={link}>
+        <Link className="btn btn-lg btn-pill" to={link} title={title}>
           Explore more <span aria-hidden="true">&rarr;</span>
         </Link>
       </footer>
@@ -53,52 +56,71 @@ const FeedSection = ({ posts, title, subtitle, link }) => (
   </section>
 )
 
-export default ({ data, location }) => {
-  return (
-    <Layout className="home" location={location}>
+export default ({ data, location }) => (
+  <Layout className="home" location={location}>
+    {data.featured.nodes[0] && (
       <FeaturedSection post={data.featured.nodes[0]} />
+    )}
 
-      <FeedSection
-        posts={data.latestPosts}
-        title="Latest Posts"
-        subtitle="Keep the dots in your life."
-        link="/blog/"
-      />
+    <FeedSection
+      posts={data.latestPosts}
+      title="Latest Posts"
+      subtitle="Keep the dots in your life."
+      link="/blog/"
+    />
 
+    {data.featured.nodes[1] && (
       <FeaturedSection post={data.featured.nodes[1]} />
+    )}
 
-      <FeedSection
-        posts={data.latestCourses}
-        title="Latest Courses"
-        subtitle="Continuous learning is a belief."
-        link="/courses/"
-      />
+    <FeedSection
+      posts={data.latestCourses}
+      title="Latest Courses"
+      subtitle="Continuous learning is a belief."
+      link="/courses/"
+    />
 
-      <section className="home-section">
-        <div className="container">
-          <div className="about">
-            <h2 className="about-title">{data.about.fields.title}</h2>
-            <div
-              className="about-content"
-              dangerouslySetInnerHTML={{ __html: data.about.html }}
-            />
-          </div>
+    {/* {data.featured.nodes[2] && (
+      <FeaturedSection post={data.featured.nodes[2]} />
+    )}
+
+    <section className="home-section">
+      <div className="container">
+        <p>I'm Lei Wang, a technical poet of China.</p>
+      </div>
+    </section> */}
+
+    <section className="home-section">
+      <div className="container">
+        <div className="about">
+          <h2 className="about-title">{data.about.fields.title}</h2>
+          <div
+            className="about-content"
+            dangerouslySetInnerHTML={{ __html: data.about.html }}
+          />
         </div>
-      </section>
-    </Layout>
-  )
-}
+      </div>
+    </section>
+  </Layout>
+)
 
 export const query = graphql`
   query HomePage {
     featured: allMarkdownRemark(
-      filter: { fields: { featured: { eq: true } } }
+      filter: {
+        fields: {
+          featured: { eq: true }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
       sort: { fields: fields___date, order: DESC }
       limit: 2
     ) {
       nodes {
         fields {
           title
+          slug
           cover {
             childImageSharp {
               fluid(maxWidth: 360, maxHeight: 480, cropFocus: CENTER) {

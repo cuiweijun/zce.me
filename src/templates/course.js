@@ -96,7 +96,7 @@ export default ({ pageContext, data, location }) => {
               )}
             </ul>
             <div className="tab-content">
-              <div
+              <section
                 id="intro"
                 className={`tab-panel${panel === 'intro' ? ' active' : ''}`}
                 role="tabpanel"
@@ -105,8 +105,8 @@ export default ({ pageContext, data, location }) => {
                   className="course-intro"
                   dangerouslySetInnerHTML={{ __html: course.html }}
                 />
-              </div>
-              <div
+              </section>
+              <section
                 id="toc"
                 className={`tab-panel${panel === 'toc' ? ' active' : ''}`}
                 role="tabpanel"
@@ -127,9 +127,9 @@ export default ({ pageContext, data, location }) => {
                     )
                   )}
                 </ol>
-              </div>
+              </section>
               {fields.comment && (
-                <div
+                <section
                   id="talk"
                   className={`tab-panel${panel === 'talk' ? ' active' : ''}`}
                   role="tabpanel"
@@ -141,7 +141,7 @@ export default ({ pageContext, data, location }) => {
                       title={fields.title}
                     />
                   </div>
-                </div>
+                </section>
               )}
             </div>
           </section>
@@ -149,13 +149,15 @@ export default ({ pageContext, data, location }) => {
             {video && (
               <section>
                 <span>课程：</span>
-                <Link to={fields.permalink}>《{fields.title}》</Link>
+                <Link to={fields.permalink} title={fields.title}>
+                  《{fields.title}》
+                </Link>
               </section>
             )}
             <section>
               <span>作者：</span>
               {fields.authors.map(i => (
-                <Link key={i.name} to={i.permalink}>
+                <Link key={i.name} to={i.permalink} title={i.name}>
                   {i.name}
                 </Link>
               ))}
@@ -175,7 +177,7 @@ export default ({ pageContext, data, location }) => {
             <section>
               <span>分类：</span>
               {fields.categories.map(i => (
-                <Link key={i.name} to={i.permalink}>
+                <Link key={i.name} to={i.permalink} title={i.name}>
                   {i.name}
                 </Link>
               ))}
@@ -184,7 +186,7 @@ export default ({ pageContext, data, location }) => {
               <section>
                 <span>标签：</span>
                 {fields.tags.map(i => (
-                  <Link key={i.name} to={i.permalink}>
+                  <Link key={i.name} to={i.permalink} title={i.name}>
                     {i.name}
                   </Link>
                 ))}

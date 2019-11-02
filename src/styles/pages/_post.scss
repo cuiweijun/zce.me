@@ -196,9 +196,9 @@ body.post {
       display: inline-block;
 
       &:not(:last-child) {
-        margin-right: 0.25rem;
+        margin-right: spacing(1);
 
-        &:after {
+        &::after {
           content: '\002C';
         }
       }
@@ -256,9 +256,9 @@ body.post {
       font-family: font(serif);
 
       a:not(:last-child) {
-        margin-right: 0.25rem;
+        margin-right: spacing(1);
 
-        &:after {
+        &::after {
           content: '\002C';
         }
       }

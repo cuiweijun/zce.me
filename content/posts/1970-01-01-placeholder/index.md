@@ -1,8 +1,8 @@
 ---
 title: Placeholder
 slug: placeholder
-date: 2000-01-01 00:00:00
-updated: 2000-01-01 00:00:00
+date: 1970-01-01 00:00:00
+updated: 1970-01-01 00:00:00
 cover: cover.png
 description: ''
 template: post

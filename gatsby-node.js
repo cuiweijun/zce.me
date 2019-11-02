@@ -74,8 +74,9 @@ const options = {
 
 const cache = {}
 
-const generatePermalink = (template, context) => {
-  // /{([a-z_]+)}/.test(template)
+const parsePermalink = (template, context) => {
+  if (!/{([a-z_]+)}/.test(template)) return template
+
   return template.replace(/{([a-z_]+)}/g, (_, key) => {
     if (context.hasOwnProperty(key)) return context[key]
     throw new Error(`Permalink template does not support {${key}} Tag`)
@@ -95,22 +96,18 @@ const createYamlNode = async ({
   const parsed = load(content)
   const list = Array.isArray(parsed) ? parsed : [parsed]
 
-  const defaults = options[type]
-
   list.forEach((item, i) => {
     // ignore duplicated
     if (cache[`${type}-${item.name}`]) return
 
-    const data = { ...defaults, ...item }
+    const data = { ...options[type], ...item }
 
     // taxonomy defaults
     if (['author', 'category', 'tag'].includes(type)) {
       data.slug = data.slug || kebabCase(data.name)
       data.type = type
       data.template = data.template || data.type
-      if (/{([a-z_]+)}/.test(data.permalink)) {
-        data.permalink = generatePermalink(data.permalink, data)
-      }
+      data.permalink = parsePermalink(data.permalink, data)
 
       // for createCollectionField
       cache[`${type}-${data.name}`] = data.slug
@@ -169,15 +166,12 @@ const createCollectionField = async ({
       // ignore duplicated
       if (cache[`${type}-${item}`]) return
 
-      const data = Object.assign(options[type], { name: item })
+      const data = { ...options[type], name: item }
 
       data.slug = kebabCase(data.name)
       data.type = type
       data.template = data.template || data.type
-
-      if (/{([a-z_]+)}/.test(data.permalink)) {
-        data.permalink = generatePermalink(data.permalink, data)
-      }
+      data.permalink = parsePermalink(data.permalink, data)
 
       // for collection permalink
       cache[`${type}-${data.name}`] = data.slug
@@ -198,17 +192,14 @@ const createCollectionField = async ({
   createMissingTaxonomy('category', fields.categories)
   createMissingTaxonomy('tag', fields.tags)
 
-  // parse permalink if permalink is template
-  if (/{([a-z_]+)}/.test(fields.permalink)) {
-    fields.permalink = generatePermalink(fields.permalink, {
-      slug: fields.slug,
-      year: fields.date.getFullYear(),
-      month: ('0' + (fields.date.getMonth() + 1)).substr(-2),
-      day: ('0' + fields.date.getDate()).substr(-2),
-      author: cache[`author-${fields.authors[0]}`],
-      category: cache[`category-${fields.categories[0]}`]
-    })
-  }
+  fields.permalink = parsePermalink(fields.permalink, {
+    slug: fields.slug,
+    year: fields.date.getFullYear(),
+    month: ('0' + (fields.date.getMonth() + 1)).substr(-2),
+    day: ('0' + fields.date.getDate()).substr(-2),
+    author: cache[`author-${fields.authors[0]}`],
+    category: cache[`category-${fields.categories[0]}`]
+  })
 
   createNodeField({ node, name: 'type', value: type })
   createNodeField({ node, name: 'template', value: fields.template })

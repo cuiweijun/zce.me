@@ -3,6 +3,7 @@ title: Apps & integrations
 slug: apps-integrations
 date: 2019-06-06 00:00:00
 cover: cover.jpg
+featured: true
 categories:
   - Guide
 tags:

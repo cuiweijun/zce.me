@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------------
 
 .tabs {
+  margin: 0;
   padding: 0;
   border-bottom: border(default);
   list-style: none;
@@ -29,6 +30,7 @@
 .tab-content {
   > .tab-panel {
     display: none;
+    padding: spacing(3) 0;
 
     &.active {
       display: block;

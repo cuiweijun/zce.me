@@ -27,6 +27,7 @@ export default ({ pageContext, data, location }) => {
   useEffect(() => {
     if (!video) return
     import('plyr').then(m => {
+      // TODO: need multi sources?
       const player = new m.default(playerEl.current, { autoplay: true })
       player.source = {
         type: 'video',
@@ -52,7 +53,7 @@ export default ({ pageContext, data, location }) => {
       cover={video ? false : fields.cover}
       header={video ? false : undefined}
       location={location}>
-      {video && <video ref={playerEl} />}
+      {video && <video className="fffffffffff" ref={playerEl} />}
 
       <div className="container">
         <div className="row">
@@ -160,13 +161,13 @@ export default ({ pageContext, data, location }) => {
               ))}
             </section>
             <section>
-              <span>发布于：</span>
+              <span>发布时间：</span>
               <time dateTime={fields.date} aria-label="Posted on">
                 {moment.utc(fields.date).format('ll')}
               </time>
             </section>
             <section>
-              <span>最后更新于：</span>
+              <span>最后更新：</span>
               <time dateTime={fields.updated} aria-label="Updated on">
                 {moment.utc(fields.updated).format('ll')}
               </time>

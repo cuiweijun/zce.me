@@ -75,6 +75,10 @@ body.course {
 
     a {
       color: inherit;
+
+      &:not(:last-child)::after {
+        content: ', ';
+      }
     }
 
     section {
@@ -95,8 +99,8 @@ body.course {
       line-height: line-height(loose);
     }
   }
+}
 
-  video {
-    max-height: calc(100vh - #{$nav-height});
-  }
+.plyr video {
+  max-height: calc(100vh - #{$nav-height});
 }

@@ -2,18 +2,13 @@
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
 
-.site-header {
-  // for nav fixed
-  padding-top: $nav-height;
-}
-
 .site-cover {
   position: absolute !important;
   top: 0;
   z-index: z-index(low);
-  min-height: 42rem;
+  min-height: $cover-min-height;
+  max-height: $cover-max-height;
   width: 100%;
-  height: $cover-height;
   background: $cover-bg;
 
   &::before,
@@ -28,18 +23,23 @@
   }
 
   &::before {
-    background: $cover-mask-1;
+    background: $cover-mask-before;
     opacity: 0.6;
   }
 
   &::after {
-    background: $cover-mask-2;
+    background: $cover-mask-after;
   }
 
   & + .site-header .site-lead {
     color: #fff;
     text-shadow: 0 0 0.25rem color(dark);
   }
+}
+
+.site-header {
+  // for nav fixed
+  padding-top: $nav-height;
 }
 
 .site-nav {

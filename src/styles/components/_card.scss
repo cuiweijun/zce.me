@@ -32,6 +32,7 @@
   &-image {
     max-height: 25rem;
     background-color: color(light);
+    object-fit: cover;
   }
 
   &-main {

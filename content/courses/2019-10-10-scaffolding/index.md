@@ -6,6 +6,10 @@ cover: cover.png
 description: 前端工程化的发起者
 categories:
   - Engineering
+tags:
+  - Scaffolding
+  - Yeoman
+  - Plop
 sections:
   - name: 脚手架工具概要
     sources:

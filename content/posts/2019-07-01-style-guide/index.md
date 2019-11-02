@@ -2,7 +2,9 @@
 title: Style Guide
 slug: style-guide
 date: 2019-07-01 13:56:37
-cover: media/cover.png
+cover: cover.png
+tags:
+  - Guide
 ---
 
 Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
@@ -200,11 +202,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 #### Wide Image
 
-![](media/img-03.jpg)
+![](img-03.jpg)
 
 #### Big Image
 
-![](media/img-01.jpg)
+![](img-01.jpg)
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
@@ -212,7 +214,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
 
-![](media/img-02.jpg)
+![](img-02.jpg)
 
 Labore et dolore.
 

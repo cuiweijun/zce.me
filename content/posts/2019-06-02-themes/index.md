@@ -2,8 +2,10 @@
 title: Creating a custom theme
 slug: themes
 date: 2019-06-02 00:00:00
-cover: creating-a-custom-theme.jpg
+cover: cover.jpg
 featured: true
+tags:
+  - Getting Started
 ---
 
 Ghost comes with a beautiful default theme called Casper, which is designed to be a clean, readable publication layout and can be adapted for most purposes. However, Ghost can also be completely themed to suit your needs. Rather than just giving you a few basic settings which act as a poor proxy for code, we just let you write code.

@@ -2,8 +2,10 @@
 title: Welcome to Ghost
 slug: welcome
 date: 2019-06-01 22:47:36
-cover: welcome-to-ghost.jpg
+cover: cover.jpg
 featured: true
+tags:
+  - Getting Started
 ---
 
 👋 Welcome, it's great to have you here.

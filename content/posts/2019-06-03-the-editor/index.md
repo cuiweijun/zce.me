@@ -2,7 +2,9 @@
 title: Writing posts with Ghost ✍️
 slug: the-editor
 date: 2019-06-03 00:00:00
-cover: writing-posts-with-ghost.jpg
+cover: cover.jpg
+tags:
+  - Getting Started
 ---
 
 Ghost has a powerful visual editor with familiar formatting options, as well as the ability to seamlessly add dynamic content.

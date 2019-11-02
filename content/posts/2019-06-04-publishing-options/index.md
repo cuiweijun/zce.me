@@ -2,7 +2,9 @@
 title: Publishing options
 slug: publishing-options
 date: 2019-06-04 00:00:00
-cover: publishing-options.jpg
+cover: cover.jpg
+tags:
+  - Getting Started
 ---
 
 The Ghost editor has everything you need to fully optimise your content. This is where you can add tags and authors, feature a post, or turn a post into a page.

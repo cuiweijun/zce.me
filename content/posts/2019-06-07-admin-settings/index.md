@@ -2,7 +2,9 @@
 title: Managing admin settings
 slug: admin-settings
 date: 2019-06-07 00:00:00
-cover: admin-settings.jpg
+cover: cover.jpg
+tags:
+  - Getting Started
 ---
 
 There are a couple of things to do next while you're getting set up:

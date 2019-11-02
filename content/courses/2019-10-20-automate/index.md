@@ -6,6 +6,12 @@ cover: cover.jpg
 description: 一切重复工作本应自动化
 categories:
   - Engineering
+tags:
+  - Automate
+  - Gulp
+  - Grunt
+  - FIS3
+  - npm scripts
 sections:
   - name: 自动化构建简介
     sources:

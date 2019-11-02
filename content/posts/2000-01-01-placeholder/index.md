@@ -3,7 +3,7 @@ title: Placeholder
 slug: placeholder
 date: 2000-01-01 00:00:00
 updated: 2000-01-01 00:00:00
-cover: placeholder.png
+cover: cover.png
 description: ''
 template: post
 permalink: /{author}/{category}/frontmatter-placeholder.html
@@ -14,11 +14,9 @@ comment: false
 authors:
   - Lei Wang
 categories:
-  - Foo
-  - Bar
+  - Uncategorized
 tags:
-  - Getting Started
-  - Tutorial
+  - Untagged
 ---
 
 This is a sample article, mainly to provide a complete example and complete `frontmatter` attributes. Because [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/) does not support defining the structure of `frontmatter`.

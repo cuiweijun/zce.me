@@ -32,6 +32,7 @@ export const query = graphql`
   query CategoryTemplate($id: String!) {
     category(id: { eq: $id }) {
       name
+      slug
       description
       cover {
         ...SiteCoverImage

@@ -30,6 +30,7 @@ export const query = graphql`
   query TagTemplate($id: String!) {
     tag(id: { eq: $id }) {
       name
+      slug
       description
       cover {
         ...SiteCoverImage

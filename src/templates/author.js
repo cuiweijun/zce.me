@@ -35,6 +35,7 @@ export const query = graphql`
   query AuthorTemplate($id: String!) {
     author(id: { eq: $id }) {
       name
+      slug
       avatar {
         childImageSharp {
           fixed(width: 160) {

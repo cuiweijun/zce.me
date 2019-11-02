@@ -42,6 +42,7 @@ export const query = graphql`
     page: markdownRemark(id: { eq: $id }) {
       fields {
         title
+        slug
         cover {
           ...SiteCoverImage
         }

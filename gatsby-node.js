@@ -98,24 +98,27 @@ const createYamlNode = async ({
   const defaults = options[type]
 
   list.forEach((item, i) => {
+    // ignore duplicated
+    if (cache[`${type}-${item.name}`]) return
+
     const data = { ...defaults, ...item }
 
     // taxonomy defaults
     if (['author', 'category', 'tag'].includes(type)) {
       data.slug = data.slug || kebabCase(data.name)
-      data.type = data.type || type
+      data.type = type
       data.template = data.template || data.type
       if (/{([a-z_]+)}/.test(data.permalink)) {
         data.permalink = generatePermalink(data.permalink, data)
       }
 
       // for createCollectionField
-      cache[`${data.type}-${data.name}`] = data.slug
+      cache[`${type}-${data.name}`] = data.slug
     }
 
     actions.createNode({
       ...data,
-      id: data.id || createNodeId(`${node.id} [${i}] >>> YAML`),
+      id: data.id || createNodeId(`${node.id}-${i} >>> YAML`),
       parent: node.id,
       internal: {
         type: capitalize(type),
@@ -163,12 +166,13 @@ const createCollectionField = async ({
 
   const createMissingTaxonomy = (type, taxonomies) => {
     taxonomies.forEach((item, i) => {
+      // ignore duplicated
       if (cache[`${type}-${item}`]) return
 
       const data = Object.assign(options[type], { name: item })
 
       data.slug = kebabCase(data.name)
-      data.type = data.type || type
+      data.type = type
       data.template = data.template || data.type
 
       if (/{([a-z_]+)}/.test(data.permalink)) {
@@ -176,11 +180,11 @@ const createCollectionField = async ({
       }
 
       // for collection permalink
-      cache[`${data.type}-${data.name}`] = data.slug
+      cache[`${type}-${data.name}`] = data.slug
 
       createNode({
         ...data,
-        id: createNodeId(`${node.id} [${i}] >>> YAML`),
+        id: createNodeId(`${node.id}-${type}-${i} >>> YAML`),
         parent: node.id,
         internal: {
           type: capitalize(type),

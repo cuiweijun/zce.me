@@ -18,4 +18,8 @@ jobs:
           NODE_ENV: production
           CI: true
       - name: Deploy Site
-        run: npx gh-pages -d public -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/zce.me.git -b master
+        run: npx gh-pages
+          -d public
+          -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/zce.me.git
+          -b master
+          -u "GitHub Actions <bots@github.com>"

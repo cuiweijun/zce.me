@@ -1,0 +1,19 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+    - name: Install Dependencies
+      run: yarn
+    - name: Build
+      run: yarn dist
+      env:
+        NODE_ENV: production
+        CI: true

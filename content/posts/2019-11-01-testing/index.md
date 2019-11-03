@@ -1,14 +1,18 @@
 ---
-title: Hey! Guys
-slug: hey-guys
+title: Testing
+slug: testing
 date: 2019-11-01 22:47:36
-cover: cover.jpg
 private: true
 featured: true
 categories:
   - Guide
 tags:
   - Getting Started
+meta:
+  - key: extend field 1
+    value: extend value 1
+  - key: extend field 2
+    value: extend value2
 ---
 
 👋 Hey Guys! I'm Lei Wang, a technical poet of China.

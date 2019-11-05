@@ -1,7 +1,11 @@
 import React from 'react'
-import { ThemeProvider } from 'theme-ui'
+import { Global } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming'
 import theme from './theme'
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+  <>
+    <Global styles={{ body: { margin: 0 } }} />
+    <ThemeProvider theme={theme}>{element}</ThemeProvider>
+  </>
 )

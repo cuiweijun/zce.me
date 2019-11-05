@@ -1,6 +1,6 @@
-/** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import React from 'react'
+import { Box } from 'rebass'
 
 export default props => (
-  <Styled.div {...props} sx={{ variant: 'styles.container' }} />
+  <Box maxWidth={[640, 768, 1024, 1280]} mx="auto" px={3} {...props} />
 )

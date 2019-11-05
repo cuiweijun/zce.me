@@ -233,127 +233,127 @@ exports.onCreateNode = async args => {
   }
 }
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+// exports.createPages = async ({ graphql, actions, reporter }) => {
+//   const { createPage } = actions
 
-  const result = await graphql(`
-    query CreatePages {
-      allMarkdownRemark(
-        filter: { fields: { draft: { eq: false }, private: { eq: false } } }
-        sort: { fields: fields___date, order: DESC }
-      ) {
-        group(field: fields___type) {
-          fieldValue
-          nodes {
-            id
-            fields {
-              type
-              template
-              permalink
-              sections {
-                name
-              }
-              categories {
-                id
-              }
-            }
-          }
-        }
-      }
-      allAuthor {
-        nodes {
-          id
-          type
-          template
-          permalink
-        }
-      }
-      allCategory {
-        nodes {
-          id
-          type
-          template
-          permalink
-        }
-      }
-      allTag {
-        nodes {
-          id
-          type
-          template
-          permalink
-        }
-      }
-    }
-  `)
+//   const result = await graphql(`
+//     query CreatePages {
+//       allMarkdownRemark(
+//         filter: { fields: { draft: { eq: false }, private: { eq: false } } }
+//         sort: { fields: fields___date, order: DESC }
+//       ) {
+//         group(field: fields___type) {
+//           fieldValue
+//           nodes {
+//             id
+//             fields {
+//               type
+//               template
+//               permalink
+//               sections {
+//                 name
+//               }
+//               categories {
+//                 id
+//               }
+//             }
+//           }
+//         }
+//       }
+//       allAuthor {
+//         nodes {
+//           id
+//           type
+//           template
+//           permalink
+//         }
+//       }
+//       allCategory {
+//         nodes {
+//           id
+//           type
+//           template
+//           permalink
+//         }
+//       }
+//       allTag {
+//         nodes {
+//           id
+//           type
+//           template
+//           permalink
+//         }
+//       }
+//     }
+//   `)
 
-  // errors report
-  result.errors && reporter.panic(result.errors)
+//   // errors report
+//   result.errors && reporter.panic(result.errors)
 
-  // TODO: Archive pagination?
-  // https://www.gatsbyjs.org/docs/adding-pagination/
+//   // TODO: Archive pagination?
+//   // https://www.gatsbyjs.org/docs/adding-pagination/
 
-  // Create collections page ===================================================
+//   // Create collections page ===================================================
 
-  const { group } = result.data.allMarkdownRemark
+//   const { group } = result.data.allMarkdownRemark
 
-  group.forEach(({ nodes }) => {
-    nodes.forEach(({ id, fields }, i) => {
-      const cat = fields.categories[0].id
-      const prev = i === nodes.length - 1 ? null : nodes[i + 1].id
-      const next = i === 0 ? null : nodes[i - 1].id
-      const template = `./src/templates/${fields.template}.js`
-      createPage({
-        path: fields.permalink,
-        component: require.resolve(template),
-        // 让页面自己决定需要什么数据
-        context: { id, cat, prev, next }
-      })
+//   group.forEach(({ nodes }) => {
+//     nodes.forEach(({ id, fields }, i) => {
+//       const cat = fields.categories[0].id
+//       const prev = i === nodes.length - 1 ? null : nodes[i + 1].id
+//       const next = i === 0 ? null : nodes[i - 1].id
+//       const template = `./src/templates/${fields.template}.js`
+//       createPage({
+//         path: fields.permalink,
+//         component: require.resolve(template),
+//         // 让页面自己决定需要什么数据
+//         context: { id, cat, prev, next }
+//       })
 
-      // sub sections page
-      if (fields.sections) {
-        for (let i = 0; i < fields.sections.length; i++) {
-          createPage({
-            path: `${fields.permalink}${('0' + (i + 1)).substr(-2)}/`,
-            component: require.resolve(template),
-            context: { id, cat, prev, next, current: i }
-          })
-        }
-      }
-    })
-  })
+//       // sub sections page
+//       if (fields.sections) {
+//         for (let i = 0; i < fields.sections.length; i++) {
+//           createPage({
+//             path: `${fields.permalink}${('0' + (i + 1)).substr(-2)}/`,
+//             component: require.resolve(template),
+//             context: { id, cat, prev, next, current: i }
+//           })
+//         }
+//       }
+//     })
+//   })
 
-  // Create taxonomies page ====================================================
+//   // Create taxonomies page ====================================================
 
-  const { nodes: authors } = result.data.allAuthor
-  const { nodes: categories } = result.data.allCategory
-  const { nodes: tags } = result.data.allTag
-  const terms = [].concat(authors, categories, tags)
+//   const { nodes: authors } = result.data.allAuthor
+//   const { nodes: categories } = result.data.allCategory
+//   const { nodes: tags } = result.data.allTag
+//   const terms = [].concat(authors, categories, tags)
 
-  terms.forEach(item => {
-    const template = `./src/templates/${item.template}.js`
-    createPage({
-      path: item.permalink,
-      component: require.resolve(template),
-      context: { id: item.id }
-    })
-  })
-}
+//   terms.forEach(item => {
+//     const template = `./src/templates/${item.template}.js`
+//     createPage({
+//       path: item.permalink,
+//       component: require.resolve(template),
+//       context: { id: item.id }
+//     })
+//   })
+// }
 
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        // https://www.gatsbyjs.org/docs/debugging-html-builds/
-        rules: [{ test: /plyr/, use: loaders.null() }]
-      }
-    })
-  }
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   if (stage === 'build-html') {
+//     actions.setWebpackConfig({
+//       module: {
+//         // https://www.gatsbyjs.org/docs/debugging-html-builds/
+//         rules: [{ test: /plyr/, use: loaders.null() }]
+//       }
+//     })
+//   }
 
-  if (stage === 'build-javascript') {
-    actions.setWebpackConfig({
-      // turn off source-maps
-      devtool: false
-    })
-  }
-}
+//   if (stage === 'build-javascript') {
+//     actions.setWebpackConfig({
+//       // turn off source-maps
+//       devtool: false
+//     })
+//   }
+// }

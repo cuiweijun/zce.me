@@ -66,6 +66,8 @@
   "dependencies": {
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
+    "@emotion/core": "^10.0.22",
+    "@mdx-js/react": "^1.5.1",
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.0.2",
     "disqus-react": "1.0.7",
@@ -98,7 +100,8 @@
     "prismjs": "1.17.1",
     "react": "16.11.0",
     "react-dom": "16.11.0",
-    "react-helmet": "5.2.1"
+    "react-helmet": "5.2.1",
+    "theme-ui": "^0.2.46"
   },
   "engines": {
     "node": ">=8.0.0"

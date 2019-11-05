@@ -6,4 +6,19 @@ body.archive {
   .site-main {
     margin-bottom: spacing(7);
   }
+
+  @include media-breakpoint-up(md) {
+    .card:first-child {
+      flex-basis: 100%;
+      flex-direction: row;
+
+      .card-image {
+        flex-grow: 2;
+      }
+
+      .card-content {
+        min-width: 16rem;
+      }
+    }
+  }
 }

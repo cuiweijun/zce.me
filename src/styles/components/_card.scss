@@ -12,7 +12,7 @@
   border-radius: $card-radius;
   background: $card-bg;
   box-shadow: $card-shadow;
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s, flex 0.3s;
   will-change: transform;
 
   &:hover {

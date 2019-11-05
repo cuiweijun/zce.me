@@ -2,14 +2,13 @@
 // This file contains styles that are specific to the author page.
 // -----------------------------------------------------------------------------
 
-.author-avatar {
-  border: spacing(1) solid color(muted);
-  border-radius: radius(circle);
-}
+.author {
+  &-avatar {
+    border: spacing(1) solid color(muted);
+    border-radius: radius(circle);
+  }
 
-h1.author-name {
-  font-size: $h1-font-size;
-}
-
-p.author-bio {
+  &-name {
+    font-size: $h2-font-size !important;
+  }
 }

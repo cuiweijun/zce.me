@@ -20,6 +20,7 @@
     left: 0;
     z-index: z-index(high);
     content: '';
+    transition: opacity 0.3s;
   }
 
   &::before {
@@ -162,6 +163,7 @@
   padding: 10vw 0;
   text-align: center;
   font-size: font-size(xlarge);
+  transition: padding 0.3s, color 0.3s, text-shadow 0.3s;
 
   h1 {
     font-size: $h1-font-size * 1.25;

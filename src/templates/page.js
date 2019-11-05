@@ -2,11 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import { Layout } from '../components'
+import { Layout, Comments } from '../components'
 
 export default ({ data, location }) => {
-  const { page } = data
+  const { siteMetadata, page } = data
   const { fields } = page
+  const url = siteMetadata.url + location.pathname
 
   return (
     <Layout
@@ -17,6 +18,7 @@ export default ({ data, location }) => {
       header={
         <div className="container">
           <h1>{fields.title}</h1>
+          {fields.description && <p>{fields.description}</p>}
         </div>
       }
       location={location}>
@@ -33,12 +35,20 @@ export default ({ data, location }) => {
         className="page-content container"
         dangerouslySetInnerHTML={{ __html: page.html }}
       />
+      {fields.comment && (
+        <section className="page-comments container">
+          <Comments url={url} slug={fields.slug} title={fields.title} />
+        </section>
+      )}
     </Layout>
   )
 }
 
 export const query = graphql`
   query PageTemplate($id: String!) {
+    siteMetadata: config {
+      url
+    }
     page: markdownRemark(id: { eq: $id }) {
       fields {
         title
@@ -47,6 +57,7 @@ export const query = graphql`
           ...SiteCoverImage
         }
         description
+        comment
       }
       excerpt(pruneLength: 160)
       html

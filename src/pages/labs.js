@@ -27,8 +27,8 @@ export default ({ location }) => {
 
   return (
     <Layout
-      className="test"
-      title="Test"
+      className="labs"
+      title="Labs"
       cover={false}
       header={false}
       location={location}>

@@ -123,6 +123,7 @@ The default structure is shown below:
 - [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
 - [ ] Create default nodes by programming
 - [ ] Global State
+- [ ] SSR
 
 ## Deploy
 

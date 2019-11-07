@@ -1,12 +1,12 @@
-/** @jsx jsx */
-import { jsx, ThemeProvider, ColorMode } from 'theme-ui'
-import { Global } from '@emotion/core'
+import React from 'react'
+import { ThemeProvider, ColorModeProvider, CSSReset } from '@chakra-ui/core'
 import theme from './theme'
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>
-    <ColorMode />
-    <Global styles={theme.globalStyles} />
-    {element}
+    <ColorModeProvider>
+      <CSSReset />
+      {element}
+    </ColorModeProvider>
   </ThemeProvider>
 )

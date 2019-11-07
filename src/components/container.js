@@ -1,6 +1,13 @@
-import React from 'react'
-import { Box } from 'rebass'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 
 export default props => (
-  <Box maxWidth={[640, 768, 1024, 1280]} mx="auto" px={3} {...props} />
+  <div
+    sx={{
+      mx: 'auto',
+      px: 3,
+      maxWidth: t => t.sizes.container
+    }}
+    {...props}
+  />
 )

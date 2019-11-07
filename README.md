@@ -50,11 +50,6 @@ The default structure is shown below:
 └─ content ·································· content dir
    ├─ images ································ content dir
    │  └─ cover.jpg ·························· content dir
-   ├─ meta ·································· metadata dir
-   │  ├─ authors.yml ························ author collections
-   │  ├─ categories.yml ····················· category collections
-   │  ├─ tags.yml ··························· tag collections
-   │  └─ site.yml ··························· site metadata & config
    ├─ pages ································· pages dir
    │  ├─ about ······························ page dir
    │  │  └─ index.md ························ page markdown
@@ -69,6 +64,10 @@ The default structure is shown below:
    │     │  ├─ img-01.jpg ··················· relevant file
    │     │  └─ img-02.jpg ··················· relevant file
    │     └─ index.md ························ post markdown
+   ├─ authors.yml ··························· author collections
+   ├─ categories.yml ························ category collections
+   ├─ tags.yml ······························ tag collections
+   ├─ site.yml ······························ site metadata & config
    └─ README.md ····························· this file
 ```
 

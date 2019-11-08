@@ -1,10 +1,43 @@
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/browser-apis/
+ */
+
 import React, { useContext } from 'react'
-import { Global } from '@emotion/core'
 import { ThemeProvider, ColorMode, css } from 'theme-ui'
+import { Global } from '@emotion/core'
+import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import theme from './theme'
 import Layout from './layout'
+
+const query = graphql`
+  query LayoutComponent {
+    siteMetadata: config {
+      url
+      name
+      title
+      description
+      slogan
+      keywords
+      author {
+        name
+      }
+      language
+      # cover {
+      #   childImageSharp {
+      #     fluid(maxWidth: 1080, maxHeight: 720, cropFocus: CENTER) {
+      #       ...GatsbyImageSharpFluid
+      #       presentationWidth
+      #       presentationHeight
+      #     }
+      #   }
+      # }
+    }
+  }
+`
 
 const globalStyles = (
   <Global
@@ -45,15 +78,44 @@ const Root = props => {
   )
 }
 
-const Page = props => (
-  <>
-    <Helmet>
-      <title>zce.me</title>
-    </Helmet>
-    {globalStyles}
-    <Layout>{props.children}</Layout>
-  </>
-)
+const Page = props => {
+  const { siteMetadata } = useStaticQuery(query)
+
+  // canonical url
+  const url = siteMetadata.url + props.location.pathname
+
+  return (
+    <>
+      <Helmet
+        htmlAttributes={{ lang: siteMetadata.language }}
+        defaultTitle={`${siteMetadata.title} | ${siteMetadata.slogan}`}
+        titleTemplate={`%s - ${siteMetadata.title} | ${siteMetadata.slogan}`}
+        bodyAttributes={{ className: 'zce' }}
+        meta={[
+          { name: 'description', content: siteMetadata.description },
+          { name: 'keywords', content: siteMetadata.keywords },
+          { name: 'author', content: siteMetadata.author.name },
+          { name: 'theme-color', content: theme.colors.background },
+          // OpenGraph tags
+          { name: 'og:site_name', content: siteMetadata.name },
+          // TODO: website or article? http://ogp.me/#no_vertical
+          { name: 'og:type', content: 'website' },
+          { name: 'og:title', content: siteMetadata.title },
+          { name: 'og:description', content: siteMetadata.description }
+          // { name: 'og:image', content: siteMetadata.url + siteMetadata.cover.childImageSharp.fluid.src },
+          // { name: 'og:image:width', content: siteMetadata.url + siteMetadata.cover.childImageSharp.fluid.presentationWidth },
+          // { name: 'og:image:height', content: siteMetadata.url + siteMetadata.cover.childImageSharp.fluid.presentationHeight }
+          // TODO: Twitter & Fackbook Card tags?
+        ]}
+        link={[
+          { rel: 'canonical', href: siteMetadata.url + props.location.pathname }
+        ]}
+      />
+      {globalStyles}
+      <Layout {...props} />
+    </>
+  )
+}
 
 export const wrapRootElement = ({ element, props }) => (
   <Root {...props}>{element}</Root>

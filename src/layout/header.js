@@ -126,6 +126,7 @@ const ColorModeToggler = () => {
       aria-label={`Switch to ${
         colorMode === 'default' ? 'dark' : 'light'
       } mode`}
+      sx={{ color: 'muted' }}
       onClick={e => setColorMode(colorMode === 'default' ? 'dark' : 'default')}
     />
   )
@@ -144,6 +145,7 @@ export default () => {
       <nav
         sx={{
           position: 'fixed',
+          top: 0,
           zIndex: 'higher',
           width: '100%',
           borderBottom: 'default',

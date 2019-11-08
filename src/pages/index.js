@@ -1,154 +1,170 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Container, Button, IconButton } from '../components'
+import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
-export default props => (
+import { Link, Button, Card } from '../components'
+
+const FeaturedSection = ({ post }) => (
+  <section>
+    <div>
+      <article>
+        {post.fields.cover && (
+          <Image
+            Tag="figure"
+            alt={post.fields.title}
+            title={post.fields.title}
+            fluid={post.fields.cover.childImageSharp.fluid}
+          />
+        )}
+        <div>
+          <h2>{post.fields.title}</h2>
+          <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+          <Button
+            as={Link}
+            to={post.fields.permalink}
+            title={post.fields.title}>
+            Continue reading <span aria-hidden="true">&rarr;</span>
+          </Button>
+        </div>
+      </article>
+    </div>
+  </section>
+)
+
+const FeedSection = ({ posts, title, subtitle, link }) => (
+  <section>
+    <div>
+      <header>
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
+      </header>
+      <div>
+        {posts.map(node => (
+          <Card post={node} key={node.id} />
+        ))}
+      </div>
+      <footer>
+        <Button as={Link} to={link} title={title}>
+          Explore more <span aria-hidden="true">&rarr;</span>
+        </Button>
+      </footer>
+    </div>
+  </section>
+)
+
+export default ({ data }) => (
   <div>
-    <Container sx={{ padding: 6 }}>
+    {data.featured.nodes[0] && (
+      <FeaturedSection post={data.featured.nodes[0]} />
+    )}
+
+    <FeedSection
+      posts={data.latestPosts.nodes}
+      title="Latest Posts"
+      subtitle="Keep the dots in your life."
+      link="/blog/"
+    />
+
+    {data.featured.nodes[1] && (
+      <FeaturedSection post={data.featured.nodes[1]} />
+    )}
+
+    <FeedSection
+      posts={data.latestCourses.nodes}
+      title="Latest Courses"
+      subtitle="Continuous learning is a belief."
+      link="/courses/"
+    />
+
+    {/* {data.featured.nodes[2] && (
+      <FeaturedSection post={data.featured.nodes[2]} />
+    )}
+
+    <section>
       <div>
-        <Button variant="none" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button variant="default" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button variant="primary" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button variant="outline" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button variant="ghost" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button variant="elevated" sx={{ m: 3 }}>
-          Hello
-        </Button>
+        <p>I'm Lei Wang, a technical poet of China.</p>
       </div>
+    </section> */}
+
+    <section>
       <div>
-        <Button size="sm" variant="none" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="default" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="primary" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="outline" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="ghost" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="elevated" sx={{ m: 3 }}>
-          Hello
-        </Button>
+        <div>
+          <h2>{data.about.fields.title}</h2>
+          <div dangerouslySetInnerHTML={{ __html: data.about.html }} />
+        </div>
       </div>
-      <div>
-        <Button size="lg" variant="none" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="lg" variant="default" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="lg" variant="primary" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="lg" variant="outline" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="lg" variant="ghost" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="lg" variant="elevated" sx={{ m: 3 }}>
-          Hello
-        </Button>
-      </div>
-      <div>
-        <IconButton icon="heart" variant="none" sx={{ m: 3 }} />
-        <IconButton icon="heart" variant="default" sx={{ m: 3 }} />
-        <IconButton icon="heart" variant="primary" sx={{ m: 3 }} />
-        <IconButton icon="heart" variant="outline" sx={{ m: 3 }} />
-        <IconButton icon="heart" variant="ghost" sx={{ m: 3 }} />
-        <IconButton icon="heart" variant="elevated" sx={{ m: 3 }} />
-      </div>
-      <div>
-        <IconButton size="sm" icon="heart" variant="none" sx={{ m: 3 }} />
-        <IconButton size="sm" icon="heart" variant="default" sx={{ m: 3 }} />
-        <IconButton size="sm" icon="heart" variant="primary" sx={{ m: 3 }} />
-        <IconButton size="sm" icon="heart" variant="outline" sx={{ m: 3 }} />
-        <IconButton size="sm" icon="heart" variant="ghost" sx={{ m: 3 }} />
-        <IconButton size="sm" icon="heart" variant="elevated" sx={{ m: 3 }} />
-      </div>
-      <div>
-        <IconButton size="lg" icon="heart" variant="none" sx={{ m: 3 }} />
-        <IconButton size="lg" icon="heart" variant="default" sx={{ m: 3 }} />
-        <IconButton size="lg" icon="heart" variant="primary" sx={{ m: 3 }} />
-        <IconButton size="lg" icon="heart" variant="outline" sx={{ m: 3 }} />
-        <IconButton size="lg" icon="heart" variant="ghost" sx={{ m: 3 }} />
-        <IconButton size="lg" icon="heart" variant="elevated" sx={{ m: 3 }} />
-      </div>
-      <div>
-        <IconButton icon="heart" variant="none" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton icon="heart" variant="default" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton icon="heart" variant="primary" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton icon="heart" variant="outline" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton icon="heart" variant="ghost" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton icon="heart" variant="elevated" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-      </div>
-      <div>
-        <IconButton size="sm" icon="heart" variant="none" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="sm" icon="heart" variant="default" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="sm" icon="heart" variant="primary" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="sm" icon="heart" variant="outline" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="sm" icon="heart" variant="ghost" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="sm" icon="heart" variant="elevated" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-      </div>
-      <div>
-        <IconButton size="lg" icon="heart" variant="none" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="lg" icon="heart" variant="default" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="lg" icon="heart" variant="primary" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="lg" icon="heart" variant="outline" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="lg" icon="heart" variant="ghost" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-        <IconButton size="lg" icon="heart" variant="elevated" sx={{ m: 3 }}>
-          Icon
-        </IconButton>
-      </div>
-    </Container>
+    </section>
   </div>
 )
+
+export const query = graphql`
+  query HomePage {
+    featured: allMarkdownRemark(
+      filter: {
+        fields: {
+          featured: { eq: true }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
+      sort: { fields: fields___date, order: DESC }
+      limit: 2
+    ) {
+      nodes {
+        fields {
+          title
+          slug
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 360, maxHeight: 480, cropFocus: CENTER) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          permalink
+        }
+        excerpt(format: HTML, pruneLength: 500)
+      }
+    }
+
+    latestPosts: allMarkdownRemark(
+      filter: {
+        fields: {
+          type: { eq: "post" }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
+      sort: { fields: fields___date, order: DESC }
+      limit: 6
+    ) {
+      nodes {
+        ...Card
+      }
+    }
+
+    latestCourses: allMarkdownRemark(
+      filter: {
+        fields: {
+          type: { eq: "course" }
+          draft: { eq: false }
+          private: { eq: false }
+        }
+      }
+      sort: { fields: fields___date, order: DESC }
+      limit: 6
+    ) {
+      nodes {
+        ...Card
+      }
+    }
+
+    about: markdownRemark(fields: { slug: { eq: "about" } }) {
+      fields {
+        title
+      }
+      html
+    }
+  }
+`

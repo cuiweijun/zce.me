@@ -274,6 +274,7 @@ export default () => {
         borderTop: 'default',
         borderColor: 'light',
         paddingY: 7,
+        backgroundColor: 'background',
         color: 'muted',
         fontSize: 'sm',
         textAlign: ['center', 'center', 'left']

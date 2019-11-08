@@ -55,7 +55,8 @@ export default ({
         ':hover': {
           borderColor: 'transparent',
           backgroundColor: darken('background', 0.1),
-          color: 'text'
+          color: 'text',
+          textDecoration: 'none'
         },
         ':active': {
           borderColor: 'transparent',

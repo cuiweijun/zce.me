@@ -3,7 +3,7 @@ import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import { Link, Button, Card } from '../components'
+import { Container, Link, Button, Card } from '../components'
 
 const FeaturedSection = ({ post }) => (
   <section>
@@ -33,23 +33,29 @@ const FeaturedSection = ({ post }) => (
 )
 
 const FeedSection = ({ posts, title, subtitle, link }) => (
-  <section>
-    <div>
-      <header>
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
+  <section sx={{ paddingY: 9 }}>
+    <Container>
+      <header sx={{ marginBottom: 5, textAlign: 'center' }}>
+        <h2 sx={{ margin: 0, marginBottom: 3, fontSize: 7 }}>{title}</h2>
+        <p sx={{ margin: 0, fontSize: 'lg' }}>{subtitle}</p>
       </header>
-      <div>
+      <div
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          marginX: -3,
+          marginBottom: 3
+        }}>
         {posts.map(node => (
           <Card post={node} key={node.id} />
         ))}
       </div>
-      <footer>
-        <Button as={Link} to={link} title={title}>
+      <footer sx={{ textAlign: 'center' }}>
+        <Button as={Link} size="lg" to={link} title={title}>
           Explore more <span aria-hidden="true">&rarr;</span>
         </Button>
       </footer>
-    </div>
+    </Container>
   </section>
 )
 

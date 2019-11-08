@@ -135,7 +135,8 @@ const sizes = {
   container: [640, 768, 1024, 1280],
   nav: '3rem',
   logo: '1.5625rem',
-  icon: '1.5rem'
+  icon: '1.5rem',
+  card: '20rem'
 }
 
 const borders = {
@@ -189,75 +190,75 @@ const transitions = {
   fade: 'opacity 0.15s linear'
 }
 
-const heading = {
-  color: 'text',
-  fontFamily: 'heading',
-  lineHeight: 'heading',
-  fontWeight: 'heading'
-}
+// const heading = {
+//   color: 'text',
+//   fontFamily: 'heading',
+//   lineHeight: 'heading',
+//   fontWeight: 'heading'
+// }
 
 const styles = {
-  h1: {
-    ...heading,
-    fontSize: 5
-  },
-  h2: {
-    ...heading,
-    fontSize: 4
-  },
-  h3: {
-    ...heading,
-    fontSize: 3
-  },
-  h4: {
-    ...heading,
-    fontSize: 2
-  },
-  h5: {
-    ...heading,
-    fontSize: 1
-  },
-  h6: {
-    ...heading,
-    fontSize: 0
-  },
-  hr: {
-    bg: 'muted',
-    border: 0,
-    height: '1px',
-    m: 3
-  },
-  pre: {
-    fontFamily: 'monospace',
-    overflowX: 'auto',
-    code: {
-      color: 'inherit'
-    }
-  },
-  code: {
-    fontFamily: 'monospace',
-    fontSize: 'inherit'
-  },
-  table: {
-    width: '100%',
-    borderCollapse: 'separate',
-    borderSpacing: 0
-  },
-  th: {
-    textAlign: 'left',
-    borderBottomStyle: 'solid'
-  },
-  td: {
-    textAlign: 'left',
-    borderBottomStyle: 'solid'
-  },
-  a: {
-    color: 'primary',
-    textDecoration: 'none',
-    ':hover': {
-      color: 'secondary'
-    }
-  }
+  // h1: {
+  //   ...heading,
+  //   fontSize: 5
+  // },
+  // h2: {
+  //   ...heading,
+  //   fontSize: 4
+  // },
+  // h3: {
+  //   ...heading,
+  //   fontSize: 3
+  // },
+  // h4: {
+  //   ...heading,
+  //   fontSize: 2
+  // },
+  // h5: {
+  //   ...heading,
+  //   fontSize: 1
+  // },
+  // h6: {
+  //   ...heading,
+  //   fontSize: 0
+  // },
+  // hr: {
+  //   bg: 'muted',
+  //   border: 0,
+  //   height: '1px',
+  //   m: 3
+  // },
+  // pre: {
+  //   fontFamily: 'monospace',
+  //   overflowX: 'auto',
+  //   code: {
+  //     color: 'inherit'
+  //   }
+  // },
+  // code: {
+  //   fontFamily: 'monospace',
+  //   fontSize: 'inherit'
+  // },
+  // table: {
+  //   width: '100%',
+  //   borderCollapse: 'separate',
+  //   borderSpacing: 0
+  // },
+  // th: {
+  //   textAlign: 'left',
+  //   borderBottomStyle: 'solid'
+  // },
+  // td: {
+  //   textAlign: 'left',
+  //   borderBottomStyle: 'solid'
+  // },
+  // a: {
+  //   color: 'primary',
+  //   textDecoration: 'none',
+  //   ':hover': {
+  //     color: 'secondary'
+  //   }
+  // }
 }
 
 const variants = {

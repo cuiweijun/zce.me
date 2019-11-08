@@ -340,20 +340,20 @@ exports.onCreateNode = async args => {
 //   })
 // }
 
-// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-//   if (stage === 'build-html') {
-//     actions.setWebpackConfig({
-//       module: {
-//         // https://www.gatsbyjs.org/docs/debugging-html-builds/
-//         rules: [{ test: /plyr/, use: loaders.null() }]
-//       }
-//     })
-//   }
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        // https://www.gatsbyjs.org/docs/debugging-html-builds/
+        rules: [{ test: /plyr/, use: loaders.null() }]
+      }
+    })
+  }
 
-//   if (stage === 'build-javascript') {
-//     actions.setWebpackConfig({
-//       // turn off source-maps
-//       devtool: false
-//     })
-//   }
-// }
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      // turn off source-maps
+      devtool: false
+    })
+  }
+}

@@ -8,34 +8,97 @@ import Link from './link'
 
 // TODO: Post or Course
 export default ({ post, rel }) => (
-  <article>
+  <article
+    sx={{
+      position: 'relative',
+      display: 'flex',
+      overflow: 'hidden',
+      flex: t => `1 1 ${t.sizes.card}`,
+      flexDirection: 'column',
+      marginX: 3,
+      marginBottom: 6,
+      borderRadius: 'medium',
+      backgroundColor: 'background',
+      boxShadow: 'light',
+      transition: 'box-shadow 0.3s, transform 0.3s, flex 0.3s',
+      willChange: 'transform',
+      ':hover': {
+        boxShadow: 'medium',
+        transform: 'translate(0, -2px)'
+      }
+    }}>
     <Link
       to={post.fields.permalink}
       title={post.fields.type.toUpperCase() + ' - ' + post.fields.title}
       rel={rel}
+      sx={{
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        zIndex: 'high'
+      }}
     />
 
     {post.fields.cover ? (
       <Image
         fluid={post.fields.cover.childImageSharp.fluid}
         alt={post.fields.title}
+        sx={{
+          maxHeight: '25rem',
+          backgroundColor: 'light',
+          objectFit: 'cover'
+        }}
       />
     ) : (
-      <img src={defaultCover} alt={post.fields.title} />
+      <img
+        src={defaultCover}
+        alt={post.fields.title}
+        sx={{
+          maxHeight: '25rem',
+          backgroundColor: 'light',
+          objectFit: 'cover'
+        }}
+      />
     )}
 
-    <div>
-      <header>
-        <span>{post.fields.categories[0].name}</span>
-        <h3>{post.fields.title}</h3>
+    <div sx={{ display: 'flex', flexGrow: 1, flexDirection: 'column' }}>
+      <header sx={{ padding: 3 }}>
+        <span sx={{ color: 'muted', textTransform: 'uppercase' }}>
+          {post.fields.categories[0].name}
+        </span>
+        <h3
+          sx={{
+            overflow: 'hidden',
+            margin: 0,
+            fontSize: 'xl',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}>
+          {post.fields.title}
+        </h3>
       </header>
 
-      <div>
-        <p>{post.excerpt}</p>
+      <div sx={{ flexGrow: 1, paddingX: 3 }}>
+        <p sx={{ margin: 0 }}>{post.excerpt}</p>
       </div>
 
-      <footer>
-        <ul>
+      <footer
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: 3
+        }}>
+        <ul
+          sx={{
+            zIndex: 'high',
+            display: 'flex',
+            margin: 0,
+            padding: 0,
+            listStyle: 'none'
+          }}>
           {post.fields.authors.map((author, i) => (
             <li
               key={author.name}
@@ -47,6 +110,12 @@ export default ({ post, rel }) => (
                   Tag="span"
                   fixed={author.avatar.childImageSharp.fixed}
                   alt={author.name}
+                  sx={{
+                    border: 'double',
+                    borderColor: 'light',
+                    borderRadius: 'circle',
+                    verticalAlign: 'middle'
+                  }}
                 />
               </Link>
             </li>

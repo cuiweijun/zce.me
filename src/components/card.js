@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 import defaultCover from '../assets/content.svg'
-import { Link } from './link'
+import Link from './link'
 
 // TODO: Post or Course
 export default ({ post, rel }) => (

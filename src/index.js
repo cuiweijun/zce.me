@@ -81,9 +81,6 @@ const Root = props => {
 const Page = props => {
   const { siteMetadata } = useStaticQuery(query)
 
-  // canonical url
-  const url = siteMetadata.url + props.location.pathname
-
   return (
     <>
       <Helmet

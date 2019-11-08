@@ -1,16 +1,8 @@
-import React from 'react'
-import {
-  Box,
-  Flex,
-  List,
-  ListItem,
-  Link,
-  IconButton,
-  useColorMode
-} from '@chakra-ui/core'
-import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby'
+/** @jsx jsx */
+import { jsx, useColorMode } from 'theme-ui'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import { Container } from '../components'
+import { Container, Link, IconButton } from '../components'
 import { useNavPinned } from '../utils/hooks'
 
 const query = graphql`
@@ -28,19 +20,25 @@ const query = graphql`
 
 const Brand = ({ name }) => (
   <Link
-    as={GatsbyLink}
     to="/"
-    display="flex"
-    alignItems="center"
-    paddingX="1"
-    fontSize="xl"
-    _hover={null}>
-    <Box
-      as="svg"
+    sx={{
+      display: 'flex',
+      alignItems: 'center',
+      paddingX: 1,
+      fontSize: 'xl',
+      color: 'inherit',
+      ':hover': {
+        textDecoration: 'none'
+      }
+    }}>
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 472 450"
-      size="logo"
-      marginRight="2">
+      sx={{
+        width: 'logo',
+        height: 'logo',
+        marginRight: 2
+      }}>
       <defs>
         <filter
           id="shadow"
@@ -70,7 +68,7 @@ const Brand = ({ name }) => (
       <mask id="mask" fill="#fff">
         <path d="M472 114.26L203.029 335.74H407.1L472 449.48H64.9L0 335.74l268.971-221.48H64.9L0 .52h407.1z" />
       </mask>
-      <g mask="url(#mask)" fill="#339AF0">
+      <g mask="url(#mask)" sx={{ fill: 'primary' }}>
         <path d="M0 0h472v449H0z" />
       </g>
       <g mask="url(#mask)">
@@ -79,70 +77,91 @@ const Brand = ({ name }) => (
           filter="url(#shadow)"
         />
       </g>
-    </Box>
-    <Flex as="span">{name}</Flex>
+    </svg>
+    <span>{name}</span>
   </Link>
 )
 
 const Menu = ({ items }) => (
-  <List display="flex" flexGrow="1" marginX="3" paddingX="1">
+  <ul
+    sx={{
+      display: 'flex',
+      flexGrow: 1,
+      margin: 0,
+      marginX: 3,
+      paddingX: 1,
+      listStyle: 'none'
+    }}>
     {items.map(i => (
-      <ListItem key={i.link}>
+      <li key={i.link}>
         {/* TODO: current page */}
         <Link
-          as={GatsbyLink}
           to={i.link}
-          padding="2"
-          opacity="0.75"
-          _hover={{ opacity: 1 }}>
+          sx={{
+            display: 'block',
+            padding: 2,
+            opacity: 0.75,
+            color: 'inherit',
+            transition: 'opacity 0.3s',
+            ':hover, &[aria-current=page]': {
+              // color: 'inherit',
+              opacity: 1,
+              textDecoration: 'none'
+            }
+          }}>
           {i.text}
         </Link>
-      </ListItem>
+      </li>
     ))}
-  </List>
+  </ul>
 )
 
 const ColorModeToggler = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
+  const [colorMode, setColorMode] = useColorMode()
 
   return (
     <IconButton
-      aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
       variant="ghost"
-      size="sm"
-      color="current"
-      marginLeft="2"
-      onClick={toggleColorMode}
-      icon={colorMode === 'light' ? 'moon' : 'sun'}
+      icon={colorMode === 'default' ? 'moon' : 'sun'}
+      aria-label={`Switch to ${
+        colorMode === 'default' ? 'dark' : 'light'
+      } mode`}
+      onClick={e => setColorMode(colorMode === 'default' ? 'dark' : 'default')}
     />
   )
 }
 
-export default props => {
+export default () => {
   const pinned = useNavPinned()
   const { siteMetadata } = useStaticQuery(query)
 
   return (
-    <Box as="header" position="relative">
-      <Box
-        as="nav"
-        position="fixed"
-        zIndex="sticky"
-        width="full"
-        borderBottomWidth="1px"
-        background="inheiht"
-        transform={`translateY(${pinned ? '0%' : '-100%'})`}
-        transition="transform 0.3s linear"
-        willChange="transform">
-        <Container display="flex" alignItems="center" height="nav">
+    <header
+      sx={{
+        position: 'relative',
+        ':after': { display: 'block', content: '""', height: 'nav' }
+      }}>
+      <nav
+        sx={{
+          position: 'fixed',
+          zIndex: 'higher',
+          width: '100%',
+          borderBottom: 'default',
+          borderColor: 'light',
+          backgroundColor: 'background',
+          transform: `translateY(${pinned ? '0%' : '-100%'})`,
+          transition: 'transform 0.3s linear',
+          willChange: 'transform'
+        }}>
+        <Container
+          sx={{ display: 'flex', alignItems: 'center', height: 'nav' }}>
           <Brand name={siteMetadata.name} />
           <Menu items={siteMetadata.navigation} />
           {/* <Search /> */}
           <ColorModeToggler />
         </Container>
-      </Box>
-      <Box height="nav" aria-hidden="true" />
-    </Box>
+      </nav>
+    </header>
   )
 }
 

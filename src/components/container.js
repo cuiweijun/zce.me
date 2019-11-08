@@ -1,10 +1,13 @@
-import React from 'react'
-import { Box } from '@chakra-ui/core'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 
-const Container = props => (
-  <Box maxWidth="container" marginX="auto" paddingX={4} {...props} />
+export default props => (
+  <div
+    {...props}
+    sx={{
+      marginX: 'auto',
+      paddingX: 3,
+      maxWidth: t => t.sizes.container
+    }}
+  />
 )
-
-Container.propTypes = Box.propTypes
-
-export default Container

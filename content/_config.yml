@@ -50,10 +50,10 @@ socials:
     link: https://img.zce.me/wechat.jpg
   - name: QQ
     link: ~
-  - name: Youku
-    link: https://i.youku.com/zcezce
   - name: Bilibili
     link: https://space.bilibili.com/210242179
+  - name: Youku
+    link: https://i.youku.com/zcezce
 
 links:
   - text: Story

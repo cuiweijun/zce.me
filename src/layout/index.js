@@ -1,16 +1,17 @@
-import React from 'react'
-import { Box } from '@chakra-ui/core'
+/** @jsx jsx */
+import { Fragment } from 'react'
+import { jsx } from 'theme-ui'
 
 import Header from './header'
 import Footer from './footer'
 
 export default props => {
   return (
-    <>
+    <Fragment>
       <Header />
-      <Box as="main" position="relative" minHeight="100vh" {...props} />
+      <main sx={{ position: 'relative' }} {...props} />
       <Footer />
-    </>
+    </Fragment>
   )
 }
 

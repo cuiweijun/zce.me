@@ -1375,18 +1375,10 @@
   resolved "https://registry.npm.taobao.org/@sindresorhus/is/download/@sindresorhus/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha1-mgb08TfuhNffBGDB/bETX/psUP0=
 
-"@styled-system/css@^5.0.16", "@styled-system/css@^5.0.23":
+"@styled-system/css@^5.0.16":
   version "5.0.23"
   resolved "https://registry.npm.taobao.org/@styled-system/css/download/@styled-system/css-5.0.23.tgz#35ad4f34fe0fec9b011a5468ac0821f12f5e4b1a"
   integrity sha1-Na1PNP4P7JsBGlRorAgh8S9eSxo=
-
-"@theme-ui/color@0.2.44":
-  version "0.2.44"
-  resolved "https://registry.npm.taobao.org/@theme-ui/color/download/@theme-ui/color-0.2.44.tgz#717f87c8063de3078469b535b0b23c0588f7d254"
-  integrity sha1-cX+HyAY94weEabU1sLI8BYj30lQ=
-  dependencies:
-    "@styled-system/css" "^5.0.23"
-    polished "^3.4.1"
 
 "@types/configstore@^2.1.1":
   version "2.1.1"
@@ -10261,7 +10253,7 @@ pnp-webpack-plugin@^1.5.0:
   dependencies:
     ts-pnp "^1.1.2"
 
-polished@^3.4.1:
+polished@^3.4.2:
   version "3.4.2"
   resolved "https://registry.npm.taobao.org/polished/download/polished-3.4.2.tgz#b4780dad81d64df55615fbfc77acb52fd17d88cd"
   integrity sha1-tHgNrYHWTfVWFfv8d6y1L9F9iM0=

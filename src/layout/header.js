@@ -99,7 +99,7 @@ const Menu = ({ items }) => (
       WebkitOverflowScrolling: 'touch',
       MsOverflowScrolling: 'touch',
       MsOverflowStyle: 'none',
-      ':-webkit-scrollbar': {
+      '::-webkit-scrollbar': {
         display: 'none'
       }
     }}>

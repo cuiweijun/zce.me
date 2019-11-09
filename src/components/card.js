@@ -18,7 +18,7 @@ export default ({ post, rel }) => (
       marginX: 3,
       marginBottom: 6,
       borderRadius: 'medium',
-      backgroundColor: 'light',
+      backgroundColor: 'background',
       boxShadow: 'light',
       transition: 'box-shadow 0.3s, transform 0.3s, flex 0.3s',
       willChange: 'transform',
@@ -63,24 +63,27 @@ export default ({ post, rel }) => (
       />
     )}
 
-    <div sx={{ display: 'flex', flexGrow: 1, flexDirection: 'column' }}>
-      <header sx={{ padding: 3 }}>
-        <span sx={{ color: 'muted', textTransform: 'uppercase' }}>
-          {post.fields.categories[0].name}
-        </span>
-        <h3
-          sx={{
-            overflow: 'hidden',
-            margin: 0,
-            fontSize: 'xl',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap'
-          }}>
-          {post.fields.title}
-        </h3>
-      </header>
+    <div
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1,
+        padding: 3
+      }}>
+      <span sx={{ color: 'muted', textTransform: 'uppercase' }}>
+        {post.fields.categories[0].name}
+      </span>
+      <h3
+        sx={{
+          overflow: 'hidden',
+          fontSize: 'xl',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap'
+        }}>
+        {post.fields.title}
+      </h3>
 
-      <div sx={{ flexGrow: 1, paddingX: 3 }}>
+      <div sx={{ flexGrow: 1, marginBottom: 3 }}>
         <p sx={{ margin: 0 }}>{post.excerpt}</p>
       </div>
 
@@ -88,8 +91,7 @@ export default ({ post, rel }) => (
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: 3
+          justifyContent: 'space-between'
         }}>
         <ul
           sx={{

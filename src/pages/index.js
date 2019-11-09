@@ -2,13 +2,21 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Container, Link, Button, Image, Card, Hero } from '../components'
+import {
+  Wrapper,
+  Container,
+  Link,
+  Button,
+  Image,
+  Card,
+  Hero
+} from '../components'
 
 const Section = props => (
   <section
     {...props}
     sx={{
-      paddingY: 9,
+      paddingY: 8,
       backgroundColor: 'light',
       ':nth-child(2n)': {
         backgroundColor: 'background'
@@ -99,14 +107,13 @@ const Feed = ({ posts, title, subtitle, link }) => (
 )
 
 export default ({ data }) => (
-  <div>
+  <Wrapper>
     <Hero
       title={data.siteMetadata.name}
       subtitle={data.siteMetadata.description}
       cover={data.siteMetadata.cover}
-      sx={{
-        paddingY: '15vw'
-      }}
+      after={false}
+      sx={{ paddingY: '15vw' }}
     />
 
     {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
@@ -140,11 +147,16 @@ export default ({ data }) => (
         <h2 sx={{ fontSize: 9, opacity: 0.5 }}>{data.about.fields.title}</h2>
         <div
           dangerouslySetInnerHTML={{ __html: data.about.html }}
-          sx={{ color: 'muted' }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            color: 'muted'
+          }}
         />
       </Container>
     </Section>
-  </div>
+  </Wrapper>
 )
 
 export const query = graphql`

@@ -9,3 +9,5 @@ export { default as Hero } from './hero'
 
 // business components
 export { default as Card } from './card'
+
+export { Fragment as Wrapper } from 'react'

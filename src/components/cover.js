@@ -3,7 +3,7 @@ import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Image from './image'
 
-export default ({ image, ...props }) => (
+export default ({ image, before = true, after = true, ...props }) => (
   <Image
     {...props}
     file={image}
@@ -13,9 +13,9 @@ export default ({ image, ...props }) => (
       zIndex: 'low',
       width: '100%',
       minHeight: '35rem',
-      // maxHeight: '85vh',
+      // maxHeight: '65vw',
       backgroundColor: 'dark',
-      ':before,:after': {
+      ':before,:after': (before || after) && {
         position: 'absolute',
         top: 0,
         right: 0,
@@ -25,11 +25,11 @@ export default ({ image, ...props }) => (
         content: '""',
         transition: 'opacity 0.3s'
       },
-      ':before': {
+      ':before': before && {
         background: `0/4px url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2' stroke='%23000' stroke-linecap='square' stroke-width='0.5'%3E%3Cline x1='0' y1='1' x2='1' y2='0'/%3E%3Cline x1='1' y1='2' x2='2' y2='1'/%3E%3C/svg%3E")`,
         opacity: 0.6
       },
-      ':after': {
+      ':after': after && {
         background: t =>
           `linear-gradient(transparent 30%,${t.colors.background})`
       }

@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { darken } from '../utils/color'
 
 export default ({ variant = 'default', size = 'md', ...props }) => {
   const sizes = {

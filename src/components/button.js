@@ -27,7 +27,7 @@ export default ({
       fontSize: 'md'
     },
     lg: {
-      paddingX: 4,
+      paddingX: 3,
       paddingY: 2,
       borderRadius: 'medium',
       fontSize: 'lg'
@@ -42,7 +42,7 @@ export default ({
     ghost: {
       borderColor: 'transparent',
       backgroundColor: 'transparent',
-      color: readable('background', 'white', 'dark')
+      color: color
     },
     pill: {
       borderRadius: 'pill'

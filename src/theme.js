@@ -2,7 +2,7 @@
  * Site theme
  */
 
-import { darken, lighten } from './utils/color'
+import { alpha, darken, lighten } from './utils/color'
 
 const colors = {
   transparent: 'transparent',
@@ -14,7 +14,7 @@ const colors = {
   accent: '#ff6b6b',
   highlight: '#fcc419',
   muted: '#868e96',
-  light: '#fff',
+  light: '#f1f3f5',
   gray: '#e9ecef',
   dark: '#495057',
 
@@ -133,7 +133,7 @@ const space = {
   5: '2rem',
   6: '2.5rem',
   7: '3rem',
-  8: '4rem',
+  8: '5rem',
   9: '7rem'
 }
 
@@ -212,6 +212,9 @@ const styles = {
     borderWidth: 0,
     borderStyle: 'default',
     borderColor: 'border'
+  },
+  '::selection': {
+    backgroundColor: alpha('primary', 0.5)
   },
   body: {
     fontSize: 'body',

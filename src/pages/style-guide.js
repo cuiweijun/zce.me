@@ -73,6 +73,23 @@ export default props => (
           </Button>
         </div>
         <div>
+          <Button color="dark" variant="base" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="dark" variant="outline" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="dark" variant="ghost" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="dark" variant="pill" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="dark" variant="elevated" sx={{ m: 2 }}>
+            Hello
+          </Button>
+        </div>
+        <div>
           <Button color="muted" variant="base" sx={{ m: 2 }}>
             Hello
           </Button>

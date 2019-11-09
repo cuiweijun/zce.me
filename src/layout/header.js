@@ -85,11 +85,23 @@ const Menu = ({ items }) => (
   <ul
     sx={{
       display: 'flex',
+      overflowX: 'auto',
       flexGrow: 1,
       margin: 0,
-      marginX: 3,
+      marginX: [1, 3],
       paddingX: 1,
-      listStyle: 'none'
+      listStyle: 'none',
+      whiteSpace: 'nowrap',
+      maskImage: [
+        'linear-gradient(to right, rgba(0, 0, 0, 0), #000 1em, #000 93%, rgba(0, 0, 0, 0))',
+        'none'
+      ],
+      WebkitOverflowScrolling: 'touch',
+      MsOverflowScrolling: 'touch',
+      MsOverflowStyle: 'none',
+      ':-webkit-scrollbar': {
+        display: 'none'
+      }
     }}>
     {items.map(i => (
       <li key={i.link}>
@@ -149,7 +161,7 @@ export default () => {
           width: '100%',
           borderBottom: 'default',
           borderColor: 'border',
-          backgroundColor: 'light',
+          backgroundColor: 'background',
           transform: `translateY(${pinned ? '0%' : '-100%'})`,
           transition: 'transform 0.3s linear',
           willChange: 'transform'

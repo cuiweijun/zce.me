@@ -6,6 +6,7 @@ export { default as IconButton } from './icon-button'
 export { default as Input } from './input'
 export { default as Image } from './image'
 export { default as Meta } from './meta'
+export { default as Hero } from './hero'
 
 // business components
 export { default as Card } from './card'

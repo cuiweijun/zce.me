@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Container, Link, Button, Image, Card } from '../components'
+import { Container, Link, Button, Image, Card, Hero } from '../components'
 
 const Section = props => (
   <section
@@ -17,7 +17,7 @@ const Section = props => (
   />
 )
 
-const FeaturedSection = ({ post }) => (
+const Featured = ({ post }) => (
   <Section>
     <Container
       as="article"
@@ -70,7 +70,7 @@ const FeaturedSection = ({ post }) => (
   </Section>
 )
 
-const FeedSection = ({ posts, title, subtitle, link }) => (
+const Feed = ({ posts, title, subtitle, link }) => (
   <Section>
     <Container>
       <header sx={{ marginBottom: 5, textAlign: 'center' }}>
@@ -99,31 +99,34 @@ const FeedSection = ({ posts, title, subtitle, link }) => (
 
 export default ({ data }) => (
   <div>
-    {data.featured.nodes[0] && (
-      <FeaturedSection post={data.featured.nodes[0]} />
-    )}
+    <Hero
+      title={data.siteMetadata.name}
+      subtitle={data.siteMetadata.description}
+      cover={data.siteMetadata.cover}
+      sx={{
+        paddingY: '15vw'
+      }}
+    />
 
-    <FeedSection
+    {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
+
+    <Feed
       posts={data.latestPosts.nodes}
       title="Latest Posts"
       subtitle="Keep the dots in your life."
       link="/blog/"
     />
 
-    {data.featured.nodes[1] && (
-      <FeaturedSection post={data.featured.nodes[1]} />
-    )}
+    {data.featured.nodes[1] && <Featured post={data.featured.nodes[1]} />}
 
-    <FeedSection
+    <Feed
       posts={data.latestCourses.nodes}
       title="Latest Courses"
       subtitle="Continuous learning is a belief."
       link="/courses/"
     />
 
-    {data.featured.nodes[2] && (
-      <FeaturedSection post={data.featured.nodes[2]} />
-    )}
+    {data.featured.nodes[2] && <Featured post={data.featured.nodes[2]} />}
 
     {/* <Section>
       <div>
@@ -145,6 +148,16 @@ export default ({ data }) => (
 
 export const query = graphql`
   query HomePage {
+    siteMetadata: config {
+      name
+      title
+      slogan
+      description
+      cover {
+        ...CoverImage
+      }
+    }
+
     featured: allMarkdownRemark(
       filter: {
         fields: {

@@ -2,14 +2,12 @@
 import { Fragment } from 'react'
 import { jsx } from 'theme-ui'
 
-import Cover from './cover'
 import Header from './header'
 import Footer from './footer'
 
 export default props => {
   return (
     <Fragment>
-      <Cover />
       <Header />
       {/* <main {...props} sx={{ position: 'relative' }} /> */}
       <main sx={{ position: 'relative' }} children={props.children} />

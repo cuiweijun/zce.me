@@ -134,7 +134,7 @@ const space = {
   6: '2.5rem',
   7: '3rem',
   8: '4rem',
-  9: '6.5rem'
+  9: '7rem'
 }
 
 const sizes = {

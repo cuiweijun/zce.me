@@ -5,16 +5,16 @@ import { jsx } from 'theme-ui'
 import Header from './header'
 import Footer from './footer'
 
-export default props => {
-  return (
-    <Fragment>
-      <Header />
-      {/* <main {...props} sx={{ position: 'relative' }} /> */}
-      <main sx={{ position: 'relative' }} children={props.children} />
-      <Footer />
-    </Fragment>
-  )
-}
+// TODO: transition
+// https://scotch.io/tutorials/animated-page-transitions-in-gatsby-websites
+export default props => (
+  <Fragment>
+    <Header />
+    {/* <main {...props} sx={{ position: 'relative' }} /> */}
+    <main sx={{ position: 'relative' }} children={props.children} />
+    <Footer />
+  </Fragment>
+)
 
 // const SkipLink = props => (
 //   <a

@@ -12,6 +12,6 @@ cover: cover.jpg
 微博：[@汪磊同学](https://weibo.com/zceme)
 GitHub：[@zce](https://github.com/zce)
 
-MAKE IT BETTER!
+<!-- MAKE IT BETTER! -->
 
 > p.s. 好多人问我「zce」是什么？我就是随意拼写的，你可以记作「找茬儿」

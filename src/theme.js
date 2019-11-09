@@ -2,7 +2,7 @@
  * Site theme
  */
 
-import { alpha, darken, lighten } from './utils/color'
+import { alpha, darken, lighten, readable } from './utils/color'
 
 const colors = {
   transparent: 'transparent',
@@ -69,24 +69,25 @@ const fonts = {
 fonts.body = fonts.sans
 fonts.heading = null
 
-const fontSizes = {
-  0: '0.75rem',
-  1: '0.875rem',
-  2: '1rem',
-  3: '1.125rem',
-  4: '1.25rem',
-  5: '1.5rem',
-  6: '1.875rem',
-  7: '2.25rem',
-  8: '3rem',
-  9: '4.5rem',
-  xs: '0.75rem',
-  sm: '0.875rem',
-  md: '1rem',
-  lg: '1.25rem',
-  xl: '1.5rem'
-}
-fontSizes.body = fontSizes.md
+const fontSizes = [
+  '0.75rem',
+  '0.875rem',
+  '1rem',
+  '1.125rem',
+  '1.25rem',
+  '1.5rem',
+  '1.875rem',
+  '2.25rem',
+  '3rem',
+  '4.5rem'
+]
+
+fontSizes.xs = fontSizes[0]
+fontSizes.sm = fontSizes[1]
+fontSizes.md = fontSizes[2]
+fontSizes.lg = fontSizes[3]
+fontSizes.xl = fontSizes[4]
+fontSizes.body = fontSizes[2]
 
 const fontWeights = {
   light: 300,
@@ -124,25 +125,25 @@ const mediaQueries = {
   xlarge: `@media screen and (min-width: ${breakpoints[3]})`
 }
 
-const space = {
-  0: 0,
-  1: '0.25rem',
-  2: '0.5rem',
-  3: '1rem',
-  4: '1.5rem',
-  5: '2rem',
-  6: '2.5rem',
-  7: '3rem',
-  8: '5rem',
-  9: '7rem'
-}
+const space = [
+  0,
+  '0.25rem',
+  '0.5rem',
+  '1rem',
+  '1.5rem',
+  '2rem',
+  '2.5rem',
+  '3rem',
+  '5rem',
+  '7rem'
+]
 
 const sizes = {
-  container: [640, 768, 1024, 1280],
+  container: '75rem',
   nav: '3rem',
   logo: '1.5625rem',
   icon: '1.5rem',
-  card: '20rem'
+  card: '18rem'
 }
 
 const borders = {
@@ -214,7 +215,8 @@ const styles = {
     borderColor: 'border'
   },
   '::selection': {
-    backgroundColor: alpha('primary', 0.5)
+    backgroundColor: alpha('primary', 0.6),
+    color: readable('primary')
   },
   body: {
     fontSize: 'body',
@@ -317,15 +319,7 @@ const styles = {
   }
 }
 
-const variants = {
-  inputs: {
-    base: {},
-    default: {
-      variant: 'variants.inputs.base',
-      borderColor: 'gray'
-    }
-  }
-}
+const variants = {}
 
 export default {
   useCustomProperties: true,

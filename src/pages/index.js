@@ -12,13 +12,13 @@ import {
   Hero
 } from '../components'
 
-const Section = props => (
+const Section = ({ padding = 8, ...props }) => (
   <section
     {...props}
     sx={{
-      paddingY: 8,
+      paddingY: padding,
       backgroundColor: 'light',
-      ':nth-child(2n)': {
+      ':nth-of-type(2n)': {
         backgroundColor: 'background'
       }
     }}
@@ -136,12 +136,6 @@ export default ({ data }) => (
 
     {data.featured.nodes[2] && <Featured post={data.featured.nodes[2]} />}
 
-    {/* <Section>
-      <div>
-        <p>I'm Lei Wang, a technical poet of China.</p>
-      </div>
-    </Section> */}
-
     <Section>
       <Container sx={{ textAlign: 'center' }}>
         <h2 sx={{ fontSize: 9, opacity: 0.5 }}>{data.about.fields.title}</h2>
@@ -154,6 +148,19 @@ export default ({ data }) => (
             color: 'muted'
           }}
         />
+      </Container>
+    </Section>
+    <Section padding={6}>
+      <Container>
+        <p
+          sx={{
+            color: 'muted',
+            fontFamily: 'serif',
+            fontSize: 'xl',
+            textAlign: 'center'
+          }}>
+          {data.siteMetadata.slogan}
+        </p>
       </Container>
     </Section>
   </Wrapper>

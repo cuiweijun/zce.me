@@ -14,12 +14,13 @@ const colors = {
   accent: '#ff6b6b',
   highlight: '#fcc419',
   muted: '#868e96',
-  light: '#e9ecef',
-  gray: '#ced4da',
-  dark: '#343a40',
+  light: '#fff',
+  gray: '#e9ecef',
+  dark: '#495057',
 
   text: '#495057',
   background: '#f4f8fb',
+  border: '#e9ecef',
 
   // Color Modes
   modes: {
@@ -28,13 +29,14 @@ const colors = {
       secondary: '#3bc9db',
       accent: '#ff8787',
       highlight: '#ffd43b',
-      muted: '#868e96',
-      light: 'rgba(255, 255, 255, 0.1)',
-      gray: '#444d56',
-      dark: '#212529',
+      muted: '#adb5bd',
+      light: '#343a40',
+      gray: '#292d32',
+      dark: '#16181b',
 
       text: '#fff',
-      background: '#212529' // '#0a0c0d'
+      background: '#212529', // '#0a0c0d',
+      border: '#262b2f'
     }
   }
 }
@@ -77,7 +79,7 @@ const fontSizes = {
   6: '1.875rem',
   7: '2.25rem',
   8: '3rem',
-  9: '4rem',
+  9: '4.5rem',
   xs: '0.75rem',
   sm: '0.875rem',
   md: '1rem',
@@ -132,7 +134,7 @@ const space = {
   6: '2.5rem',
   7: '3rem',
   8: '4rem',
-  9: '6rem'
+  9: '6.5rem'
 }
 
 const sizes = {
@@ -253,8 +255,8 @@ const styles = {
     fontSize: 2
   },
   p: {
-    height: 1,
-    marginY: 3
+    margin: 0,
+    marginBottom: 3
   },
   pre: {
     fontFamily: 'monospace',

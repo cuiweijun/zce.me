@@ -149,8 +149,8 @@ export default () => {
           zIndex: 'higher',
           width: '100%',
           borderBottom: 'default',
-          borderColor: 'light',
-          backgroundColor: 'background',
+          borderColor: 'border',
+          backgroundColor: 'light',
           transform: `translateY(${pinned ? '0%' : '-100%'})`,
           transition: 'transform 0.3s linear',
           willChange: 'transform'

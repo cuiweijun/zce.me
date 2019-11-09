@@ -18,7 +18,7 @@ export default ({ post, rel }) => (
       marginX: 3,
       marginBottom: 6,
       borderRadius: 'medium',
-      backgroundColor: 'background',
+      backgroundColor: 'light',
       boxShadow: 'light',
       transition: 'box-shadow 0.3s, transform 0.3s, flex 0.3s',
       willChange: 'transform',
@@ -47,7 +47,7 @@ export default ({ post, rel }) => (
         alt={post.fields.title}
         sx={{
           maxHeight: '25rem',
-          backgroundColor: 'light',
+          backgroundColor: 'dark',
           objectFit: 'cover'
         }}
       />

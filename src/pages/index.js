@@ -4,29 +4,68 @@ import { graphql } from 'gatsby'
 
 import { Container, Link, Button, Image, Card } from '../components'
 
-const Section = props => <section {...props} sx={{ paddingY: 9 }} />
+const Section = props => (
+  <section
+    {...props}
+    sx={{
+      paddingY: 9,
+      backgroundColor: 'light',
+      ':nth-child(2n)': {
+        backgroundColor: 'background'
+      }
+    }}
+  />
+)
 
 const FeaturedSection = ({ post }) => (
   <Section>
-    <Container>
-      <article>
-        <Image
-          as="figure"
-          alt={post.fields.title}
-          title={post.fields.title}
-          file={post.fields.cover}
+    <Container
+      as="article"
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexWrap: 'wrap'
+      }}>
+      <Image
+        as="figure"
+        file={post.fields.cover}
+        alt={post.fields.title}
+        title={post.fields.title}
+        sx={{
+          flexBasis: '22rem',
+          order: [0, 0, 1],
+          margin: 0,
+          marginBottom: [4, 4, 0],
+          marginLeft: [0, 0, 4],
+          border: '1.5rem solid',
+          borderColor: 'light',
+          boxShadow: 'medium'
+        }}
+      />
+      <div
+        sx={{
+          flexGrow: 1,
+          flexBasis: '23rem',
+          padding: 4
+        }}>
+        <h2 sx={{ marginBottom: 4, fontSize: 7 }}>{post.fields.title}</h2>
+        <div
+          dangerouslySetInnerHTML={{ __html: post.excerpt }}
+          sx={{
+            marginBottom: 4,
+            maskImage:
+              'linear-gradient(to top, rgba(0, 0, 0, 0), #000 10%, #000)'
+          }}
         />
-        <div>
-          <h2>{post.fields.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-          <Button
-            as={Link}
-            to={post.fields.permalink}
-            title={post.fields.title}>
-            Continue reading <span aria-hidden="true">&rarr;</span>
-          </Button>
-        </div>
-      </article>
+        <Button
+          as={Link}
+          to={post.fields.permalink}
+          variant="ghost"
+          title={post.fields.title}>
+          Continue reading <span aria-hidden="true">&rarr;</span>
+        </Button>
+      </div>
     </Container>
   </Section>
 )
@@ -50,7 +89,7 @@ const FeedSection = ({ posts, title, subtitle, link }) => (
         ))}
       </div>
       <footer sx={{ textAlign: 'center' }}>
-        <Button as={Link} size="lg" to={link} title={title}>
+        <Button as={Link} to={link} title={title} size="lg" variant="outline">
           Explore more <span aria-hidden="true">&rarr;</span>
         </Button>
       </footer>
@@ -82,20 +121,23 @@ export default ({ data }) => (
       link="/courses/"
     />
 
-    {/* {data.featured.nodes[2] && (
+    {data.featured.nodes[2] && (
       <FeaturedSection post={data.featured.nodes[2]} />
     )}
 
-    <Section>
+    {/* <Section>
       <div>
         <p>I'm Lei Wang, a technical poet of China.</p>
       </div>
     </Section> */}
 
     <Section>
-      <Container>
-        <h2>{data.about.fields.title}</h2>
-        <div dangerouslySetInnerHTML={{ __html: data.about.html }} />
+      <Container sx={{ textAlign: 'center' }}>
+        <h2 sx={{ fontSize: 9, opacity: 0.5 }}>{data.about.fields.title}</h2>
+        <div
+          dangerouslySetInnerHTML={{ __html: data.about.html }}
+          sx={{ color: 'muted' }}
+        />
       </Container>
     </Section>
   </div>
@@ -112,7 +154,7 @@ export const query = graphql`
         }
       }
       sort: { fields: fields___date, order: DESC }
-      limit: 2
+      limit: 3
     ) {
       nodes {
         fields {

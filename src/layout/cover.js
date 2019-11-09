@@ -32,7 +32,7 @@ export default props => {
         zIndex: 'low',
         width: '100%',
         minHeight: '35rem',
-        maxHeight: '85vh',
+        // maxHeight: '85vh',
         backgroundColor: 'dark',
         ':before,:after': {
           position: 'absolute',

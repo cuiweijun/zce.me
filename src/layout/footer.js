@@ -218,7 +218,7 @@ const Copyright = ({ name, url }) => (
     sx={{
       display: 'flex',
       borderTop: 'default',
-      borderColor: 'light',
+      borderColor: 'border',
       paddingTop: 3
     }}>
     <span>
@@ -272,9 +272,9 @@ export default () => {
     <footer
       sx={{
         borderTop: 'default',
-        borderColor: 'light',
+        borderColor: 'border',
         paddingY: 7,
-        backgroundColor: 'background',
+        backgroundColor: 'light',
         color: 'muted',
         fontSize: 'sm',
         textAlign: ['center', 'center', 'left']

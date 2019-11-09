@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment } from 'react'
+import { Fragment, cloneElement } from 'react'
 import { jsx } from 'theme-ui'
 
 import Header from './header'
@@ -7,14 +7,25 @@ import Footer from './footer'
 
 // TODO: transition
 // https://scotch.io/tutorials/animated-page-transitions-in-gatsby-websites
-export default props => (
-  <Fragment>
-    <Header />
-    {/* <main {...props} sx={{ position: 'relative' }} /> */}
-    <main sx={{ position: 'relative' }} children={props.children} />
-    <Footer />
-  </Fragment>
-)
+
+// Layout props
+// https://github.com/gatsbyjs/gatsby/issues/2112
+// https://github.com/lillylabs/lt-cph-window/blob/master/gatsby-browser.js
+export default props => {
+  const setTitle = t => {
+    console.log(t)
+  }
+  return (
+    <Fragment>
+      <Header />
+      {/* <main {...props} sx={{ position: 'relative' }} /> */}
+      <main sx={{ position: 'relative' }}>
+        {cloneElement(props.children, { setTitle })}
+      </main>
+      <Footer />
+    </Fragment>
+  )
+}
 
 // const SkipLink = props => (
 //   <a

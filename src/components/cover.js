@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
+import { graphql } from 'gatsby'
 import Image from './image'
 
 export default ({ image, ...props }) => (

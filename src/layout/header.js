@@ -2,7 +2,7 @@
 import { jsx, useColorMode } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { Container, Link, IconButton } from '../components'
+import { Container, Link, Button } from '../components'
 import { useNavPinned } from '../utils/hooks'
 
 const query = graphql`
@@ -35,8 +35,7 @@ const Brand = ({ name }) => (
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 472 450"
       sx={{
-        width: 'logo',
-        height: 'logo',
+        size: 'logo',
         marginRight: 2
       }}>
       <defs>
@@ -120,7 +119,7 @@ const ColorModeToggler = () => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (
-    <IconButton
+    <Button
       variant="ghost"
       icon={colorMode === 'default' ? 'moon' : 'sun'}
       aria-label={`Switch to ${

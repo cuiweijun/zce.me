@@ -3,7 +3,7 @@ import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
 
-import { Container, Link, IconButton, Input } from '../components'
+import { Container, Link, Button, Input } from '../components'
 
 const query = graphql`
   query FooterComponent {
@@ -77,16 +77,18 @@ const Follow = ({ socials }) => (
           borderBottomRightRadius: 0
         }}
       />
-      <IconButton
+      <Button
+        color="border"
+        variant="outline"
         icon="send"
         id="btn_send"
         aria-label="Subscribe"
         sx={{
           paddingX: 3,
-          color: 'currentColor',
           borderLeft: 'none',
           borderTopLeftRadius: 0,
-          borderBottomLeftRadius: 0
+          borderBottomLeftRadius: 0,
+          color: 'currentColor'
         }}
       />
     </form>
@@ -102,30 +104,22 @@ const Follow = ({ socials }) => (
       }}>
       {socials.map(i => (
         <li key={i.name}>
-          <IconButton
+          <Button
             to={i.link || '/'}
             title={i.name}
             target="_blank"
             rel="noopener noreferrer"
+            color="gray"
+            variant="outline"
             icon={i.name.toLowerCase()}
             sx={{
-              color: 'currentColor',
               marginX: 1,
-              marginBottom: 2
+              marginBottom: 2,
+              color: 'currentColor'
             }}
           />
         </li>
       ))}
-      {/* <ListItem>
-        <IconButton
-          as="a"
-          to={`https://feedly.com/i/subscription/feed/http://wedn.net:2368/rss/`}
-          title={i.name}
-          target="_blank"
-          rel="noopener noreferrer"
-          icon={i.name.toLowerCase()}
-        />
-      </ListItem> */}
     </ul>
   </Widget>
 )

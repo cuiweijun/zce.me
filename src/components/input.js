@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { darken } from '@theme-ui/color'
+import { darken } from '../utils/color'
 
 export default ({ variant = 'default', size = 'md', ...props }) => {
   const sizes = {
@@ -30,19 +30,19 @@ export default ({ variant = 'default', size = 'md', ...props }) => {
     <input
       {...props}
       sx={{
-        // appearance: 'none',
+        appearance: 'none',
         display: 'inline-block',
         margin: 0,
-        // paddingX: 3,
-        // paddingY: 2,
+        paddingX: 3,
+        paddingY: 2,
         border: 'default',
-        borderColor: darken('background', 0.16),
-        // borderRadius: 'medium',
-        backgroundColor: 'background',
+        borderColor: 'border',
+        borderRadius: 'medium',
+        backgroundColor: 'transparent',
         color: 'text',
         lineHeight: 'inherit',
         textDecoration: 'none',
-        // fontSize: 'inherit',
+        fontSize: 'inherit',
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',
         ':focus': {
           boxShadow: 'outline',

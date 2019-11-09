@@ -1,12 +1,16 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
+
+import Icon from './icon'
 import { darken, readable } from '../utils/color'
 
 export default ({
   as: Tag = 'button',
   variant = 'base',
   size = 'md',
-  color = 'light',
+  color = 'primary',
+  icon = null,
+  children,
   ...props
 }) => {
   const sizes = {
@@ -51,6 +55,22 @@ export default ({
 
   const mixins = { ...sizes[size], ...variants[variant] }
 
+  if (icon) {
+    const iconSizes = { sm: 16, md: 18, lg: 22 }
+    icon = (
+      <Icon
+        name={icon}
+        size={iconSizes[size]}
+        sx={children ? { marginRight: 1 } : null}
+      />
+    )
+
+    if (!children) {
+      mixins.paddingX = mixins.paddingY
+      mixins.lineHeight = 'solid'
+    }
+  }
+
   return (
     <Tag
       {...props}
@@ -71,6 +91,7 @@ export default ({
         fontSize: 'inherit',
         fontWeight: 'bold',
         cursor: 'pointer',
+        userSelect: 'none',
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',
         ':hover': {
           borderColor: darken(color, 0.05), // 'border',
@@ -94,7 +115,9 @@ export default ({
         // pass variant prop to sx
         variant: `variants.buttons.${variant}`,
         ...mixins
-      }}
-    />
+      }}>
+      {icon}
+      {children}
+    </Tag>
   )
 }

@@ -1,22 +1,21 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
 
-import { Container, Link, Button, Card } from '../components'
+import { Container, Link, Button, Image, Card } from '../components'
+
+const Section = props => <section {...props} sx={{ paddingY: 9 }} />
 
 const FeaturedSection = ({ post }) => (
-  <section>
-    <div>
+  <Section>
+    <Container>
       <article>
-        {post.fields.cover && (
-          <Image
-            Tag="figure"
-            alt={post.fields.title}
-            title={post.fields.title}
-            fluid={post.fields.cover.childImageSharp.fluid}
-          />
-        )}
+        <Image
+          as="figure"
+          alt={post.fields.title}
+          title={post.fields.title}
+          file={post.fields.cover}
+        />
         <div>
           <h2>{post.fields.title}</h2>
           <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
@@ -28,12 +27,12 @@ const FeaturedSection = ({ post }) => (
           </Button>
         </div>
       </article>
-    </div>
-  </section>
+    </Container>
+  </Section>
 )
 
 const FeedSection = ({ posts, title, subtitle, link }) => (
-  <section sx={{ paddingY: 9 }}>
+  <Section>
     <Container>
       <header sx={{ marginBottom: 5, textAlign: 'center' }}>
         <h2 sx={{ margin: 0, marginBottom: 3, fontSize: 7 }}>{title}</h2>
@@ -56,7 +55,7 @@ const FeedSection = ({ posts, title, subtitle, link }) => (
         </Button>
       </footer>
     </Container>
-  </section>
+  </Section>
 )
 
 export default ({ data }) => (
@@ -87,20 +86,18 @@ export default ({ data }) => (
       <FeaturedSection post={data.featured.nodes[2]} />
     )}
 
-    <section>
+    <Section>
       <div>
         <p>I'm Lei Wang, a technical poet of China.</p>
       </div>
-    </section> */}
+    </Section> */}
 
-    <section>
-      <div>
-        <div>
-          <h2>{data.about.fields.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: data.about.html }} />
-        </div>
-      </div>
-    </section>
+    <Section>
+      <Container>
+        <h2>{data.about.fields.title}</h2>
+        <div dangerouslySetInnerHTML={{ __html: data.about.html }} />
+      </Container>
+    </Section>
   </div>
 )
 

@@ -39,28 +39,28 @@ const query = graphql`
   }
 `
 
-const globalStyles = (
-  <Global
-    styles={css({
-      '*': {
-        boxSizing: 'border-box'
-      },
-      body: {
-        margin: 0,
-        fontSize: 'body',
-        fontFamily: 'body',
-        fontWeight: 'body',
-        lineHeight: 'body',
-        transition: 'background 0.3s, color 0.3s',
-        textRendering: 'optimizeLegibility',
-        WebkitFontSmoothing: 'antialiased',
-        MozOsxFontSmoothing: 'grayscale',
-        WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-        WebkitTextSizeAdjust: '100%'
-      }
-    })}
-  />
-)
+// const globalStyles = (
+//   <Global
+//     styles={css({
+//       '*': {
+//         boxSizing: 'border-box'
+//       },
+//       body: {
+//         margin: 0,
+//         fontSize: 'body',
+//         fontFamily: 'body',
+//         fontWeight: 'body',
+//         lineHeight: 'body',
+//         transition: 'background 0.3s, color 0.3s',
+//         textRendering: 'optimizeLegibility',
+//         WebkitFontSmoothing: 'antialiased',
+//         MozOsxFontSmoothing: 'grayscale',
+//         WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
+//         WebkitTextSizeAdjust: '100%'
+//       }
+//     })}
+//   />
+// )
 
 export const Context = React.createContext()
 export const useRootContext = () => useContext(Context)
@@ -108,7 +108,8 @@ const Page = props => {
           { rel: 'canonical', href: siteMetadata.url + props.location.pathname }
         ]}
       />
-      {globalStyles}
+      {/* {globalStyles} */}
+      <Global styles={css(theme.styles)} />
       <Layout {...props} />
     </>
   )

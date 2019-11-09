@@ -65,6 +65,7 @@ const fonts = {
   ].join()
 }
 fonts.body = fonts.sans
+fonts.heading = null
 
 const fontSizes = {
   0: '0.75rem',
@@ -88,9 +89,11 @@ fontSizes.body = fontSizes.md
 const fontWeights = {
   light: 300,
   normal: 400,
-  bold: 600
+  bold: 500,
+  bolder: 600
 }
 fontWeights.body = fontWeights.normal
+fontWeights.heading = fontWeights.bold
 
 const lineHeights = {
   solid: 1,
@@ -99,6 +102,7 @@ const lineHeights = {
   loose: 1.75
 }
 lineHeights.body = lineHeights.normal
+lineHeights.heading = 1.2
 
 const letterSpacings = {
   tighter: '-0.05em',
@@ -175,6 +179,7 @@ const shadows = {
   severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.2)'
 }
 
+// TODO
 const zIndices = {
   highest: 99,
   higher: 10,
@@ -190,75 +195,98 @@ const transitions = {
   fade: 'opacity 0.15s linear'
 }
 
-// const heading = {
-//   color: 'text',
-//   fontFamily: 'heading',
-//   lineHeight: 'heading',
-//   fontWeight: 'heading'
-// }
+const heading = {
+  margin: 0,
+  marginBottom: 3,
+  color: null,
+  fontFamily: 'heading',
+  lineHeight: 'heading',
+  fontWeight: 'heading'
+}
 
 const styles = {
-  // h1: {
-  //   ...heading,
-  //   fontSize: 5
-  // },
-  // h2: {
-  //   ...heading,
-  //   fontSize: 4
-  // },
-  // h3: {
-  //   ...heading,
-  //   fontSize: 3
-  // },
-  // h4: {
-  //   ...heading,
-  //   fontSize: 2
-  // },
-  // h5: {
-  //   ...heading,
-  //   fontSize: 1
-  // },
-  // h6: {
-  //   ...heading,
-  //   fontSize: 0
-  // },
-  // hr: {
-  //   bg: 'muted',
-  //   border: 0,
-  //   height: '1px',
-  //   m: 3
-  // },
-  // pre: {
-  //   fontFamily: 'monospace',
-  //   overflowX: 'auto',
-  //   code: {
-  //     color: 'inherit'
-  //   }
-  // },
-  // code: {
-  //   fontFamily: 'monospace',
-  //   fontSize: 'inherit'
-  // },
-  // table: {
-  //   width: '100%',
-  //   borderCollapse: 'separate',
-  //   borderSpacing: 0
-  // },
-  // th: {
-  //   textAlign: 'left',
-  //   borderBottomStyle: 'solid'
-  // },
-  // td: {
-  //   textAlign: 'left',
-  //   borderBottomStyle: 'solid'
-  // },
-  // a: {
-  //   color: 'primary',
-  //   textDecoration: 'none',
-  //   ':hover': {
-  //     color: 'secondary'
-  //   }
-  // }
+  '*': {
+    boxSizing: 'border-box'
+  },
+  body: {
+    margin: 0,
+    fontSize: 'body',
+    fontFamily: 'body',
+    fontWeight: 'body',
+    lineHeight: 'body',
+    transition: 'background 0.3s, color 0.3s',
+    textRendering: 'optimizeLegibility',
+    WebkitFontSmoothing: 'antialiased',
+    MozOsxFontSmoothing: 'grayscale',
+    WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
+    WebkitTextSizeAdjust: '100%'
+  },
+  hr: {
+    height: 1,
+    marginY: 3,
+    border: 0,
+    backgroundColor: 'currentColor',
+    opacity: 0.2
+  },
+  h1: {
+    ...heading,
+    fontSize: 7
+  },
+  h2: {
+    ...heading,
+    fontSize: 6
+  },
+  h3: {
+    ...heading,
+    fontSize: 5
+  },
+  h4: {
+    ...heading,
+    fontSize: 4
+  },
+  h5: {
+    ...heading,
+    fontSize: 3
+  },
+  h6: {
+    ...heading,
+    fontSize: 2
+  },
+  p: {
+    height: 1,
+    marginY: 3
+  },
+  pre: {
+    fontFamily: 'monospace',
+    overflowX: 'auto',
+    code: {
+      color: 'inherit'
+    }
+  },
+  code: {
+    fontFamily: 'monospace',
+    fontSize: 'inherit'
+  },
+  table: {
+    width: '100%',
+    borderCollapse: 'separate',
+    borderSpacing: 0
+  },
+  th: {
+    textAlign: 'left',
+    borderBottomStyle: 'solid'
+  },
+  td: {
+    textAlign: 'left',
+    borderBottomStyle: 'solid'
+  },
+  a: {
+    color: 'primary',
+    textDecoration: 'none',
+    ':hover': {
+      color: 'secondary'
+    }
+  }
 }
 
 const variants = {
@@ -338,34 +366,6 @@ const variants = {
   }
 }
 
-const globalStyles = theme => ({
-  html: {
-    boxSizing: 'border-box'
-  },
-  '*, *::before, *::after': {
-    boxSizing: 'inherit'
-  },
-  body: {
-    margin: 0,
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    fontFamily: theme.fonts.body.join(),
-    fontSize: theme.fontSizes.body,
-    fontWeight: theme.fontWeights.body,
-    lineHeight: theme.lineHeights.body,
-    textRendering: 'optimizeLegibility',
-    WebkitFontSmoothing: 'antialiased',
-    MozOsxFontSmoothing: 'grayscale',
-    WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-    WebkitTextSizeAdjust: '100%'
-  },
-  a: {
-    color: theme.colors.primary,
-    textDecoration: 'none'
-  }
-})
-
 export default {
   useCustomProperties: true,
   useColorSchemeMediaQuery: true,
@@ -388,6 +388,5 @@ export default {
   zIndices,
   transitions,
   styles,
-  variants,
-  globalStyles
+  variants
 }

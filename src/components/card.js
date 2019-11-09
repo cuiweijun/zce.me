@@ -6,7 +6,7 @@ import Image from 'gatsby-image'
 import defaultCover from '../assets/content.svg'
 import Link from './link'
 
-// TODO: Post or Course
+// TODO: UI, Post or Course
 export default ({ post, rel }) => (
   <article
     sx={{

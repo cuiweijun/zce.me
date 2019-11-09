@@ -2,7 +2,7 @@
  * Site theme
  */
 
-import { darken } from '@theme-ui/color'
+import { darken, lighten } from './utils/color'
 
 const colors = {
   transparent: 'transparent',
@@ -20,7 +20,7 @@ const colors = {
 
   text: '#495057',
   background: '#f4f8fb',
-  border: '#e9ecef',
+  border: '#e2e8f0', // '#e9ecef',
 
   // Color Modes
   modes: {
@@ -208,10 +208,12 @@ const heading = {
 
 const styles = {
   '*': {
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    borderWidth: 0,
+    borderStyle: 'default',
+    borderColor: 'border'
   },
   body: {
-    margin: 0,
     fontSize: 'body',
     fontFamily: 'body',
     fontWeight: 'body',
@@ -256,18 +258,35 @@ const styles = {
   },
   p: {
     margin: 0,
-    marginBottom: 3
+    marginBottom: 3,
+    ':last-child': {
+      marginBottom: 0
+    }
+  },
+  ol: {},
+  ul: {},
+  blockquote: {
+    margin: 0,
+    marginBottom: 3,
+    paddingX: 3,
+    paddingY: 3,
+    borderLeftWidth: '4',
+    borderColor: lighten('primary', 0.1),
+    backgroundColor: 'light',
+    borderRadius: 'medium'
   },
   pre: {
-    fontFamily: 'monospace',
     overflowX: 'auto',
+    paddingX: 3,
+    paddingY: 3,
+    fontFamily: 'mono',
     code: {
       color: 'inherit'
     }
   },
   code: {
-    fontFamily: 'monospace',
-    fontSize: 'inherit'
+    fontFamily: 'mono',
+    fontSize: '90%'
   },
   table: {
     width: '100%',
@@ -286,79 +305,16 @@ const styles = {
     color: 'primary',
     textDecoration: 'none',
     ':hover': {
-      color: 'secondary'
+      color: darken('primary', 0.05),
+      textDecoration: 'underline'
+    },
+    ':active': {
+      color: darken('primary', 0.1)
     }
   }
 }
 
 const variants = {
-  buttons: {
-    base: {},
-    default: {
-      variant: 'variants.buttons.base',
-      borderColor: 'gray',
-      ':hover': {
-        borderColor: 'gray',
-        backgroundColor: 'light',
-        color: 'text'
-      },
-      ':active': {
-        borderColor: 'gray',
-        backgroundColor: darken('light', 0.05),
-        color: 'text'
-      }
-    },
-    primary: {
-      variant: 'variants.buttons.base',
-      border: 'none',
-      backgroundColor: 'primary',
-      color: 'background',
-      ':hover': {
-        backgroundColor: darken('primary', 0.1),
-        color: 'background'
-      },
-      ':active': {
-        backgroundColor: darken('primary', 0.15),
-        color: 'background'
-      }
-    },
-    outline: {
-      variant: 'variants.buttons.base',
-      borderColor: 'primary',
-      backgroundColor: 'transparent',
-      color: 'primary',
-      ':hover': {
-        backgroundColor: 'primary',
-        color: 'background'
-      },
-      ':active': {
-        backgroundColor: darken('primary', 0.1),
-        color: 'background'
-      }
-    },
-    ghost: {
-      variant: 'variants.buttons.outline',
-      border: 'none'
-    },
-    elevated: {
-      variant: 'variants.buttons.default',
-      boxShadow: '0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06)'
-    }
-  },
-  links: {
-    default: {
-      color: 'primary',
-      textDecoration: 'none',
-      ':hover': {
-        borderColor: 'currentColor',
-        textDecoration: 'underline'
-      }
-    },
-    inherit: {
-      variant: 'variants.links.default',
-      color: 'inherit'
-    }
-  },
   inputs: {
     base: {},
     default: {

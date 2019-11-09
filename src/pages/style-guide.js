@@ -5,47 +5,92 @@ import { Container, Button, IconButton } from '../components'
 export default props => (
   <div>
     <Container sx={{ padding: 6 }}>
-      <div>
-        <Button variant="none" sx={{ m: 3 }}>
+      <h3>Colors</h3>
+      <div sx={{ mx: -2, mb: 3 }}>
+        <Button color="primary" sx={{ m: 2 }}>
           Hello
         </Button>
-        <Button variant="default" sx={{ m: 3 }}>
+        <Button color="secondary" sx={{ m: 2 }}>
           Hello
         </Button>
-        <Button variant="primary" sx={{ m: 3 }}>
+        <Button color="accent" sx={{ m: 2 }}>
           Hello
         </Button>
-        <Button variant="outline" sx={{ m: 3 }}>
+        <Button color="highlight" sx={{ m: 2 }}>
           Hello
         </Button>
-        <Button variant="ghost" sx={{ m: 3 }}>
+        <Button color="muted" sx={{ m: 2 }}>
           Hello
         </Button>
-        <Button variant="elevated" sx={{ m: 3 }}>
+        <Button color="light" sx={{ m: 2 }}>
           Hello
         </Button>
-      </div>
-      <div>
-        <Button size="sm" variant="none" sx={{ m: 3 }}>
+        <Button color="gray" sx={{ m: 2 }}>
           Hello
         </Button>
-        <Button size="sm" variant="default" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="primary" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="outline" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="ghost" sx={{ m: 3 }}>
-          Hello
-        </Button>
-        <Button size="sm" variant="elevated" sx={{ m: 3 }}>
+        <Button color="dark" sx={{ m: 2 }}>
           Hello
         </Button>
       </div>
-      <div>
+      <h3>Sizes</h3>
+      <div sx={{ mx: -2, mb: 3 }}>
+        <Button color="primary" size="sm" sx={{ m: 2 }}>
+          Hello
+        </Button>
+        <Button color="primary" size="md" sx={{ m: 2 }}>
+          Hello
+        </Button>
+        <Button color="primary" size="lg" sx={{ m: 2 }}>
+          Hello
+        </Button>
+        <Button color="dark" size="sm" sx={{ m: 2 }}>
+          Hello
+        </Button>
+        <Button color="dark" size="md" sx={{ m: 2 }}>
+          Hello
+        </Button>
+        <Button color="dark" size="lg" sx={{ m: 2 }}>
+          Hello
+        </Button>
+      </div>
+      <h3>Variants</h3>
+      <div sx={{ mx: -2, mb: 3 }}>
+        <div>
+          <Button color="primary" variant="base" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="primary" variant="outline" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="primary" variant="ghost" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="primary" variant="pill" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="primary" variant="elevated" sx={{ m: 2 }}>
+            Hello
+          </Button>
+        </div>
+        <div>
+          <Button color="muted" variant="base" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="muted" variant="outline" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="muted" variant="ghost" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="muted" variant="pill" sx={{ m: 2 }}>
+            Hello
+          </Button>
+          <Button color="muted" variant="elevated" sx={{ m: 2 }}>
+            Hello
+          </Button>
+        </div>
+      </div>
+      <div sx={{ mx: -2, mb: 3 }}>
         <Button size="lg" variant="none" sx={{ m: 3 }}>
           Hello
         </Button>

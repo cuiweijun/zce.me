@@ -47,7 +47,8 @@ const Featured = ({ post }) => (
         sx={{
           flexGrow: 1,
           flexBasis: '23rem',
-          padding: 4
+          padding: 4,
+          lineHeight: 'loose'
         }}>
         <h2 sx={{ marginBottom: 4, fontSize: 7 }}>{post.fields.title}</h2>
         <div

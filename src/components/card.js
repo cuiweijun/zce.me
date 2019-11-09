@@ -3,8 +3,8 @@ import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import defaultCover from '../assets/content.svg'
 import Link from './link'
+import defaultCover from '../assets/content.svg'
 
 // TODO: UI, Post or Course
 export default ({ post, rel }) => (

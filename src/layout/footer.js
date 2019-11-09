@@ -145,8 +145,8 @@ const Tags = ({ tags }) => (
           }}>
           <Link
             to={i.permalink}
-            variant="inherit"
             sx={{
+              color: 'inherit',
               ':before': {
                 content: '"\\0023"'
               }
@@ -171,7 +171,7 @@ const Links = ({ links }) => (
               marginRight: 1
             }
           }}>
-          <Link to={i.link} variant="inherit">
+          <Link to={i.link} sx={{ color: 'inherit' }}>
             {i.text}
           </Link>
         </li>
@@ -223,19 +223,19 @@ const Copyright = ({ name, url }) => (
     }}>
     <span>
       &copy; {new Date().getFullYear()}{' '}
-      <Link to={url} variant="inherit">
+      <Link to={url} sx={{ color: 'inherit' }}>
         {name}
       </Link>
       . All Rights Reserved.
     </span>
     <ul sx={{ flexGrow: 1, margin: 0, marginX: 2, padding: 0 }}>
       <li sx={{ display: 'inline-block', marginRight: 1 }}>
-        <Link to="/privacy-policy/" variant="inherit">
+        <Link to="/privacy-policy/" sx={{ color: 'inherit' }}>
           Privacy Policy
         </Link>
       </li>
       <li sx={{ display: 'inline-block', marginRight: 1 }}>
-        <Link to="/terms-of-service/" variant="inherit">
+        <Link to="/terms-of-service/" sx={{ color: 'inherit' }}>
           Terms of Service
         </Link>
       </li>
@@ -243,12 +243,11 @@ const Copyright = ({ name, url }) => (
     <span sx={{ display: 'flex', alignItems: 'center' }}>
       <Link
         to="https://github.com/zce/zce.me"
-        variant="inherit"
         title="Visit the Source"
         target="_blank"
         rel="noopener noreferrer"
         children="&lt;/&gt;"
-        sx={{ marginRight: 1 }}
+        sx={{ marginRight: 1, color: 'inherit' }}
       />
       with
       <Heart sx={{ width: 'icon', height: 'icon' }} />
@@ -259,7 +258,7 @@ const Copyright = ({ name, url }) => (
         target="_blank"
         rel="noopener noreferrer"
         children="zce"
-        sx={{ marginLeft: 1 }}
+        sx={{ marginLeft: 1, color: 'inherit' }}
       />
     </span>
   </div>

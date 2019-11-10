@@ -4,10 +4,11 @@ export { default as Button } from './button'
 export { default as Icon } from './icon'
 export { default as Input } from './input'
 export { default as Image } from './image'
-export { default as Meta } from './meta'
-export { default as Hero } from './hero'
 
 // business components
 export { default as Card } from './card'
 
-export { Fragment as Wrapper } from 'react'
+export { default as Layout } from './layout'
+
+// export { Fragment as Wrapper } from 'react'
+// export const Wrapper = props => props.children

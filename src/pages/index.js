@@ -2,15 +2,7 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import {
-  Wrapper,
-  Container,
-  Link,
-  Button,
-  Image,
-  Card,
-  Hero
-} from '../components'
+import { Layout, Container, Link, Button, Image, Card } from '../components'
 
 const Section = ({ padding = 8, ...props }) => (
   <section
@@ -106,72 +98,62 @@ const Feed = ({ posts, title, subtitle, link }) => (
   </Section>
 )
 
-export default ({ data, setTitle }) => {
-  setTitle('11111')
-  return (
-    <Wrapper>
-      <Hero
-        title={data.siteMetadata.name}
-        subtitle={data.siteMetadata.description}
-        cover={data.siteMetadata.cover}
-        after={false}
-        sx={{ paddingY: '15vw' }}
-      />
+export default ({ data }) => (
+  <Layout>
+    {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
 
-      {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
+    <Feed
+      posts={data.posts.nodes}
+      title="Latest Posts"
+      subtitle="Keep the dots in your life."
+      link="/blog/"
+    />
 
-      <Feed
-        posts={data.latestPosts.nodes}
-        title="Latest Posts"
-        subtitle="Keep the dots in your life."
-        link="/blog/"
-      />
+    {data.featured.nodes[1] && <Featured post={data.featured.nodes[1]} />}
 
-      {data.featured.nodes[1] && <Featured post={data.featured.nodes[1]} />}
+    <Feed
+      posts={data.courses.nodes}
+      title="Latest Courses"
+      subtitle="Continuous learning is a belief."
+      link="/courses/"
+    />
 
-      <Feed
-        posts={data.latestCourses.nodes}
-        title="Latest Courses"
-        subtitle="Continuous learning is a belief."
-        link="/courses/"
-      />
+    {data.featured.nodes[2] && <Featured post={data.featured.nodes[2]} />}
 
-      {data.featured.nodes[2] && <Featured post={data.featured.nodes[2]} />}
+    <Section>
+      <Container sx={{ textAlign: 'center' }}>
+        <h2 sx={{ fontSize: 9, opacity: 0.5 }}>{data.about.fields.title}</h2>
+        <div
+          dangerouslySetInnerHTML={{ __html: data.about.html }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            color: 'muted'
+          }}
+        />
+      </Container>
+    </Section>
 
-      <Section>
-        <Container sx={{ textAlign: 'center' }}>
-          <h2 sx={{ fontSize: 9, opacity: 0.5 }}>{data.about.fields.title}</h2>
-          <div
-            dangerouslySetInnerHTML={{ __html: data.about.html }}
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              color: 'muted'
-            }}
-          />
-        </Container>
-      </Section>
-      <Section padding={6}>
-        <Container>
-          <p
-            sx={{
-              color: 'muted',
-              fontFamily: 'serif',
-              fontSize: 'xl',
-              textAlign: 'center'
-            }}>
-            {data.siteMetadata.slogan}
-          </p>
-        </Container>
-      </Section>
-    </Wrapper>
-  )
-}
+    <Section padding={6}>
+      <Container>
+        <p
+          children={data.meta.slogan}
+          sx={{
+            color: 'muted',
+            fontFamily: 'serif',
+            fontSize: 'xl',
+            textAlign: 'center'
+          }}
+        />
+      </Container>
+    </Section>
+  </Layout>
+)
 
 export const query = graphql`
   query HomePage {
-    siteMetadata: config {
+    meta: config {
       name
       title
       slogan
@@ -209,7 +191,7 @@ export const query = graphql`
       }
     }
 
-    latestPosts: allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "post" }
@@ -225,7 +207,7 @@ export const query = graphql`
       }
     }
 
-    latestCourses: allMarkdownRemark(
+    courses: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "course" }

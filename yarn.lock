@@ -4605,7 +4605,7 @@ emojis-list@^2.0.0:
   resolved "https://registry.npm.taobao.org/emojis-list/download/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
-emotion-normalize@^10.1.0:
+emotion-normalize@10.1.0:
   version "10.1.0"
   resolved "https://registry.npm.taobao.org/emotion-normalize/download/emotion-normalize-10.1.0.tgz#b4cfd2f7d37b9eafb3b0d5ee7dc4fbb83f18e68f"
   integrity sha1-tM/S99N7nq+zsNXufcT7uD8Y5o8=
@@ -10253,7 +10253,7 @@ pnp-webpack-plugin@^1.5.0:
   dependencies:
     ts-pnp "^1.1.2"
 
-polished@^3.4.2:
+polished@3.4.2:
   version "3.4.2"
   resolved "https://registry.npm.taobao.org/polished/download/polished-3.4.2.tgz#b4780dad81d64df55615fbfc77acb52fd17d88cd"
   integrity sha1-tHgNrYHWTfVWFfv8d6y1L9F9iM0=
@@ -10667,10 +10667,10 @@ prepend-http@^2.0.0:
   resolved "https://registry.npm.taobao.org/prepend-http/download/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@1.19.0:
-  version "1.19.0"
-  resolved "https://registry.npm.taobao.org/prettier/download/prettier-1.19.0.tgz#3bec4489d5eebcd52b95ddd2c22467b5c852fde1"
-  integrity sha1-O+xEidXuvNUrld3SwiRntchS/eE=
+prettier@1.19.1:
+  version "1.19.1"
+  resolved "https://registry.npm.taobao.org/prettier/download/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
+  integrity sha1-99f1/4qc2HKnvkyhQglZVqYHl8s=
 
 pretty-bytes@^4.0.2:
   version "4.0.2"

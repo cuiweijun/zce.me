@@ -2,7 +2,11 @@
 import { jsx, useColorMode } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { Container, Link, Button } from '../components'
+import Container from './container'
+import Button from './button'
+import Link from './link'
+import Cover from './cover'
+import Hero from './hero'
 import { useNavPinned } from '../utils/hooks'
 
 const query = graphql`
@@ -143,9 +147,13 @@ const ColorModeToggler = () => {
   )
 }
 
-export default () => {
+export default ({ title, subtitle, cover, children }) => {
   const pinned = useNavPinned()
   const { siteMetadata } = useStaticQuery(query)
+
+  if (title) {
+    children = <Hero title={title} subtitle={subtitle} />
+  }
 
   return (
     <header
@@ -153,6 +161,7 @@ export default () => {
         position: 'relative',
         ':after': { display: 'block', content: '""', height: 'nav' }
       }}>
+      {cover && <Cover image={cover} before={true} after={true} />}
       <nav
         sx={{
           position: 'fixed',
@@ -174,6 +183,7 @@ export default () => {
           <ColorModeToggler />
         </Container>
       </nav>
+      {children !== false && <Hero title={title} subtitle={subtitle} />}
     </header>
   )
 }

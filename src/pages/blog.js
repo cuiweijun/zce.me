@@ -2,15 +2,13 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Wrapper, Container, Hero, Card } from '../components'
+import { Layout, Container, Card } from '../components'
 
 export default ({ data }) => (
-  <Wrapper>
-    <Hero
-      title="Blog"
-      subtitle={`A collection of ${data.allMarkdownRemark.totalCount} posts`}
-      cover={data.siteMetadata.cover}
-    />
+  <Layout
+    title="Blog"
+    description={`A collection of ${data.allMarkdownRemark.totalCount} posts`}
+    cover={data.siteMetadata.cover}>
     <Container>
       <div
         sx={{
@@ -24,7 +22,7 @@ export default ({ data }) => (
         ))}
       </div>
     </Container>
-  </Wrapper>
+  </Layout>
 )
 
 export const query = graphql`

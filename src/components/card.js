@@ -124,13 +124,20 @@ export default ({ post, rel }) => (
             display: 'flex',
             margin: 0,
             padding: 0,
-            listStyle: 'none'
+            listStyle: 'none',
+            ':hover': {
+              li: {
+                marginLeft: 0
+              }
+            }
           }}>
           {post.fields.authors.map((author, i) => (
             <li
               key={author.name}
-              style={{
-                zIndex: post.fields.authors.length - i
+              sx={{
+                zIndex: post.fields.authors.length - i,
+                marginLeft: i > 0 ? -3 : 0,
+                transition: 'margin 0.2s'
               }}>
               <Link to={author.permalink} title={author.name}>
                 <Image

@@ -2,12 +2,27 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Layout, Container, Row, Card } from '../components'
+import { Layout, Container, Row, Card, Button, Link } from '../components'
 
 export default ({ data }) => (
   <Layout
-    title="Blog"
-    description={`A collection of ${data.posts.totalCount} posts`}>
+    title="404 Not found"
+    hero={
+      <Container
+        sx={{
+          paddingY: '12vw',
+          textAlign: 'center',
+          color: 'white',
+          textShadow: 'medium',
+          transition: 'padding 0.3s, color 0.3s'
+        }}>
+        <h1 sx={{ fontSize: '9rem' }}>404</h1>
+        <p sx={{ fontSize: 'xl', marginBottom: 6 }}>Page not found</p>
+        <Button as={Link} variant="outline" to="/" sx={{ color: 'white' }}>
+          Back to Home &rarr;
+        </Button>
+      </Container>
+    }>
     <Container>
       <Row sx={{ marginBottom: 6 }}>
         {data.posts.nodes.map(node => (
@@ -19,7 +34,7 @@ export default ({ data }) => (
 )
 
 export const query = graphql`
-  query BlogPage {
+  query NotFoundPage {
     posts: allMarkdownRemark(
       filter: {
         fields: {
@@ -29,6 +44,7 @@ export const query = graphql`
         }
       }
       sort: { fields: fields___date, order: DESC }
+      limit: 3
     ) {
       totalCount
       nodes {

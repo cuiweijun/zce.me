@@ -2,7 +2,15 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Layout, Container, Link, Button, Image, Card } from '../components'
+import {
+  Layout,
+  Container,
+  Row,
+  Link,
+  Button,
+  Image,
+  Card
+} from '../components'
 
 const Section = ({ padding = 8, ...props }) => (
   <section
@@ -78,17 +86,11 @@ const Feed = ({ posts, title, subtitle, link }) => (
         <h2 sx={{ margin: 0, marginBottom: 3, fontSize: 7 }}>{title}</h2>
         <p sx={{ margin: 0, fontSize: 'lg' }}>{subtitle}</p>
       </header>
-      <div
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          marginX: -3,
-          marginBottom: 3
-        }}>
+      <Row sx={{ marginBottom: 3 }}>
         {posts.map(node => (
           <Card post={node} key={node.id} />
         ))}
-      </div>
+      </Row>
       <footer sx={{ textAlign: 'center' }}>
         <Button as={Link} to={link} title={title} size="lg" variant="outline">
           Explore more <span aria-hidden="true">&rarr;</span>

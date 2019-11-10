@@ -42,6 +42,7 @@ const SkipLink = props => (
 
 export default ({
   title,
+  subtitle,
   description,
   keywords,
   cover,
@@ -63,7 +64,7 @@ export default ({
       {hero !== false && (
         <Hero
           title={title}
-          subtitle={description}
+          subtitle={subtitle}
           padding={heroPadding}
           children={hero}
           cover={cover}
@@ -71,7 +72,11 @@ export default ({
         />
       )}
     </Header>
-    <main id="content" children={children} sx={{ position: 'relative' }} />
+    <main
+      id="content"
+      children={children}
+      sx={{ position: 'relative', minHeight: '40vh' }}
+    />
   </Fragment>
 )
 

@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Container, Button } from '../components'
 
-export default props => (
-  <div>
+import { Layout, Container, Button } from '../components'
+
+export default () => (
+  <Layout title="Style Guide" cover={false}>
     <Container sx={{ padding: 6 }}>
       <h3>Colors</h3>
       <div sx={{ mx: -2, mb: 3 }}>
@@ -139,5 +140,5 @@ export default props => (
         </div>
       </div>
     </Container>
-  </div>
+  </Layout>
 )

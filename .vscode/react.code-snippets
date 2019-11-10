@@ -1,29 +1,46 @@
 // https://code.visualstudio.com/docs/editor/userdefinedsnippets
 {
-	"component": {
-		"scope": "javascript",
-		"prefix": "comp",
-		"body": [
-			"import React from 'react'",
-      "",
-      "export default () => (",
-      "  <div className=\"${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\">",
-      "    ${3:<p>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</p>}",
-      "  </div>",
-      ")"
-		],
-		"description": "Component"
-	},
+	// "component": {
+	// 	"scope": "javascript",
+	// 	"prefix": "comp",
+	// 	"body": [
+	// 		"import React from 'react'",
+  //     "",
+  //     "export default () => (",
+  //     "  <div className=\"${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\">",
+  //     "    ${3:<p>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</p>}",
+  //     "  </div>",
+  //     ")"
+	// 	],
+	// 	"description": "Component"
+	// },
+	// "page": {
+	// 	"scope": "javascript",
+	// 	"prefix": "page",
+	// 	"body": [
+	// 		"import React from 'react'",
+  //     "",
+  //     "import { Layout } from '../components'",
+  //     "",
+  //     "export default ({ location }) => (",
+  //     "  <Layout className=\"${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\" title=\"${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}\" location={location}>",
+  //     "    ${3:<h1>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</h1>}",
+  //     "  </Layout>",
+  //     ")"
+	// 	],
+	// 	"description": "Page component"
+  // },
 	"page": {
 		"scope": "javascript",
 		"prefix": "page",
 		"body": [
-			"import React from 'react'",
+			"/** @jsx jsx */",
+      "import { jsx } from 'theme-ui'",
       "",
       "import { Layout } from '../components'",
       "",
-      "export default ({ location }) => (",
-      "  <Layout className=\"${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\" title=\"${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}\" location={location}>",
+      "export default ({}) => (",
+      "  <Layout title=\"${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}\">",
       "    ${3:<h1>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</h1>}",
       "  </Layout>",
       ")"

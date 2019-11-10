@@ -5,9 +5,7 @@ import { graphql } from 'gatsby'
 import { Layout, Container, Row, Card } from '../components'
 
 export default ({ data }) => (
-  <Layout
-    title="Blog"
-    description={`A collection of ${data.posts.totalCount} posts`}>
+  <Layout title="Archive" description="Archive of all the content I created">
     <Container>
       <Row sx={{ marginBottom: 6 }}>
         {data.posts.nodes.map(node => (
@@ -19,11 +17,11 @@ export default ({ data }) => (
 )
 
 export const query = graphql`
-  query BlogPage {
+  query ArchivePage {
     posts: allMarkdownRemark(
       filter: {
         fields: {
-          type: { eq: "post" }
+          type: { ne: "page" }
           draft: { eq: false }
           private: { eq: false }
         }

@@ -54,26 +54,31 @@ const Cover = ({ image, mask = 2 }) => (
 export default ({ title, subtitle, padding, cover, mask, children }) => {
   const { meta } = useStaticQuery(query)
 
-  if (children) return children
+  if (!children) {
+    const style = {
+      paddingY: padding || '10vw',
+      textAlign: 'center',
+      color: cover === false ? 'text' : 'white',
+      textShadow: cover === false ? '0' : 'medium',
+      transition: 'padding 0.3s, color 0.3s'
+    }
 
-  const style = {
-    paddingY: padding || '10vw',
-    textAlign: 'center',
-    color: cover === false ? 'text' : 'white',
-    transition: 'padding 0.3s, color 0.3s'
-  }
+    if (!title) {
+      title = meta.name
+      subtitle = meta.description
+    }
 
-  if (!title) {
-    title = meta.name
-    subtitle = meta.description
-  }
-
-  return (
-    <Fragment>
+    children = (
       <Container sx={style}>
         <h1 sx={{ fontSize: 9 }}>{title}</h1>
         {subtitle && <p sx={{ fontSize: 'xl' }}>{subtitle}</p>}
       </Container>
+    )
+  }
+
+  return (
+    <Fragment>
+      {children}
       {cover !== false && <Cover image={cover || meta.cover} mask={mask} />}
     </Fragment>
   )

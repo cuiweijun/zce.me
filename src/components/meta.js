@@ -29,10 +29,16 @@ const query = graphql`
   }
 `
 
-export default ({ title, description, keywords, type, image }) => {
+export default ({ title, description, keywords, type, image, pathname }) => {
   const { config } = useStaticQuery(query)
   const { theme } = useThemeUI()
-  image = config.cover
+
+  title = title || null
+  description = description || config.description
+  keywords = keywords || config.keywords
+  type = type || 'website'
+  image = image || config.cover
+  pathname = pathname || null
 
   const meta = []
   meta.push({ name: 'description', content: description || config.description })
@@ -54,63 +60,18 @@ export default ({ title, description, keywords, type, image }) => {
       meta.push({ name: 'og:image:height', content: img.presentationHeight })
   }
 
-  return <Helmet title={title} meta={meta} />
+  const link = []
+  pathname && link.push({ rel: 'canonical', href: config.url + pathname })
+
+  return (
+    <Helmet
+      htmlAttributes={{ lang: config.language }}
+      title={title}
+      defaultTitle={`${config.title} | ${config.slogan}`}
+      titleTemplate={`%s - ${config.title}`}
+      bodyAttributes={{ className: 'zce' }}
+      meta={meta}
+      link={link}
+    />
+  )
 }
-
-// export default ({ title, description, keywords, type, image}) => {
-//   const { config } = useStaticQuery(query)
-//   const theme = useThemeUI()
-
-//   const meta = []
-
-//   description && meta.push({ name: 'description', content: description })
-//   keywords && meta.push({ name: 'keywords', content: keywords })
-
-//   // TODO: website or article? http://ogp.me/#no_vertical
-//   meta.push({ name: 'og:type', content: type || 'website' })
-
-//   if (typeof image === 'string') {
-//     meta.push({ name: 'og:image', content: image })
-//   }
-
-//   // TODO: Twitter & Fackbook Card tags?
-
-//   if (image && image.childImageSharp) {
-//     const img = image.childImageSharp.fluid || image.childImageSharp.fixed
-//     meta.push({ name: 'og:image', content: config.url + img.src })
-//     img.presentationWidth &&
-//       meta.push({ name: 'og:image:width', content: img.presentationWidth })
-//     img.presentationHeight &&
-//       meta.push({ name: 'og:image:height', content: img.presentationHeight })
-//   }
-
-//   return <Helmet title={title} meta={meta} />
-// }
-
-//
-// const Head = ({ location }) => {
-//   const { config } = useStaticQuery(query)
-//   const { fluid } = config.cover.childImageSharp
-//   return (
-//     <Helmet
-//       htmlAttributes={{ lang: config.language }}
-//       defaultTitle={`${config.title} | ${config.slogan}`}
-//       titleTemplate={`%s - ${config.title}`}
-//       bodyAttributes={{ className: 'zce' }}
-//       meta={[
-//         { name: 'description', content: config.description },
-//         { name: 'keywords', content: config.keywords },
-//         { name: 'author', content: config.author.name },
-//         { name: 'theme-color', content: theme.colors.background },
-//         { name: 'og:site_name', content: config.name },
-//         { name: 'og:type', content: 'website' },
-//         { name: 'og:title', content: config.title },
-//         { name: 'og:description', content: config.description },
-//         { name: 'og:image', content: config.url + fluid.src },
-//         { name: 'og:image:width', content: fluid.presentationWidth },
-//         { name: 'og:image:height', content: fluid.presentationHeight }
-//       ]}
-//       link={[{ rel: 'canonical', href: config.url + location.pathname }]}
-//     />
-//   )
-// }

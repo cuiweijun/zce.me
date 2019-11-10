@@ -126,7 +126,7 @@ const Follow = ({ socials }) => (
 
 const Tags = ({ tags }) => (
   <Widget title="Tags" width={['100%', '100%', '55%', '25%']}>
-    <ul sx={{ margin: 0, padding: 0, listStyle: 'none' }}>
+    <ul sx={{ margin: 0, padding: 0, listStyle: 'none', lineHeight: 'loose' }}>
       {tags.map(i => (
         <li
           key={i.name}

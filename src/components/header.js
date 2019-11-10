@@ -5,14 +5,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Container from './container'
 import Button from './button'
 import Link from './link'
-import Cover from './cover'
-import Hero from './hero'
 import { useNavPinned } from '../utils/hooks'
 
 const query = graphql`
   query HeaderComponent {
-    siteMetadata: config {
-      url
+    meta: config {
       name
       navigation {
         text
@@ -147,21 +144,16 @@ const ColorModeToggler = () => {
   )
 }
 
-export default ({ title, subtitle, cover, children }) => {
+export default ({ children }) => {
   const pinned = useNavPinned()
-  const { siteMetadata } = useStaticQuery(query)
-
-  if (title) {
-    children = <Hero title={title} subtitle={subtitle} />
-  }
+  const { meta } = useStaticQuery(query)
 
   return (
     <header
       sx={{
         position: 'relative',
-        ':after': { display: 'block', content: '""', height: 'nav' }
+        ':before': { display: 'block', content: '""', height: 'nav' }
       }}>
-      {cover && <Cover image={cover} before={true} after={true} />}
       <nav
         sx={{
           position: 'fixed',
@@ -177,26 +169,13 @@ export default ({ title, subtitle, cover, children }) => {
         }}>
         <Container
           sx={{ display: 'flex', alignItems: 'center', height: 'nav' }}>
-          <Brand name={siteMetadata.name} />
-          <Menu items={siteMetadata.navigation} />
+          <Brand name={meta.name} />
+          <Menu items={meta.navigation} />
           {/* <Search /> */}
           <ColorModeToggler />
         </Container>
       </nav>
-      {children !== false && <Hero title={title} subtitle={subtitle} />}
+      {children}
     </header>
   )
 }
-
-export const GraphQLFragment = graphql`
-  # Load layout cover image required data.
-  fragment SiteCoverImage on File {
-    childImageSharp {
-      fluid(maxWidth: 1080, maxHeight: 720, cropFocus: CENTER) {
-        ...GatsbyImageSharpFluid
-        presentationWidth
-        presentationHeight
-      }
-    }
-  }
-`

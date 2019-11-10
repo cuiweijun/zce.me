@@ -7,8 +7,7 @@ import { Layout, Container, Card } from '../components'
 export default ({ data }) => (
   <Layout
     title="Blog"
-    description={`A collection of ${data.allMarkdownRemark.totalCount} posts`}
-    cover={data.siteMetadata.cover}>
+    description={`A collection of ${data.allMarkdownRemark.totalCount} posts`}>
     <Container>
       <div
         sx={{
@@ -27,12 +26,6 @@ export default ({ data }) => (
 
 export const query = graphql`
   query BlogPage {
-    siteMetadata: config {
-      cover {
-        ...CoverImage
-      }
-    }
-
     allMarkdownRemark(
       filter: {
         fields: {

@@ -1,11 +1,9 @@
-// TODO: Prevent layout components from unmounting
-// https://www.gatsbyjs.org/docs/layout-components/#how-to-prevent-layout-components-from-unmounting
-
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
 import Meta from './meta'
 import Header from './header'
+import Hero from './hero'
 import Footer from './footer'
 
 const Fragment = p => p.children
@@ -46,13 +44,14 @@ export default ({
   title,
   description,
   keywords,
-  header,
   cover,
+  coverMask,
+  hero,
+  heroPadding,
   type,
   children
 }) => (
   <Fragment>
-    <SkipLink />
     <Meta
       title={title}
       description={description}
@@ -60,43 +59,30 @@ export default ({
       image={cover}
       type={type}
     />
-    <Header title={title} description={description} children={header} />
+    <Header>
+      {hero !== false && (
+        <Hero
+          title={title}
+          subtitle={description}
+          padding={heroPadding}
+          children={hero}
+          cover={cover}
+          mask={coverMask}
+        />
+      )}
+    </Header>
     <main id="content" children={children} sx={{ position: 'relative' }} />
-    <Footer />
   </Fragment>
 )
 
-// --------------------------------------------------
-
-// import { Fragment, cloneElement } from 'react'
-// import { jsx } from 'theme-ui'
-
-// import { Meta } from '../components'
-// import Header from './header'
-// import Footer from './footer'
-// import { useRootContext } from '..'
-
-// // TODO: transition
-// // https://scotch.io/tutorials/animated-page-transitions-in-gatsby-websites
-// // https://medium.com/free-code-camp/how-to-animate-page-transitions-in-gatsby-js-b36e3ae14c29
-
-// // Layout props
-// // https://github.com/gatsbyjs/gatsby/issues/2112
-// // https://github.com/lillylabs/lt-cph-window/blob/master/gatsby-browser.js
-// export default props => {
-//   const { title } = useRootContext()
-//   return (
-//     <Fragment>
-//       <Header />
-//       <Meta title={title} />
-//       {/* <main {...props} sx={{ position: 'relative' }} /> */}
-//       <main children={props.children} sx={{ position: 'relative' }} />
-//       {/* <main sx={{ position: 'relative' }}>
-//         {cloneElement(props.children, { setTitle })}
-//       </main> */}
-//       <Footer />
-//     </Fragment>
-//   )
-// }
-
-// https://github.com/jonbellah/jonbellah.com
+// for wrapPageElement
+// Prevent layout components from unmounting
+// https://www.gatsbyjs.org/docs/layout-components/#how-to-prevent-layout-components-from-unmounting
+export const Wrapper = ({ location, children }) => (
+  <Fragment>
+    <Meta pathname={location.pathname} />
+    <SkipLink />
+    {children}
+    <Footer />
+  </Fragment>
+)

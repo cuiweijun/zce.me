@@ -99,7 +99,7 @@ const Feed = ({ posts, title, subtitle, link }) => (
 )
 
 export default ({ data }) => (
-  <Layout>
+  <Layout heroPadding="18vw" coverMask={1}>
     {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
 
     <Feed

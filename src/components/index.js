@@ -8,7 +8,7 @@ export { default as Image } from './image'
 // business components
 export { default as Card } from './card'
 
-export { default as Layout } from './layout'
+export { default as Layout, Wrapper } from './layout'
 
 // export { Fragment as Wrapper } from 'react'
 // export const Wrapper = props => props.children

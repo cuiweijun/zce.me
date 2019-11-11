@@ -39,7 +39,7 @@
       "",
       "import { Layout } from '../components'",
       "",
-      "export default ({}) => (",
+      "export default () => (",
       "  <Layout title=\"${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}\">",
       "    ${3:<h1>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</h1>}",
       "  </Layout>",

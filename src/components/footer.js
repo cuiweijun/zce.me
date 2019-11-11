@@ -94,8 +94,6 @@ const Follow = ({ socials }) => (
     </form>
     <ul
       sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
         margin: 0,
         marginX: -1,
         marginBottom: 3,
@@ -103,7 +101,9 @@ const Follow = ({ socials }) => (
         listStyle: 'none'
       }}>
       {socials.map(i => (
-        <li key={i.name}>
+        <li
+          key={i.name}
+          sx={{ display: 'inline-block', marginX: 1, marginBottom: 2 }}>
           <Button
             to={i.link || '/'}
             title={i.name}
@@ -112,11 +112,7 @@ const Follow = ({ socials }) => (
             color="gray"
             variant="outline"
             icon={i.name.toLowerCase()}
-            sx={{
-              marginX: 1,
-              marginBottom: 2,
-              color: 'currentColor'
-            }}
+            sx={{ color: 'currentColor' }}
           />
         </li>
       ))}

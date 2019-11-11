@@ -51,6 +51,7 @@ const Cover = ({ image, mask = 2 }) => (
   />
 )
 
+// TODO: transition
 export default ({ title, subtitle, padding, cover, mask, children }) => {
   const { meta } = useStaticQuery(query)
 

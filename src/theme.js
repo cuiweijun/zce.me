@@ -77,7 +77,7 @@ const fontSizes = [
   '1.25rem',
   '1.5rem',
   '1.875rem',
-  '2.25rem',
+  '2.5rem',
   '3rem',
   '4.5rem'
 ]

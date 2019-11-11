@@ -10,10 +10,18 @@ export default ({ data: { author, posts } }) => (
     description={(author.meta && author.meta.description) || author.bio}
     cover={author.cover}
     hero={
-      <Container>
-        <Image file={author.avatar} />
+      <Container sx={{ paddingY: '5vw', color: 'white', textAlign: 'center' }}>
+        <Image
+          file={author.avatar}
+          sx={{
+            marginBottom: 3,
+            borderWidth: 5,
+            borderColor: 'light',
+            borderRadius: 'circle'
+          }}
+        />
         <h1>{author.name}</h1>
-        <p>{author.bio}</p>
+        <p sx={{ fontSize: 'xl' }}>{author.bio}</p>
       </Container>
     }>
     <Container>
@@ -33,7 +41,7 @@ export const query = graphql`
       slug
       avatar {
         childImageSharp {
-          fixed(width: 160) {
+          fixed(width: 140) {
             ...GatsbyImageSharpFixed
           }
         }

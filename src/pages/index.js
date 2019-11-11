@@ -101,7 +101,7 @@ const Feed = ({ posts, title, subtitle, link }) => (
 )
 
 export default ({ data }) => (
-  <Layout heroPadding="18vw" coverMask={1}>
+  <Layout padding="18vw" mask={1}>
     {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
 
     <Feed
@@ -124,7 +124,9 @@ export default ({ data }) => (
 
     <Section>
       <Container sx={{ textAlign: 'center' }}>
-        <h2 sx={{ fontSize: 9, opacity: 0.5 }}>{data.about.fields.title}</h2>
+        <h2 sx={{ fontSize: 10, opacity: 0.3, marginBottom: 5 }}>
+          {data.about.fields.title}
+        </h2>
         <div
           dangerouslySetInnerHTML={{ __html: data.about.html }}
           sx={{
@@ -156,13 +158,7 @@ export default ({ data }) => (
 export const query = graphql`
   query HomePage {
     meta: config {
-      name
-      title
       slogan
-      description
-      cover {
-        ...CoverImage
-      }
     }
 
     featured: allMarkdownRemark(

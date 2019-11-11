@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui'
 
 import Meta from './meta'
 import Header from './header'
-import Hero from './hero'
 import Footer from './footer'
 
 const Fragment = p => p.children
@@ -46,9 +45,9 @@ export default ({
   description,
   keywords,
   cover,
-  coverMask,
+  mask,
   hero,
-  heroPadding,
+  padding,
   type,
   children
 }) => (
@@ -60,18 +59,14 @@ export default ({
       image={cover}
       type={type}
     />
-    <Header>
-      {hero !== false && (
-        <Hero
-          title={title}
-          subtitle={subtitle}
-          padding={heroPadding}
-          children={hero}
-          cover={cover}
-          mask={coverMask}
-        />
-      )}
-    </Header>
+    <Header
+      title={title}
+      subtitle={subtitle}
+      padding={padding}
+      cover={cover}
+      mask={mask}
+      hero={hero}
+    />
     <main
       id="content"
       children={children}

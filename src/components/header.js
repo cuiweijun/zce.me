@@ -5,6 +5,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Container from './container'
 import Button from './button'
 import Link from './link'
+import Hero from './hero'
+import Cover from './cover'
 import { useNavPinned } from '../utils/hooks'
 
 const query = graphql`
@@ -144,9 +146,10 @@ const ColorModeToggler = () => {
   )
 }
 
-export default ({ children }) => {
+export default ({ title, subtitle, hero, padding, cover, mask }) => {
   const pinned = useNavPinned()
   const { meta } = useStaticQuery(query)
+  console.log(hero)
 
   return (
     <header
@@ -175,7 +178,16 @@ export default ({ children }) => {
           <ColorModeToggler />
         </Container>
       </nav>
-      {children}
+      {hero !== false && (
+        <Hero
+          title={title}
+          subtitle={subtitle}
+          padding={padding}
+          cover={cover}
+          children={hero}
+        />
+      )}
+      {cover !== false && <Cover image={cover} mask={mask} />}
     </header>
   )
 }

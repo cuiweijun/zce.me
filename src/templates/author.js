@@ -8,6 +8,8 @@ export default ({ data: { author, posts } }) => (
   <Layout
     title={(author.meta && author.meta.title) || author.name}
     description={(author.meta && author.meta.description) || author.bio}
+    keywords={author.meta && author.meta.keywords}
+    subtitle={author.bio}
     cover={author.cover}
     hero={
       <Container sx={{ paddingY: '5vw', color: 'white', textAlign: 'center' }}>

@@ -29,23 +29,30 @@ const query = graphql`
   }
 `
 
+// TODO: Need refactoring
 export default ({ title, description, keywords, type, image, pathname }) => {
   const { config } = useStaticQuery(query)
   const { theme } = useThemeUI()
+  const meta = []
+  const link = []
 
   title = title || null
   description = description || config.description
   keywords = keywords || config.keywords
   type = type || 'website'
   image = image || config.cover
-  pathname = pathname || null
+  const url = pathname ? config.url + pathname : null
 
-  const meta = []
   meta.push({ name: 'description', content: description || config.description })
   meta.push({ name: 'keywords', content: keywords || config.keywords })
   meta.push({ name: 'theme-color', content: theme.colors.background })
+  meta.push({ name: 'og:site_name', content: config.name })
+  url && meta.push({ name: 'og:url', content: url })
+  meta.push({ name: 'og:title', content: title })
+  meta.push({ name: 'og:description', content: description })
   // TODO: website or article? http://ogp.me/#no_vertical
   meta.push({ name: 'og:type', content: type || 'website' })
+
   if (typeof image === 'string' && /^http/.test(image)) {
     meta.push({ name: 'og:image', content: image })
   }
@@ -60,8 +67,7 @@ export default ({ title, description, keywords, type, image, pathname }) => {
       meta.push({ name: 'og:image:height', content: img.presentationHeight })
   }
 
-  const link = []
-  pathname && link.push({ rel: 'canonical', href: config.url + pathname })
+  url && link.push({ rel: 'canonical', href: url })
 
   return (
     <Helmet

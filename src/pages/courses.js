@@ -4,13 +4,13 @@ import { graphql } from 'gatsby'
 
 import { Layout, Container, Row, Card } from '../components'
 
-export default ({ data }) => (
+export default ({ data: { courses } }) => (
   <Layout
     title="Courses"
-    description={`A collection of ${data.courses.totalCount} courses`}>
+    description={`A collection of ${courses.totalCount} courses`}>
     <Container>
       <Row sx={{ marginBottom: 6 }}>
-        {data.courses.nodes.map(node => (
+        {courses.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}
       </Row>

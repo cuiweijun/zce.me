@@ -141,10 +141,12 @@ const space = [
 
 const sizes = {
   container: '75rem',
+  inner: '50rem',
   nav: '3rem',
   logo: '1.5625rem',
   icon: '1.5rem',
-  card: '18rem'
+  card: '18rem',
+  avatar: '6rem'
 }
 
 const borders = {

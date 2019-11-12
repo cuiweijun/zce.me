@@ -10,18 +10,167 @@ import {
   Image,
   Link,
   Icon,
+  Button,
   Card,
-  Comments
+  Comments,
+  ScreenReaderText
 } from '../components'
 
+const Meta = ({ title, tags, url }) => (
+  <section
+    sx={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 3,
+      fontSize: 'sm'
+    }}>
+    {tags && (
+      <div
+        sx={{
+          display: 'flex',
+          alignItems: 'center'
+        }}>
+        <Icon name="tag" />
+        <ul
+          sx={{
+            margin: 0,
+            marginLeft: 1,
+            padding: 0,
+            listStyle: 'none'
+          }}>
+          {tags.map(i => (
+            <li
+              key={i.name}
+              sx={{
+                display: 'inline',
+                ':not(:last-child)': {
+                  marginRight: 1,
+                  ':after': {
+                    content: '"\\002c"'
+                  }
+                }
+              }}>
+              <Link
+                to={i.permalink}
+                sx={{
+                  ':before': {
+                    content: '"\\0023"'
+                  }
+                }}>
+                {i.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+    <div
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        span: {
+          marginRight: 1
+        },
+        a: {
+          marginLeft: 1
+        }
+      }}>
+      <span>Share this:</span>
+      <Link
+        to={`https://twitter.com/share?text=${title}&url=${url}`}
+        title="Twitter">
+        <Icon name="twitter" />
+      </Link>
+      <Link
+        to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+        title="Facebook">
+        <Icon name="facebook" />
+      </Link>
+      <Link to={`http://qr.topscan.com/api.php?text=${url}`} title="Moment">
+        <Icon name="aperture" />
+      </Link>
+    </div>
+  </section>
+)
+
+const Authors = ({ authors }) => (
+  <section
+    sx={{
+      marginBottom: 7,
+      borderTopWidth: 1
+    }}>
+    <ScreenReaderText as="h3">Author</ScreenReaderText>
+    <div
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        paddingX: 2,
+        paddingY: 3
+      }}>
+      <Image
+        file={authors[0].avatar}
+        sx={{
+          marginRight: 3,
+          maxWidth: 'avatar',
+          maxHeight: 'avatar',
+          borderWidth: 5,
+          borderColor: 'gray',
+          borderRadius: 'circle'
+        }}
+      />
+      <div sx={{ flex: '1 1 6rem' }}>
+        <h4>{authors[0].name}</h4>
+        {authors[0].bio && <p>{authors[0].bio}</p>}
+      </div>
+      <Button as={Link} to={authors[0].permalink} variant="ghost">
+        Read More
+      </Button>
+    </div>
+    {authors.length > 1 && (
+      <p
+        sx={{
+          textAlign: 'center',
+          fontStyle: 'italic',
+          fontSize: 'sm',
+          fontFamily: 'serif',
+          'a:not(:last-child)': {
+            marginRight: 1,
+            ':after': {
+              content: '"\\002c"'
+            }
+          }
+        }}>
+        <span>Contributors: </span>
+        {authors.slice(1).map(i => (
+          <Link key={i.name} to={i.permalink}>
+            {i.name}
+          </Link>
+        ))}
+      </p>
+    )}
+  </section>
+)
+
 const License = () => (
-  <section className="post-license">
-    <h3 className="sr-only">License</h3>
-    <a
-      href="https://creativecommons.org/licenses/by-sa/4.0/"
+  <section
+    sx={{
+      marginBottom: 7,
+      textAlign: 'center',
+      fontStyle: 'italic',
+      fontFamily: 'serif'
+    }}>
+    <ScreenReaderText as="h3">License</ScreenReaderText>
+    <Link
+      to="https://creativecommons.org/licenses/by-sa/4.0/"
       target="_blank"
-      rel="noopener noreferrer">
-      <svg viewBox="0 0 120 42">
+      rel="noopener noreferrer"
+      sx={{
+        color: 'inherit'
+      }}>
+      <svg viewBox="0 0 120 42" width="160">
         <path
           fill="#fff"
           d="M3.4,0.5l113.4,0.2c1.6,0,3-0.2,3,3.2l-0.1,37.3H0.5V3.7C0.5,2,0.7,0.5,3.4,0.5z"
@@ -50,17 +199,84 @@ const License = () => (
           d="M32.174,7.825c3.08,3.08,4.575,6.775,4.575,11.175s-1.496,8.095-4.487,11.087C29.094,33.254,25.311,34.75,21,34.75s-8.007-1.584-11.086-4.663S5.25,23.311,5.25,19c0-4.311,1.584-8.007,4.663-11.175C12.905,4.746,16.6,3.25,21,3.25S29.182,4.746,32.174,7.825z M11.937,9.849C9.385,12.489,8.066,15.48,8.066,19c0,3.424,1.166,6.349,3.579,8.855c2.237,2.323,5.288,3.778,8.508,3.967c3.874,0.227,7.244-1.092,9.998-3.846c2.464-2.376,3.695-5.367,3.695-9.063c0-3.608-1.232-6.687-3.783-9.151c-2.552-2.552-5.543-3.784-9.151-3.784C17.48,6.066,14.489,7.297,11.937,9.849z M18.8,17.504c-0.352-0.88-0.968-1.32-1.76-1.32c-1.408,0-2.112,0.968-2.112,2.816c0,1.848,0.704,2.816,2.112,2.816c0.88,0,1.584-0.44,1.936-1.408l1.936,1.056c-0.88,1.672-2.288,2.464-4.135,2.464c-1.408,0-2.552-0.44-3.431-1.32s-1.32-2.024-1.32-3.608c0-1.496,0.44-2.728,1.32-3.608s1.936-1.32,3.255-1.32c1.936,0,3.343,0.792,4.135,2.288L18.8,17.504zM27.775,17.504c-0.352-0.88-0.968-1.32-1.76-1.32c-1.408,0-2.112,0.968-2.112,2.816c0,1.848,0.704,2.816,2.112,2.816c0.88,0,1.584-0.44,1.936-1.408l1.936,1.056c-0.88,1.672-2.288,2.464-4.135,2.464c-1.408,0-2.552-0.44-3.431-1.32C21.439,21.728,21,20.584,21,19c0-1.496,0.44-2.728,1.32-3.608s1.936-1.32,3.343-1.32c1.936,0,3.343,0.792,4.135,2.288L27.775,17.504z"
         />
       </svg>
-    </a>
-    <p>
+    </Link>
+    <p sx={{ color: 'muted' }}>
       This work is licensed under a{' '}
-      <a
-        href="https://creativecommons.org/licenses/by-sa/4.0/"
+      <Link
+        to="https://creativecommons.org/licenses/by-sa/4.0/"
         target="_blank"
         rel="noopener noreferrer">
         Creative Commons Attribution-ShareAlike 4.0 International License
-      </a>
+      </Link>
     </p>
   </section>
+)
+
+const Footer = ({ post, meta, url }) => (
+  <footer
+    sx={{
+      marginX: 'auto',
+      paddingY: '3vw',
+      maxWidth: 'inner'
+    }}>
+    <Meta title={post.fields.title} tags={post.fields.tags} url={url} />
+    <Authors authors={post.fields.authors} />
+    <License />
+    {post.fields.comment && (
+      <section
+        sx={{
+          marginBottom: 7
+        }}>
+        <ScreenReaderText as="h3">Comments</ScreenReaderText>
+        <Comments url={url} slug={post.fields.slug} title={post.fields.title} />
+      </section>
+    )}
+  </footer>
+)
+
+const RelatedPosts = ({ meta, post, related, prev, next }) => (
+  <aside className="post-related">
+    <Container>
+      <h3 className="sr-only">Related posts</h3>
+      <Row>
+        <section className="category">
+          <header className="category-header">
+            <small>{meta.name}</small>
+            <h3>
+              <Link to={post.fields.categories[0].permalink}>
+                {post.fields.categories[0].name}
+              </Link>
+            </h3>
+          </header>
+          <div className="category-divider">
+            <Icon type="infinite" size={50} stroke={0.5} />
+          </div>
+          <ul className="category-posts">
+            {related.nodes.map(post => (
+              <li key={post.id}>
+                <Link to={post.fields.permalink} title={post.fields.title}>
+                  {post.fields.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <footer className="category-footer">
+            {related.totalCount > 1 ? (
+              <Link to={post.fields.categories[0].permalink}>
+                See all {related.totalCount} posts &rarr;
+              </Link>
+            ) : (
+              <Link to={post.fields.categories[0].permalink}>
+                See 1 post &rarr;
+              </Link>
+            )}
+          </footer>
+        </section>
+        {prev && <Card post={prev} rel="prev" />}
+        {next && <Card post={next} rel="next" />}
+      </Row>
+    </Container>
+  </aside>
 )
 
 export default ({ data: { meta, post, prev, next, related }, location }) => (
@@ -150,136 +366,22 @@ export default ({ data: { meta, post, prev, next, related }, location }) => (
         sx={{
           paddingX: ['3%', '5%', '10%'],
           paddingY: ['3%', '6%'],
-          minHeight: '50vh',
+          minHeight: '65vw',
           backgroundColor: 'background',
           fontSize: t => `calc(${t.fontSizes.md} + 0.33vw)`,
           fontFamily: 'serif',
           lineHeight: 'loose'
         }}
       />
-      <footer className="post-footer">
-        <section className="post-more">
-          {post.fields.tags && (
-            <div className="post-tags">
-              <Icon name="tag" />
-              <ul className="tags">
-                {post.fields.tags.map(i => (
-                  <li key={i.name}>
-                    <Link to={i.permalink}>{i.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <div className="post-share">
-            <span>Share this:</span>
-            <a
-              href={`https://twitter.com/share?text=${
-                post.fields.title
-              }&url=${meta.url + location.pathname}`}
-              title="Twitter">
-              <Icon name="twitter" />
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${meta.url +
-                location.pathname}`}
-              title="Facebook">
-              <Icon name="facebook" />
-            </a>
-            <a
-              href={`http://qr.topscan.com/api.php?text=${meta.url +
-                location.pathname}`}
-              title="Moment">
-              <Icon name="aperture" />
-            </a>
-          </div>
-        </section>
-
-        <section className="post-authors">
-          <h3 className="sr-only">Author</h3>
-          <div className="author">
-            <Image
-              className="avatar"
-              fixed={post.fields.authors[0].avatar.childImageSharp.fixed}
-            />
-            <div className="content">
-              <h4>{post.fields.authors[0].name}</h4>
-              <p>{post.fields.authors[0].bio}</p>
-            </div>
-            <Link
-              className="btn btn-pill"
-              to={post.fields.authors[0].permalink}>
-              Read More
-            </Link>
-          </div>
-          {post.fields.authors.length > 1 && (
-            <p className="contributors">
-              <span>Contributors: </span>
-              {post.fields.authors.slice(1).map(i => (
-                <Link to={i.permalink} key={i.name}>
-                  {i.name}
-                </Link>
-              ))}
-            </p>
-          )}
-        </section>
-
-        <License />
-
-        {post.fields.comment && (
-          <section className="post-comments">
-            <Comments
-              url={meta.url + location.pathname}
-              slug={post.fields.slug}
-              title={post.fields.title}
-            />
-          </section>
-        )}
-      </footer>
+      <Footer post={post} meta={meta} url={meta.url + location.pathname} />
     </Container>
-    <aside className="post-related">
-      <Container>
-        <h3 className="sr-only">Related posts</h3>
-        <Row>
-          <section className="category">
-            <header className="category-header">
-              <small>{meta.name}</small>
-              <h3>
-                <Link to={post.fields.categories[0].permalink}>
-                  {post.fields.categories[0].name}
-                </Link>
-              </h3>
-            </header>
-            <div className="category-divider">
-              <Icon type="infinite" size={50} stroke={0.5} />
-            </div>
-            <ul className="category-posts">
-              {related.nodes.map(post => (
-                <li key={post.id}>
-                  <Link to={post.fields.permalink} title={post.fields.title}>
-                    {post.fields.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <footer className="category-footer">
-              {related.totalCount > 1 ? (
-                <Link to={post.fields.categories[0].permalink}>
-                  See all {related.totalCount} posts &rarr;
-                </Link>
-              ) : (
-                <Link to={post.fields.categories[0].permalink}>
-                  See 1 post &rarr;
-                </Link>
-              )}
-            </footer>
-          </section>
-
-          {prev && <Card post={prev} rel="prev" />}
-          {next && <Card post={next} rel="next" />}
-        </Row>
-      </Container>
-    </aside>
+    {/* <RelatedPosts
+      meta={meta}
+      post={post}
+      related={related}
+      prev={prev}
+      next={next}
+    /> */}
   </Layout>
 )
 

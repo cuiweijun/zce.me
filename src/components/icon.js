@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { icons } from 'feather-icons'
 
-export default ({ name, size = '16', ...props }) => {
+export default ({ name, size = 16, ...props }) => {
   if (!icons[name]) {
     name = 'alert-circle'
   }

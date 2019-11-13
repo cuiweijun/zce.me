@@ -40,7 +40,6 @@ export default ({ variant = 'default', size = 'md', ...props }) => {
         backgroundColor: 'transparent',
         color: 'text',
         lineHeight: 'inherit',
-        textDecoration: 'none',
         fontSize: 'inherit',
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',
         ':focus': {

@@ -15,6 +15,7 @@ import {
   Comments,
   ScreenReaderText
 } from '../components'
+import { shade } from '../utils/color'
 
 const Meta = ({ title, tags, url }) => (
   <section
@@ -172,15 +173,11 @@ const License = () => (
       }}>
       <svg viewBox="0 0 120 42" width="160">
         <path
-          fill="#fff"
-          d="M3.4,0.5l113.4,0.2c1.6,0,3-0.2,3,3.2l-0.1,37.3H0.5V3.7C0.5,2,0.7,0.5,3.4,0.5z"
-        />
-        <path
           fill="currentColor"
           d="M117.8,0H2.2C1,0,0,1,0,2.2v39.2C0,41.8,0.2,42,0.5,42h119c0.3,0,0.5-0.2,0.5-0.5V2.2C120,1,119,0,117.8,0z M2.2,1h115.5c0.7,0,1.2,0.6,1.2,1.2c0,0,0,15.8,0,27.2H36.4c-3,5.5-8.9,9.2-15.5,9.2c-6.7,0-12.5-3.7-15.5-9.2H1C1,18.1,1,2.2,1,2.2C1,1.6,1.6,1,2.2,1z"
         />
         <path
-          fill="#fff"
+          sx={{ fill: 'background' }}
           d="M61,32.7c0.3,0,0.6,0,0.9,0.1c0.3,0.1,0.5,0.1,0.7,0.3c0.2,0.1,0.3,0.3,0.4,0.5c0.1,0.2,0.2,0.5,0.2,0.8S63.1,35,63,35.2c-0.2,0.2-0.4,0.4-0.7,0.5c0.4,0.1,0.7,0.3,0.9,0.6s0.3,0.6,0.3,1.1c0,0.3-0.1,0.6-0.2,0.9c-0.1,0.2-0.3,0.4-0.5,0.6c-0.2,0.2-0.5,0.3-0.8,0.3c-0.3,0.1-0.6,0.1-0.9,0.1h-1.2h-2v-6.6L61,32.7L61,32.7z M60.8,35.4c0.3,0,0.5-0.1,0.6-0.2c0.2-0.1,0.3-0.3,0.3-0.6c0-0.2,0-0.3-0.1-0.4c-0.1-0.1-0.1-0.2-0.2-0.2c-0.1-0.1-0.2-0.1-0.3-0.1s-0.2,0-0.4,0h-1.4v1.5H60.8z M60.9,38.2c0.1,0,0.3,0,0.4,0c0.1,0,0.2-0.1,0.3-0.1c0.1-0.1,0.2-0.2,0.2-0.3c0.1-0.1,0.1-0.3,0.1-0.4c0-0.3-0.1-0.6-0.3-0.7c-0.2-0.1-0.4-0.2-0.8-0.2h-1.6v1.8L60.9,38.2L60.9,38.2z M63.7,32.7h1.6l1.6,2.6l1.5-2.6H70l-2.5,4.1v2.5H66v-2.6L63.7,32.7z M87.3,37.7c0.1,0.2,0.2,0.3,0.3,0.4c0.1,0.1,0.3,0.2,0.5,0.2s0.4,0.1,0.6,0.1c0.1,0,0.3,0,0.4,0s0.3-0.1,0.4-0.1c0.1-0.1,0.2-0.1,0.3-0.3c0.1-0.1,0.1-0.2,0.1-0.4s-0.1-0.3-0.2-0.4c-0.1-0.1-0.3-0.2-0.4-0.3c-0.2-0.1-0.4-0.1-0.6-0.2c-0.2-0.1-0.5-0.1-0.7-0.2c-0.2-0.1-0.5-0.1-0.7-0.2c-0.2-0.1-0.4-0.2-0.6-0.3s-0.3-0.3-0.4-0.5C86,35.1,86,34.9,86,34.6c0-0.3,0.1-0.6,0.2-0.9c0.1-0.3,0.3-0.5,0.6-0.6c0.2-0.2,0.5-0.3,0.8-0.4c0.3-0.1,0.6-0.1,0.9-0.1s0.7,0,1,0.1s0.6,0.2,0.8,0.4c0.2,0.2,0.4,0.4,0.6,0.7c0.1,0.3,0.2,0.6,0.2,1h-1.4c0-0.2-0.1-0.4-0.1-0.5c-0.1-0.1-0.2-0.2-0.3-0.3c-0.1-0.1-0.3-0.1-0.4-0.2c-0.2,0-0.3,0-0.5,0c-0.1,0-0.2,0-0.4,0c-0.1,0-0.2,0.1-0.3,0.1c-0.1,0.1-0.2,0.1-0.2,0.2c-0.1,0.1-0.1,0.2-0.1,0.4c0,0.1,0,0.2,0.1,0.3c0,0.1,0.1,0.2,0.3,0.2c0.1,0.1,0.3,0.1,0.6,0.2c0.3,0.1,0.6,0.2,1,0.3c0.1,0,0.3,0.1,0.5,0.1c0.2,0.1,0.4,0.2,0.7,0.3c0.2,0.1,0.4,0.3,0.6,0.6c0.2,0.2,0.2,0.5,0.2,0.9c0,0.3-0.1,0.6-0.2,0.8c-0.1,0.3-0.3,0.5-0.5,0.7s-0.5,0.3-0.9,0.4c-0.3,0.1-0.7,0.2-1.2,0.2c-0.4,0-0.7,0-1.1-0.1c-0.3-0.1-0.6-0.2-0.9-0.4s-0.5-0.4-0.6-0.7c-0.2-0.3-0.2-0.6-0.2-1.1h1.4C87.1,37.4,87.2,37.6,87.3,37.7z M95.5,32.7l2.5,6.6h-1.5L96,37.8h-2.5L93,39.3h-1.5l2.5-6.6H95.5zM95.6,36.8l-0.8-2.4l0,0l-0.9,2.4H95.6z"
         />
         <circle fill="transparent" cx="92.3" cy="15.03" r="11.6" />
@@ -234,44 +231,103 @@ const Footer = ({ post, meta, url }) => (
   </footer>
 )
 
-const RelatedPosts = ({ meta, post, related, prev, next }) => (
-  <aside className="post-related">
+const Category = ({ name, category, related }) => (
+  <section
+    sx={{
+      position: 'relative',
+      display: 'flex',
+      overflow: 'hidden',
+      flex: '1 0 0',
+      flexBasis: t => ['100%', '100%', '100%', t.sizes.card],
+      flexDirection: 'column',
+      marginX: 3,
+      marginBottom: 6,
+      padding: 5,
+      borderRadius: 'medium',
+      backgroundColor: shade('primary', 0.4),
+      color: 'white',
+      boxShadow: 'light',
+      textAlign: 'center',
+      a: {
+        color: 'inherit',
+        textDecoration: 'none',
+        ':hover': {
+          color: 'primary'
+        }
+      }
+    }}>
+    <small
+      sx={{
+        ':before, :after': {
+          display: 'inline-block',
+          marginX: 2,
+          content: '"\\2014"'
+        }
+      }}>
+      {name}
+    </small>
+    <h3 sx={{ padding: 2, fontWeight: 'light' }}>
+      <Link to={category.permalink}>{category.name}</Link>
+    </h3>
+    <svg
+      viewBox="0 0 24 24"
+      width="50"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="0.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      sx={{ marginX: 'auto' }}>
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+    </svg>
+    <ul
+      sx={{
+        flexGrow: 1,
+        margin: 3,
+        padding: 0,
+        listStyle: 'none'
+      }}>
+      {related.nodes.map(item => (
+        <li
+          key={item.id}
+          sx={{
+            overflow: 'hidden',
+            padding: 3,
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            ':not(:last-child)': {
+              borderColor: shade('primary', 0.5),
+              borderBottomWidth: 1
+            }
+          }}>
+          <Link to={item.fields.permalink} title={item.fields.title}>
+            {item.fields.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
+    <footer>
+      {related.totalCount > 1 ? (
+        <Link to={category.permalink}>
+          See all {related.totalCount} posts &rarr;
+        </Link>
+      ) : (
+        <Link to={category.permalink}>See 1 post &rarr;</Link>
+      )}
+    </footer>
+  </section>
+)
+
+const RelatedPosts = ({ name, category, related, prev, next }) => (
+  <aside
+    sx={{
+      paddingTop: 6,
+      backgroundColor: 'light'
+    }}>
     <Container>
-      <h3 className="sr-only">Related posts</h3>
+      <ScreenReaderText as="h3">Related posts</ScreenReaderText>
       <Row>
-        <section className="category">
-          <header className="category-header">
-            <small>{meta.name}</small>
-            <h3>
-              <Link to={post.fields.categories[0].permalink}>
-                {post.fields.categories[0].name}
-              </Link>
-            </h3>
-          </header>
-          <div className="category-divider">
-            <Icon type="infinite" size={50} stroke={0.5} />
-          </div>
-          <ul className="category-posts">
-            {related.nodes.map(post => (
-              <li key={post.id}>
-                <Link to={post.fields.permalink} title={post.fields.title}>
-                  {post.fields.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <footer className="category-footer">
-            {related.totalCount > 1 ? (
-              <Link to={post.fields.categories[0].permalink}>
-                See all {related.totalCount} posts &rarr;
-              </Link>
-            ) : (
-              <Link to={post.fields.categories[0].permalink}>
-                See 1 post &rarr;
-              </Link>
-            )}
-          </footer>
-        </section>
+        <Category name={name} category={category} related={related} />
         {prev && <Card post={prev} rel="prev" />}
         {next && <Card post={next} rel="next" />}
       </Row>
@@ -279,6 +335,7 @@ const RelatedPosts = ({ meta, post, related, prev, next }) => (
   </aside>
 )
 
+// TODO: meta prev next
 export default ({ data: { meta, post, prev, next, related }, location }) => (
   <Layout
     title={post.fields.title}
@@ -287,7 +344,7 @@ export default ({ data: { meta, post, prev, next, related }, location }) => (
     cover={post.fields.cover}
     mask={3}
     hero={false}>
-    <Container as="article" role="main" sx={{ marginBottom: 9 }}>
+    <Container as="article" role="main" sx={{ marginBottom: 5 }}>
       <header
         sx={{
           paddingTop: '6vw',
@@ -375,13 +432,13 @@ export default ({ data: { meta, post, prev, next, related }, location }) => (
       />
       <Footer post={post} meta={meta} url={meta.url + location.pathname} />
     </Container>
-    {/* <RelatedPosts
-      meta={meta}
-      post={post}
+    <RelatedPosts
+      name={meta.name}
+      category={post.fields.categories[0]}
       related={related}
       prev={prev}
       next={next}
-    /> */}
+    />
   </Layout>
 )
 

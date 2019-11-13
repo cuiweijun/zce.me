@@ -6,8 +6,8 @@ import Image from 'gatsby-image'
 import Link from './link'
 
 // TODO: UI, Post or Course
-export default ({ post, rel }) => (
-  <article
+export default ({ as: Tag = 'article', post, rel }) => (
+  <Tag
     sx={{
       position: 'relative',
       display: 'flex',
@@ -165,7 +165,7 @@ export default ({ post, rel }) => (
         )}
       </footer>
     </div>
-  </article>
+  </Tag>
 )
 
 export const GraphQLFragment = graphql`

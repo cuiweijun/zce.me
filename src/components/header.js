@@ -149,7 +149,6 @@ const ColorModeToggler = () => {
 export default ({ title, subtitle, hero, padding, cover, mask }) => {
   const pinned = useNavPinned()
   const { meta } = useStaticQuery(query)
-  console.log(hero)
 
   return (
     <header

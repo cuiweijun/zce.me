@@ -48,6 +48,8 @@ export default ({
   mask,
   hero,
   padding,
+  align,
+  background,
   type,
   children
 }) => (
@@ -63,6 +65,7 @@ export default ({
       title={title}
       subtitle={subtitle}
       padding={padding}
+      align={align}
       cover={cover}
       mask={mask}
       hero={hero}
@@ -70,7 +73,11 @@ export default ({
     <main
       id="content"
       children={children}
-      sx={{ position: 'relative', minHeight: '40vh' }}
+      sx={{
+        position: 'relative',
+        minHeight: '40vh',
+        backgroundColor: background
+      }}
     />
   </Fragment>
 )

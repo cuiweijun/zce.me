@@ -13,10 +13,11 @@ const query = graphql`
   }
 `
 
-export default ({ url, slug, title }) => {
+export default ({ url, slug, title, ...props }) => {
   const { config } = useStaticQuery(query)
   return (
     <DiscussionEmbed
+      {...props}
       shortname={config.disqus.shortname}
       config={{
         url: url,

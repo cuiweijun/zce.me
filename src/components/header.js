@@ -146,7 +146,7 @@ const ColorModeToggler = () => {
   )
 }
 
-export default ({ title, subtitle, hero, padding, cover, mask }) => {
+export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
   const pinned = useNavPinned()
   const { meta } = useStaticQuery(query)
 
@@ -182,6 +182,7 @@ export default ({ title, subtitle, hero, padding, cover, mask }) => {
           title={title}
           subtitle={subtitle}
           padding={padding}
+          align={align}
           cover={cover}
           children={hero}
         />

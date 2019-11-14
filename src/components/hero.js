@@ -14,13 +14,13 @@ const query = graphql`
 `
 
 // TODO: transition
-export default ({ title, subtitle, padding, cover, children }) => {
+export default ({ title, subtitle, padding, align, cover, children }) => {
   const { meta } = useStaticQuery(query)
 
   if (!children) {
     const style = {
       paddingY: padding || '10vw',
-      textAlign: 'center',
+      textAlign: align || 'center',
       color: cover === false ? 'text' : 'white',
       textShadow: cover === false ? '0' : 'text',
       transition: 'padding 0.3s, color 0.3s'

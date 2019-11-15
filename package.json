@@ -23,7 +23,7 @@
     "url": "https://zce.me"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.{js,json,yml,yaml,md,scss}\"",
+    "format": "prettier --write \"**/*.{js,json,yml,yaml,md}\"",
     "clean": "gatsby clean",
     "build": "gatsby build",
     "serve": "gatsby serve",
@@ -71,7 +71,6 @@
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.0.2",
     "disqus-react": "1.0.7",
-    "emotion-normalize": "10.1.0",
     "gatsby": "2.17.15",
     "gatsby-image": "2.2.33",
     "gatsby-plugin-nprogress": "2.1.14",

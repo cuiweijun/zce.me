@@ -2,6 +2,7 @@
 import { jsx } from 'theme-ui'
 import { useEffect, useRef } from 'react'
 import { graphql, navigate } from 'gatsby'
+import Helmet from 'react-helmet'
 import moment from 'moment'
 
 import {
@@ -80,6 +81,10 @@ export default ({
         />
       )}
 
+      <Helmet>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
+      </Helmet>
+
       <Container>
         <Row>
           <Tabs
@@ -96,7 +101,7 @@ export default ({
             </TabList>
             <TabPanel>
               <div
-                sx={{ marginBottom: 4, paddingX: 3, paddingY: 5 }}
+                sx={{ marginBottom: 4, paddingX: 3, paddingY: 4 }}
                 dangerouslySetInnerHTML={{ __html: html }}
               />
             </TabPanel>
@@ -104,6 +109,7 @@ export default ({
               <ol
                 sx={{
                   padding: 0,
+                  paddingY: 3,
                   listStyle: 'inside decimal-leading-zero',
 
                   a: {
@@ -117,8 +123,12 @@ export default ({
                       paddingX: 3,
                       paddingY: 2,
                       fontSize: i === current || 'sm',
+                      color: i === current && 'primary',
                       ':not(:last-child)': {
                         borderBottomWidth: 1
+                      },
+                      a: {
+                        textDecoration: 'none'
                       }
                     }}>
                     {i === current ? (

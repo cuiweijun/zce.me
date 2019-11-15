@@ -212,9 +212,54 @@ const heading = {
   fontWeight: 'heading'
 }
 
+const prism = {
+  color: '#f8f8f2', // 'text',
+  backgroundColor: '#272822', // darken('background', 0.2),
+  '.comment,.prolog,.doctype,.cdata': {
+    color: 'slategray'
+  },
+  '.punctuation': {
+    color: '#f8f8f2'
+  },
+  '.namespace': {
+    opacity: '.7'
+  },
+  '.property,.tag,.constant,.symbol,.deleted': {
+    color: '#f92672'
+  },
+  '.boolean,.number': {
+    color: '#ae81ff'
+  },
+  '.selector,.attr-name,.string,.char,.builtin,.inserted': {
+    color: '#a6e22e'
+  },
+  '.operator,.entity,.url,.language-css .string,.style .string,.variable': {
+    color: '#f8f8f2'
+  },
+  '.atrule,.attr-value,.function,.class-name': {
+    color: '#e6db74'
+  },
+  '.keyword': {
+    color: '#66d9ef'
+  },
+  '.regex,.important': {
+    color: '#fd971f'
+  },
+  '.important,.bold': {
+    fontWeight: 'bold'
+  },
+  '.italic': {
+    fontStyle: 'italic'
+  },
+  '.entity': {
+    cursor: 'help'
+  }
+}
+
 const styles = {
   '*': {
     boxSizing: 'border-box',
+    // TODO: remove global border
     borderWidth: 0,
     borderStyle: 'default',
     borderColor: 'border'
@@ -273,8 +318,16 @@ const styles = {
       marginBottom: 0
     }
   },
-  ol: {},
-  ul: {},
+  ol: {
+    margin: 0,
+    marginBottom: 3,
+    paddingX: 4
+  },
+  ul: {
+    margin: 0,
+    marginBottom: 3,
+    paddingX: 4
+  },
   blockquote: {
     margin: 0,
     marginBottom: 3,
@@ -287,29 +340,43 @@ const styles = {
   },
   pre: {
     overflowX: 'auto',
+    margin: 0,
+    marginBottom: 3,
     paddingX: 3,
     paddingY: 3,
     fontFamily: 'mono',
     code: {
       color: 'inherit'
-    }
+    },
+    ...prism
   },
   code: {
     fontFamily: 'mono',
     fontSize: '90%'
   },
   table: {
+    display: 'block',
+    overflowX: 'auto',
+    margin: 0,
+    marginBottom: 3,
     width: '100%',
-    borderCollapse: 'separate',
+    borderCollapse: 'collapse',
     borderSpacing: 0
   },
   th: {
+    paddingX: 3,
+    paddingY: 2,
     textAlign: 'left',
-    borderBottomStyle: 'solid'
+    borderWidth: 1
   },
   td: {
+    paddingX: 3,
+    paddingY: 2,
     textAlign: 'left',
-    borderBottomStyle: 'solid'
+    borderWidth: 1
+  },
+  img: {
+    maxWidth: '100%'
   },
   a: {
     color: 'primary',

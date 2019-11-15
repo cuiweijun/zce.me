@@ -237,9 +237,10 @@ const Category = ({ name, category, related }) => (
       position: 'relative',
       display: 'flex',
       overflow: 'hidden',
-      flex: '1 0 0',
+      flex: '1 1 0',
       flexBasis: t => ['100%', '100%', '100%', t.sizes.card],
       flexDirection: 'column',
+      // order: [2, 2, 2, 0],
       marginX: 3,
       marginBottom: 6,
       padding: 5,
@@ -407,12 +408,10 @@ export default ({ data: { meta, post, prev, next, related }, location }) => (
             content: '""',
             filter: 'blur(1rem)'
           },
-
           ':before': {
             left: '-0.5rem',
             transform: 'rotate(-1deg)'
           },
-
           ':after': {
             right: '-0.5rem',
             transform: 'rotate(1deg)'
@@ -426,9 +425,16 @@ export default ({ data: { meta, post, prev, next, related }, location }) => (
           paddingY: ['3%', '6%'],
           minHeight: '65vw',
           backgroundColor: 'background',
-          fontSize: t => `calc(${t.fontSizes.md} + 0.33vw)`,
+          fontSize: t => `calc(${t.fontSizes.sm} + 0.33vw)`,
           fontFamily: 'serif',
-          lineHeight: 'loose'
+          lineHeight: 'loose',
+          wordWrap: 'break-word',
+          'h1, h2, h3, h4, h5, h6': {
+            margin: '1em 0 0.5em'
+          },
+          'ol, ul': {
+            // paddingLeft: 4
+          }
         }}
       />
       <Footer post={post} meta={meta} url={meta.url + location.pathname} />

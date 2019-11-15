@@ -9,10 +9,10 @@
 import React, { useContext } from 'react'
 import { ThemeProvider, ColorMode, css } from 'theme-ui'
 import { Global } from '@emotion/core'
-import normalize from 'emotion-normalize'
 
 import { Wrapper } from './components'
 import theme from './theme'
+import styles from './styles'
 
 const Context = React.createContext()
 
@@ -30,7 +30,7 @@ export const wrapRootElement = ({ element }) => (
 
 export const wrapPageElement = ({ element, props }) => (
   <Wrapper {...props}>
-    <Global styles={normalize} />
+    <Global styles={css(styles)} />
     <Global styles={css(theme.styles)} />
     {element}
   </Wrapper>

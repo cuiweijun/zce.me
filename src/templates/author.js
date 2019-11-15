@@ -1,33 +1,38 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
 
-import { Layout, Card } from '../components'
+import { Layout, Container, Row, Card, Image } from '../components'
 
-export default ({ data: { author, allMarkdownRemark }, location }) => (
+export default ({ data: { author, posts } }) => (
   <Layout
-    className={`archive author ${author.slug}`}
     title={(author.meta && author.meta.title) || author.name}
     description={(author.meta && author.meta.description) || author.bio}
+    keywords={author.meta && author.meta.keywords}
+    subtitle={author.bio}
     cover={author.cover}
-    header={
-      <div className="container">
+    hero={
+      <Container sx={{ paddingY: '5vw', color: 'white', textAlign: 'center' }}>
         <Image
-          className="author-avatar"
-          fixed={author.avatar.childImageSharp.fixed}
+          file={author.avatar}
+          sx={{
+            marginBottom: 3,
+            borderWidth: 5,
+            borderColor: 'light',
+            borderRadius: 'circle'
+          }}
         />
-        <h1 className="author-name">{author.name}</h1>
-        <p className="author-bio">{author.bio}</p>
-      </div>
-    }
-    location={location}>
-    <div className="container">
-      <div className="row">
-        {allMarkdownRemark.nodes.map(node => (
+        <h1>{author.name}</h1>
+        <p sx={{ fontSize: 'xl' }}>{author.bio}</p>
+      </Container>
+    }>
+    <Container>
+      <Row sx={{ marginBottom: 6 }}>
+        {posts.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   </Layout>
 )
 
@@ -38,13 +43,13 @@ export const query = graphql`
       slug
       avatar {
         childImageSharp {
-          fixed(width: 160) {
+          fixed(width: 140) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       cover {
-        ...SiteCoverImage
+        ...CoverImage
       }
       bio
       meta {
@@ -53,7 +58,7 @@ export const query = graphql`
       }
     }
 
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fields: {
           type: { ne: "page" }

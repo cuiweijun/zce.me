@@ -1,36 +1,22 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import icons from '../assets/icons.json'
 
-import icons from '../assets/icons.svg'
-import brands from '../assets/brands.svg'
-
-const Icon = ({ type, size = 16, stroke = 2.5, ...rest }) => (
+export default ({ name, size = 16, ...props }) => (
   <svg
-    className="icon"
+    viewBox="0 0 24 24"
     width={size}
     height={size}
     fill="none"
     stroke="currentColor"
-    strokeWidth={stroke}
+    strokeWidth={2}
     strokeLinecap="round"
     strokeLinejoin="round"
-    {...rest}
-    aria-hidden="true">
-    <use xlinkHref={`${icons}#${type}`}></use>
-  </svg>
+    aria-hidden="true"
+    sx={{ verticalAlign: 'text-bottom' }}
+    dangerouslySetInnerHTML={{
+      __html: icons[name] ? icons[name] : icons['alert-circle']
+    }}
+    {...props}
+  />
 )
-
-const Brand = ({ type, size = 16, ...rest }) => (
-  <svg
-    className="icon"
-    width={size}
-    height={size}
-    fill="currentColor"
-    {...rest}
-    aria-hidden="true">
-    <use xlinkHref={`${brands}#${type}`}></use>
-  </svg>
-)
-
-Icon.Brand = Brand
-
-export default Icon

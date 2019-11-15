@@ -1,26 +1,45 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { graphql, navigate, Link } from 'gatsby'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { useEffect, useRef } from 'react'
+import { graphql, navigate } from 'gatsby'
+import Helmet from 'react-helmet'
 import moment from 'moment'
-import 'plyr/dist/plyr.css'
 
-import { Layout, Comments } from '../components'
+import {
+  Layout,
+  Container,
+  Row,
+  Tab,
+  TabList,
+  Tabs,
+  TabPanel,
+  Link,
+  Comments
+} from '../components'
 
-export default ({ pageContext, data, location }) => {
-  const { course, relatedCourses, siteMetadata } = data
-  const { current } = pageContext
-  const { fields } = course
+const AsideSection = ({ title, children }) => (
+  <section
+    sx={{
+      padding: 3,
+      ':not(:last-child)': {
+        borderBottomWidth: 1
+      }
+    }}>
+    <span sx={{ fontWeight: 'bold' }}>{title}: </span>
+    {children}
+  </section>
+)
 
+export default ({
+  data: {
+    course: { fields, excerpt, html },
+    related,
+    meta
+  },
+  pageContext: { current },
+  location: { pathname }
+}) => {
   const video = fields.sections[current]
-
-  const url = siteMetadata.url + location.pathname
-
-  let hash = location.hash.substr(1)
-  if (video) {
-    hash = 'toc'
-  } else if (!['intro', 'toc', 'talk'].includes(hash)) {
-    hash = 'intro'
-  }
-  const [panel, setPanel] = useState(hash)
 
   const playerEl = useRef(null)
 
@@ -47,155 +66,160 @@ export default ({ pageContext, data, location }) => {
 
   return (
     <Layout
-      className={`course ${fields.slug}`}
       title={video ? video.name : fields.title}
-      description={fields.description || course.excerpt}
+      subtitle={fields.description}
+      description={fields.description || excerpt}
       cover={video ? false : fields.cover}
-      header={video ? false : undefined}
-      location={location}>
-      {video && <video className="fffffffffff" ref={playerEl} />}
+      hero={video ? false : undefined}
+      mask={1}
+      align="left"
+      background="background">
+      {video && (
+        <video
+          ref={playerEl}
+          sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
+        />
+      )}
 
-      <div className="container">
-        <div className="row">
-          <section className="course-content">
-            <ul className="tabs" role="tablist">
-              <li className={panel === 'intro' ? ' active' : ''}>
-                <a
-                  id="intro-tab"
-                  href="#intro"
-                  onClick={() => setPanel('intro')}
-                  role="tab"
-                  aria-controls="intro"
-                  aria-selected={panel === 'intro'}>
-                  介绍
-                </a>
-              </li>
-              <li className={panel === 'toc' ? ' active' : ''}>
-                <a
-                  id="toc-tab"
-                  href="#toc"
-                  onClick={() => setPanel('toc')}
-                  role="tab"
-                  aria-controls="toc"
-                  aria-selected={panel === 'toc'}>
-                  目录
-                </a>
-              </li>
-              {fields.comment && (
-                <li className={panel === 'talk' ? ' active' : ''}>
-                  <a
-                    id="talk-tab"
-                    href="#talk"
-                    onClick={() => setPanel('talk')}
-                    role="tab"
-                    aria-controls="talk"
-                    aria-selected={panel === 'talk'}>
-                    讨论
-                  </a>
-                </li>
-              )}
-            </ul>
-            <div className="tab-content">
-              <section
-                id="intro"
-                className={`tab-panel${panel === 'intro' ? ' active' : ''}`}
-                role="tabpanel"
-                aria-labelledby="intro-tab">
-                <div
-                  className="course-intro"
-                  dangerouslySetInnerHTML={{ __html: course.html }}
-                />
-              </section>
-              <section
-                id="toc"
-                className={`tab-panel${panel === 'toc' ? ' active' : ''}`}
-                role="tabpanel"
-                aria-labelledby="toc-tab">
-                <ol className="course-toc">
-                  {fields.sections.map((item, i) =>
-                    i === current ? (
-                      <li className="active" key={item.name}>
-                        <span>▶ {item.name}</span>
-                      </li>
+      <Helmet>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
+      </Helmet>
+
+      <Container>
+        <Row>
+          <Tabs
+            defaultIndex={1}
+            sx={{
+              flex: '3 1 32rem',
+              padding: 3,
+              minHeight: '60vh'
+            }}>
+            <TabList>
+              <Tab>介绍</Tab>
+              <Tab>目录</Tab>
+              {fields.comment && <Tab>讨论</Tab>}
+            </TabList>
+            <TabPanel>
+              <div
+                sx={{ marginBottom: 4, paddingX: 3, paddingY: 4 }}
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+            </TabPanel>
+            <TabPanel>
+              <ol
+                sx={{
+                  padding: 0,
+                  paddingY: 3,
+                  listStyle: 'inside decimal-leading-zero',
+
+                  a: {
+                    color: 'inherit'
+                  }
+                }}>
+                {fields.sections.map((item, i) => (
+                  <li
+                    key={item.name}
+                    sx={{
+                      paddingX: 3,
+                      paddingY: 2,
+                      fontSize: i === current || 'sm',
+                      color: i === current && 'primary',
+                      ':not(:last-child)': {
+                        borderBottomWidth: 1
+                      },
+                      a: {
+                        textDecoration: 'none'
+                      }
+                    }}>
+                    {i === current ? (
+                      <span>▶ {item.name}</span>
                     ) : (
-                      <li key={item.name}>
-                        <Link
-                          to={`${fields.permalink}${('0' + ++i).substr(-2)}/`}>
-                          {item.name}
-                        </Link>
-                      </li>
-                    )
-                  )}
-                </ol>
-              </section>
-              {fields.comment && (
-                <section
-                  id="talk"
-                  className={`tab-panel${panel === 'talk' ? ' active' : ''}`}
-                  role="tabpanel"
-                  aria-labelledby="talk-tab">
-                  <div className="course-talk">
-                    <Comments
-                      url={url}
-                      slug={fields.slug}
-                      title={fields.title}
-                    />
-                  </div>
-                </section>
-              )}
-            </div>
-          </section>
-          <aside className="course-meta">
+                      <Link
+                        to={`${fields.permalink}${('0' + ++i).substr(-2)}/`}>
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </TabPanel>
+            {fields.comment && (
+              <TabPanel>
+                <div
+                  sx={{
+                    padding: 3
+                  }}>
+                  <Comments
+                    url={meta.url + pathname}
+                    slug={fields.slug}
+                    title={fields.title}
+                  />
+                </div>
+              </TabPanel>
+            )}
+          </Tabs>
+          <aside
+            sx={{
+              position: 'sticky',
+              top: 0,
+              // alignSelf: 'flex-start',
+              padding: 3,
+              paddingLeft: [3, 3, 0],
+              borderLeftWidth: 1,
+              color: 'muted',
+              a: {
+                color: 'inherit',
+                ':not(:last-child)': {
+                  marginRight: 1,
+                  ':after': {
+                    content: '"\\002C"'
+                  }
+                }
+              }
+            }}>
             {video && (
-              <section>
-                <span>课程：</span>
+              <AsideSection title="课程">
                 <Link to={fields.permalink} title={fields.title}>
                   《{fields.title}》
                 </Link>
-              </section>
+              </AsideSection>
             )}
-            <section>
-              <span>作者：</span>
+            <AsideSection title="作者">
               {fields.authors.map(i => (
                 <Link key={i.name} to={i.permalink} title={i.name}>
                   {i.name}
                 </Link>
               ))}
-            </section>
-            <section>
-              <span>发布时间：</span>
+            </AsideSection>
+            <AsideSection title="发布时间">
               <time dateTime={fields.date} aria-label="Posted on">
                 {moment.utc(fields.date).format('ll')}
               </time>
-            </section>
-            <section>
-              <span>最后更新：</span>
+            </AsideSection>
+            <AsideSection title="最后更新">
               <time dateTime={fields.updated} aria-label="Updated on">
                 {moment.utc(fields.updated).format('ll')}
               </time>
-            </section>
-            <section>
-              <span>分类：</span>
+            </AsideSection>
+            <AsideSection title="分类">
               {fields.categories.map(i => (
                 <Link key={i.name} to={i.permalink} title={i.name}>
                   {i.name}
                 </Link>
               ))}
-            </section>
+            </AsideSection>
             {fields.tags && (
-              <section>
-                <span>标签：</span>
+              <AsideSection title="标签">
                 {fields.tags.map(i => (
                   <Link key={i.name} to={i.permalink} title={i.name}>
                     {i.name}
                   </Link>
                 ))}
-              </section>
+              </AsideSection>
             )}
-            <section>
-              <span>相关推荐：</span>
+            <AsideSection title="相关推荐">
               <ul>
-                {relatedCourses.nodes.map(i => (
+                {related.nodes.map(i => (
                   <li key={i.id}>
                     <Link to={i.fields.permalink} title={i.fields.title}>
                       {i.fields.title}
@@ -203,16 +227,20 @@ export default ({ pageContext, data, location }) => {
                   </li>
                 ))}
               </ul>
-            </section>
+            </AsideSection>
           </aside>
-        </div>
-      </div>
+        </Row>
+      </Container>
     </Layout>
   )
 }
 
 export const query = graphql`
   query CourseTemplate($id: String!, $cat: String) {
+    meta: config {
+      url
+    }
+
     course: markdownRemark(id: { eq: $id }) {
       fields {
         title
@@ -220,7 +248,7 @@ export const query = graphql`
         date
         updated
         cover {
-          ...SiteCoverImage
+          ...CoverImage
         }
         description
         permalink
@@ -257,7 +285,7 @@ export const query = graphql`
       html
     }
 
-    relatedCourses: allMarkdownRemark(
+    related: allMarkdownRemark(
       filter: {
         id: { ne: $id }
         fields: {
@@ -278,10 +306,6 @@ export const query = graphql`
           title
         }
       }
-    }
-
-    siteMetadata: config {
-      url
     }
   }
 `

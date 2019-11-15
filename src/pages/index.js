@@ -1,111 +1,166 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import Image from 'gatsby-image'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { graphql } from 'gatsby'
 
-import { Layout, Card } from '../components'
+import {
+  Layout,
+  Container,
+  Row,
+  Link,
+  Button,
+  Image,
+  Card
+} from '../components'
 
-const FeaturedSection = ({ post }) => (
-  <section className="home-section">
-    <div className="container">
-      <article className={`${post.fields.slug} featured`}>
-        {post.fields.cover && (
-          <Image
-            Tag="figure"
-            className="featured-cover"
-            alt={post.fields.title}
-            title={post.fields.title}
-            fluid={post.fields.cover.childImageSharp.fluid}
-          />
-        )}
-        <div className="featured-main">
-          <h2 className="featured-title">{post.fields.title}</h2>
-          <div
-            className="featured-content"
-            dangerouslySetInnerHTML={{ __html: post.excerpt }}
-          />
-          <Link
-            className="featured-link"
-            to={post.fields.permalink}
-            title={post.fields.title}>
-            Continue reading <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
-      </article>
-    </div>
-  </section>
+const Section = ({ padding = 8, ...props }) => (
+  <section
+    {...props}
+    sx={{
+      paddingY: padding,
+      backgroundColor: 'light',
+      ':nth-of-type(2n)': {
+        backgroundColor: 'background'
+      }
+    }}
+  />
 )
 
-const FeedSection = ({ posts, title, subtitle, link }) => (
-  <section className="home-section">
-    <div className="container">
-      <header className="home-section-header">
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
+const Featured = ({ post }) => (
+  <Section>
+    <Container
+      as="article"
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexWrap: 'wrap'
+      }}>
+      <Image
+        as="figure"
+        file={post.fields.cover}
+        alt={post.fields.title}
+        title={post.fields.title}
+        sx={{
+          flexBasis: '22rem',
+          order: [0, 0, 1],
+          margin: 0,
+          marginBottom: [4, 4, 0],
+          marginLeft: [0, 0, 4],
+          border: '1.5rem solid',
+          borderColor: 'light',
+          boxShadow: 'medium'
+        }}
+      />
+      <div
+        sx={{
+          flexGrow: 1,
+          flexBasis: '23rem',
+          padding: 4,
+          lineHeight: 'loose'
+        }}>
+        <h2 sx={{ marginBottom: 4, fontSize: 7 }}>{post.fields.title}</h2>
+        <div
+          dangerouslySetInnerHTML={{ __html: post.excerpt }}
+          sx={{
+            marginBottom: 4,
+            maskImage:
+              'linear-gradient(to top, rgba(0, 0, 0, 0), #000 10%, #000)'
+          }}
+        />
+        <Button
+          as={Link}
+          to={post.fields.permalink}
+          variant="ghost"
+          title={post.fields.title}>
+          Continue reading <span aria-hidden="true">&rarr;</span>
+        </Button>
+      </div>
+    </Container>
+  </Section>
+)
+
+const Feed = ({ posts, title, subtitle, link }) => (
+  <Section>
+    <Container>
+      <header sx={{ marginBottom: 5, textAlign: 'center' }}>
+        <h2 sx={{ margin: 0, marginBottom: 3, fontSize: 7 }}>{title}</h2>
+        <p sx={{ margin: 0, fontSize: 'lg' }}>{subtitle}</p>
       </header>
-      <div className="home-section-content">
-        {posts.nodes.map(node => (
+      <Row sx={{ marginBottom: 3 }}>
+        {posts.map(node => (
           <Card post={node} key={node.id} />
         ))}
-      </div>
-      <footer className="home-section-footer">
-        <Link className="btn btn-lg btn-pill" to={link} title={title}>
+      </Row>
+      <footer sx={{ textAlign: 'center' }}>
+        <Button as={Link} to={link} title={title} size="lg" variant="outline">
           Explore more <span aria-hidden="true">&rarr;</span>
-        </Link>
+        </Button>
       </footer>
-    </div>
-  </section>
+    </Container>
+  </Section>
 )
 
-export default ({ data, location }) => (
-  <Layout className="home" location={location}>
-    {data.featured.nodes[0] && (
-      <FeaturedSection post={data.featured.nodes[0]} />
-    )}
+export default ({ data }) => (
+  <Layout padding="18vw" mask={1}>
+    {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
 
-    <FeedSection
-      posts={data.latestPosts}
+    <Feed
+      posts={data.posts.nodes}
       title="Latest Posts"
       subtitle="Keep the dots in your life."
       link="/blog/"
     />
 
-    {data.featured.nodes[1] && (
-      <FeaturedSection post={data.featured.nodes[1]} />
-    )}
+    {data.featured.nodes[1] && <Featured post={data.featured.nodes[1]} />}
 
-    <FeedSection
-      posts={data.latestCourses}
+    <Feed
+      posts={data.courses.nodes}
       title="Latest Courses"
       subtitle="Continuous learning is a belief."
       link="/courses/"
     />
 
-    {/* {data.featured.nodes[2] && (
-      <FeaturedSection post={data.featured.nodes[2]} />
-    )}
+    {data.featured.nodes[2] && <Featured post={data.featured.nodes[2]} />}
 
-    <section className="home-section">
-      <div className="container">
-        <p>I'm Lei Wang, a technical poet of China.</p>
-      </div>
-    </section> */}
+    <Section>
+      <Container sx={{ textAlign: 'center' }}>
+        <h2 sx={{ fontSize: 10, opacity: 0.3, marginBottom: 5 }}>
+          {data.about.fields.title}
+        </h2>
+        <div
+          dangerouslySetInnerHTML={{ __html: data.about.html }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            color: 'muted'
+          }}
+        />
+      </Container>
+    </Section>
 
-    <section className="home-section">
-      <div className="container">
-        <div className="about">
-          <h2 className="about-title">{data.about.fields.title}</h2>
-          <div
-            className="about-content"
-            dangerouslySetInnerHTML={{ __html: data.about.html }}
-          />
-        </div>
-      </div>
-    </section>
+    <Section padding={6}>
+      <Container>
+        <p
+          children={data.meta.slogan}
+          sx={{
+            color: 'muted',
+            fontFamily: 'serif',
+            fontSize: 'xl',
+            textAlign: 'center'
+          }}
+        />
+      </Container>
+    </Section>
   </Layout>
 )
 
 export const query = graphql`
   query HomePage {
+    meta: config {
+      slogan
+    }
+
     featured: allMarkdownRemark(
       filter: {
         fields: {
@@ -115,7 +170,7 @@ export const query = graphql`
         }
       }
       sort: { fields: fields___date, order: DESC }
-      limit: 2
+      limit: 3
     ) {
       nodes {
         fields {
@@ -134,7 +189,7 @@ export const query = graphql`
       }
     }
 
-    latestPosts: allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "post" }
@@ -150,7 +205,7 @@ export const query = graphql`
       }
     }
 
-    latestCourses: allMarkdownRemark(
+    courses: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "course" }

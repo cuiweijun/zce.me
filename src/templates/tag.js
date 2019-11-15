@@ -1,39 +1,34 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Layout, Card } from '../components'
+import { Layout, Container, Row, Card } from '../components'
 
-export default ({ data: { tag, allMarkdownRemark }, location }) => (
+export default ({ data: { term, posts } }) => (
   <Layout
-    className={`archive tag ${tag.slug}`}
-    title={(tag.meta && tag.meta.title) || tag.name}
-    description={(tag.meta && tag.meta.description) || tag.description}
-    cover={tag.cover}
-    header={
-      <div className="container">
-        <h1>{tag.name}</h1>
-        <p>{tag.description}</p>
-      </div>
-    }
-    location={location}>
-    <div className="container">
-      <div className="row">
-        {allMarkdownRemark.nodes.map(node => (
+    title={(term.meta && term.meta.title) || term.name}
+    description={(term.meta && term.meta.description) || term.description}
+    keywords={term.meta && term.meta.keywords}
+    subtitle={`A collection of ${posts.totalCount} posts`}
+    cover={term.cover}>
+    <Container>
+      <Row sx={{ marginBottom: 6 }}>
+        {posts.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   </Layout>
 )
 
 export const query = graphql`
   query TagTemplate($id: String!) {
-    tag(id: { eq: $id }) {
+    term: tag(id: { eq: $id }) {
       name
       slug
       description
       cover {
-        ...SiteCoverImage
+        ...CoverImage
       }
       meta {
         title
@@ -41,7 +36,7 @@ export const query = graphql`
       }
     }
 
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fields: {
           type: { ne: "page" }

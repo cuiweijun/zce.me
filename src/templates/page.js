@@ -1,52 +1,50 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
 
-import { Layout, Comments } from '../components'
+import { Container, Layout, Image, Comments } from '../components'
 
-export default ({ data, location }) => {
-  const { siteMetadata, page } = data
-  const { fields } = page
-  const url = siteMetadata.url + location.pathname
-
-  return (
-    <Layout
-      className={`page ${fields.slug}`}
-      title={fields.title}
-      description={fields.description || page.excerpt}
-      cover={false}
-      header={
-        <div className="container">
-          <h1>{fields.title}</h1>
-          {fields.description && <p>{fields.description}</p>}
-        </div>
-      }
-      location={location}>
-      {fields.cover && (
-        <Image
-          Tag="figure"
-          className="page-cover container"
-          alt={fields.title}
-          title={fields.title}
-          fluid={fields.cover.childImageSharp.fluid}
+export default ({ data: { meta, page }, location }) => (
+  <Layout
+    title={page.fields.title}
+    subtitle={page.fields.description}
+    description={page.fields.description || page.excerpt}
+    cover={false}
+    padding="4vw">
+    <Container sx={{ marginBottom: 9 }}>
+      <Image
+        Tag="figure"
+        file={page.fields.cover}
+        alt={page.fields.title}
+        title={page.fields.title}
+        sx={{ marginBottom: 8 }}
+      />
+      <div
+        dangerouslySetInnerHTML={{ __html: page.html }}
+        sx={{
+          maxWidth: '50rem',
+          marginX: 'auto',
+          lineHeight: 'loose',
+          img: {
+            display: 'block',
+            marginX: 'auto'
+          }
+        }}
+      />
+      {page.fields.comment && (
+        <Comments
+          url={meta.url + location.pathname}
+          slug={page.fields.slug}
+          title={page.fields.title}
         />
       )}
-      <section
-        className="page-content container"
-        dangerouslySetInnerHTML={{ __html: page.html }}
-      />
-      {fields.comment && (
-        <section className="page-comments container">
-          <Comments url={url} slug={fields.slug} title={fields.title} />
-        </section>
-      )}
-    </Layout>
-  )
-}
+    </Container>
+  </Layout>
+)
 
 export const query = graphql`
   query PageTemplate($id: String!) {
-    siteMetadata: config {
+    meta: config {
       url
     }
     page: markdownRemark(id: { eq: $id }) {
@@ -54,7 +52,7 @@ export const query = graphql`
         title
         slug
         cover {
-          ...SiteCoverImage
+          ...CoverImage
         }
         description
         comment

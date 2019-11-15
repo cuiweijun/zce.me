@@ -9,23 +9,75 @@ import { useState, useEffect } from 'react'
 // export const useMetadata = () => {
 //   return useStaticQuery(
 //     graphql`
-//       query SiteMetadataHook {
-//         site {
-//           ...SiteMetadata
+//       query Metadata {
+//         metadata: config {
+//           url
+//           name
+//           title
+//           description
+//           slogan
+//           keywords
+//           author {
+//             name
+//             email
+//             url
+//           }
+//           language
+//           cover {
+//             childImageSharp {
+//               fluid {
+//                 src
+//               }
+//             }
+//           }
+//           navigation {
+//             text
+//             link
+//           }
+//           socials {
+//             name
+//             link
+//           }
+//           links {
+//             text
+//             link
+//           }
+//           subscription {
+//             name
+//             qrcode {
+//               childImageSharp {
+//                 fluid {
+//                   src
+//                 }
+//               }
+//             }
+//           }
+//           card {
+//             image {
+//               childImageSharp {
+//                 fluid {
+//                   src
+//                 }
+//               }
+//             }
+//           }
+//           disqus {
+//             shortname
+//           }
 //         }
 //       }
 //     `
-//   ).site.siteMetadata
+//   ).config
 // }
 
-export const useNavState = (offset = 200, tolerance = 10) => {
-  const [state, setState] = useState('')
+export const useNavPinned = (initial = true, offset = 200, tolerance = 10) => {
+  const [pinned, setPinned] = useState(initial)
   const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY < offset) {
-        return state && setState('')
+        return setPinned(initial)
       }
 
       const distance = window.scrollY - lastScrollY
@@ -39,9 +91,9 @@ export const useNavState = (offset = 200, tolerance = 10) => {
       if (Math.abs(distance) < tolerance) return
 
       if (distance > 0) {
-        state !== 'unpinned' && setState('unpinned')
+        pinned && setPinned(false)
       } else {
-        state !== 'pinned' && setState('pinned')
+        pinned || setPinned(true)
       }
     }
 
@@ -49,5 +101,5 @@ export const useNavState = (offset = 200, tolerance = 10) => {
     return () => window.removeEventListener('scroll', handleScroll)
   })
 
-  return state
+  return pinned
 }

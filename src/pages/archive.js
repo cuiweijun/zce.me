@@ -1,23 +1,24 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Layout, Card } from '../components'
+import { Layout, Container, Row, Card } from '../components'
 
-export default ({ data, location }) => (
-  <Layout className="archive" title="Archive" location={location}>
-    <div className="container">
-      <div className="row">
-        {data.allMarkdownRemark.nodes.map(node => (
+export default ({ data: { posts } }) => (
+  <Layout title="Archive" description="Archive of all the content I created">
+    <Container>
+      <Row sx={{ marginBottom: 6 }}>
+        {posts.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   </Layout>
 )
 
 export const query = graphql`
   query ArchivePage {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fields: {
           type: { ne: "page" }

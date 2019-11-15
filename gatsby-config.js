@@ -36,10 +36,9 @@ exports.plugins = [
   //   }
   // },
   // 'gatsby-plugin-offline',
-  // 'gatsby-plugin-remove-trailing-slashes',
+  // 'gatsby-plugin-remove-trailing-slashes', // ?
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-nprogress',
-  'gatsby-plugin-sass',
   // source
   {
     resolve: 'gatsby-source-filesystem',
@@ -55,10 +54,10 @@ exports.plugins = [
     options: {
       plugins: [
         'gatsby-remark-smartypants',
-        'gatsby-remark-autolink-headers',
+        // 'gatsby-remark-autolink-headers',
         'gatsby-remark-images',
         'gatsby-remark-prismjs',
-        'gatsby-remark-responsive-iframe',
+        // 'gatsby-remark-responsive-iframe',
         'gatsby-remark-copy-linked-files'
       ]
     }

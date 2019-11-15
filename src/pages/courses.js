@@ -1,27 +1,26 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Layout, Card } from '../components'
+import { Layout, Container, Row, Card } from '../components'
 
-export default ({ data, location }) => (
+export default ({ data: { courses } }) => (
   <Layout
-    className="archive courses"
     title="Courses"
-    description={`A collection of ${data.allMarkdownRemark.totalCount} courses`}
-    location={location}>
-    <div className="container">
-      <div className="row">
-        {data.allMarkdownRemark.nodes.map(node => (
+    description={`A collection of ${courses.totalCount} courses`}>
+    <Container>
+      <Row sx={{ marginBottom: 6 }}>
+        {courses.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   </Layout>
 )
 
 export const query = graphql`
   query CoursesPage {
-    allMarkdownRemark(
+    courses: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "course" }

@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup Node
+        uses: actions/setup-node@v1
+      - name: Install Dependencies
+        run: yarn
+      - name: Format Source
+        run: yarn format
+      - name: Build Site
+        run: yarn dist
+        env:
+          NODE_ENV: production
+          CI: true
+      - name: Deploy Site
+        if: github.event == 'push'
+        run: npx gh-pages
+          -d public
+          -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/zce.me.git
+          -b master
+          -u "GitHub Actions <bots@github.com>"
+# TODO: nightly & beta deploy

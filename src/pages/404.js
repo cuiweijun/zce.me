@@ -1,36 +1,41 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { graphql } from 'gatsby'
 
-import { Layout, Card } from '../components'
+import { Layout, Container, Row, Card, Button, Link } from '../components'
 
-export default ({ data, location }) => (
+export default ({ data }) => (
   <Layout
-    className="error error-404"
     title="404 Not found"
-    cover={null}
-    header={
-      <div className="container">
-        <h1>404</h1>
-        <p>Page not found</p>
-        <Link className="btn btn-light btn-sm" to="/">
+    hero={
+      <Container
+        sx={{
+          paddingY: '12vw',
+          textAlign: 'center',
+          color: 'white',
+          textShadow: 'medium',
+          transition: 'padding 0.3s, color 0.3s'
+        }}>
+        <h1 sx={{ fontSize: '9rem' }}>404</h1>
+        <p sx={{ fontSize: 'xl', marginBottom: 6 }}>Page not found</p>
+        <Button as={Link} variant="outline" to="/" sx={{ color: 'white' }}>
           Back to Home &rarr;
-        </Link>
-      </div>
-    }
-    location={location}>
-    <div className="container">
-      <div className="row">
-        {data.allMarkdownRemark.nodes.map(node => (
+        </Button>
+      </Container>
+    }>
+    <Container>
+      <Row sx={{ marginBottom: 6 }}>
+        {data.posts.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   </Layout>
 )
 
 export const query = graphql`
   query NotFoundPage {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fields: {
           type: { eq: "post" }

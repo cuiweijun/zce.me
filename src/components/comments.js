@@ -1,10 +1,11 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
 
 const query = graphql`
   query CommentsComponent {
-    siteMetadata: config {
+    config {
       disqus {
         shortname
       }
@@ -12,11 +13,12 @@ const query = graphql`
   }
 `
 
-export default ({ url, slug, title }) => {
-  const { siteMetadata } = useStaticQuery(query)
+export default ({ url, slug, title, ...props }) => {
+  const { config } = useStaticQuery(query)
   return (
     <DiscussionEmbed
-      shortname={siteMetadata.disqus.shortname}
+      {...props}
+      shortname={config.disqus.shortname}
       config={{
         url: url,
         identifier: slug,

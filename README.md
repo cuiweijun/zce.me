@@ -134,7 +134,7 @@ The default structure is shown below:
 
 [netlify-image]: https://api.netlify.com/api/v1/badges/cabdddaa-eb82-4780-b97e-fdf636c55314/deploy-status
 [netlify-url]: https://app.netlify.com/sites/zce/deploys
-[actions-image]: https://github.com/zce/zce.me/workflows/Node%20CI/badge.svg
+[actions-image]: https://github.com/zce/zce.me/workflows/CI/badge.svg
 [actions-url]: https://github.com/zce/zce.me/actions
 [style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [style-url]: https://standardjs.com

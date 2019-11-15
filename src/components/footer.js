@@ -136,7 +136,6 @@ const Tags = ({ tags }) => (
           <Link
             to={i.permalink}
             sx={{
-              color: 'inherit',
               ':before': {
                 content: '"\\0023"'
               }
@@ -161,9 +160,7 @@ const Links = ({ links }) => (
               marginRight: 1
             }
           }}>
-          <Link to={i.link} sx={{ color: 'inherit' }}>
-            {i.text}
-          </Link>
+          <Link to={i.link}>{i.text}</Link>
         </li>
       ))}
     </ul>
@@ -181,8 +178,8 @@ const Subscription = ({ subscription }) => (
   </Widget>
 )
 
-const Heart = props => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+const Heart = () => (
+  <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
     <g transform="translate(28 28)">
       <path
         sx={{ fill: 'accent' }}
@@ -212,22 +209,15 @@ const Copyright = ({ name, url }) => (
       paddingTop: 3
     }}>
     <span>
-      &copy; {new Date().getFullYear()}{' '}
-      <Link to={url} sx={{ color: 'inherit' }}>
-        {name}
-      </Link>
-      . All Rights Reserved.
+      &copy; {new Date().getFullYear()} <Link to={url}>{name}</Link>. All Rights
+      Reserved.
     </span>
     <ul sx={{ flexGrow: 1, margin: 0, marginX: 2, padding: 0 }}>
       <li sx={{ display: 'inline-block', marginRight: 1 }}>
-        <Link to="/privacy-policy/" sx={{ color: 'inherit' }}>
-          Privacy Policy
-        </Link>
+        <Link to="/privacy-policy/">Privacy Policy</Link>
       </li>
       <li sx={{ display: 'inline-block', marginRight: 1 }}>
-        <Link to="/terms-of-service/" sx={{ color: 'inherit' }}>
-          Terms of Service
-        </Link>
+        <Link to="/terms-of-service/">Terms of Service</Link>
       </li>
     </ul>
     <span sx={{ display: 'flex', alignItems: 'center' }}>
@@ -237,18 +227,18 @@ const Copyright = ({ name, url }) => (
         target="_blank"
         rel="noopener noreferrer"
         children="&lt;/&gt;"
-        sx={{ marginRight: 1, color: 'inherit' }}
+        sx={{ mx: 1 }}
       />
       with
-      <Heart sx={{ width: 'icon', height: 'icon' }} />
+      <Heart />
       by
       <Link
         to="https://zce.me"
-        variant="inherit"
+        title="Created by"
         target="_blank"
         rel="noopener noreferrer"
         children="zce"
-        sx={{ marginLeft: 1, color: 'inherit' }}
+        sx={{ mx: 1 }}
       />
     </span>
   </div>
@@ -266,7 +256,10 @@ export default () => {
         backgroundColor: 'background',
         color: 'muted',
         fontSize: 'sm',
-        textAlign: ['center', 'center', 'left']
+        textAlign: ['center', 'center', 'left'],
+        a: {
+          color: 'inherit'
+        }
       }}>
       <Container>
         <aside

@@ -171,7 +171,7 @@ const License = () => (
       sx={{
         color: 'inherit'
       }}>
-      <svg viewBox="0 0 120 42" width="160">
+      <svg viewBox="0 0 120 42" width="160" aria-hidden="true">
         <path
           fill="currentColor"
           d="M117.8,0H2.2C1,0,0,1,0,2.2v39.2C0,41.8,0.2,42,0.5,42h119c0.3,0,0.5-0.2,0.5-0.5V2.2C120,1,119,0,117.8,0z M2.2,1h115.5c0.7,0,1.2,0.6,1.2,1.2c0,0,0,15.8,0,27.2H36.4c-3,5.5-8.9,9.2-15.5,9.2c-6.7,0-12.5-3.7-15.5-9.2H1C1,18.1,1,2.2,1,2.2C1,1.6,1.6,1,2.2,1z"
@@ -277,6 +277,7 @@ const Category = ({ name, category, related }) => (
       strokeWidth="0.5"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
       sx={{ marginX: 'auto' }}>
       <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
     </svg>

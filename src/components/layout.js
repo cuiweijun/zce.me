@@ -39,44 +39,31 @@ const SkipLink = props => (
   />
 )
 
-export default ({
-  title,
-  subtitle,
-  description,
-  keywords,
-  cover,
-  mask,
-  hero,
-  padding,
-  align,
-  background,
-  type,
-  children
-}) => (
+export default props => (
   <Fragment>
     <Meta
-      title={title}
-      description={description}
-      keywords={keywords}
-      image={cover}
-      type={type}
+      title={props.title}
+      description={props.description}
+      keywords={props.keywords}
+      image={props.cover}
+      type={props.type}
     />
     <Header
-      title={title}
-      subtitle={subtitle}
-      padding={padding}
-      align={align}
-      cover={cover}
-      mask={mask}
-      hero={hero}
+      title={props.title}
+      subtitle={props.subtitle}
+      padding={props.padding}
+      align={props.align}
+      cover={props.cover}
+      mask={props.mask}
+      hero={props.hero}
     />
     <main
       id="content"
-      children={children}
+      children={props.children}
       sx={{
         position: 'relative',
         minHeight: '40vh',
-        backgroundColor: background
+        backgroundColor: props.background
       }}
     />
   </Fragment>
@@ -85,11 +72,11 @@ export default ({
 // for wrapPageElement
 // Prevent layout components from unmounting
 // https://www.gatsbyjs.org/docs/layout-components/#how-to-prevent-layout-components-from-unmounting
-export const Wrapper = ({ location, children }) => (
+export const Wrapper = props => (
   <Fragment>
-    <Meta pathname={location.pathname} />
+    <Meta pathname={props.location.pathname} />
     <SkipLink />
-    {children}
+    {props.children}
     <Footer />
   </Fragment>
 )

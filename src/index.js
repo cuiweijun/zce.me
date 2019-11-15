@@ -19,7 +19,7 @@ const Context = React.createContext()
 // TODO: global context
 const context = {}
 
-export const wrapRootElement = ({ element, props }) => (
+export const wrapRootElement = ({ element }) => (
   <Context.Provider value={context}>
     <ThemeProvider theme={theme}>
       <ColorMode />

@@ -34,13 +34,7 @@ const Brand = ({ name }) => (
         textDecoration: 'none'
       }
     }}>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 472 450"
-      sx={{
-        size: 'logo',
-        marginRight: 2
-      }}>
+    <svg viewBox="0 0 472 450" aria-hidden="true" sx={{ size: 'logo', mr: 2 }}>
       <defs>
         <filter
           id="shadow"

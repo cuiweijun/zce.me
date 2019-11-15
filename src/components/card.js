@@ -52,12 +52,9 @@ export default ({ as: Tag = 'article', post, rel }) => (
       />
     ) : (
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 540 360"
-        sx={{
-          maxHeight: '25rem',
-          backgroundColor: '#66d9e8'
-        }}>
+        aria-hidden="true"
+        sx={{ maxHeight: '25rem', backgroundColor: '#66d9e8' }}>
         <path
           d="M280.7,142.5v14.7H210.6V142.5h1.8l9.2,4.1,4.1-4.1Z"
           fill="#339af0"

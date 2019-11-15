@@ -74,8 +74,5 @@ subscription:
   qrcode: images/qrcode-wedn.jpg
   link: ~
 
-card:
-  image: images/content.svg
-
 disqus:
   shortname: zce-sandbox

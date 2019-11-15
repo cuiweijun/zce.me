@@ -23,7 +23,7 @@ jobs:
           NODE_ENV: production
           CI: true
       - name: Deploy Site
-        if: github.event == 'push'
+        # if: github.event == 'push'
         run: npx gh-pages
           -d public
           -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/zce.me.git

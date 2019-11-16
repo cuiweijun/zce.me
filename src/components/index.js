@@ -5,7 +5,7 @@ export { default as Button } from './button'
 export { default as Icon } from './icon'
 export { default as Input } from './input'
 export { default as Image } from './image'
-export { Tab, TabList, Tabs, TabPanel } from './tabs'
+export { default as Tabs } from './tabs'
 export { default as ScreenReaderText } from './screen-reader-text'
 
 // business components

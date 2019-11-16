@@ -5,17 +5,7 @@ import { graphql, navigate } from 'gatsby'
 import Helmet from 'react-helmet'
 import moment from 'moment'
 
-import {
-  Layout,
-  Container,
-  Row,
-  Tab,
-  TabList,
-  Tabs,
-  TabPanel,
-  Link,
-  Comments
-} from '../components'
+import { Layout, Container, Row, Tabs, Link, Comments } from '../components'
 
 const AsideSection = ({ title, children }) => (
   <section
@@ -88,24 +78,19 @@ export default ({
       <Container>
         <Row>
           <Tabs
-            defaultIndex={1}
+            initial={1}
             sx={{
               flex: '3 1 32rem',
               padding: 3,
               minHeight: '60vh'
             }}>
-            <TabList>
-              <Tab>介绍</Tab>
-              <Tab>目录</Tab>
-              {fields.comment && <Tab>讨论</Tab>}
-            </TabList>
-            <TabPanel>
+            <section id="intro" name="简介">
               <div
                 sx={{ marginBottom: 4, paddingX: 3, paddingY: 4 }}
                 dangerouslySetInnerHTML={{ __html: html }}
               />
-            </TabPanel>
-            <TabPanel>
+            </section>
+            <section id="toc" name="目录">
               <ol
                 sx={{
                   padding: 0,
@@ -142,20 +127,16 @@ export default ({
                   </li>
                 ))}
               </ol>
-            </TabPanel>
+            </section>
             {fields.comment && (
-              <TabPanel>
-                <div
-                  sx={{
-                    padding: 3
-                  }}>
-                  <Comments
-                    url={meta.url + pathname}
-                    slug={fields.slug}
-                    title={fields.title}
-                  />
-                </div>
-              </TabPanel>
+              <section id="talk" name="讨论">
+                <Comments
+                  url={meta.url + pathname}
+                  slug={fields.slug}
+                  title={fields.title}
+                  sx={{ padding: 3 }}
+                />
+              </section>
             )}
           </Tabs>
           <aside

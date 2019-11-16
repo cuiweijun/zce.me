@@ -208,7 +208,7 @@ export const GraphQLFragment = graphql`
         permalink
       }
       sections {
-        name
+        title
       }
     }
   }

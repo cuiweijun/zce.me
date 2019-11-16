@@ -73,6 +73,3 @@ subscription:
   name: ITBetter
   qrcode: images/qrcode-wedn.jpg
   link: ~
-
-disqus:
-  shortname: zce-sandbox

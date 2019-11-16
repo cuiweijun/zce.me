@@ -178,35 +178,14 @@ const Subscription = ({ subscription }) => (
   </Widget>
 )
 
-const Heart = () => (
-  <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
-    <g transform="translate(28 28)">
-      <path
-        sx={{ fill: 'accent' }}
-        d="M4.6-20C1-20-2.1-18.2-4-15.4c-1.9-2.8-5-4.6-8.6-4.6C-18.4-20-23-15.4-23-9.7C-23,0.5-6.9,5.4-4,12
-      C-1.1,5.4,15,0.6,15-9.7C15-15.4,10.4-20,4.6-20">
-        <animateTransform
-          attributeName="transform"
-          calcMode="spline"
-          type="scale"
-          values="0.68;0.8;0.6;0.7200000000000001;0.68;0.6400000000000001"
-          keyTimes="0;0.05;0.39;0.45;0.6;1"
-          keySplines="0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1"
-          dur="1s"
-          repeatCount="indefinite"
-        />
-      </path>
-    </g>
-  </svg>
-)
-
 const Copyright = ({ name, url }) => (
   <div
     sx={{
       display: 'flex',
+      flexDirection: ['column', 'row'],
+      paddingTop: 3,
       borderTop: 'default',
-      borderColor: 'border',
-      paddingTop: 3
+      borderColor: 'border'
     }}>
     <span>
       &copy; {new Date().getFullYear()} <Link to={url}>{name}</Link>. All Rights
@@ -220,25 +199,43 @@ const Copyright = ({ name, url }) => (
         <Link to="/terms-of-service/">Terms of Service</Link>
       </li>
     </ul>
-    <span sx={{ display: 'flex', alignItems: 'center' }}>
+    <span
+      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Link
         to="https://github.com/zce/zce.me"
         title="Visit the Source"
         target="_blank"
         rel="noopener noreferrer"
         children="&lt;/&gt;"
-        sx={{ mx: 1 }}
+        sx={{ marginX: 1 }}
       />
       with
-      <Heart />
+      <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
+        <g transform="translate(28 28)">
+          <path
+            sx={{ fill: 'accent' }}
+            d="M4.6-20C1-20-2.1-18.2-4-15.4c-1.9-2.8-5-4.6-8.6-4.6C-18.4-20-23-15.4-23-9.7C-23,0.5-6.9,5.4-4,12
+          C-1.1,5.4,15,0.6,15-9.7C15-15.4,10.4-20,4.6-20">
+            <animateTransform
+              attributeName="transform"
+              calcMode="spline"
+              type="scale"
+              values="0.68;0.8;0.6;0.7200000000000001;0.68;0.6400000000000001"
+              keyTimes="0;0.05;0.39;0.45;0.6;1"
+              keySplines="0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1"
+              dur="1s"
+              repeatCount="indefinite"
+            />
+          </path>
+        </g>
+      </svg>
       by
       <Link
         to="https://zce.me"
         title="Created by"
         target="_blank"
-        rel="noopener noreferrer"
         children="zce"
-        sx={{ mx: 1 }}
+        sx={{ marginX: 1 }}
       />
     </span>
   </div>
@@ -256,7 +253,7 @@ export default () => {
         backgroundColor: 'background',
         color: 'muted',
         fontSize: 'sm',
-        textAlign: ['center', 'center', 'left'],
+        textAlign: ['center', 'left'],
         a: {
           color: 'inherit'
         }

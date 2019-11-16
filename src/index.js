@@ -7,7 +7,7 @@
  */
 
 import React, { useContext } from 'react'
-import { ThemeProvider, ColorMode, css } from 'theme-ui'
+import { ThemeProvider, ColorMode, InitializeColorMode, css } from 'theme-ui'
 import { Global } from '@emotion/core'
 
 import { Wrapper } from './components'
@@ -35,5 +35,10 @@ export const wrapPageElement = ({ element, props }) => (
     {element}
   </Wrapper>
 )
+
+export const onRenderBody = ({ setPreBodyComponents }) => {
+  // theme-ui no flash
+  setPreBodyComponents(<InitializeColorMode />)
+}
 
 export const useRootContext = () => useContext(Context)

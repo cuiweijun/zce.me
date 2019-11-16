@@ -75,7 +75,7 @@ export default ({ title, description, keywords, type, image, pathname }) => {
       title={title}
       defaultTitle={`${config.title} | ${config.slogan}`}
       titleTemplate={`%s - ${config.title}`}
-      bodyAttributes={{ className: 'zce' }}
+      // bodyAttributes={{ className: 'zce' }}
       meta={meta}
       link={link}
     />

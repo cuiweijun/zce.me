@@ -61,6 +61,7 @@ export default props => (
       children={props.children}
       sx={{
         position: 'relative',
+        overflow: 'hidden',
         minHeight: '40vh',
         backgroundColor: props.background
       }}

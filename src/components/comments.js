@@ -2,6 +2,9 @@
 import { jsx } from 'theme-ui'
 import { DiscussionEmbed } from 'disqus-react'
 
+// TODO: Own Comment System
+// ref: https://www.taniarascia.com/add-comments-to-static-site/
+
 export default ({ url, slug, title }) => (
   <DiscussionEmbed
     shortname="zce-sandbox"

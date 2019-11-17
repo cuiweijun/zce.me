@@ -226,7 +226,8 @@ const Footer = ({ post, url }) => (
         }}>
         <ScreenReaderText as="h3">Comments</ScreenReaderText>
         <Comments
-          id={`post-${post.fields.slug}`}
+          type="post"
+          slug={post.fields.slug}
           title={post.fields.title}
           excerpt={post.excerpt}
           permalink={post.fields.permalink}
@@ -471,6 +472,7 @@ export const query = graphql`
           ...CoverImage
         }
         description
+        permalink
         comment
         authors {
           name

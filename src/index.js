@@ -22,7 +22,7 @@ const context = {}
 export const wrapRootElement = ({ element }) => (
   <Context.Provider value={context}>
     <ThemeProvider theme={theme}>
-      <ColorMode />
+      <ColorMode key="color-mode" />
       {element}
     </ThemeProvider>
   </Context.Provider>
@@ -38,7 +38,7 @@ export const wrapPageElement = ({ element, props }) => (
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
   // theme-ui no flash
-  setPreBodyComponents(<InitializeColorMode />)
+  setPreBodyComponents(<InitializeColorMode key="no-flash" />)
 }
 
 export const useRootContext = () => useContext(Context)

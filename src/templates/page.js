@@ -32,7 +32,12 @@ export default ({ data: { page } }) => (
         }}
       />
       {page.fields.comment && (
-        <div
+        <Comments
+          type="page"
+          slug={page.fields.slug}
+          title={page.fields.title}
+          excerpt={page.excerpt}
+          permalink={page.fields.permalink}
           sx={{
             maxWidth: '50rem',
             marginX: 'auto',
@@ -41,14 +46,8 @@ export default ({ data: { page } }) => (
               display: 'block',
               marginX: 'auto'
             }
-          }}>
-          <Comments
-            id={`page-${page.fields.slug}`}
-            title={page.fields.title}
-            excerpt={page.excerpt}
-            permalink={page.fields.permalink}
-          />
-        </div>
+          }}
+        />
       )}
     </Container>
   </Layout>
@@ -64,6 +63,7 @@ export const query = graphql`
           ...CoverImage
         }
         description
+        permalink
         comment
       }
       excerpt(pruneLength: 160, truncate: true)

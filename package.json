@@ -64,12 +64,8 @@
     "tabWidth": 2
   },
   "dependencies": {
-    "@commitlint/cli": "8.2.0",
-    "@commitlint/config-conventional": "8.2.0",
     "@emotion/core": "10.0.22",
     "@mdx-js/react": "1.5.1",
-    "commitizen": "4.0.3",
-    "cz-conventional-changelog": "3.0.2",
     "gatsby": "2.17.15",
     "gatsby-image": "2.2.33",
     "gatsby-plugin-nprogress": "2.1.14",
@@ -84,21 +80,24 @@
     "gatsby-source-filesystem": "2.1.37",
     "gatsby-transformer-remark": "2.6.35",
     "gatsby-transformer-sharp": "2.3.5",
-    "gitalk": "^1.5.0",
-    "hls.js": "0.12.4",
-    "husky": "3.0.9",
     "js-yaml": "3.13.1",
-    "lint-staged": "9.4.3",
     "lodash": "4.17.15",
     "pluralize": "8.0.0",
-    "plyr": "3.5.6",
     "polished": "3.4.2",
-    "prettier": "1.19.1",
     "prismjs": "1.17.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-helmet": "5.2.1",
     "theme-ui": "0.2.49"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "3.0.9",
+    "lint-staged": "9.4.3",
+    "prettier": "1.19.1"
   },
   "engines": {
     "node": ">=8.0.0"

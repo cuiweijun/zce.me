@@ -341,14 +341,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        // https://www.gatsbyjs.org/docs/debugging-html-builds/
-        rules: [{ test: /plyr/, use: loaders.null() }]
-      }
-    })
-  }
+  // Load plyr by useEffect
+  // if (stage === 'build-html') {
+  //   actions.setWebpackConfig({
+  //     // https://gatsby.dev/debug-html
+  //     module: {
+  //       rules: [
+  //         { test: /plyr/, use: loaders.null() }
+  //       ]
+  //     }
+  //   })
+  // }
 
   if (stage === 'build-javascript') {
     actions.setWebpackConfig({

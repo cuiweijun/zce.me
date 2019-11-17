@@ -2,13 +2,41 @@
 import { jsx } from 'theme-ui'
 import { useState } from 'react'
 
-import { Layout, Container, Tabs } from '../components'
+import { Layout, Container, Tabs, Player } from '../components'
 
 export default () => {
   const [count, setCount] = useState(0)
   return (
-    <Layout title="Labs">
+    <Layout title="Labs" bacground="background">
       <Container>
+        <Player
+          type="video"
+          sources={
+            'https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f20.mp4'
+          }
+        />
+        <hr />
+        <Player
+          type="video"
+          sources={[
+            {
+              size: 360,
+              src:
+                'https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f20.mp4'
+            },
+            {
+              size: 720,
+              src:
+                'https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f30.mp4'
+            },
+            {
+              size: 1080,
+              src:
+                'https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f40.mp4'
+            }
+          ]}
+        />
+        <hr />
         <h1 onClick={() => setCount(count + 1)}>Labs {count}</h1>
         <hr />
         <Tabs sx={{ padding: 5 }}>

@@ -95,7 +95,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
       <h3
         sx={{
           overflow: 'hidden',
-          fontSize: 'xl',
+          fontSize: 5,
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap'
         }}>

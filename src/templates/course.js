@@ -1,34 +1,20 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useEffect, useRef } from 'react'
 import { graphql, navigate } from 'gatsby'
-import Helmet from 'react-helmet'
 import moment from 'moment'
 
-import { Layout, Container, Row, Tabs, Link, Comments } from '../components'
-
-const Player = ({ current, fields }) => {
-  const playerEl = useRef(null)
-  useEffect(() => {
-    import('plyr').then(m => {
-      // TODO: need multi sources?
-      const player = new m.default(playerEl.current, { autoplay: true })
-      player.source = { type: 'video', ...fields.sections[current] }
-      player.on('ended', e => {
-        // const instance = e.detail.plyr
-        if (current + 1 === fields.sections.length) return
-        const next = `${fields.permalink}${('0' + (current + 2)).substr(-2)}/`
-        setTimeout(() => navigate(next), 2000)
-      })
-    })
-  })
-
-  return <video ref={playerEl} />
-  // sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
-}
+import {
+  Layout,
+  Container,
+  Row,
+  Tabs,
+  Link,
+  Comments,
+  Player
+} from '../components'
 
 const Main = ({ current, course }) => (
-  <Tabs initial={1} sx={{ flex: '3 1 32rem', padding: 3, minHeight: '60vh' }}>
+  <Tabs initial={1} sx={{ flex: '3 1 32rem', marginBottom: 3, padding: 3 }}>
     <section id="intro" name="简介">
       <div
         sx={{ marginBottom: 4, paddingX: 3, paddingY: 4 }}
@@ -68,10 +54,12 @@ const Main = ({ current, course }) => (
     {course.fields.comment && (
       <section id="talk" name="讨论">
         <Comments
-          id={`course-${course.fields.slug}`}
+          type="course"
+          slug={course.fields.slug}
           title={course.fields.title}
           excerpt={course.excerpt}
           permalink={course.fields.permalink}
+          sx={{ paddingX: 3 }}
         />
       </section>
     )}
@@ -98,6 +86,7 @@ const Aside = ({ video, fields, related }) => (
       // top: t => t.sizes.nav, // TODO
       top: 0,
       alignSelf: 'flex-start',
+      flex: '1 1 16rem',
       padding: 3,
       paddingLeft: [3, 3, 0],
       borderLeftWidth: 1,
@@ -169,6 +158,11 @@ const Aside = ({ video, fields, related }) => (
 export default ({ data: { course, related }, pageContext: { current } }) => {
   const { fields } = course
   const video = fields.sections[current]
+  const onEnded = () => {
+    if (current + 1 === fields.sections.length) return
+    const next = `${fields.permalink}${('0' + (current + 2)).substr(-2)}/`
+    setTimeout(() => navigate(next), 2000)
+  }
   return (
     <Layout
       title={video ? video.title : fields.title}
@@ -179,11 +173,8 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
       mask={1}
       align="left"
       background="background">
-      <Helmet>
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
-      </Helmet>
-
-      {video && <Player current={current} fields={fields} />}
+      {/* sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }} */}
+      {video && <Player {...video} onEnded={onEnded} autoplay={true} />}
 
       <Container>
         <Row>

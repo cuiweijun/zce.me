@@ -11,6 +11,7 @@ export { default as ScreenReaderText } from './screen-reader-text'
 // business components
 export { default as Card } from './card'
 export { default as Comments } from './comments'
+export { default as Player } from './player'
 
 export { default as Layout, Wrapper } from './layout'
 

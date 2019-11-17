@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Fragment } from 'react'
+import { useEffect, useRef } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Helmet from 'react-helmet'
-import Gitalk from 'gitalk/dist/gitalk-component'
+import { loadStyle, loadScript } from '../utils/load'
 
 const query = graphql`
   query CommentsComponent {
@@ -22,13 +21,18 @@ const defaults = {
   distractionFreeMode: false // Facebook-like distraction free mode
 }
 
-export default ({ id, title, excerpt, permalink }) => {
+export default ({ type, slug, title, excerpt, permalink, ...props }) => {
   const { meta } = useStaticQuery(query)
+  const container = useRef(null)
 
   const options = {}
 
-  if (id) {
-    options.id = id
+  if (type) {
+    options.labels = ['comments', type]
+  }
+
+  if (slug) {
+    options.id = slug
   }
 
   if (title) {
@@ -41,18 +45,16 @@ export default ({ id, title, excerpt, permalink }) => {
     `.trim()
   }
 
-  return (
-    <Fragment>
-      <Helmet>
-        {/* TODO: restyle */}
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/gitalk/dist/gitalk.css"
-        />
-      </Helmet>
-      <Gitalk options={{ ...defaults, ...options }} />
-    </Fragment>
-  )
+  useEffect(() => {
+    loadStyle('https://unpkg.com/gitalk/dist/gitalk.css')
+      .then(() => loadScript('https://unpkg.com/gitalk/dist/gitalk.min.js'))
+      .then(() => {
+        const gitalk = new window.Gitalk({ ...defaults, ...options })
+        gitalk.render(container.current)
+      })
+  })
+
+  return <div {...props} ref={container} />
 }
 
 // TODO: Own Comment System

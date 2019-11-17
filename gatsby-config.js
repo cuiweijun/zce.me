@@ -54,10 +54,10 @@ exports.plugins = [
     options: {
       plugins: [
         'gatsby-remark-smartypants',
-        // 'gatsby-remark-autolink-headers',
+        'gatsby-remark-autolink-headers',
         'gatsby-remark-images',
         'gatsby-remark-prismjs',
-        // 'gatsby-remark-responsive-iframe',
+        'gatsby-remark-responsive-iframe',
         'gatsby-remark-copy-linked-files'
       ]
     }

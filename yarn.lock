@@ -13147,10 +13147,10 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.npm.taobao.org/text-table/download/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-theme-ui@0.2.46:
-  version "0.2.46"
-  resolved "https://registry.npm.taobao.org/theme-ui/download/theme-ui-0.2.46.tgz#efaf5850e7047c3abe848b5bf37a9f53d6271d5d"
-  integrity sha1-769YUOcEfDq+hItb83qfU9YnHV0=
+theme-ui@0.2.49:
+  version "0.2.49"
+  resolved "https://registry.npm.taobao.org/theme-ui/download/theme-ui-0.2.49.tgz#3803952907e74e6835d40b063aed0d46c213e2d9"
+  integrity sha1-OAOVKQfnTmg11AsGOu0NRsIT4tk=
   dependencies:
     "@emotion/is-prop-valid" "^0.8.1"
     "@styled-system/css" "^5.0.16"

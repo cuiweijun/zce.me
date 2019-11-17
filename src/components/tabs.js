@@ -49,6 +49,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
           />
         ))}
       </ul>
+      {/* TODO: load panel on demand */}
       {Children.map(children, (item, i) => (
         <item.type
           key={i}

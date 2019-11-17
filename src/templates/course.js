@@ -27,7 +27,7 @@ const Player = ({ current, fields }) => {
   // sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
 }
 
-const Main = ({ current, course, url }) => (
+const Main = ({ current, course }) => (
   <Tabs initial={1} sx={{ flex: '3 1 32rem', padding: 3, minHeight: '60vh' }}>
     <section id="intro" name="简介">
       <div
@@ -67,13 +67,12 @@ const Main = ({ current, course, url }) => (
     </section>
     {course.fields.comment && (
       <section id="talk" name="讨论">
-        <div sx={{ padding: 3 }}>
-          <Comments
-            url={url}
-            slug={course.fields.slug}
-            title={course.fields.title}
-          />
-        </div>
+        <Comments
+          id={`course-${course.fields.slug}`}
+          title={course.fields.title}
+          excerpt={course.excerpt}
+          permalink={course.fields.permalink}
+        />
       </section>
     )}
   </Tabs>
@@ -96,8 +95,9 @@ const Aside = ({ video, fields, related }) => (
   <aside
     sx={{
       position: 'sticky',
+      // top: t => t.sizes.nav, // TODO
       top: 0,
-      // alignSelf: 'flex-start',
+      alignSelf: 'flex-start',
       padding: 3,
       paddingLeft: [3, 3, 0],
       borderLeftWidth: 1,
@@ -166,11 +166,7 @@ const Aside = ({ video, fields, related }) => (
   </aside>
 )
 
-export default ({
-  data: { course, related, meta },
-  pageContext: { current },
-  location: { pathname }
-}) => {
+export default ({ data: { course, related }, pageContext: { current } }) => {
   const { fields } = course
   const video = fields.sections[current]
   return (
@@ -191,7 +187,7 @@ export default ({
 
       <Container>
         <Row>
-          <Main current={current} course={course} url={meta.url + pathname} />
+          <Main current={current} course={course} />
           <Aside video={video} fields={fields} related={related} />
         </Row>
       </Container>
@@ -201,10 +197,6 @@ export default ({
 
 export const query = graphql`
   query CourseTemplate($id: String!, $cat: String) {
-    meta: config {
-      url
-    }
-
     course: markdownRemark(id: { eq: $id }) {
       fields {
         title
@@ -245,7 +237,7 @@ export const query = graphql`
           permalink
         }
       }
-      excerpt(pruneLength: 160)
+      excerpt(pruneLength: 160, truncate: true)
       html
     }
 

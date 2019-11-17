@@ -17,7 +17,7 @@ import {
 } from '../components'
 import { shade } from '../utils/color'
 
-const Meta = ({ title, tags, url }) => (
+const Tags = ({ title, tags, url }) => (
   <section
     sx={{
       display: 'flex',
@@ -209,14 +209,14 @@ const License = () => (
   </section>
 )
 
-const Footer = ({ post, meta, url }) => (
+const Footer = ({ post, url }) => (
   <footer
     sx={{
       marginX: 'auto',
       paddingY: '3vw',
       maxWidth: 'inner'
     }}>
-    <Meta title={post.fields.title} tags={post.fields.tags} url={url} />
+    <Tags title={post.fields.title} tags={post.fields.tags} url={url} />
     <Authors authors={post.fields.authors} />
     <License />
     {post.fields.comment && (
@@ -225,7 +225,12 @@ const Footer = ({ post, meta, url }) => (
           marginBottom: 7
         }}>
         <ScreenReaderText as="h3">Comments</ScreenReaderText>
-        <Comments url={url} slug={post.fields.slug} title={post.fields.title} />
+        <Comments
+          id={`post-${post.fields.slug}`}
+          title={post.fields.title}
+          excerpt={post.excerpt}
+          permalink={post.fields.permalink}
+        />
       </section>
     )}
   </footer>
@@ -437,7 +442,7 @@ export default ({ data: { meta, post, prev, next, related }, location }) => (
           }
         }}
       />
-      <Footer post={post} meta={meta} url={meta.url + location.pathname} />
+      <Footer post={post} url={meta.url + location.pathname} />
     </Container>
     <RelatedPosts
       name={meta.name}
@@ -488,7 +493,7 @@ export const query = graphql`
           permalink
         }
       }
-      excerpt(pruneLength: 160)
+      excerpt(pruneLength: 160, truncate: true)
       html
     }
 

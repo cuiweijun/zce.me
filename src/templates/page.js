@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 
 import { Container, Layout, Image, Comments } from '../components'
 
-export default ({ data: { meta, page }, location }) => (
+export default ({ data: { page } }) => (
   <Layout
     title={page.fields.title}
     subtitle={page.fields.description}
@@ -32,11 +32,23 @@ export default ({ data: { meta, page }, location }) => (
         }}
       />
       {page.fields.comment && (
-        <Comments
-          url={meta.url + location.pathname}
-          slug={page.fields.slug}
-          title={page.fields.title}
-        />
+        <div
+          sx={{
+            maxWidth: '50rem',
+            marginX: 'auto',
+            lineHeight: 'loose',
+            img: {
+              display: 'block',
+              marginX: 'auto'
+            }
+          }}>
+          <Comments
+            id={`page-${page.fields.slug}`}
+            title={page.fields.title}
+            excerpt={page.excerpt}
+            permalink={page.fields.permalink}
+          />
+        </div>
       )}
     </Container>
   </Layout>
@@ -44,9 +56,6 @@ export default ({ data: { meta, page }, location }) => (
 
 export const query = graphql`
   query PageTemplate($id: String!) {
-    meta: config {
-      url
-    }
     page: markdownRemark(id: { eq: $id }) {
       fields {
         title
@@ -57,7 +66,7 @@ export const query = graphql`
         description
         comment
       }
-      excerpt(pruneLength: 160)
+      excerpt(pruneLength: 160, truncate: true)
       html
     }
   }

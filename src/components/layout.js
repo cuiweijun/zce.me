@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
+import { Fragment } from 'react'
 
 import Meta from './meta'
 import Header from './header'
 import Footer from './footer'
-
-const Fragment = p => p.children
 
 const SkipLink = props => (
   <a

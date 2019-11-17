@@ -12,7 +12,7 @@ const query = graphql`
   }
 `
 
-const defaults = {
+const options = {
   clientID: '2367eeb15ce3e258f8fe',
   clientSecret: '667c3ba09968991380c7aba4c19ad3359e714dd0',
   repo: 'comments',
@@ -24,8 +24,6 @@ const defaults = {
 export default ({ type, slug, title, excerpt, permalink, ...props }) => {
   const { meta } = useStaticQuery(query)
   const container = useRef(null)
-
-  const options = {}
 
   if (type) {
     options.labels = ['comments', type]
@@ -47,18 +45,20 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
 
   useEffect(() => {
     const initGitalk = () => {
-      const gitalk = new window.Gitalk({ ...defaults, ...options })
+      const gitalk = new window.Gitalk(options)
       container.current && gitalk.render(container.current)
     }
 
     if (window.Gitalk) return initGitalk()
 
-    loadStyle('https://unpkg.com/gitalk/dist/gitalk.css')
-      .then(() => loadScript('https://unpkg.com/gitalk/dist/gitalk.min.js'))
-      .then(initGitalk)
+    Promise.all([
+      loadStyle('/css/gitalk.css'),
+      loadScript('https://unpkg.com/gitalk/dist/gitalk.min.js')
+    ]).then(initGitalk)
 
     // TODO: destory scripts
-  })
+    // https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/
+  }, [])
 
   return <div {...props} ref={container} />
 }

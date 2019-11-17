@@ -165,17 +165,17 @@ a.plyr__control::before {
 .plyr--audio .plyr__control.plyr__tab-focus,
 .plyr--audio .plyr__control:hover,
 .plyr--audio .plyr__control[aria-expanded="true"] {
-  background: #00b3ff;
+  background: var(--theme-ui-colors-primary, #00b3ff);
   color: #fff;
 }
 .plyr--video .plyr__control.plyr__tab-focus,
 .plyr--video .plyr__control:hover,
 .plyr--video .plyr__control[aria-expanded="true"] {
-  background: #00b3ff;
+  background: var(--theme-ui-colors-primary, #00b3ff);
   color: #fff;
 }
 .plyr__control--overlaid {
-  background: rgba(0, 179, 255, 0.8);
+  background: var(--theme-ui-colors-primary, rgba(0, 179, 255, 0.8));
   border: 0;
   border-radius: 100%;
   color: #fff;
@@ -193,7 +193,7 @@ a.plyr__control::before {
 }
 .plyr__control--overlaid:focus,
 .plyr__control--overlaid:hover {
-  background: #00b3ff;
+  background: var(--theme-ui-colors-primary, #00b3ff);
 }
 .plyr--playing .plyr__control--overlaid {
   opacity: 0;
@@ -430,7 +430,7 @@ a.plyr__control::before {
 }
 .plyr__menu__container
   .plyr__control[role="menuitemradio"][aria-checked="true"]::before {
-  background: #00b3ff;
+  background: var(--theme-ui-colors-primary, #00b3ff);
 }
 .plyr__menu__container
   .plyr__control[role="menuitemradio"][aria-checked="true"]::after {
@@ -456,7 +456,7 @@ a.plyr__control::before {
   background: 0 0;
   border: 0;
   border-radius: 26px;
-  color: #00b3ff;
+  color: var(--theme-ui-colors-primary, #00b3ff);
   display: block;
   height: 19px;
   margin: 0;

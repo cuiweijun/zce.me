@@ -1,5 +1,3 @@
-const cache = []
-
 export const loadStyle = url =>
   new Promise((resolve, reject) => {
     const link = document.createElement('link')
@@ -9,7 +7,6 @@ export const loadStyle = url =>
     link.onload = resolve
     link.onerror = reject
     document.head.appendChild(link)
-    cache.push(url)
   })
 
 export const loadScript = url =>
@@ -22,5 +19,4 @@ export const loadScript = url =>
     script.onload = resolve
     script.onerror = reject
     document.body.appendChild(script)
-    cache.push(url)
   })

@@ -25,13 +25,11 @@ export default ({
     sources = [{ src: sources }]
   }
 
-  const options = { type: Tag, title, sources, poster }
-
   useEffect(() => {
     const initPlayer = () => {
       // TODO: need multi sources?
       const player = new window.Plyr(container.current, { autoplay })
-      player.source = options
+      player.source = { type: Tag, title, sources, poster }
       player.on('ended', onEnded)
     }
 
@@ -42,7 +40,7 @@ export default ({
       .then(initPlayer)
 
     // TODO: destory scripts
-  })
+  }, [Tag, title, sources, poster, autoplay, onEnded])
 
   return <Tag {...props} ref={container} />
 }

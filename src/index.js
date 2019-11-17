@@ -12,7 +12,6 @@ import { Global } from '@emotion/core'
 
 import { Wrapper } from './components'
 import theme from './theme'
-import styles from './styles'
 
 const Context = React.createContext()
 
@@ -30,7 +29,6 @@ export const wrapRootElement = ({ element }) => (
 
 export const wrapPageElement = ({ element, props }) => (
   <Wrapper {...props}>
-    <Global styles={css(styles)} />
     <Global styles={css(theme.styles)} />
     {element}
   </Wrapper>

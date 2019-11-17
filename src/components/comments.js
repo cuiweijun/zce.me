@@ -46,12 +46,18 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
   }
 
   useEffect(() => {
+    const initGitalk = () => {
+      const gitalk = new window.Gitalk({ ...defaults, ...options })
+      container.current && gitalk.render(container.current)
+    }
+
+    if (window.Gitalk) return initGitalk()
+
     loadStyle('https://unpkg.com/gitalk/dist/gitalk.css')
       .then(() => loadScript('https://unpkg.com/gitalk/dist/gitalk.min.js'))
-      .then(() => {
-        const gitalk = new window.Gitalk({ ...defaults, ...options })
-        gitalk.render(container.current)
-      })
+      .then(initGitalk)
+
+    // TODO: destory scripts
   })
 
   return <div {...props} ref={container} />

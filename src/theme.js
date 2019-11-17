@@ -269,6 +269,7 @@ const styles = {
     color: readable('primary')
   },
   body: {
+    margin: 0,
     fontSize: 'body',
     fontFamily: 'body',
     fontWeight: 'body',
@@ -320,13 +321,13 @@ const styles = {
   },
   ol: {
     margin: 0,
-    marginBottom: 3,
-    paddingX: 4
+    marginBottom: 3
+    // paddingX: 4
   },
   ul: {
     margin: 0,
-    marginBottom: 3,
-    paddingX: 4
+    marginBottom: 3
+    // paddingX: 4
   },
   blockquote: {
     margin: 0,
@@ -396,7 +397,7 @@ const styles = {
 const variants = {}
 
 export default {
-  useCustomProperties: true,
+  // useCustomProperties: true,
   useColorSchemeMediaQuery: true,
   initialColorMode: 'default',
   colors,

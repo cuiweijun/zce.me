@@ -28,14 +28,20 @@ export default ({
   const options = { type: Tag, title, sources, poster }
 
   useEffect(() => {
+    const initPlayer = () => {
+      // TODO: need multi sources?
+      const player = new window.Plyr(container.current, { autoplay })
+      player.source = options
+      player.on('ended', onEnded)
+    }
+
+    if (window.Plyr) return initPlayer()
+
     loadStyle('/css/plyr.css')
       .then(() => loadScript('https://cdn.plyr.io/3.5.6/plyr.js'))
-      .then(() => {
-        // TODO: need multi sources?
-        const player = new window.Plyr(container.current, { autoplay })
-        player.source = options
-        player.on('ended', onEnded)
-      })
+      .then(initPlayer)
+
+    // TODO: destory scripts
   })
 
   return <Tag {...props} ref={container} />

@@ -436,7 +436,7 @@ export default ({ data: { meta, post, prev, next, related }, location }) => (
           lineHeight: 'loose',
           wordWrap: 'break-word',
           'h1, h2, h3, h4, h5, h6': {
-            margin: '1em 0 0.5em'
+            margin: '1.4em 0 0.8em'
           },
           'ol, ul': {
             // paddingLeft: 4

@@ -4,6 +4,8 @@
 
 import { alpha, darken, lighten, readable } from './utils/color'
 
+// TODO: Redesign colors
+
 const colors = {
   transparent: 'transparent',
   white: '#fff',

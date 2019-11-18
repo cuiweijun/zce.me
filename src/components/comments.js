@@ -1,8 +1,14 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
 import { loadStyle, loadScript } from '../utils/load'
+
+if (typeof window !== 'undefined') {
+  window.React = React
+  window.ReactDOM = ReactDOM
+}
 
 const query = graphql`
   query CommentsComponent {
@@ -53,7 +59,7 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
 
     Promise.all([
       loadStyle('/css/gitalk.css'),
-      loadScript('https://unpkg.com/gitalk/dist/gitalk.min.js')
+      loadScript('/js/gitalk.js')
     ]).then(initGitalk)
 
     // TODO: destory scripts

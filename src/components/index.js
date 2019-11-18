@@ -13,7 +13,7 @@ export { default as Card } from './card'
 export { default as Comments } from './comments'
 export { default as Player } from './player'
 
-export { default as Layout, Wrapper } from './layout'
+export { Layout, Wrapper } from './layout'
 
 // export { Fragment as Wrapper } from 'react'
 // export const Wrapper = props => props.children

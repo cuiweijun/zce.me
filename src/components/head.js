@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 
 const query = graphql`
-  query MetaComponent {
+  query HeadComponent {
     config {
       url
       name
@@ -36,7 +36,6 @@ export default ({ title, description, keywords, type, image, pathname }) => {
   const meta = []
   const link = []
 
-  title = title || null
   description = description || config.description
   keywords = keywords || config.keywords
   type = type || 'website'
@@ -47,8 +46,8 @@ export default ({ title, description, keywords, type, image, pathname }) => {
   meta.push({ name: 'keywords', content: keywords || config.keywords })
   meta.push({ name: 'theme-color', content: theme.colors.background })
   meta.push({ name: 'og:site_name', content: config.name })
-  url && meta.push({ name: 'og:url', content: url })
   meta.push({ name: 'og:title', content: title })
+  url && meta.push({ name: 'og:url', content: url })
   meta.push({ name: 'og:description', content: description })
   // TODO: website or article? http://ogp.me/#no_vertical
   meta.push({ name: 'og:type', content: type || 'website' })

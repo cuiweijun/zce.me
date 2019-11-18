@@ -123,6 +123,7 @@ The default structure is shown below:
 - [ ] Create default nodes by programming
 - [ ] Global State
 - [ ] SSR
+- [ ] I18n
 
 ## Deploy
 

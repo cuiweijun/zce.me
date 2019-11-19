@@ -10,7 +10,7 @@ export default ({ data: { page } }) => (
     subtitle={page.fields.description}
     description={page.fields.description || page.excerpt}
     cover={false}
-    padding="4vw">
+    padding="5vw">
     <Container sx={{ marginBottom: 9 }}>
       <Image
         Tag="figure"

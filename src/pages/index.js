@@ -100,35 +100,35 @@ const Feed = ({ posts, title, subtitle, link }) => (
   </Section>
 )
 
-export default ({ data }) => (
+export default ({ data: { featured, posts, courses, about, meta } }) => (
   <Layout padding="18vw" mask={1}>
-    {data.featured.nodes[0] && <Featured post={data.featured.nodes[0]} />}
+    {featured.nodes[0] && <Featured post={featured.nodes[0]} />}
 
     <Feed
-      posts={data.posts.nodes}
+      posts={posts.nodes}
       title="Latest Posts"
       subtitle="Keep the dots in your life."
       link="/blog/"
     />
 
-    {data.featured.nodes[1] && <Featured post={data.featured.nodes[1]} />}
+    {featured.nodes[1] && <Featured post={featured.nodes[1]} />}
 
     <Feed
-      posts={data.courses.nodes}
+      posts={courses.nodes}
       title="Latest Courses"
       subtitle="Continuous learning is a belief."
       link="/courses/"
     />
 
-    {data.featured.nodes[2] && <Featured post={data.featured.nodes[2]} />}
+    {featured.nodes[2] && <Featured post={featured.nodes[2]} />}
 
     <Section>
       <Container sx={{ textAlign: 'center' }}>
         <h2 sx={{ fontSize: 10, opacity: 0.3, marginBottom: 5 }}>
-          {data.about.fields.title}
+          {about.fields.title}
         </h2>
         <div
-          dangerouslySetInnerHTML={{ __html: data.about.html }}
+          dangerouslySetInnerHTML={{ __html: about.html }}
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -142,7 +142,7 @@ export default ({ data }) => (
     <Section padding={6}>
       <Container>
         <p
-          children={data.meta.slogan}
+          children={meta.slogan}
           sx={{
             color: 'muted',
             fontFamily: 'serif',

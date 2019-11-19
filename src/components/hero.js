@@ -13,31 +13,20 @@ const query = graphql`
   }
 `
 
-// TODO: transition
-export default ({ title, subtitle, padding, align, cover, children }) => {
+export default ({ title, subtitle, children, ...props }) => {
   const { meta } = useStaticQuery(query)
 
-  if (!children) {
-    const style = {
-      paddingY: padding || '10vw',
-      textAlign: align || 'center',
-      color: cover === false ? 'text' : 'white',
-      textShadow: cover === false ? '0' : 'text',
-      transition: 'padding 0.3s, color 0.3s'
-    }
+  if (children) return children
 
-    if (!title) {
-      title = meta.name
-      subtitle = meta.description
-    }
-
-    children = (
-      <Container sx={style}>
-        <h1 sx={{ fontSize: 9 }}>{title}</h1>
-        {subtitle && <p sx={{ fontSize: 'xl' }}>{subtitle}</p>}
-      </Container>
-    )
+  if (!title) {
+    title = meta.name
+    subtitle = meta.description
   }
 
-  return children
+  return (
+    <Container {...props}>
+      <h1 sx={{ fontSize: 9 }}>{title}</h1>
+      {subtitle && <p sx={{ fontSize: 'xl' }}>{subtitle}</p>}
+    </Container>
+  )
 }

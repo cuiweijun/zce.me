@@ -86,8 +86,11 @@ The default structure is shown below:
 - [ ] Offline & Manifest
   - https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/
 - [ ] Progressive Web Apps (PWAs)
-
   - https://www.gatsbyjs.org/docs/progressive-web-app/
+- [ ] Dark mode toggler transition
+  - https://github.com/gatsbyjs/gatsby/blob/master/www/src/components/dark-mode-toggle.js
+
+### Backlog
 
 - [ ] Content type filter
 - [x] Content pages

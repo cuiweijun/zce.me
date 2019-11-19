@@ -344,7 +344,7 @@ const RelatedPosts = ({ name, category, related, prev, next }) => (
 )
 
 // TODO: meta prev next
-export default ({ data: { meta, post, prev, next, related }, location }) => (
+export default ({ data: { post, prev, next, related, meta }, location }) => (
   <Layout
     title={post.fields.title}
     subtitle={post.fields.description}

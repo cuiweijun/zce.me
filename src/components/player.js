@@ -35,8 +35,8 @@ export default ({
 
     if (window.Plyr) return initPlayer()
 
-    loadStyle('/css/plyr.css')
-      .then(() => loadScript('/js/plyr.js'))
+    loadStyle('/assets/plyr.css')
+      .then(() => loadScript('/assets/plyr.js'))
       .then(initPlayer)
 
     // TODO: destory scripts

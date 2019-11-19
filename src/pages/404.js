@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 
 import { Layout, Container, Row, Card, Button, Link } from '../components'
 
-export default ({ data }) => (
+export default ({ data: { posts } }) => (
   <Layout
     title="404 Not found"
     hero={
@@ -13,19 +13,20 @@ export default ({ data }) => (
           paddingY: '12vw',
           textAlign: 'center',
           color: 'white',
-          textShadow: 'medium',
-          transition: 'padding 0.3s, color 0.3s'
+          textShadow: 'text'
+          // TODO: transition
+          // transition: 'padding 0.3s, color 0.3s'
         }}>
-        <h1 sx={{ fontSize: '9rem' }}>404</h1>
+        <h1 sx={{ fontSize: '8rem' }}>404</h1>
         <p sx={{ fontSize: 'xl', marginBottom: 6 }}>Page not found</p>
-        <Button as={Link} variant="outline" to="/" sx={{ color: 'white' }}>
+        <Button as={Link} to="/">
           Back to Home &rarr;
         </Button>
       </Container>
     }>
     <Container>
       <Row sx={{ marginBottom: 6 }}>
-        {data.posts.nodes.map(node => (
+        {posts.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}
       </Row>

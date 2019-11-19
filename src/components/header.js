@@ -102,7 +102,6 @@ const Menu = ({ items }) => (
     }}>
     {items.map(i => (
       <li key={i.link}>
-        {/* TODO: current page */}
         <Link
           to={i.link}
           sx={{
@@ -125,17 +124,16 @@ const Menu = ({ items }) => (
 )
 
 const ColorModeToggler = () => {
-  const [colorMode, setColorMode] = useColorMode()
-
+  const [mode, setMode] = useColorMode()
+  const title = `Switch to ${mode === 'default' ? 'dark' : 'light'} mode`
   return (
     <Button
       variant="ghost"
-      icon={colorMode === 'default' ? 'moon' : 'sun'}
-      aria-label={`Switch to ${
-        colorMode === 'default' ? 'dark' : 'light'
-      } mode`}
+      icon={mode === 'default' ? 'moon' : 'sun'}
+      title={title}
+      aria-label={title}
       sx={{ color: 'muted' }}
-      onClick={e => setColorMode(colorMode === 'default' ? 'dark' : 'default')}
+      onClick={e => setMode(mode === 'default' ? 'dark' : 'default')}
     />
   )
 }
@@ -143,7 +141,6 @@ const ColorModeToggler = () => {
 export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
   const pinned = useNavPinned()
   const { meta } = useStaticQuery(query)
-
   return (
     <header
       sx={{
@@ -175,10 +172,15 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
         <Hero
           title={title}
           subtitle={subtitle}
-          padding={padding}
-          align={align}
-          cover={cover}
           children={hero}
+          sx={{
+            paddingY: padding || '10vw',
+            textAlign: align || 'center',
+            color: cover === false ? 'text' : 'white',
+            textShadow: cover === false ? null : 'text'
+            // TODO: transition
+            // transition: 'padding 0.3s, color 0.3s'
+          }}
         />
       )}
       {cover !== false && <Cover image={cover} mask={mask} />}

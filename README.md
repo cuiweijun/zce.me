@@ -77,6 +77,18 @@ The default structure is shown below:
 
 ## Todos
 
+- [ ] SEO
+  - https://www.gatsbyjs.org/docs/seo/
+  - https://www.gatsbyjs.org/docs/add-seo-component/
+- [ ] Performance
+  - https://www.gatsbyjs.org/docs/performance/
+  - https://webpagetest.org/
+- [ ] Offline & Manifest
+  - https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/
+- [ ] Progressive Web Apps (PWAs)
+
+  - https://www.gatsbyjs.org/docs/progressive-web-app/
+
 - [ ] Content type filter
 - [x] Content pages
 - [x] Mapping node types
@@ -92,7 +104,6 @@ The default structure is shown below:
 - [x] Site Footer
 - [x] Husky + Lint-staged
 - [x] Netlify Forms
-- [ ] Manifest
 - [ ] Sitemap support
 - [ ] RSS feed
 - [ ] Comment System (Custom service)

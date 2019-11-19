@@ -43,10 +43,10 @@ export default ({ image, mask = 2 }) => {
         },
         ':after': mask > 1 && {
           background: t =>
-            `linear-gradient(transparent 30%,${t.colors.background})`
+            `linear-gradient(transparent 30%, ${t.colors.background})`
         },
         img: mask > 2 && {
-          filter: 'blur(1rem)',
+          filter: 'blur(5rem)',
           transform: 'translateZ(0) scale(1.1)'
         }
       }}

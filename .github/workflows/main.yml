@@ -29,4 +29,9 @@ jobs:
           -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/zce.me.git
           -b master
           -u "GitHub Actions <bots@github.com>"
+      # - name: Deploy to Surge
+      #   run: npx surge
+      #     public
+      #     zce.surge.sh
+      #     --token ${{secrets.SURGE_TOKEN}}
 # TODO: nightly & beta deploy

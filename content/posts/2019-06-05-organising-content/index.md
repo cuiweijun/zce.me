@@ -25,7 +25,7 @@ If you tag a post with both `News` _and_ `Weather` - then it appears in both sec
 
 Inside the Ghost editor, you can drag and drop tags into a specific order. The first tag in the list is always given the most importance, and some themes will only display the primary tag (the first tag in the list) by default.
 
-> **\*News**, Technology, Startup\*
+> **News**, Technology, Startup
 
 So you can add the most important tag which you want to show up in your theme, but also add related tags which are less important.
 
@@ -35,7 +35,7 @@ Sometimes you may want to assign a post a specific tag, but you don't necessaril
 
 For example, if you sometimes publish posts with video content - you might want your theme to adapt and get rid of the sidebar for these posts, to give more space for an embedded video to fill the screen. In this case, you could use private tags to tell your theme what to do.
 
-> **\*News**, #video\*
+> **News**, #video
 
 Here, the theme would assign the post publicly displayed tags of News - but it would also keep a private record of the post being tagged with #video. In your theme, you could then look for private tags conditionally and give them special formatting.
 

@@ -210,12 +210,11 @@ const Copyright = ({ name, url }) => (
         sx={{ marginX: 1 }}
       />
       with
-      <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
-        <g transform="translate(28 28)">
+      <svg viewBox="0 0 50 50" width="22" height="22" aria-hidden="true">
+        <g transform="translate(25 25)">
           <path
             sx={{ fill: 'accent' }}
-            d="M4.6-20C1-20-2.1-18.2-4-15.4c-1.9-2.8-5-4.6-8.6-4.6C-18.4-20-23-15.4-23-9.7C-23,0.5-6.9,5.4-4,12
-          C-1.1,5.4,15,0.6,15-9.7C15-15.4,10.4-20,4.6-20">
+            d="M10.9-20.2c-4.5,0-8.5,2.3-10.9,5.8c-2.4-3.5-6.3-5.8-10.9-5.8c-7.3,0-13.1,5.8-13.1,13C-24,5.7-3.7,11.9,0,20.2C3.7,11.9,24,5.8,24-7.2C24-14.4,18.2-20.2,10.9-20.2">
             <animateTransform
               attributeName="transform"
               calcMode="spline"

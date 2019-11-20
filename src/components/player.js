@@ -30,6 +30,10 @@ export default ({
       // TODO: need multi sources?
       const player = new window.Plyr(container.current, { autoplay })
       player.source = { type: Tag, title, sources, poster }
+      // to support css-in-js
+      if (player.media && player.elements.original) {
+        player.media.className = player.elements.original.className
+      }
       player.on('ended', onEnded)
     }
 

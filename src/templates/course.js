@@ -173,9 +173,17 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
       mask={1}
       align="left"
       background="background">
-      {/* sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }} */}
-      {video && <Player {...video} onEnded={onEnded} autoplay={true} />}
-
+      {video && (
+        <Player
+          {...video}
+          autoplay={true}
+          onEnded={onEnded}
+          sx={{
+            minHeight: '30rem',
+            maxHeight: t => `calc(100vh - ${t.sizes.nav})`
+          }}
+        />
+      )}
       <Container>
         <Row>
           <Main current={current} course={course} />

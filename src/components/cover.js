@@ -25,7 +25,7 @@ export default ({ image, mask = 2 }) => {
         zIndex: 'low',
         width: '100%',
         minHeight: '35rem',
-        maxHeight: '65vw',
+        maxHeight: '100vh',
         backgroundColor: 'dark',
         ':before,:after': mask > 0 && {
           position: 'absolute',

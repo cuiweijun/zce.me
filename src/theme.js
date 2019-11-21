@@ -399,7 +399,8 @@ const styles = {
 const variants = {}
 
 export default {
-  useCustomProperties: true,
+  // useless
+  useCustomProperties: false,
   useColorSchemeMediaQuery: true,
   initialColorMode: 'default',
   colors,

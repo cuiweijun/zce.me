@@ -1,5 +1,6 @@
+// TODO: remove polished
 import * as polished from 'polished'
-import { get } from '@styled-system/css'
+import { get } from 'theme-ui'
 
 const g = (t, c) =>
   get(t, `colors.${c}`, c)

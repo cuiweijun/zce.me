@@ -10,6 +10,9 @@ exports.siteMetadata = {}
 
 exports.plugins = [
   // plugin
+  'gatsby-plugin-minify',
+  'gatsby-plugin-react-helmet',
+  'gatsby-plugin-nprogress',
   // 'gatsby-plugin-sharp', // TODO: no need?
   // 'gatsby-plugin-feed',
   // 'gatsby-plugin-sitemap',
@@ -37,8 +40,6 @@ exports.plugins = [
   // },
   // 'gatsby-plugin-offline',
   // 'gatsby-plugin-remove-trailing-slashes', // ?
-  'gatsby-plugin-react-helmet',
-  'gatsby-plugin-nprogress',
   // source
   {
     resolve: 'gatsby-source-filesystem',

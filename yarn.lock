@@ -6100,10 +6100,10 @@ gatsby-remark-copy-linked-files@2.1.30:
     probe-image-size "^4.1.1"
     unist-util-visit "^1.4.1"
 
-gatsby-remark-images@3.1.32:
-  version "3.1.32"
-  resolved "https://registry.npm.taobao.org/gatsby-remark-images/download/gatsby-remark-images-3.1.32.tgz#62ef581b1a8778949b2248e8e5c7d49e938ddeb2"
-  integrity sha1-Yu9YGxqHeJSbIkjo5cfUnpON3rI=
+gatsby-remark-images@3.1.33:
+  version "3.1.33"
+  resolved "https://registry.npm.taobao.org/gatsby-remark-images/download/gatsby-remark-images-3.1.33.tgz#a44aa4b70fc28fbc2a38e80c7fb0b3378546fc5f"
+  integrity sha1-pEqktw/Cj7wqOOgMf7CzN4VG/F8=
   dependencies:
     "@babel/runtime" "^7.7.2"
     chalk "^2.4.2"
@@ -6231,10 +6231,10 @@ gatsby-transformer-sharp@2.3.5:
     semver "^5.7.1"
     sharp "^0.23.2"
 
-gatsby@2.18.1:
-  version "2.18.1"
-  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.18.1.tgz#bb8eb085af7ecb714f58024c0548a7aa54a7a224"
-  integrity sha1-u46wha9+y3FPWAJMBUinqlSnoiQ=
+gatsby@2.18.2:
+  version "2.18.2"
+  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.18.2.tgz#2e1559fcc56462addabd8a38c6f3236ac43468d7"
+  integrity sha1-LhVZ/MVkYq3avYo4xvMjasQ0aNc=
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.7.2"

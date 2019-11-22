@@ -407,7 +407,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
           ':before,:after': {
             position: 'absolute',
             top: '10%',
-            zIndex: 'low',
+            zIndex: -1,
             width: '1rem',
             height: '120%',
             background: 'rgba(0, 0, 0, 0.2)',

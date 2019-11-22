@@ -22,9 +22,9 @@ export default ({ image, mask = 2 }) => {
       sx={{
         position: 'absolute !important',
         top: 0,
-        zIndex: 'low',
+        zIndex: -1,
         width: '100%',
-        minHeight: '35rem',
+        minHeight: '40rem',
         maxHeight: '100vh',
         backgroundColor: 'dark',
         ':before,:after': mask > 0 && {
@@ -33,7 +33,7 @@ export default ({ image, mask = 2 }) => {
           right: 0,
           bottom: 0,
           left: 0,
-          zIndex: 'high',
+          zIndex: 1,
           content: '""',
           transition: 'opacity 0.3s'
         },

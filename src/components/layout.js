@@ -29,8 +29,11 @@ export const Layout = props => (
       id="content"
       children={props.children}
       sx={{
-        position: 'relative',
-        overflow: 'hidden',
+        // display: 'flow-root',
+        // flexDirection: 'column',
+        // position: 'relative',
+        // fix sticky
+        // overflow: 'hidden',
         minHeight: '40vh',
         backgroundColor: props.background
       }}

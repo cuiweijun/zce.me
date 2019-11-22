@@ -191,12 +191,15 @@ const shadows = {
 
 // TODO
 const zIndices = {
-  highest: 99,
-  higher: 10,
-  high: 1,
-  low: -1,
-  lower: -10,
-  lowest: -99
+  auto: 'auto',
+  zero: 0,
+  dropdown: 10,
+  sticky: 20,
+  fixed: 30,
+  backdrop: 40,
+  modal: 50,
+  popover: 60,
+  tooltip: 70
 }
 
 // TODO: not support

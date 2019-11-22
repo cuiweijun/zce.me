@@ -36,7 +36,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
         right: 0,
         bottom: 0,
         left: 0,
-        zIndex: 'high'
+        zIndex: 1
       }}
     />
 
@@ -114,7 +114,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
         }}>
         <ul
           sx={{
-            zIndex: 'high',
+            zIndex: 2,
             display: 'flex',
             margin: 0,
             padding: 0,

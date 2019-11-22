@@ -14,7 +14,7 @@ import {
 } from '../components'
 
 const Main = ({ current, course }) => (
-  <Tabs initial={1} sx={{ flex: '3 1 32rem', marginBottom: 3, padding: 3 }}>
+  <Tabs initial={1} sx={{ flex: '3 1 32rem', padding: 3, borderRightWidth: 1 }}>
     <section id="intro" name="简介">
       <div
         sx={{ marginBottom: 4, paddingX: 3, paddingY: 4 }}
@@ -27,6 +27,7 @@ const Main = ({ current, course }) => (
           padding: 0,
           paddingY: 3,
           listStyle: 'inside decimal-leading-zero',
+          lineHeight: 'loose',
           a: { color: 'inherit' }
         }}>
         {course.fields.sections.map((item, i) => (
@@ -89,7 +90,6 @@ const Aside = ({ video, fields, related }) => (
       flex: '1 1 16rem',
       padding: 3,
       paddingLeft: [3, 3, 0],
-      borderLeftWidth: 1,
       color: 'muted',
       a: {
         color: 'inherit',

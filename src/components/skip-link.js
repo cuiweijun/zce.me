@@ -17,7 +17,7 @@ export default ({ id = 'content', ...props }) => (
       clip: 'rect(0 0 0 0)',
       ':focus': {
         position: 'fixed',
-        zIndex: '999',
+        zIndex: 99,
         top: 0,
         left: 0,
         width: 'auto',

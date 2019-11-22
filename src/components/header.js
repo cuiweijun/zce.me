@@ -151,7 +151,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
         sx={{
           position: 'fixed',
           top: 0,
-          zIndex: 'higher',
+          zIndex: 'fixed',
           width: '100%',
           borderBottom: 'default',
           borderColor: 'border',

@@ -7,6 +7,7 @@ export default ({ image, name, size = 'auto', ...props }) => (
     alt={name}
     src={image.childImageSharp.fixed.src}
     srcSet={image.childImageSharp.fixed.srcSet}
+    loading="lazy"
     sx={{
       maxWidth: size,
       maxHeight: size,

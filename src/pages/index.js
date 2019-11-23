@@ -12,11 +12,11 @@ import {
   Card
 } from '../components'
 
-const Section = ({ p = 8, ...props }) => (
+const Section = ({ padding = 8, ...props }) => (
   <section
     {...props}
     sx={{
-      py: p,
+      py: padding,
       bg: 'light',
       ':nth-of-type(2n)': {
         bg: 'background'
@@ -101,7 +101,7 @@ const Feed = ({ posts, title, subtitle, link }) => (
 )
 
 export default ({ data: { featured, posts, courses, about, meta } }) => (
-  <Layout p="18vw" mask={1}>
+  <Layout padding="18vw" mask={1}>
     {featured.nodes[0] && <Featured post={featured.nodes[0]} />}
 
     <Feed
@@ -137,7 +137,7 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
       </Container>
     </Section>
 
-    <Section p={6}>
+    <Section padding={6}>
       <Container>
         <p
           children={meta.slogan}

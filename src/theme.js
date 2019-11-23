@@ -5,7 +5,6 @@
 import { alpha, darken, lighten, readable } from './utils/color'
 
 // TODO: Redesign colors
-
 const colors = {
   transparent: 'transparent',
   white: '#fff',
@@ -43,30 +42,11 @@ const colors = {
   }
 }
 
+// prettier-ignore
 const fonts = {
-  sans: [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
-    '"Noto Sans"',
-    'sans-serif',
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"',
-    '"Noto Color Emoji"'
-  ].join(),
+  sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'].join(),
   serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'].join(),
-  mono: [
-    'Menlo',
-    'Monaco',
-    'Consolas',
-    '"Liberation Mono"',
-    '"Courier New"',
-    'monospace'
-  ].join()
+  mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'].join()
 }
 fonts.body = fonts.sans
 fonts.heading = null
@@ -84,7 +64,6 @@ const fontSizes = [
   '4rem',
   '5rem'
 ]
-
 fontSizes.xs = fontSizes[0]
 fontSizes.sm = fontSizes[1]
 fontSizes.md = fontSizes[2]
@@ -148,25 +127,17 @@ const sizes = {
   logo: '1.5rem'
 }
 
-const borders = {
-  0: '0',
-  1: '1px solid transparent',
-  2: '2px solid transparent',
-  3: '4px solid transparent',
-  4: '8px solid transparent',
-  5: '16px solid transparent',
-  6: '24px solid transparent'
-}
+const borders = [
+  0,
+  '1px solid transparent',
+  '2px solid transparent',
+  '4px solid transparent',
+  '8px solid transparent',
+  '16px solid transparent',
+  '24px solid transparent'
+]
 
-const borderWidths = {
-  0: 0,
-  1: '1px',
-  2: '2px',
-  3: '4px',
-  4: '8px',
-  5: '16px',
-  6: '24px'
-}
+const borderWidths = [0, '1px', '2px', '4px', '8px', '16px', '24px']
 
 const borderStyles = {
   default: 'solid'

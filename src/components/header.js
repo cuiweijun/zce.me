@@ -153,7 +153,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
           top: 0,
           zIndex: 'fixed',
           width: '100%',
-          borderBottom: 'default',
+          borderBottom: 1,
           borderColor: 'border',
           backgroundColor: 'background',
           transform: `translateY(${pinned ? '0%' : '-100%'})`,

@@ -80,7 +80,7 @@ export default ({
         margin: 0,
         paddingX: 3,
         paddingY: 2,
-        border: 'default',
+        border: 1,
         borderColor: color, // 'border',
         borderRadius: 'medium',
         backgroundColor: color, // 'transparent',

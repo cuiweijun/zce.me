@@ -145,25 +145,27 @@ const sizes = {
   container: '75rem',
   inner: '50rem',
   nav: '3rem',
-  logo: '1.5625rem',
-  icon: '1.5rem',
-  card: '18rem',
-  avatar: '6rem'
+  logo: '1.5rem'
 }
 
 const borders = {
-  none: 'none',
-  default: '1px solid transparent',
-  double: '2px solid transparent'
+  0: '0',
+  1: '1px solid transparent',
+  2: '2px solid transparent',
+  3: '4px solid transparent',
+  4: '8px solid transparent',
+  5: '16px solid transparent',
+  6: '24px solid transparent'
 }
 
 const borderWidths = {
   0: 0,
   1: '1px',
   2: '2px',
-  3: '3px',
-  4: '4px',
-  5: '5px'
+  3: '4px',
+  4: '8px',
+  5: '16px',
+  6: '24px'
 }
 
 const borderStyles = {
@@ -189,7 +191,6 @@ const shadows = {
   severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.2)'
 }
 
-// TODO
 const zIndices = {
   auto: 'auto',
   zero: 0,
@@ -202,11 +203,11 @@ const zIndices = {
   tooltip: 70
 }
 
-// TODO: not support
-const transitions = {
-  base: 'all 0.2s ease-in-out',
-  fade: 'opacity 0.15s linear'
-}
+// // TODO: not support
+// const transitions = {
+//   base: 'all 0.2s ease-in-out',
+//   fade: 'opacity 0.15s linear'
+// }
 
 const heading = {
   margin: 0,
@@ -263,11 +264,7 @@ const prism = {
 
 const styles = {
   '*': {
-    boxSizing: 'border-box',
-    // TODO: remove global border
-    borderWidth: 0,
-    borderStyle: 'default',
-    borderColor: 'border'
+    boxSizing: 'border-box'
   },
   '::selection': {
     backgroundColor: alpha('primary', 0.6),
@@ -339,7 +336,7 @@ const styles = {
     marginBottom: 3,
     paddingX: 3,
     paddingY: 3,
-    borderLeftWidth: '4',
+    borderLeft: 4,
     borderColor: lighten('primary', 0.1),
     backgroundColor: 'light',
     borderRadius: 'medium'
@@ -422,7 +419,7 @@ export default {
   radii,
   shadows,
   zIndices,
-  transitions,
+  // transitions,
   styles,
   variants
 }

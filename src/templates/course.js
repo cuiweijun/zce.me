@@ -14,7 +14,14 @@ import {
 } from '../components'
 
 const Main = ({ current, course }) => (
-  <Tabs initial={1} sx={{ flex: '3 1 32rem', padding: 3, borderRightWidth: 1 }}>
+  <Tabs
+    initial={1}
+    sx={{
+      flex: '3 1 32rem',
+      padding: 3,
+      borderRight: 1,
+      borderColor: 'border'
+    }}>
     <section id="intro" name="简介">
       <div
         sx={{ marginBottom: 4, paddingX: 3, paddingY: 4 }}
@@ -38,7 +45,7 @@ const Main = ({ current, course }) => (
               paddingY: 2,
               fontSize: i === current || 'sm',
               color: i === current && 'primary',
-              ':not(:last-child)': { borderBottomWidth: 1 },
+              ':not(:last-child)': { borderBottom: 1, borderColor: 'border' },
               a: { textDecoration: 'none' }
             }}>
             {i === current ? (
@@ -71,9 +78,7 @@ const AsideSection = ({ title, children }) => (
   <section
     sx={{
       padding: 3,
-      ':not(:last-child)': {
-        borderBottomWidth: 1
-      }
+      ':not(:last-child)': { borderBottom: 1, borderColor: 'border' }
     }}>
     <span sx={{ fontWeight: 'bold' }}>{title}: </span>
     {children}

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
 
 import Link from './link'
+import Image from './image'
 
 // TODO: UI, Post or Course
 export default ({ as: Tag = 'article', post, rel }) => (
@@ -12,7 +12,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
       position: 'relative',
       display: 'flex',
       overflow: 'hidden',
-      flex: t => `1 1 ${t.sizes.card}`,
+      flex: '1 1 18rem',
       flexDirection: 'column',
       marginX: 3,
       marginBottom: 6,
@@ -42,7 +42,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
 
     {post.fields.cover ? (
       <Image
-        fluid={post.fields.cover.childImageSharp.fluid}
+        file={post.fields.cover}
         alt={post.fields.title}
         sx={{
           maxHeight: '25rem',
@@ -134,13 +134,13 @@ export default ({ as: Tag = 'article', post, rel }) => (
                 transition: 'margin 0.2s'
               }}>
               <Link to={author.permalink} title={author.name}>
-                <Image
-                  Tag="span"
-                  fixed={author.avatar.childImageSharp.fixed}
+                <img
                   alt={author.name}
+                  src={author.avatar.childImageSharp.fixed.src}
+                  srcSet={author.avatar.childImageSharp.fixed.srcSet}
                   sx={{
-                    border: 'double',
-                    borderColor: 'light',
+                    border: 2,
+                    borderColor: 'border',
                     borderRadius: 'circle',
                     verticalAlign: 'middle'
                   }}

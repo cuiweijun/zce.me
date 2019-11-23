@@ -34,7 +34,7 @@ export default ({ variant = 'default', size = 'md', ...props }) => {
         margin: 0,
         paddingX: 3,
         paddingY: 2,
-        border: 'default',
+        border: 1,
         borderColor: 'border',
         borderRadius: 'medium',
         backgroundColor: 'transparent',

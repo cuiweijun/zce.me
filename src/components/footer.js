@@ -85,7 +85,7 @@ const Follow = ({ socials }) => (
         aria-label="Subscribe"
         sx={{
           paddingX: 3,
-          borderLeft: 'none',
+          borderLeft: 0,
           borderTopLeftRadius: 0,
           borderBottomLeftRadius: 0,
           color: 'currentColor'
@@ -105,6 +105,7 @@ const Follow = ({ socials }) => (
           key={i.name}
           sx={{ display: 'inline-block', marginX: 1, marginBottom: 2 }}>
           <Button
+            as={Link}
             to={i.link || '/'}
             title={i.name}
             target="_blank"
@@ -184,7 +185,7 @@ const Copyright = ({ name, url }) => (
       display: 'flex',
       flexDirection: ['column', 'row'],
       paddingTop: 3,
-      borderTop: 'default',
+      borderTop: 1,
       borderColor: 'border'
     }}>
     <span>
@@ -246,7 +247,7 @@ export default () => {
   return (
     <footer
       sx={{
-        borderTop: 'default',
+        borderTop: 1,
         borderColor: 'border',
         paddingY: 7,
         backgroundColor: 'background',

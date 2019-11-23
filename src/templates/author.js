@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
-import { Layout, Container, Row, Card, Image } from '../components'
+import { Layout, Container, Row, Card, Avatar } from '../components'
 
 export default ({ data: { author, posts } }) => (
   <Layout
@@ -13,14 +13,10 @@ export default ({ data: { author, posts } }) => (
     cover={author.cover}
     hero={
       <Container sx={{ paddingY: '5vw', color: 'white', textAlign: 'center' }}>
-        <Image
-          file={author.avatar}
-          sx={{
-            marginBottom: 3,
-            borderWidth: 5,
-            borderColor: 'light',
-            borderRadius: 'circle'
-          }}
+        <Avatar
+          name={author.name}
+          image={author.avatar}
+          sx={{ mb: 3, boxShadow: 'outline' }}
         />
         <h1>{author.name}</h1>
         <p sx={{ fontSize: 'xl' }}>{author.bio}</p>
@@ -43,7 +39,7 @@ export const query = graphql`
       slug
       avatar {
         childImageSharp {
-          fixed(width: 140) {
+          fixed(width: 160) {
             ...GatsbyImageSharpFixed
           }
         }

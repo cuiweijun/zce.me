@@ -8,6 +8,7 @@ import {
   Layout,
   Row,
   Image,
+  Avatar,
   Link,
   Icon,
   Button,
@@ -111,16 +112,10 @@ const Authors = ({ authors }) => (
         paddingX: 2,
         paddingY: 3
       }}>
-      <Image
-        file={authors[0].avatar}
-        sx={{
-          marginRight: 3,
-          maxWidth: 'avatar',
-          maxHeight: 'avatar',
-          borderWidth: 5,
-          borderColor: 'gray',
-          borderRadius: 'circle'
-        }}
+      <Avatar
+        name={authors[0].name}
+        image={authors[0].avatar}
+        sx={{ marginRight: 3 }}
       />
       <div sx={{ flex: '1 1 6rem' }}>
         <h4>{authors[0].name}</h4>
@@ -437,10 +432,10 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
           wordWrap: 'break-word',
           'h1, h2, h3, h4, h5, h6': {
             margin: '1.4em 0 0.8em'
-          },
-          'ol, ul': {
-            // paddingLeft: 4
           }
+          // 'ol, ul': {
+          //   paddingLeft: 4
+          // }
         }}
       />
       <Footer post={post} url={meta.url + location.pathname} />
@@ -478,7 +473,7 @@ export const query = graphql`
           name
           avatar {
             childImageSharp {
-              fixed(width: 160) {
+              fixed(width: 96) {
                 ...GatsbyImageSharpFixed
               }
             }

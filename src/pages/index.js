@@ -46,8 +46,8 @@ const Featured = ({ post }) => (
           margin: 0,
           marginBottom: [4, 4, 0],
           marginLeft: [0, 0, 4],
-          border: '1.5rem solid',
-          borderColor: 'light',
+          border: 6,
+          borderColor: 'light', // color
           boxShadow: 'medium'
         }}
       />

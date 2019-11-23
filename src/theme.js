@@ -352,6 +352,9 @@ const styles = {
   img: {
     maxWidth: '100%'
   },
+  textarea: {
+    appearance: 'none'
+  },
   a: {
     color: 'primary',
     textDecoration: 'none',

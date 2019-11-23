@@ -27,7 +27,7 @@ const Brand = ({ name }) => (
     sx={{
       display: 'flex',
       alignItems: 'center',
-      paddingX: 1,
+      px: 1,
       fontSize: 'xl',
       color: 'inherit',
       ':hover': {
@@ -84,9 +84,9 @@ const Menu = ({ items }) => (
       display: 'flex',
       overflowX: 'auto',
       flexGrow: 1,
-      margin: 0,
-      marginX: [1, 3],
-      paddingX: 1,
+      m: 0,
+      mx: [1, 3],
+      px: 1,
       listStyle: 'none',
       whiteSpace: 'nowrap',
       maskImage: [
@@ -106,7 +106,7 @@ const Menu = ({ items }) => (
           to={i.link}
           sx={{
             display: 'block',
-            padding: 2,
+            p: 2,
             opacity: 0.75,
             color: 'inherit',
             transition: 'opacity 0.3s',
@@ -155,7 +155,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
           width: '100%',
           borderBottom: 1,
           borderColor: 'border',
-          backgroundColor: 'background',
+          bg: 'background',
           transform: `translateY(${pinned ? '0%' : '-100%'})`,
           transition: 'transform 0.3s linear',
           willChange: 'transform'
@@ -174,12 +174,12 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
           subtitle={subtitle}
           children={hero}
           sx={{
-            paddingY: padding || '10vw',
+            py: padding || '10vw',
             textAlign: align || 'center',
             color: cover === false ? 'text' : 'white',
             textShadow: cover === false ? null : 'text'
             // TODO: transition
-            // transition: 'padding 0.3s, color 0.3s'
+            // transition: 'p 0.3s, color 0.3s'
           }}
         />
       )}

@@ -12,7 +12,7 @@ export default ({ data: { term, posts } }) => (
     subtitle={`A collection of ${posts.totalCount} posts`}
     cover={term.cover}>
     <Container>
-      <Row sx={{ marginBottom: 6 }}>
+      <Row sx={{ mb: 6 }}>
         {posts.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}

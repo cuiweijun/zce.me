@@ -40,13 +40,13 @@ const query = graphql`
 `
 
 const Widget = ({ title, width, children }) => (
-  <section sx={{ width: width, marginBottom: [4, 4, 4, 0], paddingX: 3 }}>
+  <section sx={{ width: width, mb: [4, 4, 4, 0], px: 3 }}>
     <h4
       sx={{
         fontSize: 'lg',
         fontWeight: 'light',
-        marginTop: 0,
-        marginBottom: 2
+        mt: 0,
+        mb: 2
       }}
       children={title}
     />
@@ -56,13 +56,13 @@ const Widget = ({ title, width, children }) => (
 
 const Follow = ({ socials }) => (
   <Widget title="Follow me" width={['100%', '100%', '100%', '45%']}>
-    <p sx={{ marginBottom: 3 }}>
+    <p sx={{ mb: 3 }}>
       Get all the latest &amp; greatest posts delivered straight to your inbox.
     </p>
     <form
       sx={{
         display: 'flex',
-        marginBottom: 3
+        mb: 3
       }}>
       <Input
         type="email"
@@ -84,7 +84,7 @@ const Follow = ({ socials }) => (
         id="btn_send"
         aria-label="Subscribe"
         sx={{
-          paddingX: 3,
+          px: 3,
           borderLeft: 0,
           borderTopLeftRadius: 0,
           borderBottomLeftRadius: 0,
@@ -94,16 +94,14 @@ const Follow = ({ socials }) => (
     </form>
     <ul
       sx={{
-        margin: 0,
-        marginX: -1,
-        marginBottom: 3,
-        padding: 0,
+        m: 0,
+        mx: -1,
+        mb: 3,
+        p: 0,
         listStyle: 'none'
       }}>
       {socials.map(i => (
-        <li
-          key={i.name}
-          sx={{ display: 'inline-block', marginX: 1, marginBottom: 2 }}>
+        <li key={i.name} sx={{ display: 'inline-block', mx: 1, mb: 2 }}>
           <Button
             as={Link}
             to={i.link || '/'}
@@ -123,7 +121,7 @@ const Follow = ({ socials }) => (
 
 const Tags = ({ tags }) => (
   <Widget title="Tags" width={['100%', '100%', '55%', '25%']}>
-    <ul sx={{ margin: 0, padding: 0, listStyle: 'none', lineHeight: 'loose' }}>
+    <ul sx={{ m: 0, p: 0, listStyle: 'none', lineHeight: 'loose' }}>
       {tags.map(i => (
         <li
           key={i.name}
@@ -131,7 +129,7 @@ const Tags = ({ tags }) => (
             display: 'inline-block',
             ':not(:last-child):after': {
               content: '"\\002C"',
-              marginRight: 1
+              mr: 1
             }
           }}>
           <Link
@@ -151,14 +149,14 @@ const Tags = ({ tags }) => (
 
 const Links = ({ links }) => (
   <Widget title="Links" width={['100%', '50%', '25%', '15%']}>
-    <ul sx={{ margin: 0, paddingX: 2, listStyle: 'none' }}>
+    <ul sx={{ m: 0, px: 2, listStyle: 'none' }}>
       {links.map(i => (
         <li
           key={i.text}
           sx={{
             ':before': {
               content: '"\\279F"',
-              marginRight: 1
+              mr: 1
             }
           }}>
           <Link to={i.link}>{i.text}</Link>
@@ -174,7 +172,7 @@ const Subscription = ({ subscription }) => (
       fixed={subscription.qrcode.childImageSharp.fixed}
       alt={subscription.name}
       title={subscription.name}
-      sx={{ display: 'block !important', marginX: 'auto' }}
+      sx={{ display: 'block !important', mx: 'auto' }}
     />
   </Widget>
 )
@@ -184,7 +182,7 @@ const Copyright = ({ name, url }) => (
     sx={{
       display: 'flex',
       flexDirection: ['column', 'row'],
-      paddingTop: 3,
+      pt: 3,
       borderTop: 1,
       borderColor: 'border'
     }}>
@@ -192,11 +190,11 @@ const Copyright = ({ name, url }) => (
       &copy; {new Date().getFullYear()} <Link to={url}>{name}</Link>. All Rights
       Reserved.
     </span>
-    <ul sx={{ flexGrow: 1, margin: 0, marginX: 2, padding: 0 }}>
-      <li sx={{ display: 'inline-block', marginRight: 1 }}>
+    <ul sx={{ flexGrow: 1, m: 0, mx: 2, p: 0 }}>
+      <li sx={{ display: 'inline-block', mr: 1 }}>
         <Link to="/privacy-policy/">Privacy Policy</Link>
       </li>
-      <li sx={{ display: 'inline-block', marginRight: 1 }}>
+      <li sx={{ display: 'inline-block', mr: 1 }}>
         <Link to="/terms-of-service/">Terms of Service</Link>
       </li>
     </ul>
@@ -208,7 +206,7 @@ const Copyright = ({ name, url }) => (
         target="_blank"
         rel="noopener noreferrer"
         children="&lt;/&gt;"
-        sx={{ marginX: 1 }}
+        sx={{ mx: 1 }}
       />
       with
       <svg viewBox="0 0 50 50" width="22" height="22" aria-hidden="true">
@@ -235,7 +233,7 @@ const Copyright = ({ name, url }) => (
         title="Created by"
         target="_blank"
         children="zce"
-        sx={{ marginX: 1 }}
+        sx={{ mx: 1 }}
       />
     </span>
   </div>
@@ -249,8 +247,8 @@ export default () => {
       sx={{
         borderTop: 1,
         borderColor: 'border',
-        paddingY: 7,
-        backgroundColor: 'background',
+        py: 7,
+        bg: 'background',
         color: 'muted',
         fontSize: 'sm',
         textAlign: ['center', 'left'],
@@ -263,8 +261,8 @@ export default () => {
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            marginX: -3,
-            marginBottom: 4
+            mx: -3,
+            mb: 4
           }}>
           <Follow socials={siteMetadata.socials} />
           <Tags tags={allTag.nodes} />

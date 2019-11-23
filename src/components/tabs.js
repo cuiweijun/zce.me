@@ -10,15 +10,15 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
       sx={{
         'ul[role=tablist]': {
           display: 'flex',
-          margin: 0,
-          padding: 0,
+          m: 0,
+          p: 0,
           borderBottom: 2,
           borderColor: 'border',
           listStyle: 'none',
           li: {
-            marginBottom: t => `-${t.borderWidths[2]}`,
-            paddingX: 3,
-            paddingY: 2,
+            mb: t => `-${t.borderWidths[2]}`,
+            px: 3,
+            py: 2,
             borderBottom: 2,
             color: 'muted',
             transition: 'border 0.3s, color 0.3s',

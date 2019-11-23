@@ -26,7 +26,7 @@ export default ({ image, mask = 2 }) => {
         width: '100%',
         minHeight: '40rem',
         maxHeight: '100vh',
-        backgroundColor: 'dark',
+        bg: 'dark',
         ':before,:after': mask > 0 && {
           position: 'absolute',
           top: 0,

@@ -4,20 +4,20 @@ import { jsx } from 'theme-ui'
 export default ({ variant = 'default', size = 'md', ...props }) => {
   const sizes = {
     sm: {
-      paddingX: 2,
-      paddingY: 1,
+      px: 2,
+      py: 1,
       borderRadius: 'small',
       fontSize: 'sm'
     },
     md: {
-      paddingX: 3,
-      paddingY: 2,
+      px: 3,
+      py: 2,
       borderRadius: 'medium',
       fontSize: 'md'
     },
     lg: {
-      paddingX: 4,
-      paddingY: 2,
+      px: 4,
+      py: 2,
       borderRadius: 'medium',
       fontSize: 'lg'
     }
@@ -31,13 +31,13 @@ export default ({ variant = 'default', size = 'md', ...props }) => {
       sx={{
         appearance: 'none',
         display: 'inline-block',
-        margin: 0,
-        paddingX: 3,
-        paddingY: 2,
+        m: 0,
+        px: 3,
+        py: 2,
         border: 1,
         borderColor: 'border',
         borderRadius: 'medium',
-        backgroundColor: 'transparent',
+        bg: 'transparent',
         color: 'text',
         lineHeight: 'inherit',
         fontSize: 'inherit',

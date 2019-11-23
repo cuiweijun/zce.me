@@ -9,7 +9,7 @@ export default ({ data: { courses } }) => (
     title="Courses"
     description={`A collection of ${courses.totalCount} courses`}>
     <Container>
-      <Row sx={{ marginBottom: 6 }}>
+      <Row sx={{ mb: 6 }}>
         {courses.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}

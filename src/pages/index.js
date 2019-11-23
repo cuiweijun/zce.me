@@ -12,14 +12,14 @@ import {
   Card
 } from '../components'
 
-const Section = ({ padding = 8, ...props }) => (
+const Section = ({ p = 8, ...props }) => (
   <section
     {...props}
     sx={{
-      paddingY: padding,
-      backgroundColor: 'light',
+      py: p,
+      bg: 'light',
       ':nth-of-type(2n)': {
-        backgroundColor: 'background'
+        bg: 'background'
       }
     }}
   />
@@ -43,9 +43,9 @@ const Featured = ({ post }) => (
         sx={{
           flexBasis: '22rem',
           order: [0, 0, 1],
-          margin: 0,
-          marginBottom: [4, 4, 0],
-          marginLeft: [0, 0, 4],
+          m: 0,
+          mb: [4, 4, 0],
+          ml: [0, 0, 4],
           border: 6,
           borderColor: 'light', // color
           boxShadow: 'medium'
@@ -55,14 +55,14 @@ const Featured = ({ post }) => (
         sx={{
           flexGrow: 1,
           flexBasis: '23rem',
-          padding: 4,
+          p: 4,
           lineHeight: 'loose'
         }}>
-        <h2 sx={{ marginBottom: 4, fontSize: 7 }}>{post.fields.title}</h2>
+        <h2 sx={{ mb: 4, fontSize: 7 }}>{post.fields.title}</h2>
         <div
           dangerouslySetInnerHTML={{ __html: post.excerpt }}
           sx={{
-            marginBottom: 4,
+            mb: 4,
             maskImage:
               'linear-gradient(to top, rgba(0, 0, 0, 0), #000 10%, #000)'
           }}
@@ -82,11 +82,11 @@ const Featured = ({ post }) => (
 const Feed = ({ posts, title, subtitle, link }) => (
   <Section>
     <Container>
-      <header sx={{ marginBottom: 5, textAlign: 'center' }}>
-        <h2 sx={{ margin: 0, marginBottom: 3, fontSize: 7 }}>{title}</h2>
-        <p sx={{ margin: 0, fontSize: 'lg' }}>{subtitle}</p>
+      <header sx={{ mb: 5, textAlign: 'center' }}>
+        <h2 sx={{ m: 0, mb: 3, fontSize: 7 }}>{title}</h2>
+        <p sx={{ m: 0, fontSize: 'lg' }}>{subtitle}</p>
       </header>
-      <Row sx={{ marginBottom: 3 }}>
+      <Row sx={{ mb: 3 }}>
         {posts.map(node => (
           <Card post={node} key={node.id} />
         ))}
@@ -101,7 +101,7 @@ const Feed = ({ posts, title, subtitle, link }) => (
 )
 
 export default ({ data: { featured, posts, courses, about, meta } }) => (
-  <Layout padding="18vw" mask={1}>
+  <Layout p="18vw" mask={1}>
     {featured.nodes[0] && <Featured post={featured.nodes[0]} />}
 
     <Feed
@@ -124,9 +124,7 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
 
     <Section>
       <Container sx={{ textAlign: 'center' }}>
-        <h2 sx={{ fontSize: 10, opacity: 0.3, marginBottom: 5 }}>
-          {about.fields.title}
-        </h2>
+        <h2 sx={{ fontSize: 10, opacity: 0.3, mb: 5 }}>{about.fields.title}</h2>
         <div
           dangerouslySetInnerHTML={{ __html: about.html }}
           sx={{
@@ -139,7 +137,7 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
       </Container>
     </Section>
 
-    <Section padding={6}>
+    <Section p={6}>
       <Container>
         <p
           children={meta.slogan}

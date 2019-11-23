@@ -35,7 +35,7 @@ export const Layout = props => (
         // fix sticky
         // overflow: 'hidden',
         minHeight: '40vh',
-        backgroundColor: props.background
+        bg: props.background
       }}
     />
   </Fragment>

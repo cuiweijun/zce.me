@@ -24,7 +24,7 @@ const Tags = ({ title, tags, url }) => (
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginBottom: 3,
+      mb: 3,
       fontSize: 'sm'
     }}>
     {tags && (
@@ -36,9 +36,9 @@ const Tags = ({ title, tags, url }) => (
         <Icon name="tag" />
         <ul
           sx={{
-            margin: 0,
-            marginLeft: 1,
-            padding: 0,
+            m: 0,
+            ml: 1,
+            p: 0,
             listStyle: 'none'
           }}>
           {tags.map(i => (
@@ -47,7 +47,7 @@ const Tags = ({ title, tags, url }) => (
               sx={{
                 display: 'inline',
                 ':not(:last-child)': {
-                  marginRight: 1,
+                  mr: 1,
                   ':after': {
                     content: '"\\002c"'
                   }
@@ -72,10 +72,10 @@ const Tags = ({ title, tags, url }) => (
         display: 'flex',
         alignItems: 'center',
         span: {
-          marginRight: 1
+          mr: 1
         },
         a: {
-          marginLeft: 1
+          ml: 1
         }
       }}>
       <span>Share this:</span>
@@ -99,7 +99,7 @@ const Tags = ({ title, tags, url }) => (
 const Authors = ({ authors }) => (
   <section
     sx={{
-      marginBottom: 7,
+      mb: 7,
       borderTopWidth: 1
     }}>
     <ScreenReaderText as="h3">Author</ScreenReaderText>
@@ -109,14 +109,10 @@ const Authors = ({ authors }) => (
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        paddingX: 2,
-        paddingY: 3
+        px: 2,
+        py: 3
       }}>
-      <Avatar
-        name={authors[0].name}
-        image={authors[0].avatar}
-        sx={{ marginRight: 3 }}
-      />
+      <Avatar name={authors[0].name} image={authors[0].avatar} sx={{ mr: 3 }} />
       <div sx={{ flex: '1 1 6rem' }}>
         <h4>{authors[0].name}</h4>
         {authors[0].bio && <p>{authors[0].bio}</p>}
@@ -133,7 +129,7 @@ const Authors = ({ authors }) => (
           fontSize: 'sm',
           fontFamily: 'serif',
           'a:not(:last-child)': {
-            marginRight: 1,
+            mr: 1,
             ':after': {
               content: '"\\002c"'
             }
@@ -153,7 +149,7 @@ const Authors = ({ authors }) => (
 const License = () => (
   <section
     sx={{
-      marginBottom: 7,
+      mb: 7,
       textAlign: 'center',
       fontStyle: 'italic',
       fontFamily: 'serif'
@@ -207,8 +203,8 @@ const License = () => (
 const Footer = ({ post, url }) => (
   <footer
     sx={{
-      marginX: 'auto',
-      paddingY: '3vw',
+      mx: 'auto',
+      py: '3vw',
       maxWidth: 'inner'
     }}>
     <Tags title={post.fields.title} tags={post.fields.tags} url={url} />
@@ -217,7 +213,7 @@ const Footer = ({ post, url }) => (
     {post.fields.comment && (
       <section
         sx={{
-          marginBottom: 7
+          mb: 7
         }}>
         <ScreenReaderText as="h3">Comments</ScreenReaderText>
         <Comments
@@ -242,11 +238,11 @@ const Category = ({ name, category, related }) => (
       flexBasis: t => ['100%', '100%', '100%', t.sizes.card],
       flexDirection: 'column',
       // order: [2, 2, 2, 0],
-      marginX: 3,
-      marginBottom: 6,
-      padding: 5,
+      mx: 3,
+      mb: 6,
+      p: 5,
       borderRadius: 'medium',
-      backgroundColor: shade('primary', 0.4),
+      bg: shade('primary', 0.4),
       color: 'white',
       boxShadow: 'light',
       textAlign: 'center',
@@ -262,13 +258,13 @@ const Category = ({ name, category, related }) => (
       sx={{
         ':before, :after': {
           display: 'inline-block',
-          marginX: 2,
+          mx: 2,
           content: '"\\2014"'
         }
       }}>
       {name}
     </small>
-    <h3 sx={{ padding: 2, fontWeight: 'light' }}>
+    <h3 sx={{ p: 2, fontWeight: 'light' }}>
       <Link to={category.permalink}>{category.name}</Link>
     </h3>
     <svg
@@ -280,14 +276,14 @@ const Category = ({ name, category, related }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      sx={{ marginX: 'auto' }}>
+      sx={{ mx: 'auto' }}>
       <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
     </svg>
     <ul
       sx={{
         flexGrow: 1,
-        margin: 3,
-        padding: 0,
+        m: 3,
+        p: 0,
         listStyle: 'none'
       }}>
       {related.nodes.map(item => (
@@ -295,7 +291,7 @@ const Category = ({ name, category, related }) => (
           key={item.id}
           sx={{
             overflow: 'hidden',
-            padding: 3,
+            p: 3,
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
             ':not(:last-child)': {
@@ -324,8 +320,8 @@ const Category = ({ name, category, related }) => (
 const RelatedPosts = ({ name, category, related, prev, next }) => (
   <aside
     sx={{
-      paddingTop: 6,
-      backgroundColor: 'light'
+      pt: 6,
+      bg: 'light'
     }}>
     <Container>
       <ScreenReaderText as="h3">Related posts</ScreenReaderText>
@@ -347,11 +343,11 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
     cover={post.fields.cover}
     mask={3}
     hero={false}>
-    <Container as="article" role="main" sx={{ marginBottom: 5 }}>
+    <Container as="article" role="main" sx={{ mb: 5 }}>
       <header
         sx={{
-          paddingTop: '6vw',
-          paddingBottom: '4vw',
+          pt: '6vw',
+          pb: '4vw',
           color: 'white',
           textAlign: 'center',
           textShadow: 'text',
@@ -373,7 +369,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
             sx={{
               ':before': {
                 display: 'inline-block',
-                marginX: 2,
+                mx: 2,
                 content: '"\\002f"',
                 opacity: 0.6
               }
@@ -398,7 +394,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
         title={post.fields.title}
         sx={{
           overflow: 'visible !important', // for box-shadow
-          backgroundColor: 'dark',
+          bg: 'dark',
           ':before,:after': {
             position: 'absolute',
             top: '10%',
@@ -422,19 +418,19 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
       <section
         dangerouslySetInnerHTML={{ __html: post.html }}
         sx={{
-          paddingX: ['3%', '5%', '10%'],
-          paddingY: ['3%', '6%'],
+          px: ['3%', '5%', '10%'],
+          py: ['3%', '6%'],
           minHeight: '65vw',
-          backgroundColor: 'background',
+          bg: 'background',
           fontSize: t => `calc(${t.fontSizes.sm} + 0.33vw)`,
           fontFamily: 'serif',
           lineHeight: 'loose',
           wordWrap: 'break-word',
           'h1, h2, h3, h4, h5, h6': {
-            margin: '1.4em 0 0.8em'
+            m: '1.4em 0 0.8em'
           }
           // 'ol, ul': {
-          //   paddingLeft: 4
+          //   pl: 4
           // }
         }}
       />

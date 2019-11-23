@@ -181,8 +181,8 @@ const zIndices = {
 // }
 
 const heading = {
-  margin: 0,
-  marginBottom: 3,
+  m: 0,
+  mb: 3,
   color: null,
   fontFamily: 'heading',
   lineHeight: 'heading',
@@ -191,7 +191,7 @@ const heading = {
 
 const prism = {
   color: '#f8f8f2', // 'text',
-  backgroundColor: '#272822', // darken('background', 0.2),
+  bg: '#272822', // darken('background', 0.2),
   '.comment,.prolog,.doctype,.cdata': {
     color: 'slategray'
   },
@@ -238,11 +238,11 @@ const styles = {
     boxSizing: 'border-box'
   },
   '::selection': {
-    backgroundColor: alpha('primary', 0.6),
+    bg: alpha('primary', 0.6),
     color: readable('primary')
   },
   body: {
-    margin: 0,
+    m: 0,
     fontSize: 'body',
     fontFamily: 'body',
     fontWeight: 'body',
@@ -256,9 +256,9 @@ const styles = {
   },
   hr: {
     height: 1,
-    marginY: 3,
+    my: 3,
     border: 0,
-    backgroundColor: 'currentColor',
+    bg: 'currentColor',
     opacity: 0.2
   },
   h1: {
@@ -286,38 +286,38 @@ const styles = {
     fontSize: 2
   },
   p: {
-    margin: 0,
-    marginBottom: 3,
+    m: 0,
+    mb: 3,
     ':last-child': {
-      marginBottom: 0
+      mb: 0
     }
   },
   ol: {
-    margin: 0,
-    marginBottom: 3
-    // paddingX: 4
+    m: 0,
+    mb: 3
+    // px: 4
   },
   ul: {
-    margin: 0,
-    marginBottom: 3
-    // paddingX: 4
+    m: 0,
+    mb: 3
+    // px: 4
   },
   blockquote: {
-    margin: 0,
-    marginBottom: 3,
-    paddingX: 3,
-    paddingY: 3,
+    m: 0,
+    mb: 3,
+    px: 3,
+    py: 3,
     borderLeft: 4,
     borderColor: lighten('primary', 0.1),
-    backgroundColor: 'light',
+    bg: 'light',
     borderRadius: 'medium'
   },
   pre: {
     overflowX: 'auto',
-    margin: 0,
-    marginBottom: 3,
-    paddingX: 3,
-    paddingY: 3,
+    m: 0,
+    mb: 3,
+    px: 3,
+    py: 3,
     fontFamily: 'mono',
     code: {
       color: 'inherit'
@@ -331,21 +331,21 @@ const styles = {
   table: {
     display: 'block',
     overflowX: 'auto',
-    margin: 0,
-    marginBottom: 3,
+    m: 0,
+    mb: 3,
     width: '100%',
     borderCollapse: 'collapse',
     borderSpacing: 0
   },
   th: {
-    paddingX: 3,
-    paddingY: 2,
+    px: 3,
+    py: 2,
     textAlign: 'left',
     borderWidth: 1
   },
   td: {
-    paddingX: 3,
-    paddingY: 2,
+    px: 3,
+    py: 2,
     textAlign: 'left',
     borderWidth: 1
   },

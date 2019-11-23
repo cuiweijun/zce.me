@@ -14,10 +14,10 @@ export default ({ as: Tag = 'article', post, rel }) => (
       overflow: 'hidden',
       flex: '1 1 18rem',
       flexDirection: 'column',
-      marginX: 3,
-      marginBottom: 6,
+      mx: 3,
+      mb: 6,
       borderRadius: 'medium',
-      backgroundColor: 'background',
+      bg: 'background',
       boxShadow: 'light',
       transition: 'box-shadow 0.3s, transform 0.3s, flex 0.3s',
       willChange: 'transform',
@@ -44,17 +44,13 @@ export default ({ as: Tag = 'article', post, rel }) => (
       <Image
         file={post.fields.cover}
         alt={post.fields.title}
-        sx={{
-          maxHeight: '25rem',
-          backgroundColor: 'dark',
-          objectFit: 'cover'
-        }}
+        sx={{ maxHeight: '25rem', bg: 'dark', objectFit: 'cover' }}
       />
     ) : (
       <svg
         viewBox="0 0 540 360"
         aria-hidden="true"
-        sx={{ maxHeight: '25rem', backgroundColor: '#66d9e8' }}>
+        sx={{ maxHeight: '25rem', bg: '#66d9e8' }}>
         <path
           d="M280.7,142.5v14.7H210.6V142.5h1.8l9.2,4.1,4.1-4.1Z"
           fill="#339af0"
@@ -87,7 +83,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
         display: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
-        padding: 3
+        p: 3
       }}>
       <span sx={{ color: 'muted', textTransform: 'uppercase' }}>
         {post.fields.categories[0].name}
@@ -102,8 +98,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
         {post.fields.title}
       </h3>
 
-      <div sx={{ flexGrow: 1, marginBottom: 3 }}>
-        <p sx={{ margin: 0 }}>{post.excerpt}</p>
+      <div sx={{ flexGrow: 1, mb: 3 }}>
+        <p sx={{ m: 0 }}>{post.excerpt}</p>
       </div>
 
       <footer
@@ -116,12 +112,12 @@ export default ({ as: Tag = 'article', post, rel }) => (
           sx={{
             zIndex: 2,
             display: 'flex',
-            margin: 0,
-            padding: 0,
+            m: 0,
+            p: 0,
             listStyle: 'none',
             ':hover': {
               li: {
-                marginLeft: 0
+                ml: 0
               }
             }
           }}>
@@ -130,8 +126,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
               key={author.name}
               sx={{
                 zIndex: post.fields.authors.length - i,
-                marginLeft: i > 0 ? -3 : 0,
-                transition: 'margin 0.2s'
+                ml: i > 0 ? -3 : 0,
+                transition: 'm 0.2s'
               }}>
               <Link to={author.permalink} title={author.name}>
                 <img

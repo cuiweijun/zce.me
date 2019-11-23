@@ -12,7 +12,7 @@ export default ({ data: { author, posts } }) => (
     subtitle={author.bio}
     cover={author.cover}
     hero={
-      <Container sx={{ paddingY: '5vw', color: 'white', textAlign: 'center' }}>
+      <Container sx={{ py: '5vw', color: 'white', textAlign: 'center' }}>
         <Avatar
           name={author.name}
           image={author.avatar}
@@ -23,7 +23,7 @@ export default ({ data: { author, posts } }) => (
       </Container>
     }>
     <Container>
-      <Row sx={{ marginBottom: 6 }}>
+      <Row sx={{ mb: 6 }}>
         {posts.nodes.map(node => (
           <Card post={node} key={node.id} />
         ))}

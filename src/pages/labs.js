@@ -39,7 +39,7 @@ export default () => {
         <hr />
         <h1 onClick={() => setCount(count + 1)}>Labs {count}</h1>
         <hr />
-        <Tabs sx={{ padding: 5 }}>
+        <Tabs sx={{ p: 5 }}>
           <section id="intro" name="介绍">
             <p>介绍内容</p>
           </section>
@@ -51,7 +51,7 @@ export default () => {
           </section>
         </Tabs>
         <hr />
-        <Tabs sx={{ padding: 5 }}>
+        <Tabs sx={{ p: 5 }}>
           <section name="介绍">
             <p>介绍内容</p>
           </section>

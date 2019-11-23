@@ -5,7 +5,7 @@ import { Layout, Container, Button } from '../components'
 
 export default () => (
   <Layout title="Style Guide" cover={false}>
-    <Container sx={{ padding: 6 }}>
+    <Container sx={{ p: 6 }}>
       <h3>Colors</h3>
       <div sx={{ mx: -2, mb: 3 }}>
         <Button color="primary" sx={{ m: 2 }}>

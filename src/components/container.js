@@ -6,8 +6,8 @@ export default ({ as: Tag = 'div', ...props }) => (
     {...props}
     sx={{
       maxWidth: 'container',
-      marginX: 'auto',
-      paddingX: 3
+      mx: 'auto',
+      px: 3
     }}
   />
 )

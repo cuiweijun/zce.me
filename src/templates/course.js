@@ -18,21 +18,21 @@ const Main = ({ current, course }) => (
     initial={1}
     sx={{
       flex: '3 1 32rem',
-      padding: 3,
+      p: 3,
       borderRight: 1,
       borderColor: 'border'
     }}>
     <section id="intro" name="简介">
       <div
-        sx={{ marginBottom: 4, paddingX: 3, paddingY: 4 }}
+        sx={{ mb: 4, px: 3, py: 4 }}
         dangerouslySetInnerHTML={{ __html: course.html }}
       />
     </section>
     <section id="toc" name="目录">
       <ol
         sx={{
-          padding: 0,
-          paddingY: 3,
+          p: 0,
+          py: 3,
           listStyle: 'inside decimal-leading-zero',
           lineHeight: 'loose',
           a: { color: 'inherit' }
@@ -41,8 +41,8 @@ const Main = ({ current, course }) => (
           <li
             key={item.title}
             sx={{
-              paddingX: 3,
-              paddingY: 2,
+              px: 3,
+              py: 2,
               fontSize: i === current || 'sm',
               color: i === current && 'primary',
               ':not(:last-child)': { borderBottom: 1, borderColor: 'border' },
@@ -67,7 +67,7 @@ const Main = ({ current, course }) => (
           title={course.fields.title}
           excerpt={course.excerpt}
           permalink={course.fields.permalink}
-          sx={{ paddingX: 3 }}
+          sx={{ px: 3 }}
         />
       </section>
     )}
@@ -77,7 +77,7 @@ const Main = ({ current, course }) => (
 const AsideSection = ({ title, children }) => (
   <section
     sx={{
-      padding: 3,
+      p: 3,
       ':not(:last-child)': { borderBottom: 1, borderColor: 'border' }
     }}>
     <span sx={{ fontWeight: 'bold' }}>{title}: </span>
@@ -93,13 +93,13 @@ const Aside = ({ video, fields, related }) => (
       top: 0,
       alignSelf: 'flex-start',
       flex: '1 1 16rem',
-      padding: 3,
-      paddingLeft: [3, 3, 0],
+      p: 3,
+      pl: [3, 3, 0],
       color: 'muted',
       a: {
         color: 'inherit',
         ':not(:last-child)': {
-          marginRight: 1,
+          mr: 1,
           ':after': {
             content: '"\\002C"'
           }

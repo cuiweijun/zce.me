@@ -15,20 +15,20 @@ export default ({
 }) => {
   const sizes = {
     sm: {
-      paddingX: 2,
-      paddingY: 1,
+      px: 2,
+      py: 1,
       borderRadius: 'small',
       fontSize: 'sm'
     },
     md: {
-      paddingX: 3,
-      paddingY: 2,
+      px: 3,
+      py: 2,
       borderRadius: 'medium',
       fontSize: 'md'
     },
     lg: {
-      paddingX: 3,
-      paddingY: 2,
+      px: 3,
+      py: 2,
       borderRadius: 'medium',
       fontSize: 'lg'
     }
@@ -36,12 +36,12 @@ export default ({
 
   const variants = {
     outline: {
-      backgroundColor: 'transparent',
+      bg: 'transparent',
       color: readable('background', 'white', 'dark')
     },
     ghost: {
       borderColor: 'transparent',
-      backgroundColor: 'transparent',
+      bg: 'transparent',
       color: color
     },
     pill: {
@@ -61,12 +61,12 @@ export default ({
       <Icon
         name={icon}
         size={iconSizes[size]}
-        sx={children ? { marginRight: 1 } : null}
+        sx={children ? { mr: 1 } : null}
       />
     )
 
     if (!children) {
-      mixins.paddingX = mixins.paddingY
+      mixins.px = mixins.py
       mixins.lineHeight = 'solid'
     }
   }
@@ -77,13 +77,13 @@ export default ({
       sx={{
         appearance: 'none',
         display: 'inline-block',
-        margin: 0,
-        paddingX: 3,
-        paddingY: 2,
+        m: 0,
+        px: 3,
+        py: 2,
         border: 1,
         borderColor: color, // 'border',
         borderRadius: 'medium',
-        backgroundColor: color, // 'transparent',
+        bg: color, // 'transparent',
         color: readable(color, 'white', 'dark'), // 'text',
         textAlign: 'center',
         lineHeight: 'inherit',
@@ -95,13 +95,13 @@ export default ({
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',
         ':hover': {
           borderColor: darken(color, 0.05), // 'border',
-          backgroundColor: darken(color, 0.05), // 'background',
+          bg: darken(color, 0.05), // 'background',
           color: readable(color, 'white', 'dark'), // 'white',
           textDecoration: 'none'
         },
         ':active': {
           borderColor: darken(color, 0.15), // 'transparent',
-          backgroundColor: darken(color, 0.15), // darken('background', 0.11),
+          bg: darken(color, 0.15), // darken('background', 0.11),
           color: readable(color, 'white', 'dark') // 'white'
         },
         ':focus': {

@@ -11,24 +11,21 @@ export default ({ data: { page } }) => (
     description={page.fields.description || page.excerpt}
     cover={false}
     padding="5vw">
-    <Container sx={{ marginBottom: 9 }}>
+    <Container sx={{ mb: 9 }}>
       <Image
         Tag="figure"
         file={page.fields.cover}
         alt={page.fields.title}
         title={page.fields.title}
-        sx={{ marginBottom: 8 }}
+        sx={{ mb: 8 }}
       />
       <div
         dangerouslySetInnerHTML={{ __html: page.html }}
         sx={{
           maxWidth: '50rem',
-          marginX: 'auto',
+          mx: 'auto',
           lineHeight: 'loose',
-          img: {
-            display: 'block',
-            marginX: 'auto'
-          }
+          img: { display: 'block', mx: 'auto' }
         }}
       />
       {page.fields.comment && (
@@ -40,12 +37,9 @@ export default ({ data: { page } }) => (
           permalink={page.fields.permalink}
           sx={{
             maxWidth: '50rem',
-            marginX: 'auto',
+            mx: 'auto',
             lineHeight: 'loose',
-            img: {
-              display: 'block',
-              marginX: 'auto'
-            }
+            img: { display: 'block', mx: 'auto' }
           }}
         />
       )}

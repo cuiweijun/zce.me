@@ -11,8 +11,8 @@ export default ({ id = 'content', ...props }) => (
       overrflow: 'hidden',
       height: 1,
       width: 1,
-      margin: -1,
-      padding: 0,
+      m: -1,
+      p: 0,
       top: -999,
       clip: 'rect(0 0 0 0)',
       ':focus': {
@@ -22,10 +22,10 @@ export default ({ id = 'content', ...props }) => (
         left: 0,
         width: 'auto',
         height: 'auto',
-        margin: 2,
-        padding: 3,
+        m: 2,
+        p: 3,
         fontWeight: 'bold',
-        backgroundColor: 'background',
+        bg: 'background',
         clip: 'auto'
       }
     }}

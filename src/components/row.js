@@ -7,7 +7,7 @@ export default ({ as: Tag = 'div', ...props }) => (
     sx={{
       display: 'flex',
       flexWrap: 'wrap',
-      marginX: -3
+      mx: -3
     }}
   />
 )

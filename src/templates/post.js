@@ -420,7 +420,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
         sx={{
           px: ['3%', '5%', '10%'],
           py: ['3%', '6%'],
-          minHeight: '65vw',
+          minHeight: '60vh',
           bg: 'background',
           fontSize: t => `calc(${t.fontSizes.sm} + 0.33vw)`,
           fontFamily: 'serif',

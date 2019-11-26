@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import Img from 'gatsby-image'
+import Image from 'gatsby-image'
 
 export default ({ as: Tag, file, ...props }) =>
   file ? (
-    <Img
+    <Image
       {...props}
       Tag={Tag}
       fluid={file.childImageSharp.fluid}

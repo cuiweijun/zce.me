@@ -8,10 +8,17 @@ const isAbsolute = input => /^http/.test(input)
 export default ({ to, ...props }) => {
   // variant = `variants.links.${variant}`
 
-  if (isHash(to) || isAbsolute(to)) {
-    // eslint-disable-next-line
-    return <a {...props} href={to} />
+  const styles = {
+    color: 'currentColor'
+    // ':hover': {
+    //   textDecoration: 'none'
+    // }
   }
 
-  return <GatsbyLink {...props} to={to} />
+  if (isHash(to) || isAbsolute(to)) {
+    // eslint-disable-next-line
+    return <a {...props} href={to} sx={styles} />
+  }
+
+  return <GatsbyLink {...props} to={to} sx={styles} />
 }

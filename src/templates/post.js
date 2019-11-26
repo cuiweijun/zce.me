@@ -24,23 +24,19 @@ const Tags = ({ title, tags, url }) => (
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+      borderBottom: 1,
+      borderColor: 'border',
       mb: 3,
+      py: 2,
+      // color: 'muted',
       fontSize: 'sm'
     }}>
     {tags && (
       <div
-        sx={{
-          display: 'flex',
-          alignItems: 'center'
-        }}>
-        <Icon name="tag" />
-        <ul
-          sx={{
-            m: 0,
-            ml: 1,
-            p: 0,
-            listStyle: 'none'
-          }}>
+        aria-label="Tagged with"
+        sx={{ display: 'flex', alignItems: 'center' }}>
+        <Icon name="tag" title="Tagged with" />
+        <ul sx={{ m: 0, ml: 1, p: 0, listStyle: 'none' }}>
           {tags.map(i => (
             <li
               key={i.name}
@@ -68,15 +64,12 @@ const Tags = ({ title, tags, url }) => (
       </div>
     )}
     <div
+      aria-label="Share this"
       sx={{
         display: 'flex',
         alignItems: 'center',
-        span: {
-          mr: 1
-        },
-        a: {
-          ml: 1
-        }
+        span: { mr: 1 },
+        a: { ml: 1 }
       }}>
       <span>Share this:</span>
       <Link
@@ -97,11 +90,7 @@ const Tags = ({ title, tags, url }) => (
 )
 
 const Authors = ({ authors }) => (
-  <section
-    sx={{
-      mb: 7,
-      borderTopWidth: 1
-    }}>
+  <section sx={{ mb: 7 }}>
     <ScreenReaderText as="h3">Author</ScreenReaderText>
     <div
       sx={{
@@ -109,8 +98,7 @@ const Authors = ({ authors }) => (
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        px: 2,
-        py: 3
+        py: 4
       }}>
       <Avatar name={authors[0].name} image={authors[0].avatar} sx={{ mr: 3 }} />
       <div sx={{ flex: '1 1 6rem' }}>
@@ -158,10 +146,7 @@ const License = () => (
     <Link
       to="https://creativecommons.org/licenses/by-sa/4.0/"
       target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        color: 'inherit'
-      }}>
+      rel="noopener noreferrer">
       <svg viewBox="0 0 120 42" width="160" aria-hidden="true">
         <path
           fill="currentColor"
@@ -201,20 +186,12 @@ const License = () => (
 )
 
 const Footer = ({ post, url }) => (
-  <footer
-    sx={{
-      mx: 'auto',
-      py: '3vw',
-      maxWidth: 'inner'
-    }}>
+  <footer sx={{ mx: 'auto', py: '3vw', maxWidth: 'inner' }}>
     <Tags title={post.fields.title} tags={post.fields.tags} url={url} />
     <Authors authors={post.fields.authors} />
     <License />
     {post.fields.comment && (
-      <section
-        sx={{
-          mb: 7
-        }}>
+      <section sx={{ mb: 7 }}>
         <ScreenReaderText as="h3">Comments</ScreenReaderText>
         <Comments
           type="post"
@@ -247,11 +224,7 @@ const Category = ({ name, category, related }) => (
       boxShadow: 'light',
       textAlign: 'center',
       a: {
-        color: 'inherit',
-        textDecoration: 'none',
-        ':hover': {
-          color: 'primary'
-        }
+        textDecoration: 'none'
       }
     }}>
     <small
@@ -279,13 +252,7 @@ const Category = ({ name, category, related }) => (
       sx={{ mx: 'auto' }}>
       <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
     </svg>
-    <ul
-      sx={{
-        flexGrow: 1,
-        m: 3,
-        p: 0,
-        listStyle: 'none'
-      }}>
+    <ul sx={{ flexGrow: 1, m: 3, p: 0, listStyle: 'none' }}>
       {related.nodes.map(item => (
         <li
           key={item.id}
@@ -318,11 +285,7 @@ const Category = ({ name, category, related }) => (
 )
 
 const RelatedPosts = ({ name, category, related, prev, next }) => (
-  <aside
-    sx={{
-      pt: 6,
-      bg: 'light'
-    }}>
+  <aside sx={{ pt: 6, bg: 'light' }}>
     <Container>
       <ScreenReaderText as="h3">Related posts</ScreenReaderText>
       <Row>
@@ -353,13 +316,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
           textShadow: 'text',
           fontSize: 'lg'
         }}>
-        <span
-          sx={{
-            textTransform: 'uppercase',
-            a: {
-              color: 'inherit'
-            }
-          }}>
+        <span sx={{ textTransform: 'uppercase', a: { color: 'inherit' } }}>
           <time dateTime={post.fields.date} aria-label="Posted on">
             {moment.utc(post.fields.date).format('ll')}
           </time>
@@ -379,13 +336,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
             {post.fields.categories[0].name}
           </Link>
         </span>
-        <h1
-          sx={{
-            fontSize: 8,
-            lineHeight: 'normal'
-          }}>
-          {post.fields.title}
-        </h1>
+        <h1 sx={{ fontSize: 8, lineHeight: 'normal' }}>{post.fields.title}</h1>
       </header>
       <Image
         Tag="figure"

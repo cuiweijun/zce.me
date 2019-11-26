@@ -98,9 +98,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
         {post.fields.title}
       </h3>
 
-      <div sx={{ flexGrow: 1, mb: 3 }}>
-        <p sx={{ m: 0 }}>{post.excerpt}</p>
-      </div>
+      <p sx={{ flexGrow: 1 }}>{post.excerpt}</p>
 
       <footer
         sx={{
@@ -116,9 +114,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
             p: 0,
             listStyle: 'none',
             ':hover': {
-              li: {
-                ml: 0
-              }
+              li: { ml: 0 }
             }
           }}>
           {post.fields.authors.map((author, i) => (
@@ -127,13 +123,14 @@ export default ({ as: Tag = 'article', post, rel }) => (
               sx={{
                 zIndex: post.fields.authors.length - i,
                 ml: i > 0 ? -3 : 0,
-                transition: 'm 0.2s'
+                transition: 'margin 0.2s'
               }}>
               <Link to={author.permalink} title={author.name}>
                 <img
                   alt={author.name}
                   src={author.avatar.childImageSharp.fixed.src}
                   srcSet={author.avatar.childImageSharp.fixed.srcSet}
+                  loading="lazy"
                   sx={{
                     border: 2,
                     borderColor: 'border',

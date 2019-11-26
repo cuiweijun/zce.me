@@ -29,7 +29,6 @@ const Brand = ({ name }) => (
       alignItems: 'center',
       px: 1,
       fontSize: 'xl',
-      color: 'inherit',
       ':hover': {
         textDecoration: 'none'
       }
@@ -108,10 +107,8 @@ const Menu = ({ items }) => (
             display: 'block',
             p: 2,
             opacity: 0.75,
-            color: 'inherit',
             transition: 'opacity 0.3s',
             ':hover, &[aria-current=page]': {
-              // color: 'inherit',
               opacity: 1,
               textDecoration: 'none'
             }
@@ -179,7 +176,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
             color: cover === false ? 'text' : 'white',
             textShadow: cover === false ? null : 'text'
             // TODO: transition
-            // transition: 'p 0.3s, color 0.3s'
+            // transition: 'padding 0.3s, color 0.3s'
           }}
         />
       )}

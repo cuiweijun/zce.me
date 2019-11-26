@@ -34,8 +34,7 @@ const Main = ({ current, course }) => (
           p: 0,
           py: 3,
           listStyle: 'inside decimal-leading-zero',
-          lineHeight: 'loose',
-          a: { color: 'inherit' }
+          lineHeight: 'loose'
         }}>
         {course.fields.sections.map((item, i) => (
           <li
@@ -97,7 +96,6 @@ const Aside = ({ video, fields, related }) => (
       pl: [3, 3, 0],
       color: 'muted',
       a: {
-        color: 'inherit',
         ':not(:last-child)': {
           mr: 1,
           ':after': {

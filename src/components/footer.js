@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
-import Image from 'gatsby-image'
 
 import { Container, Link, Button, Input } from '../components'
 
 const query = graphql`
   query FooterComponent {
-    siteMetadata: config {
+    meta: config {
       url
       name
       socials {
@@ -30,7 +29,7 @@ const query = graphql`
       }
     }
 
-    allTag {
+    tags: allTag {
       nodes {
         name
         permalink
@@ -168,10 +167,11 @@ const Links = ({ links }) => (
 
 const Subscription = ({ subscription }) => (
   <Widget title="Subscription" width={['100%', '50%', '20%', '15%']}>
-    <Image
-      fixed={subscription.qrcode.childImageSharp.fixed}
+    <img
       alt={subscription.name}
       title={subscription.name}
+      src={subscription.qrcode.childImageSharp.fixed.src}
+      srcSet={subscription.qrcode.childImageSharp.fixed.srcSet}
       sx={{ display: 'block !important', mx: 'auto' }}
     />
   </Widget>
@@ -240,36 +240,27 @@ const Copyright = ({ name, url }) => (
 )
 
 export default () => {
-  const { siteMetadata, allTag } = useStaticQuery(query)
+  const { meta, tags } = useStaticQuery(query)
 
   return (
     <footer
       sx={{
+        py: 7,
         borderTop: 1,
         borderColor: 'border',
-        py: 7,
         bg: 'background',
         color: 'muted',
         fontSize: 'sm',
-        textAlign: ['center', 'left'],
-        a: {
-          color: 'inherit'
-        }
+        textAlign: ['center', 'left']
       }}>
       <Container>
-        <aside
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            mx: -3,
-            mb: 4
-          }}>
-          <Follow socials={siteMetadata.socials} />
-          <Tags tags={allTag.nodes} />
-          <Links links={siteMetadata.links} />
-          <Subscription subscription={siteMetadata.subscription} />
+        <aside sx={{ display: 'flex', flexWrap: 'wrap', mx: -3, mb: 4 }}>
+          <Follow socials={meta.socials} />
+          <Tags tags={tags.nodes} />
+          <Links links={meta.links} />
+          <Subscription subscription={meta.subscription} />
         </aside>
-        <Copyright name={siteMetadata.name} url={siteMetadata.url} />
+        <Copyright name={meta.name} url={meta.url} />
       </Container>
     </footer>
   )

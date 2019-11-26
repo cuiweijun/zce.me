@@ -15,7 +15,7 @@ export default ({ data: { posts } }) => (
           color: 'white',
           textShadow: 'text'
           // TODO: transition
-          // transition: 'p 0.3s, color 0.3s'
+          // transition: 'padding 0.3s, color 0.3s'
         }}>
         <h1 sx={{ fontSize: '8rem' }}>404</h1>
         <p sx={{ fontSize: 'xl', mb: 6 }}>Page not found</p>

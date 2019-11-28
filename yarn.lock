@@ -5998,10 +5998,10 @@ gatsby-transformer-sharp@2.3.6:
     semver "^5.7.1"
     sharp "^0.23.3"
 
-gatsby@2.18.4:
-  version "2.18.4"
-  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.18.4.tgz#0d359e83e1939df5e9e04af3a3673703900f1913"
-  integrity sha1-DTWeg+GTnfXp4Erzo2c3A5APGRM=
+gatsby@2.18.5:
+  version "2.18.5"
+  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.18.5.tgz#970e6b550582623fe33d1eab7160037681c00fab"
+  integrity sha1-lw5rVQWCYj/jPR6rcWADdoHAD6s=
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.7.4"

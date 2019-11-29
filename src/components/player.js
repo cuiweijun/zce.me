@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { useEffect, useRef } from 'react'
+import { withAssetPrefix } from 'gatsby'
 import { loadStyle, loadScript } from '../utils/load'
 
 // TODO: Hls support
@@ -39,9 +40,10 @@ export default ({
 
     if (window.Plyr) return initPlayer()
 
-    loadStyle('/assets/plyr.css')
-      .then(() => loadScript('/assets/plyr.js'))
-      .then(initPlayer)
+    Promise.all([
+      loadStyle(withAssetPrefix('/assets/plyr.css')),
+      loadScript(withAssetPrefix('/assets/plyr.js'))
+    ]).then(initPlayer)
 
     // TODO: destory scripts
   }, [Tag, title, sources, poster, autoplay, onEnded])

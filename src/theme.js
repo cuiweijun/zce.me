@@ -183,8 +183,7 @@ const zIndices = {
 // const variants = {}
 
 export default {
-  // useless
-  useCustomProperties: false,
+  useCustomProperties: true,
   useColorSchemeMediaQuery: true,
   initialColorMode: 'default',
   colors,

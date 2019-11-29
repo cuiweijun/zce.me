@@ -68,6 +68,7 @@ exports.plugins = [
   }
 ]
 
+exports.assetPrefix = ''
 exports.pathPrefix = '/'
 
 exports.polyfill = false

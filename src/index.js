@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { ThemeProvider, css } from 'theme-ui'
+import { ThemeProvider, ColorMode, InitializeColorMode, css } from 'theme-ui'
 import { Global } from '@emotion/core'
 
 import { RootProvider } from './utils/context'
@@ -21,6 +21,7 @@ const context = {}
 export const wrapRootElement = ({ element }) => (
   <RootProvider value={context}>
     <ThemeProvider theme={theme}>
+      <ColorMode />
       <Global styles={css(styles)} />
       {element}
     </ThemeProvider>
@@ -32,6 +33,6 @@ export const wrapPageElement = ({ element, props }) => (
 )
 
 // TODO: theme-ui color mode & no flash
-// export const onRenderBody = ({ setPreBodyComponents }) => {
-//   setPreBodyComponents(<InitializeColorMode key="no-flash" />)
-// }
+export const onRenderBody = ({ setPreBodyComponents }) => {
+  setPreBodyComponents(<InitializeColorMode key="no-flash" />)
+}

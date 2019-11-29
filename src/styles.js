@@ -71,8 +71,6 @@ export default {
     fontFamily: 'body',
     fontWeight: 'body',
     lineHeight: 'body',
-    color: 'text',
-    bg: 'background',
     transition: 'background 0.3s, color 0.3s',
     textRendering: 'optimizeLegibility',
     WebkitFontSmoothing: 'antialiased',

@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import React, { useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby'
 import { loadStyle, loadScript } from '../utils/load'
 
 if (typeof window !== 'undefined') {
@@ -58,8 +58,8 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
     if (window.Gitalk) return initGitalk()
 
     Promise.all([
-      loadStyle('/assets/gitalk.css'),
-      loadScript('/assets/gitalk.js')
+      loadStyle(withAssetPrefix('/assets/gitalk.css')),
+      loadScript(withAssetPrefix('/assets/gitalk.js'))
     ]).then(initGitalk)
 
     // TODO: destory scripts

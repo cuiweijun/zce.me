@@ -251,7 +251,8 @@ export default () => {
         bg: 'background',
         color: 'muted',
         fontSize: 'sm',
-        textAlign: ['center', 'left']
+        textAlign: ['center', 'left'],
+        transition: 'background 0.3s, border 0.3s'
       }}>
       <Container>
         <aside sx={{ display: 'flex', flexWrap: 'wrap', mx: -3, mb: 4 }}>

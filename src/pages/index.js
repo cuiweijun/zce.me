@@ -19,7 +19,8 @@ const Section = ({ padding = 8, ...props }) => (
       py: padding,
       bg: 'light',
       ':nth-of-type(2n)': {
-        bg: 'background'
+        bg: 'background',
+        transition: 'background 0.3s'
       }
     }}
   />

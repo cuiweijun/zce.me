@@ -1,7 +1,7 @@
 export const loadStyle = url =>
   new Promise((resolve, reject) => {
     const link = document.createElement('link')
-    link.id = `style-${Date.now()}`
+    // link.id = `style-${Date.now()}`
     link.rel = 'stylesheet'
     link.href = url
     link.onload = resolve
@@ -12,7 +12,7 @@ export const loadStyle = url =>
 export const loadScript = url =>
   new Promise((resolve, reject) => {
     const script = document.createElement('script')
-    script.id = `script-${Date.now()}`
+    // script.id = `script-${Date.now()}`
     script.async = true
     // script.defer = true
     script.src = url

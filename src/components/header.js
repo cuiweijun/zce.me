@@ -154,7 +154,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
           borderColor: 'border',
           bg: 'background',
           transform: `translateY(${pinned ? '0%' : '-100%'})`,
-          transition: 'transform 0.3s linear',
+          transition: 'background 0.3s, border 0.3s, transform 0.3s linear',
           willChange: 'transform'
         }}>
         <Container

@@ -339,24 +339,3 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
-
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  // Load plyr by useEffect
-  // if (stage === 'build-html') {
-  //   actions.setWebpackConfig({
-  //     // https://gatsby.dev/debug-html
-  //     module: {
-  //       rules: [
-  //         { test: /plyr/, use: loaders.null() }
-  //       ]
-  //     }
-  //   })
-  // }
-
-  if (stage === 'build-javascript') {
-    actions.setWebpackConfig({
-      // turn off source-maps
-      devtool: false
-    })
-  }
-}

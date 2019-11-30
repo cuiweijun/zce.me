@@ -7,7 +7,15 @@ import { Layout, Container, Tabs, Player } from '../components'
 export default () => {
   const [count, setCount] = useState(0)
   return (
-    <Layout title="Labs" bacground="background">
+    <Layout
+      title="Labs"
+      bacground="background"
+      sx={{
+        '.plyr': {
+          display: 'block',
+          color: 'red'
+        }
+      }}>
       <Container>
         <Player
           type="video"

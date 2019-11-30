@@ -11,6 +11,7 @@ exports.siteMetadata = {}
 exports.plugins = [
   // plugin
   'gatsby-plugin-minify',
+  'gatsby-plugin-no-sourcemaps',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-nprogress',
   // 'gatsby-plugin-sharp', // TODO: no need?

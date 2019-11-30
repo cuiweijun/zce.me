@@ -70,6 +70,7 @@ export default ({ title, description, keywords, type, image, pathname }) => {
 
   return (
     <Helmet
+      defer={false}
       htmlAttributes={{ lang: config.language }}
       title={title}
       defaultTitle={`${config.title} | ${config.slogan}`}

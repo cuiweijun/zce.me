@@ -10,22 +10,18 @@ import React from 'react'
 import { ThemeProvider, ColorMode, InitializeColorMode, css } from 'theme-ui'
 import { Global } from '@emotion/core'
 
-import { RootProvider } from './utils/context'
 import { Wrapper } from './components'
 import theme from './theme'
 import styles from './styles'
 
 // TODO: global context
-const context = {}
 
 export const wrapRootElement = ({ element }) => (
-  <RootProvider value={context}>
-    <ThemeProvider theme={theme}>
-      <ColorMode />
-      <Global styles={css(styles)} />
-      {element}
-    </ThemeProvider>
-  </RootProvider>
+  <ThemeProvider theme={theme}>
+    <ColorMode />
+    <Global styles={css(styles)} />
+    {element}
+  </ThemeProvider>
 )
 
 export const wrapPageElement = ({ element, props }) => (

@@ -80,6 +80,7 @@ The default structure is shown below:
 - [ ] SEO
   - https://www.gatsbyjs.org/docs/seo/
   - https://www.gatsbyjs.org/docs/add-seo-component/
+  - https://github.com/jlengstorf/gatsby-theme-jason-blog/blob/master/src/components/SEO/SEO.js
 - [ ] Performance
   - https://www.gatsbyjs.org/docs/performance/
   - https://webpagetest.org/

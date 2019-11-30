@@ -305,7 +305,8 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
     description={post.fields.description || post.excerpt}
     cover={post.fields.cover}
     mask={3}
-    hero={false}>
+    hero={false}
+    type="article">
     <Container as="article" role="main" sx={{ mb: 5 }}>
       <header
         sx={{

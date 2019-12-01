@@ -1,8 +1,9 @@
 /**
  * Site theme
+ *
+ * TODO: Redesign colors
  */
 
-// TODO: Redesign colors
 const colors = {
   transparent: 'transparent',
   white: '#fff',

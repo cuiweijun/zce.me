@@ -6,33 +6,34 @@ import { useState, useEffect } from 'react'
 // import { useStaticQuery, graphql } from 'gatsby'
 
 // hooks/use-pinned.js
+
+let lastScrollY = 0
+
 export const usePinned = (initial = true, offset = 200, tolerance = 10) => {
   const [pinned, setPinned] = useState(initial)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  // const [lastScrollY, setLastScrollY] = useState(0)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY < offset) {
-        return setPinned(initial)
-      }
+  const setStatus = value => pinned !== value && setPinned(value)
 
-      const distance = window.scrollY - lastScrollY
+  const handleScroll = () => {
+    const distance = window.scrollY - lastScrollY
 
-      // no scroll
-      if (!distance) return
+    // no scroll
+    if (!distance) return
 
-      // last scroll
-      setLastScrollY(window.scrollY)
+    // setLastScrollY(window.scrollY)
+    lastScrollY = window.scrollY
 
-      if (Math.abs(distance) < tolerance) return
-
-      if (distance > 0) {
-        pinned && setPinned(false)
-      } else {
-        pinned || setPinned(true)
-      }
+    if (window.scrollY < offset) {
+      return setStatus(initial)
     }
 
+    if (Math.abs(distance) < tolerance) return
+
+    setStatus(distance <= 0)
+  }
+
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   })

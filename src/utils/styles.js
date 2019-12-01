@@ -3,12 +3,11 @@
  */
 
 import { css } from 'theme-ui'
-import { alpha, darken, lighten, readable } from './utils/color'
+import { alpha, darken, lighten, readable } from './color'
 
 const heading = {
   m: 0,
   mb: 3,
-  color: null,
   fontFamily: 'heading',
   lineHeight: 'heading',
   fontWeight: 'heading'

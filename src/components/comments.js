@@ -3,7 +3,7 @@ import { jsx } from 'theme-ui'
 import React, { useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby'
-import { loadStyle, loadScript } from '../utils/load'
+import { loadStyle, loadScript } from '../utils/loader'
 
 if (typeof window !== 'undefined') {
   window.React = React

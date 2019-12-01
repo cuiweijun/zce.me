@@ -109,7 +109,7 @@ const createYamlNode = async ({
       data.template = data.template || data.type
       data.permalink = parsePermalink(data.permalink, data)
 
-      // for createCollectionField
+      // for createMarkdownField
       cache[`${type}-${data.name}`] = data.slug
     }
 
@@ -125,7 +125,7 @@ const createYamlNode = async ({
   })
 }
 
-const createCollectionField = async ({
+const createMarkdownField = async ({
   node,
   actions,
   getNode,
@@ -229,7 +229,7 @@ exports.onCreateNode = async args => {
     await createYamlNode(args)
   }
   if (internal.type === 'MarkdownRemark') {
-    await createCollectionField(args)
+    await createMarkdownField(args)
   }
 }
 

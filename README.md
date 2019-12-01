@@ -90,6 +90,8 @@ The default structure is shown below:
   - https://www.gatsbyjs.org/docs/progressive-web-app/
 - [ ] Dark mode toggler transition
   - https://github.com/gatsbyjs/gatsby/blob/master/www/src/components/dark-mode-toggle.js
+- [ ] Search
+  - https://github.com/algolia/docsearch
 
 ### Backlog
 

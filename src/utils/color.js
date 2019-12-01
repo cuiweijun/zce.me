@@ -1,3 +1,5 @@
+// https://github.com/system-ui/theme-ui/blob/master/packages/color/src/index.js
+
 // TODO: remove polished
 import * as polished from 'polished'
 import { get } from 'theme-ui'
@@ -28,6 +30,7 @@ export const mix = (a, b, n = 0.5) => t => polished.mix(n, g(t, a), g(t, b))
 export const complement = c => t => polished.complement(g(t, c))
 export const invert = c => t => polished.invert(g(t, c))
 
-export const grayscale = (c, n) => desaturate(c, 1)
+export const grayscale = c => t => polished.grayscale(g(t, c))
+
 export const readable = (c, l = '#fff', d = '#000') => t =>
   polished.getLuminance(g(t, c)) > 0.4 ? g(t, d) : g(t, l)

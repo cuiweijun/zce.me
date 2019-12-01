@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { useEffect, useRef } from 'react'
 import { withAssetPrefix } from 'gatsby'
-import { loadStyle, loadScript } from '../utils/load'
+import { loadStyle, loadScript } from '../utils/loader'
 
 // TODO: Hls support
 // ref: https://github.com/video-dev/hls.js

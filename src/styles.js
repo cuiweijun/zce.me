@@ -2,6 +2,7 @@
  * Global styles
  */
 
+import { css } from 'theme-ui'
 import { alpha, darken, lighten, readable } from './utils/color'
 
 const heading = {
@@ -57,13 +58,13 @@ const prism = {
   }
 }
 
-export default {
-  '*': {
-    boxSizing: 'border-box'
-  },
+export default css({
   '::selection': {
     bg: alpha('primary', 0.6),
     color: readable('primary')
+  },
+  '*': {
+    boxSizing: 'border-box'
   },
   body: {
     m: 0,
@@ -192,4 +193,4 @@ export default {
       color: darken('primary', 0.1)
     }
   }
-}
+})

@@ -1,3 +1,5 @@
+// loader.js
+
 export const loadStyle = url =>
   new Promise((resolve, reject) => {
     const link = document.createElement('link')

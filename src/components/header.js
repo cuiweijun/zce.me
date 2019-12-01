@@ -7,7 +7,7 @@ import Button from './button'
 import Link from './link'
 import Hero from './hero'
 import Cover from './cover'
-import { useNavPinned } from '../utils/hooks'
+import { usePinned } from '../utils/hooks'
 
 const query = graphql`
   query HeaderComponent {
@@ -136,7 +136,7 @@ const ColorModeToggler = () => {
 }
 
 export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
-  const pinned = useNavPinned()
+  const pinned = usePinned()
   const { meta } = useStaticQuery(query)
   return (
     <header

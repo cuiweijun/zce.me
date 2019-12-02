@@ -21,9 +21,10 @@ const reboot = {
   '*, ::after, ::before': {
     boxSizing: 'border-box'
   },
-  // ':root': {
-  //   fontSize: 16
-  // },
+  ':root': {
+    // fontSize: 16
+    '--color-primary': t => t.colors.primary
+  },
   body: {
     m: 0,
     fontSize: 'body',

@@ -138,9 +138,9 @@ const borders = [
 
 const borderWidths = [0, '1px', '2px', '4px', '8px', '16px', '24px']
 
-const borderStyles = {
-  default: 'solid'
-}
+// const borderStyles = {
+//   default: 'solid'
+// }
 
 const radii = {
   none: 0,
@@ -153,7 +153,7 @@ const radii = {
 }
 
 const shadows = {
-  outline: '0 0 0 0.125rem rgba(0, 0, 0, 0.1)',
+  outline: '0 0 0 0.2rem rgba(0, 123, 255, 0.2)',
   underline: 'inset 0 -1px 0 currentColor',
   text: '0 0 0.25rem rgba(0, 0, 0, 0.4)',
   light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.1)',
@@ -199,7 +199,7 @@ export default {
   sizes,
   borders,
   borderWidths,
-  borderStyles,
+  // borderStyles,
   radii,
   shadows,
   zIndices

@@ -70,7 +70,7 @@ export default ({ title, description, keywords, type, image, pathname }) => {
 
   return (
     <Helmet
-      defer={false}
+      defer={false} // refresh on background
       htmlAttributes={{ lang: config.language }}
       title={title}
       defaultTitle={`${config.title} | ${config.slogan}`}

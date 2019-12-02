@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby'
 import { loadStyle, loadScript } from '../utils/loader'
@@ -29,7 +29,7 @@ const options = {
 
 export default ({ type, slug, title, excerpt, permalink, ...props }) => {
   const { meta } = useStaticQuery(query)
-  const container = useRef(null)
+  const container = React.useRef(null)
 
   if (type) {
     options.labels = ['comments', type]
@@ -49,7 +49,7 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
     `.trim()
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     const initGitalk = () => {
       const gitalk = new window.Gitalk(options)
       container.current && gitalk.render(container.current)

@@ -90,23 +90,6 @@ export default () => (
             Hello
           </Button>
         </div>
-        <div>
-          <Button color="muted" variant="base" sx={{ m: 2 }}>
-            Hello
-          </Button>
-          <Button color="muted" variant="outline" sx={{ m: 2 }}>
-            Hello
-          </Button>
-          <Button color="muted" variant="ghost" sx={{ m: 2 }}>
-            Hello
-          </Button>
-          <Button color="muted" variant="pill" sx={{ m: 2 }}>
-            Hello
-          </Button>
-          <Button color="muted" variant="elevated" sx={{ m: 2 }}>
-            Hello
-          </Button>
-        </div>
       </div>
       <h3>Icons</h3>
       <div sx={{ mx: -2, mb: 3 }}>

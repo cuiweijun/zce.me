@@ -37,12 +37,12 @@ export default ({
   const variants = {
     outline: {
       bg: 'transparent',
-      color: readable('background', 'white', 'dark')
+      color: color // readable('background', 'white', 'dark')
     },
     ghost: {
       borderColor: 'transparent',
       bg: 'transparent',
-      color: color
+      color: color // readable('background', 'white', 'dark')
     },
     pill: {
       borderRadius: 'pill'

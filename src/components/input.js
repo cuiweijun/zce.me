@@ -44,6 +44,7 @@ export default ({ variant = 'default', size = 'md', ...props }) => {
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',
         ':focus': {
           boxShadow: 'outline',
+          borderColor: 'primary',
           outline: 0
         },
         '&:disabled': {

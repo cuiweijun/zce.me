@@ -1,4 +1,6 @@
-// loader.js
+/**
+ * Loader
+ */
 
 export const loadStyle = url =>
   new Promise((resolve, reject) => {

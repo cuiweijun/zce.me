@@ -24,7 +24,7 @@ const Main = ({ current, course }) => (
     }}>
     <section id="intro" name="简介">
       <div
-        sx={{ mb: 4, px: 3, py: 4 }}
+        sx={{ mb: 4, px: 3, py: 4, lineHeight: 'loose' }}
         dangerouslySetInnerHTML={{ __html: course.html }}
       />
     </section>
@@ -181,10 +181,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
           {...video}
           autoplay={true}
           onEnded={onEnded}
-          sx={{
-            minHeight: '30rem',
-            maxHeight: t => `calc(100vh - ${t.sizes.nav})`
-          }}
+          sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
         />
       )}
       <Container>

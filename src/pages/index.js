@@ -48,7 +48,7 @@ const Featured = ({ post }) => (
           mb: [4, 4, 0],
           ml: [0, 0, 4],
           border: 6,
-          borderColor: 'light', // color
+          borderColor: 'background',
           boxShadow: 'medium'
         }}
       />

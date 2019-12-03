@@ -15,7 +15,7 @@ const colors = {
   highlight: '#fcc419',
   muted: '#868e96',
   light: '#f1f3f5',
-  gray: '#e9ecef',
+  // gray: '#738a94', // '#e9ecef',
   dark: '#495057',
 
   text: '#495057',
@@ -29,14 +29,14 @@ const colors = {
       secondary: '#3bc9db',
       accent: '#ff8787',
       highlight: '#ffd43b',
-      muted: '#adb5bd',
-      light: '#343a40',
-      gray: '#292d32',
+      muted: '#92a3ab', // '#adb5bd',
+      light: '#191b1f', // '#343a40',
+      // gray: '#92a3ab', // '#292d32',
       dark: '#16181b',
 
-      text: '#fff',
+      text: 'rgba(255, 255, 255, 0.75)',
       background: '#212529', // '#0a0c0d',
-      border: '#262b2f'
+      border: '#2b2f36' // '#262b2f'
     }
   }
 }
@@ -184,9 +184,9 @@ const zIndices = {
 // const variants = {}
 
 export default {
-  useCustomProperties: true,
-  useColorSchemeMediaQuery: true,
-  initialColorMode: 'default',
+  // useCustomProperties: true,
+  // useColorSchemeMediaQuery: true,
+  // initialColorMode: 'default',
   colors,
   fonts,
   fontSizes,

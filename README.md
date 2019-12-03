@@ -92,6 +92,8 @@ The default structure is shown below:
   - https://github.com/gatsbyjs/gatsby/blob/master/www/src/components/dark-mode-toggle.js
 - [ ] Search
   - https://github.com/algolia/docsearch
+- [ ] Underline
+  - https://github.com/TryGhost/Casper/blob/master/assets/css/screen.css#L399-L414
 
 ### Backlog
 

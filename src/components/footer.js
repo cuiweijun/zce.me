@@ -107,7 +107,7 @@ const Follow = ({ socials }) => (
             title={i.name}
             target="_blank"
             rel="noopener noreferrer"
-            color="gray"
+            color="border"
             variant="outline"
             icon={i.name.toLowerCase()}
             sx={{ color: 'currentColor' }}

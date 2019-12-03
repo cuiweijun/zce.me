@@ -104,7 +104,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          color: 'muted'
         }}>
         <ul
           sx={{

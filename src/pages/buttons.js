@@ -26,9 +26,9 @@ export default () => (
         <Button color="light" sx={{ m: 2 }}>
           Hello
         </Button>
-        <Button color="gray" sx={{ m: 2 }}>
+        {/* <Button color="gray" sx={{ m: 2 }}>
           Hello
-        </Button>
+        </Button> */}
         <Button color="dark" sx={{ m: 2 }}>
           Hello
         </Button>

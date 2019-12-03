@@ -3,7 +3,7 @@
  */
 
 import { css } from 'theme-ui'
-import { alpha, darken, lighten, readable } from './color'
+import { alpha, darken, lighten, readable, get } from './color'
 
 const block = {
   m: 0,
@@ -17,23 +17,55 @@ const pseudo = {
   }
 }
 
+// colors var
+const colors = {
+  '--theme-ui-colors-transparent': t => get(t, 'transparent'),
+  '--theme-ui-colors-white': t => get(t, 'white'),
+  '--theme-ui-colors-black': t => get(t, 'black'),
+  '--theme-ui-colors-primary': t => get(t, 'primary'),
+  '--theme-ui-colors-secondary': t => get(t, 'secondary'),
+  '--theme-ui-colors-accent': t => get(t, 'accent'),
+  '--theme-ui-colors-highlight': t => get(t, 'highlight'),
+  '--theme-ui-colors-muted': t => get(t, 'muted'),
+  '--theme-ui-colors-light': t => get(t, 'light'),
+  '--theme-ui-colors-gray': t => get(t, 'gray'),
+  '--theme-ui-colors-dark': t => get(t, 'dark'),
+  '--theme-ui-colors-text': t => get(t, 'text'),
+  '--theme-ui-colors-background': t => get(t, 'background'),
+  '--theme-ui-colors-border': t => get(t, 'border'),
+  '&.theme-ui-dark': {
+    '--theme-ui-colors-primary': t => get(t, 'modes.dark.primary'),
+    '--theme-ui-colors-secondary': t => get(t, 'modes.dark.secondary'),
+    '--theme-ui-colors-accent': t => get(t, 'modes.dark.accent'),
+    '--theme-ui-colors-highlight': t => get(t, 'modes.dark.highlight'),
+    '--theme-ui-colors-muted': t => get(t, 'modes.dark.muted'),
+    '--theme-ui-colors-light': t => get(t, 'modes.dark.light'),
+    '--theme-ui-colors-gray': t => get(t, 'modes.dark.gray'),
+    '--theme-ui-colors-dark': t => get(t, 'modes.dark.dark'),
+    '--theme-ui-colors-text': t => get(t, 'modes.dark.text'),
+    '--theme-ui-colors-background': t => get(t, 'modes.dark.background'),
+    '--theme-ui-colors-border': t => get(t, 'modes.dark.border')
+  },
+  color: 'text',
+  bg: 'background'
+}
+
 const reboot = {
   '*, ::after, ::before': {
     boxSizing: 'border-box'
   },
-  ':root': {
-    // fontSize: 16
-    '--color-primary': t => t.colors.primary
-  },
+  // ':root': {
+  //   // fontSize: 16
+  //   '--color-primary': t => get(t, 'primary')
+  // },
   body: {
+    ...colors,
     m: 0,
     fontSize: 'body',
     fontFamily: 'body',
     fontWeight: 'body',
     lineHeight: 'body',
     transition: 'background 0.3s, color 0.3s',
-    // color: 'text',
-    // bg: 'background',
     WebkitTextSizeAdjust: '100%',
     WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     textRendering: 'optimizeLegibility',

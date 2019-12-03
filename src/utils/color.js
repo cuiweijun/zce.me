@@ -37,3 +37,5 @@ export const alpha = (c, n) => t => p.rgba(g(t, c), n)
 
 export const readable = (c, l = 'white', d = 'black') => t =>
   p.getLuminance(g(t, c)) > 0.4 ? g(t, d) : g(t, l)
+
+export { g as get }

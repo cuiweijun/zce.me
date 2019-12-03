@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { ThemeProvider, ColorMode, InitializeColorMode } from 'theme-ui'
+import { ThemeProvider, InitializeColorMode } from 'theme-ui'
 import { Global } from '@emotion/core'
 
 import theme from './utils/theme'
@@ -17,7 +17,8 @@ import { Wrapper } from './components'
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>
-    <ColorMode />
+    {/* https://github.com/system-ui/theme-ui/issues/499 */}
+    {/* <ColorMode /> */}
     <Global styles={styles} />
     {element}
   </ThemeProvider>

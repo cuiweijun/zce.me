@@ -57,13 +57,16 @@ export default ({
 
   if (icon) {
     const iconSizes = { sm: 16, md: 18, lg: 22 }
-    icon = (
-      <Icon
-        name={icon}
-        size={iconSizes[size]}
-        sx={children ? { mr: 1 } : null}
-      />
-    )
+    icon =
+      typeof icon === 'string' ? (
+        <Icon
+          name={icon}
+          size={iconSizes[size]}
+          sx={children ? { mr: 1 } : null}
+        />
+      ) : (
+        icon
+      )
 
     if (!children) {
       mixins.px = mixins.py

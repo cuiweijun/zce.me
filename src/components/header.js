@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { jsx, useColorMode } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Container from './container'
-import Button from './button'
 import Link from './link'
 import Hero from './hero'
 import Cover from './cover'
+import ColorModeSwitcher from './color-mode-switcher'
 import { usePinned } from '../utils/hooks'
 
 const query = graphql`
@@ -120,21 +120,6 @@ const Menu = ({ items }) => (
   </ul>
 )
 
-const ColorModeToggler = () => {
-  const [mode, setMode] = useColorMode()
-  const title = `Switch to ${mode === 'default' ? 'dark' : 'light'} mode`
-  return (
-    <Button
-      variant="ghost"
-      icon={mode === 'default' ? 'moon' : 'sun'}
-      title={title}
-      aria-label={title}
-      sx={{ color: 'muted' }}
-      onClick={() => setMode(mode === 'default' ? 'dark' : 'default')}
-    />
-  )
-}
-
 export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
   const { meta } = useStaticQuery(query)
   return (
@@ -161,7 +146,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
           <Brand name={meta.name} />
           <Menu items={meta.navigation} />
           {/* <Search /> */}
-          <ColorModeToggler />
+          <ColorModeSwitcher />
         </Container>
       </nav>
       {hero !== false && (

@@ -13,9 +13,15 @@ exports.plugins = [
   'gatsby-plugin-minify',
   'gatsby-plugin-no-sourcemaps',
   'gatsby-plugin-react-helmet',
-  'gatsby-plugin-nprogress',
   {
-    resolve: `gatsby-plugin-manifest`,
+    resolve: 'gatsby-plugin-nprogress',
+    options: {
+      // Setting a color is optional.
+      color: 'var(--theme-ui-colors-primary, #339af0)'
+    }
+  },
+  {
+    resolve: 'gatsby-plugin-manifest',
     options: {
       name: 'Lei’s Personal Website',
       short_name: 'Lei’s',
@@ -28,8 +34,8 @@ exports.plugins = [
       icon: 'src/assets/icon.png', // This path is relative to the root of the site.
       // An optional attribute which provides support for CORS check.
       // If you do not provide a crossOrigin option, it will skip CORS for manifest.
-      // Any invalid keyword or empty string defaults to `anonymous`
-      crossOrigin: `use-credentials`
+      // Any invalid keyword or empty string defaults to 'anonymous'
+      crossOrigin: 'use-credentials'
     }
   },
   'gatsby-plugin-offline',

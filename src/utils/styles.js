@@ -256,6 +256,38 @@ const form = {
   }
 }
 
+const more = {
+  // '[title]': {
+  //   position: 'relative',
+  //   '&:after': {
+  //     position: 'absolute',
+  //     left: '50%',
+  //     bottom: '100%',
+  //     zIndex: 'tooltip',
+  //     overflow: 'hidden',
+  //     display: 'block',
+  //     px: 2,
+  //     py: 1,
+  //     borderRadius: 'medium',
+  //     bg: alpha('dark', 0.8),
+  //     color: 'white',
+  //     fontSize: '80%',
+  //     textOverflow: 'ellipsis',
+  //     whiteSpace: 'pre',
+  //     content: 'attr(title)',
+  //     opacity: 0,
+  //     transform: 'translate(-50%, 0.5rem)',
+  //     transition: 'opacity .2s, transform .2s'
+  //   },
+  //   ':hover': {
+  //     '&:after': {
+  //       opacity: 1,
+  //       transform: 'translate(-50%, 0.25rem)',
+  //     }
+  //   }
+  // }
+}
+
 export default css({
   ...pseudo,
   ...reboot,
@@ -265,5 +297,6 @@ export default css({
   ...link,
   ...code,
   ...table,
-  ...form
+  ...form,
+  ...more
 })

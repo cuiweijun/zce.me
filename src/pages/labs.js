@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 import { Layout, Container, Tabs, Player } from '../components'
 
 export default () => {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
   return (
     <Layout
       title="Labs"
@@ -45,7 +45,7 @@ export default () => {
           ]}
         />
         <hr />
-        <h1 onClick={() => setCount(count + 1)}>Labs {count}</h1>
+        {/* <h1 onClick={() => setCount(count + 1)}>Labs {count}</h1> */}
         <hr />
         <Tabs sx={{ p: 5 }}>
           <section id="intro" name="介绍">

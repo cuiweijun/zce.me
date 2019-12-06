@@ -77,10 +77,7 @@ The default structure is shown below:
 
 ## Todos
 
-- [ ] SEO
-  - https://www.gatsbyjs.org/docs/seo/
-  - https://www.gatsbyjs.org/docs/add-seo-component/
-  - https://github.com/jlengstorf/gatsby-theme-jason-blog/blob/master/src/components/SEO/SEO.js
+- [x] SEO
 - [ ] Performance
   - https://www.gatsbyjs.org/docs/performance/
   - https://webpagetest.org/
@@ -88,8 +85,6 @@ The default structure is shown below:
   - https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/
 - [ ] Progressive Web Apps (PWAs)
   - https://www.gatsbyjs.org/docs/progressive-web-app/
-- [ ] Dark mode toggler transition
-  - https://github.com/gatsbyjs/gatsby/blob/master/www/src/components/dark-mode-toggle.js
 - [ ] Search
   - https://github.com/algolia/docsearch
 - [ ] Underline

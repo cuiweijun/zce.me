@@ -31,3 +31,12 @@ export const wrapPageElement = ({ element, props }) => (
 export const onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents(InitializeColorMode())
 }
+
+export const onServiceWorkerUpdateReady = () => {
+  const answer = window.confirm(
+    'This application has been updated. Reload to display the latest version?'
+  )
+  answer && window.location.reload()
+}
+
+export const registerServiceWorker = () => true

@@ -20,7 +20,7 @@ export default () => {
         border: isDark ? '4px solid currentColor' : 0,
         boxShadow: isDark ? 'none' : 'inset 8px -8px 0px 0px currentColor',
         bg: isDark ? 'currentColor' : 'transparent',
-        transform: isDark ? 'scale(0.45)' : 'scale(0.9)',
+        transform: isDark ? 'scale(0.55)' : 'scale(1)',
         transition: 'all 0.35s',
         '&:before': {
           position: 'absolute',
@@ -59,13 +59,16 @@ export default () => {
 
   return (
     <Button
-      variant="ghost"
       color="transparent"
       icon={icon}
       title={title}
       aria-label={title}
       onClick={toggle}
-      sx={{ color: 'muted', ':hover': { color: 'muted' } }}
+      sx={{
+        color: 'muted',
+        transform: 'scale(0.75)',
+        ':hover': { color: 'muted' }
+      }}
     />
   )
 }

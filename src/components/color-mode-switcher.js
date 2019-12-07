@@ -22,7 +22,7 @@ export default () => {
         bg: isDark ? 'currentColor' : 'transparent',
         transform: isDark ? 'scale(0.55)' : 'scale(1)',
         transition: 'all 0.35s',
-        '&:before': {
+        ':before': {
           position: 'absolute',
           right: '-9px',
           top: '-9px',
@@ -34,7 +34,7 @@ export default () => {
           transform: isDark ? 'translate(14px, -14px)' : 'translate(0, 0)',
           transition: 'transform 0.35s'
         },
-        '&:after': {
+        ':after': {
           position: 'absolute',
           top: '50%',
           left: '50%',

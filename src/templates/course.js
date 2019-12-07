@@ -20,7 +20,8 @@ const Main = ({ current, course }) => (
       flex: '3 1 32rem',
       p: 3,
       borderRight: 1,
-      borderColor: 'border'
+      borderColor: 'border',
+      transition: 'border 0.3s'
     }}>
     <section id="intro" name="简介">
       <div
@@ -42,9 +43,13 @@ const Main = ({ current, course }) => (
             sx={{
               px: 3,
               py: 2,
-              fontSize: i === current || 'sm',
+              // fontSize: i === current || 'sm',
               color: i === current && 'primary',
-              ':not(:last-child)': { borderBottom: 1, borderColor: 'border' },
+              ':not(:last-child)': {
+                borderBottom: 1,
+                borderColor: 'border',
+                transition: 'border 0.3s'
+              },
               a: { textDecoration: 'none' }
             }}>
             {i === current ? (
@@ -77,7 +82,11 @@ const AsideSection = ({ title, children }) => (
   <section
     sx={{
       p: 3,
-      ':not(:last-child)': { borderBottom: 1, borderColor: 'border' }
+      ':not(:last-child)': {
+        borderBottom: 1,
+        borderColor: 'border',
+        transition: 'border 0.3s'
+      }
     }}>
     <span sx={{ fontWeight: 'bold' }}>{title}: </span>
     {children}

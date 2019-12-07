@@ -9,18 +9,18 @@ const colors = {
   white: '#fff',
   black: '#000',
 
-  primary: '#339af0',
+  primary: '#22b8cf', // '#339af0',
   secondary: '#22b8cf',
   accent: '#ff6b6b',
   highlight: '#fcc419',
-  muted: '#868e96',
+  muted: '#717a82', // '#868e96',
   light: '#f1f3f5',
   // gray: '#738a94', // '#e9ecef',
   dark: '#495057',
 
-  text: '#495057',
-  background: '#f4f8fb',
-  border: '#e2e8f0', // '#e9ecef',
+  text: '#343a40', // '#495057',
+  background: '#f8f9fa', // '#f4f8fb',
+  border: '#dee2e6', // '#e9ecef',
 
   // Color Modes
   modes: {

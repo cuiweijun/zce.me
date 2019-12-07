@@ -78,15 +78,16 @@ The default structure is shown below:
 ## Todos
 
 - [x] SEO
-- [ ] Performance
-  - https://www.gatsbyjs.org/docs/performance/
-  - https://webpagetest.org/
-- [ ] Offline & Manifest
+- [x] Offline & Manifest
   - https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/
 - [ ] Progressive Web Apps (PWAs)
   - https://www.gatsbyjs.org/docs/progressive-web-app/
+- [ ] Performance
+  - https://www.gatsbyjs.org/docs/performance/
+  - https://webpagetest.org/
 - [ ] Search
   - https://github.com/algolia/docsearch
+  - https://www.gatsbyjs.org/docs/adding-search-with-algolia/
 - [ ] Underline
   - https://github.com/TryGhost/Casper/blob/master/assets/css/screen.css#L399-L414
 

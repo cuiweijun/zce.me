@@ -104,12 +104,9 @@ const Menu = ({ items }) => (
         <Link
           to={i.link}
           sx={{
-            display: 'block',
+            display: 'inline-block',
             p: 2,
-            opacity: 0.75,
-            transition: 'opacity 0.3s',
-            ':hover, &[aria-current=page]': {
-              opacity: 1,
+            ':hover': {
               textDecoration: 'none'
             }
           }}>
@@ -124,10 +121,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
   const { meta } = useStaticQuery(query)
   return (
     <header
-      sx={{
-        position: 'relative',
-        ':before': { display: 'block', content: '""', height: 'nav' }
-      }}>
+      sx={{ ':before': { display: 'block', content: '""', height: 'nav' } }}>
       <nav
         sx={{
           position: 'fixed',

@@ -51,7 +51,7 @@ const colors = {
 }
 
 const reboot = {
-  '*, ::after, ::before': {
+  '*, :after, :before': {
     boxSizing: 'border-box'
   },
   // ':root': {
@@ -259,35 +259,36 @@ const form = {
 }
 
 const more = {
-  // '[title]': {
-  //   position: 'relative',
-  //   '&:after': {
-  //     position: 'absolute',
-  //     left: '50%',
-  //     bottom: '100%',
-  //     zIndex: 'tooltip',
-  //     overflow: 'hidden',
-  //     display: 'block',
-  //     px: 2,
-  //     py: 1,
-  //     borderRadius: 'medium',
-  //     bg: alpha('dark', 0.8),
-  //     color: 'white',
-  //     fontSize: '80%',
-  //     textOverflow: 'ellipsis',
-  //     whiteSpace: 'pre',
-  //     content: 'attr(title)',
-  //     opacity: 0,
-  //     transform: 'translate(-50%, 0.5rem)',
-  //     transition: 'opacity .2s, transform .2s'
-  //   },
-  //   ':hover': {
-  //     '&:after': {
-  //       opacity: 1,
-  //       transform: 'translate(-50%, 0.25rem)',
-  //     }
-  //   }
-  // }
+  '[data-title]': {
+    position: 'relative',
+    ':after': {
+      position: 'absolute',
+      left: '50%',
+      bottom: '100%',
+      zIndex: 'tooltip',
+      overflow: 'hidden',
+      display: 'block',
+      px: 2,
+      py: 1,
+      borderRadius: 'medium',
+      bg: alpha('dark', 0.9),
+      color: 'white',
+      fontSize: '87.5%',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'pre',
+      content: 'attr(data-title)',
+      opacity: 0,
+      pointerEvents: 'none',
+      transform: t => `translate(-50%, ${t.space[2]})`,
+      transition: 'opacity .2s, transform .2s'
+    },
+    ':hover': {
+      ':after': {
+        opacity: 1,
+        transform: t => `translate(-50%, -${t.space[1]})`
+      }
+    }
+  }
 }
 
 export default css({

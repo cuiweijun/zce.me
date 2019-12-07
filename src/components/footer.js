@@ -104,9 +104,9 @@ const Follow = ({ socials }) => (
           <Button
             as={Link}
             to={i.link || '/'}
-            title={i.name}
             target="_blank"
             rel="noopener noreferrer"
+            data-title={i.name}
             color="border"
             variant="outline"
             icon={i.name.toLowerCase()}
@@ -232,6 +232,7 @@ const Copyright = ({ name, url }) => (
         to="https://zce.me"
         title="Created by"
         target="_blank"
+        rel="noopener noreferrer"
         children="zce"
         sx={{ mx: 1 }}
       />

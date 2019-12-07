@@ -10,9 +10,15 @@ exports.siteMetadata = {}
 
 exports.plugins = [
   // plugin
-  'gatsby-plugin-minify',
-  'gatsby-plugin-no-sourcemaps',
-  'gatsby-plugin-react-helmet',
+  {
+    resolve: 'gatsby-plugin-minify'
+  },
+  {
+    resolve: 'gatsby-plugin-no-sourcemaps'
+  },
+  {
+    resolve: 'gatsby-plugin-react-helmet'
+  },
   {
     resolve: 'gatsby-plugin-nprogress',
     options: {
@@ -38,7 +44,9 @@ exports.plugins = [
       crossOrigin: 'use-credentials'
     }
   },
-  'gatsby-plugin-offline',
+  {
+    resolve: 'gatsby-plugin-offline'
+  },
   // source
   {
     resolve: 'gatsby-source-filesystem',

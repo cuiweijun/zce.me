@@ -12,7 +12,8 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
         sx={{
           display: 'flex',
           borderBottom: 2,
-          borderColor: 'border'
+          borderColor: 'border',
+          transition: 'border 0.3s'
         }}>
         {Children.map(children, (item, i) => (
           <a

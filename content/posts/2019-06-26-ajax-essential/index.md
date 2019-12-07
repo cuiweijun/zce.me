@@ -208,6 +208,7 @@ xhr.onreadystatechange = function() {
 >
 > - https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest
 > - https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+> - ssqwqqdeveloper.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
 
 ## 具体用法
 

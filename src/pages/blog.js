@@ -5,7 +5,10 @@ import { graphql } from 'gatsby'
 import { Layout, Container, Row, Card } from '../components'
 
 export default ({ data: { posts } }) => (
-  <Layout title="Blog" subtitle={`A collection of ${posts.totalCount} posts`}>
+  <Layout
+    title="Blog"
+    // subtitle={`A collection of ${posts.totalCount} posts`}
+    subtitle="Keep the dots in your life.">
     <Container>
       <Row sx={{ mb: 6 }}>
         {posts.nodes.map(node => (

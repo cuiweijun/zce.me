@@ -9,7 +9,7 @@ export default ({ data: { term, posts } }) => (
     title={(term.meta && term.meta.title) || term.name}
     description={(term.meta && term.meta.description) || term.description}
     keywords={term.meta && term.meta.keywords}
-    subtitle={`A collection of ${posts.totalCount} posts`}
+    subtitle={`A tag of ${posts.totalCount} posts`}
     cover={term.cover}>
     <Container>
       <Row sx={{ mb: 6 }}>

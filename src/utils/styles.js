@@ -170,12 +170,14 @@ const link = {
 const code = {
   pre: {
     ...block,
-    overflowX: 'auto',
+    overflow: 'auto',
     px: 3,
     py: 3,
     fontFamily: 'mono',
     color: '#f8f8f2', // 'text',
     bg: '#272822', // darken('background', 0.2),
+    wordWrap: 'normal',
+    wordBreak: 'normal',
     code: {
       color: 'inherit'
     },
@@ -229,7 +231,7 @@ const table = {
   table: {
     ...block,
     display: 'block',
-    overflowX: 'auto',
+    overflow: 'auto',
     width: '100%',
     borderCollapse: 'collapse',
     borderSpacing: 0

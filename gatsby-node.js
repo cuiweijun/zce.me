@@ -340,4 +340,104 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 }
 
-// TODO: createSchemaCustomization
+exports.createSchemaCustomization = async ({ actions }) => {
+  const { createTypes } = actions
+
+  const typeDefs = `
+    type Meta {
+      title: String
+      description: String
+      keywords: [String]
+    }
+
+    type Social {
+      weibo: String
+      wechat: String
+      qq: String
+      zhihu: String
+      github: String
+      medium: String
+      twitter: String
+      facebook: String
+    }
+
+    type Author implements Node @dontInfer {
+      name: String!
+      slug: String!
+      email: String!
+      avatar: File @fileByRelativePath
+      cover: File @fileByRelativePath
+      bio: String
+      website: String
+      location: String
+      social: Social,
+      meta: Meta,
+      type: String!
+      template: String!
+      permalink: String!
+    }
+
+    type Category implements Node @dontInfer {
+      name: String!
+      slug: String!
+      description: String
+      cover: File @fileByRelativePath
+      meta: Meta,
+      type: String!
+      template: String!
+      permalink: String!
+    }
+
+    type Tag implements Node @dontInfer {
+      name: String!
+      slug: String!
+      description: String
+      cover: File @fileByRelativePath
+      meta: Meta,
+      type: String!
+      template: String!
+      permalink: String!
+    }
+
+    type Fields {
+      type: String!
+      template: String!
+      permalink: String!
+      title: String!
+      slug: String!
+      date: Date @dateformat
+      updated: Date @dateformat
+      cover: File @fileByRelativePath
+      description: String
+      draft: Boolean
+      private: Boolean
+      featured: Boolean
+      comment: Boolean
+      # authors: [Author!]
+      # categories: [Category!]
+      # tags: [Tag!]
+    }
+
+    type Frontmatter {
+      title: String!
+      slug: String
+      date: Date @dateformat
+      updated: Date @dateformat
+      cover: File @fileByRelativePath
+      description: String
+      draft: Boolean
+      private: Boolean
+      featured: Boolean
+      comment: Boolean
+      # authors: [Author!]
+      # categories: [Category!]
+      # tags: [Tag!]
+    }
+
+    type MarkdownRemark implements Node @donInfer {
+      fields: Fields,
+      frontmatter: Frontmatter
+    }
+  `
+  createTypes(typeDefs)
+}

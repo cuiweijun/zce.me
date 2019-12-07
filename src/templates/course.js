@@ -115,14 +115,12 @@ const Aside = ({ video, fields, related }) => (
     }}>
     {video && (
       <AsideSection title="课程">
-        <Link to={fields.permalink} title={fields.title}>
-          《{fields.title}》
-        </Link>
+        <Link to={fields.permalink}>《{fields.title}》</Link>
       </AsideSection>
     )}
     <AsideSection title="作者">
       {fields.authors.map(i => (
-        <Link key={i.name} to={i.permalink} title={i.name}>
+        <Link key={i.name} to={i.permalink}>
           {i.name}
         </Link>
       ))}
@@ -139,7 +137,7 @@ const Aside = ({ video, fields, related }) => (
     </AsideSection>
     <AsideSection title="分类">
       {fields.categories.map(i => (
-        <Link key={i.name} to={i.permalink} title={i.name}>
+        <Link key={i.name} to={i.permalink}>
           {i.name}
         </Link>
       ))}
@@ -147,7 +145,7 @@ const Aside = ({ video, fields, related }) => (
     {fields.tags && (
       <AsideSection title="标签">
         {fields.tags.map(i => (
-          <Link key={i.name} to={i.permalink} title={i.name}>
+          <Link key={i.name} to={i.permalink}>
             {i.name}
           </Link>
         ))}
@@ -157,9 +155,7 @@ const Aside = ({ video, fields, related }) => (
       <ul>
         {related.nodes.map(i => (
           <li key={i.id}>
-            <Link to={i.fields.permalink} title={i.fields.title}>
-              {i.fields.title}
-            </Link>
+            <Link to={i.fields.permalink}>{i.fields.title}</Link>
           </li>
         ))}
       </ul>

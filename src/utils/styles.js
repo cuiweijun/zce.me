@@ -55,7 +55,7 @@ const reboot = {
     boxSizing: 'border-box'
   },
   // ':root': {
-  //   // fontSize: 16
+  //   fontSize: 16
   //   '--color-primary': t => get(t, 'primary')
   // },
   body: {
@@ -71,18 +71,15 @@ const reboot = {
     textRendering: 'optimizeLegibility',
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale'
+  },
+  hr: {
+    height: 1,
+    my: 3,
+    border: 0,
+    color: 'inherit',
+    bg: 'currentColor',
+    opacity: 0.2
   }
-  // '[tabindex="-1"]:focus:not(:focus-visible)': {
-  //   outline: '0 !important'
-  // },
-  // hr: {
-  //   height: 1,
-  //   my: 3,
-  //   border: 0,
-  //   color: 'inherit',
-  //   bg: 'currentColor',
-  //   opacity: 0.2
-  // }
 }
 
 const heading = {

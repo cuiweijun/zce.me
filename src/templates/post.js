@@ -18,6 +18,29 @@ import {
 } from '../components'
 import { shade } from '../utils/color'
 
+const Content = ({ html }) => (
+  <section
+    dangerouslySetInnerHTML={{ __html: html }}
+    sx={{
+      px: ['3%', '5%', '10%'],
+      py: ['3%', '6%'],
+      minHeight: '60vh',
+      bg: 'background',
+      fontSize: t => `calc(${t.fontSizes.sm} + 0.33vw)`,
+      fontFamily: 'serif',
+      lineHeight: 'loose',
+      wordWrap: 'break-word',
+      transition: 'background 0.3s',
+      'h1, h2, h3, h4, h5, h6': {
+        m: '1.4em 0 0.8em'
+      }
+      // 'ol, ul': {
+      //   pl: 4
+      // }
+    }}
+  />
+)
+
 const Tags = ({ title, tags, url }) => (
   <section
     sx={{
@@ -100,7 +123,11 @@ const Authors = ({ authors }) => (
         flexWrap: 'wrap',
         py: 4
       }}>
-      <Avatar name={authors[0].name} image={authors[0].avatar} sx={{ mr: 3 }} />
+      <Avatar
+        name={authors[0].name}
+        image={authors[0].avatar}
+        sx={{ mr: 3, border: 3, borderColor: 'border', boxShadow: 'light' }}
+      />
       <div sx={{ flex: '1 1 6rem' }}>
         <h4>{authors[0].name}</h4>
         {authors[0].bio && <p>{authors[0].bio}</p>}
@@ -219,7 +246,7 @@ const Category = ({ name, category, related }) => (
       mb: 6,
       p: 5,
       borderRadius: 'medium',
-      bg: shade('primary', 0.4),
+      bg: shade('primary', 0.65),
       color: 'white',
       boxShadow: 'light',
       textAlign: 'center',
@@ -367,26 +394,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
           }
         }}
       />
-      <section
-        dangerouslySetInnerHTML={{ __html: post.html }}
-        sx={{
-          px: ['3%', '5%', '10%'],
-          py: ['3%', '6%'],
-          minHeight: '60vh',
-          bg: 'background',
-          fontSize: t => `calc(${t.fontSizes.sm} + 0.33vw)`,
-          fontFamily: 'serif',
-          lineHeight: 'loose',
-          wordWrap: 'break-word',
-          transition: 'background 0.3s',
-          'h1, h2, h3, h4, h5, h6': {
-            m: '1.4em 0 0.8em'
-          }
-          // 'ol, ul': {
-          //   pl: 4
-          // }
-        }}
-      />
+      <Content html={post.html} />
       <Footer post={post} url={meta.url + location.pathname} />
     </Container>
     <RelatedPosts

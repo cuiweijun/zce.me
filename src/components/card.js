@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 import Link from './link'
 import Image from './image'
+import Avatar from './avatar'
 
 // TODO: UI, Post or Course
 export default ({ as: Tag = 'article', post, rel }) => (
@@ -127,15 +128,12 @@ export default ({ as: Tag = 'article', post, rel }) => (
                 transition: 'margin 0.2s'
               }}>
               <Link to={author.permalink} title={author.name}>
-                <img
-                  alt={author.name}
-                  src={author.avatar.childImageSharp.fixed.src}
-                  srcSet={author.avatar.childImageSharp.fixed.srcSet}
-                  loading="lazy"
+                <Avatar
+                  name={author.name}
+                  image={author.avatar}
                   sx={{
                     border: 2,
                     borderColor: 'border',
-                    borderRadius: 'circle',
                     verticalAlign: 'middle'
                   }}
                 />

@@ -340,9 +340,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 }
 
+// https://www.gatsbyjs.org/docs/schema-customization/
 exports.createSchemaCustomization = async ({ actions }) => {
-  const { createTypes } = actions
-
   const typeDefs = `
     type Meta {
       title: String
@@ -439,5 +438,14 @@ exports.createSchemaCustomization = async ({ actions }) => {
       frontmatter: Frontmatter
     }
   `
-  createTypes(typeDefs)
+  actions.createTypes(typeDefs)
+}
+
+exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
+  if (stage === 'build-javascript') {
+    const config = getConfig()
+    config.output.filename = '[contenthash:8].js'
+    config.output.chunkFilename = '[contenthash:8].js'
+    actions.replaceWebpackConfig(config)
+  }
 }

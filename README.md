@@ -78,13 +78,15 @@ The default structure is shown below:
 ## Todos
 
 - [x] SEO
+  - https://www.gatsbyjs.org/docs/seo/
 - [x] Offline & Manifest
   - https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/
-- [ ] Progressive Web Apps (PWAs)
+- [x] Progressive Web Apps (PWAs)
   - https://www.gatsbyjs.org/docs/progressive-web-app/
 - [ ] Performance
   - https://www.gatsbyjs.org/docs/performance/
   - https://webpagetest.org/
+- [ ] Lighthouse CI
 - [ ] Search
   - https://github.com/algolia/docsearch
   - https://www.gatsbyjs.org/docs/adding-search-with-algolia/

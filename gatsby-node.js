@@ -441,6 +441,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
   actions.createTypes(typeDefs)
 }
 
+// https://www.gatsbyjs.org/docs/add-custom-webpack-config/
 exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
   if (stage === 'build-javascript') {
     const config = getConfig()

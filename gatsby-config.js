@@ -47,6 +47,9 @@ exports.plugins = [
   {
     resolve: 'gatsby-plugin-offline'
   },
+  {
+    resolve: 'gatsby-plugin-sharp'
+  },
   // source
   {
     resolve: 'gatsby-source-filesystem',
@@ -71,8 +74,7 @@ exports.plugins = [
     }
   },
   {
-    resolve: 'gatsby-transformer-sharp',
-    options: {}
+    resolve: 'gatsby-transformer-sharp'
   }
 ]
 

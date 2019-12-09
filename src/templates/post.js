@@ -172,6 +172,7 @@ const License = () => (
     <ScreenReaderText as="h3">License</ScreenReaderText>
     <Link
       to="https://creativecommons.org/licenses/by-sa/4.0/"
+      title="View license"
       target="_blank"
       rel="noopener noreferrer">
       <svg viewBox="0 0 120 42" width="160" aria-hidden="true">
@@ -204,6 +205,7 @@ const License = () => (
       This work is licensed under a{' '}
       <Link
         to="https://creativecommons.org/licenses/by-sa/4.0/"
+        title="View license"
         target="_blank"
         rel="noopener noreferrer">
         Creative Commons Attribution-ShareAlike 4.0 International License

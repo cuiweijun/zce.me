@@ -239,7 +239,7 @@ const Category = ({ name, category, related }) => (
       display: 'flex',
       overflow: 'hidden',
       flex: '1 1 0',
-      flexBasis: t => ['100%', '100%', '100%', t.sizes.card],
+      flexBasis: t => ['100%', '100%', '100%', '18rem'],
       flexDirection: 'column',
       // order: [2, 2, 2, 0],
       mx: 3,

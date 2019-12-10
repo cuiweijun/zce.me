@@ -162,13 +162,7 @@ const Authors = ({ authors }) => (
 )
 
 const License = () => (
-  <section
-    sx={{
-      mb: 7,
-      textAlign: 'center',
-      fontStyle: 'italic',
-      fontFamily: 'serif'
-    }}>
+  <section sx={{ mb: 7, textAlign: 'center' }}>
     <ScreenReaderText as="h3">License</ScreenReaderText>
     <Link
       to="https://creativecommons.org/licenses/by-sa/4.0/"
@@ -201,7 +195,7 @@ const License = () => (
         />
       </svg>
     </Link>
-    <p sx={{ color: 'muted' }}>
+    <p sx={{ color: 'muted', fontStyle: 'italic', fontFamily: 'serif' }}>
       This work is licensed under a{' '}
       <Link
         to="https://creativecommons.org/licenses/by-sa/4.0/"

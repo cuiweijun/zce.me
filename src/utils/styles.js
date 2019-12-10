@@ -171,8 +171,8 @@ const code = {
     px: 3,
     py: 3,
     fontFamily: 'mono',
-    color: '#f8f8f2', // 'text',
-    bg: '#272822', // darken('background', 0.2),
+    color: '#f8f8f2',
+    bg: '#272822',
     wordWrap: 'normal',
     wordBreak: 'normal',
     code: {

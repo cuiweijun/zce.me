@@ -123,6 +123,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
     <header
       sx={{ ':before': { display: 'block', content: '""', height: 'nav' } }}>
       <nav
+        aria-label="Primary Navigation"
         sx={{
           position: 'fixed',
           top: 0,

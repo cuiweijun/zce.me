@@ -134,7 +134,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
                   sx={{
                     border: 1,
                     borderColor: 'border',
-                    verticalAlign: 'middle'
+                    verticalAlign: 'middle',
+                    transition: 'border 0.3s'
                   }}
                 />
               </Link>

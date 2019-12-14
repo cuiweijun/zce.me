@@ -126,7 +126,8 @@ const typography = {
     borderLeft: 4,
     borderColor: lighten('primary', 0.1),
     borderRadius: 'medium',
-    bg: 'light'
+    bg: 'light',
+    transition: 'background 0.3s, border 0.3s'
   }
 }
 

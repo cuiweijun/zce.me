@@ -18,9 +18,9 @@ const Section = ({ padding = 8, ...props }) => (
     sx={{
       py: padding,
       bg: 'light',
+      transition: 'background 0.3s',
       ':nth-of-type(2n)': {
-        bg: 'background',
-        transition: 'background 0.3s'
+        bg: 'background'
       }
     }}
   />
@@ -49,7 +49,8 @@ const Featured = ({ post }) => (
           ml: [0, 0, 4],
           border: 6,
           borderColor: 'background',
-          boxShadow: 'medium'
+          boxShadow: 'medium',
+          transition: 'border 0.3s'
         }}
       />
       <div

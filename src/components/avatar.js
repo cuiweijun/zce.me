@@ -10,6 +10,7 @@ export default ({ image, name, size, ...props }) => (
     srcSet={image && image.childImageSharp.fixed.srcSet}
     loading="lazy"
     sx={{
+      size: image ? image.childImageSharp.fixed.width : null,
       maxWidth: size,
       maxHeight: size,
       borderRadius: 'circle'

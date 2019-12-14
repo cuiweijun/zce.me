@@ -132,7 +132,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
                   name={author.name}
                   image={author.avatar}
                   sx={{
-                    border: 2,
+                    border: 1,
                     borderColor: 'border',
                     verticalAlign: 'middle'
                   }}

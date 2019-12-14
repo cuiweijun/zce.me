@@ -4,8 +4,8 @@ import { graphql } from 'gatsby'
 import moment from 'moment'
 
 import {
-  Container,
   Layout,
+  Container,
   Row,
   Image,
   Avatar,

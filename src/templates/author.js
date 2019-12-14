@@ -16,7 +16,7 @@ export default ({ data: { author, posts } }) => (
         <Avatar
           name={author.name}
           image={author.avatar}
-          sx={{ mb: 3, border: 4, borderColor: 'border', boxShadow: 'light' }}
+          sx={{ mb: 3, boxShadow: 'light' }}
         />
         <h1>{author.name}</h1>
         <p sx={{ fontSize: 'xl' }}>{author.bio}</p>

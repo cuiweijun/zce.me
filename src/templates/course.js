@@ -50,7 +50,11 @@ const Main = ({ current, course }) => (
                 borderColor: 'border',
                 transition: 'border 0.3s'
               },
-              a: { textDecoration: 'none' }
+              a: {
+                display: 'inline-block',
+                minWidth: '90%',
+                textDecoration: 'none'
+              }
             }}>
             {i === current ? (
               <span>▶ {item.title}</span>
@@ -126,12 +130,15 @@ const Aside = ({ video, fields, related }) => (
       ))}
     </AsideSection>
     <AsideSection title="发布时间">
-      <time dateTime={fields.date} aria-label="Posted on">
+      <time dateTime={fields.date} title={fields.date} aria-label="Posted on">
         {moment.utc(fields.date).format('ll')}
       </time>
     </AsideSection>
     <AsideSection title="最后更新">
-      <time dateTime={fields.updated} aria-label="Updated on">
+      <time
+        dateTime={fields.updated}
+        title={fields.updated}
+        aria-label="Updated on">
         {moment.utc(fields.updated).format('ll')}
       </time>
     </AsideSection>

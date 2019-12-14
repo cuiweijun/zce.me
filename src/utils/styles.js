@@ -79,6 +79,9 @@ const reboot = {
     color: 'inherit',
     bg: 'currentColor',
     opacity: 0.2
+  },
+  figure: {
+    ...block
   }
 }
 
@@ -171,6 +174,7 @@ const code = {
     overflow: 'auto',
     px: 3,
     py: 3,
+    borderRadius: 'medium',
     fontFamily: 'mono',
     color: '#f8f8f2',
     bg: '#272822',
@@ -220,8 +224,12 @@ const code = {
     }
   },
   code: {
+    p: 1,
+    borderRadius: 'small',
+    color: '#f8f8f2',
+    bg: '#272822',
     fontFamily: 'mono',
-    fontSize: '90%'
+    fontSize: '87.5%'
   }
 }
 

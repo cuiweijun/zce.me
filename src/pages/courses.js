@@ -7,8 +7,8 @@ import { Layout, Container, Row, Card } from '../components'
 export default ({ data: { courses } }) => (
   <Layout
     title="Courses"
-    // subtitle={`A collection of ${courses.totalCount} courses`}
-    subtitle="Continuous learning is a belief.">
+    // subtitle="Continuous learning is a belief."
+    subtitle={`A collection of ${courses.totalCount} courses`}>
     <Container>
       <Row sx={{ mb: 6 }}>
         {courses.nodes.map(node => (

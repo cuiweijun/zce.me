@@ -44,7 +44,6 @@ const Featured = ({ post }) => (
         sx={{
           flexBasis: '22rem',
           order: [0, 0, 1],
-          m: 0,
           mb: [4, 4, 0],
           ml: [0, 0, 4],
           border: 6,

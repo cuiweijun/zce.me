@@ -33,10 +33,18 @@ const Content = ({ html }) => (
       transition: 'background 0.3s',
       'h1, h2, h3, h4, h5, h6': {
         m: '1.4em 0 0.8em'
-      }
+      },
       // 'ol, ul': {
       //   pl: 4
       // }
+      '.gatsby-resp-image-wrapper': {
+        maxWidth: '800px !important'
+      },
+      '.footnotes': {
+        p: {
+          display: 'inline'
+        }
+      }
     }}
   />
 )
@@ -235,7 +243,7 @@ const Category = ({ name, category, related }) => (
       display: 'flex',
       overflow: 'hidden',
       flex: '1 1 0',
-      flexBasis: t => ['100%', '100%', '100%', '18rem'],
+      flexBasis: t => ['100%', '100%', '100%', '20rem'],
       flexDirection: 'column',
       // order: [2, 2, 2, 0],
       mx: 3,
@@ -343,7 +351,10 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
           fontSize: 'lg'
         }}>
         <span sx={{ textTransform: 'uppercase', a: { color: 'inherit' } }}>
-          <time dateTime={post.fields.date} aria-label="Posted on">
+          <time
+            dateTime={post.fields.date}
+            title={post.fields.date}
+            aria-label="Posted on">
             {moment.utc(post.fields.date).format('ll')}
           </time>
           <span

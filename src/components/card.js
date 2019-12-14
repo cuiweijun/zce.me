@@ -13,7 +13,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
       position: 'relative',
       display: 'flex',
       overflow: 'hidden',
-      flex: '1 1 18rem',
+      flex: '1 1 20rem',
       flexDirection: 'column',
       mx: 3,
       mb: 6,

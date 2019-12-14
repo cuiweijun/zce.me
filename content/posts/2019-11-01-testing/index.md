@@ -1,13 +1,7 @@
 ---
 title: Testing
-slug: testing
 date: 2019-11-01 22:47:36
 private: true
-featured: true
-categories:
-  - Guide
-tags:
-  - Getting Started
 meta:
   - key: extend field 1
     value: extend value 1

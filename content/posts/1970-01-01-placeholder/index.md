@@ -4,13 +4,13 @@ slug: placeholder
 date: 1970-01-01 00:00:00
 updated: 1970-01-01 00:00:00
 cover: cover.png
-description: ''
+description: post description'
 template: post
-permalink: /{author}/{category}/frontmatter-placeholder.html
-draft: false
+permalink: /{author}/{category}/{year}/{month}/{day}/{slug}.html
+draft: true
 private: true
-featured: false
-comment: false
+featured: true
+comment: true
 authors:
   - Lei Wang
 categories:

@@ -6,8 +6,6 @@ cover: cover.jpg
 featured: true
 categories:
   - Guide
-tags:
-  - Getting Started
 ---
 
 Ghost has a powerful visual editor with familiar formatting options, as well as the ability to seamlessly add dynamic content.

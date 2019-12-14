@@ -1,13 +1,11 @@
 ---
 title: Welcome to Ghost
 slug: welcome
-date: 2019-06-01 22:47:36
+date: 2017-05-20 00:00:00
 cover: cover.jpg
 featured: true
 categories:
   - Guide
-tags:
-  - Getting Started
 ---
 
 👋 Welcome, it's great to have you here.

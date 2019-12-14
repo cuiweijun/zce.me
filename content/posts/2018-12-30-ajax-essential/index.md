@@ -1,7 +1,7 @@
 ---
 title: 快速掌握 AJAX - 基础
 slug: ajax-essential
-date: 2019-06-26 19:07:29
+date: 2018-12-30 12:28:38
 cover: cover.png
 categories:
   - Tutorial

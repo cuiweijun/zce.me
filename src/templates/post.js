@@ -252,10 +252,12 @@ const Category = ({ name, category, related }) => (
     }}>
     <small
       sx={{
+        color: 'rgba(255, 255, 255, 0.5)',
         ':before, :after': {
           display: 'inline-block',
           mx: 2,
-          content: '"\\2014"'
+          content: '"\\2014\\2014"',
+          color: 'rgba(255, 255, 255, 0.25)'
         }
       }}>
       {name}
@@ -272,8 +274,8 @@ const Category = ({ name, category, related }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      sx={{ mx: 'auto' }}>
-      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+      sx={{ mx: 'auto', stroke: 'rgba(255, 255, 255, 0.25)' }}>
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5" />
     </svg>
     <ul sx={{ flexGrow: 1, m: 3, p: 0, listStyle: 'none' }}>
       {related.nodes.map(item => (
@@ -285,8 +287,8 @@ const Category = ({ name, category, related }) => (
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
             ':not(:last-child)': {
-              borderColor: shade('primary', 0.5),
-              borderBottomWidth: 1
+              borderBottom: 1,
+              borderColor: 'rgba(255, 255, 255, 0.1)'
             }
           }}>
           <Link to={item.fields.permalink} title={item.fields.title}>

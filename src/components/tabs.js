@@ -19,9 +19,9 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
           <a
             key={i}
             id={`${item.props.id || i}-tab`}
-            href={`#${item.props.id || i}-tab-panel`}
+            href={`#${item.props.id || i}`}
             role="tab"
-            aria-controls={`${item.props.id || i}-tab-panel`}
+            aria-controls={item.props.id || i}
             aria-selected={current === i}
             onClick={() => setCurrent(i)}
             children={item.props.name}
@@ -47,7 +47,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
       {Children.map(children, (item, i) => (
         <item.type
           key={i}
-          id={`${item.props.id || i}-tab-panel`}
+          id={item.props.id || i}
           className={current === i ? 'active' : ''}
           role="tabpanel"
           aria-labelledby={`${item.props.id || i}-tab`}

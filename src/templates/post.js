@@ -126,7 +126,7 @@ const Authors = ({ authors }) => (
       <Avatar
         name={authors[0].name}
         image={authors[0].avatar}
-        sx={{ mr: 3, border: 3, borderColor: 'border', boxShadow: 'light' }}
+        sx={{ mr: 3, boxShadow: 'light' }}
       />
       <div sx={{ flex: '1 1 6rem' }}>
         <h4>{authors[0].name}</h4>

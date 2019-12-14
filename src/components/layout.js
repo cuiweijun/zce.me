@@ -34,7 +34,7 @@ export const Layout = props => (
         // position: 'relative',
         // fix sticky
         // overflow: 'hidden',
-        minHeight: '40vh',
+        // minHeight: '40vh',
         bg: props.background,
         transition: 'background 0.3s'
       }}

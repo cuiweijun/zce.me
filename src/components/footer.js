@@ -29,7 +29,7 @@ const query = graphql`
       }
     }
 
-    tags: allTag {
+    tags: allTag(limit: 16) {
       nodes {
         name
         permalink
@@ -126,22 +126,25 @@ const Tags = ({ tags }) => (
           key={i.name}
           sx={{
             display: 'inline-block',
-            ':not(:last-child):after': {
-              content: '"\\002C"',
-              mr: 1
+            mr: 1,
+            ':after': {
+              content: '"\\002C"'
             }
           }}>
           <Link
             to={i.permalink}
+            children={i.name}
             sx={{
               ':before': {
                 content: '"\\0023"'
               }
-            }}>
-            {i.name}
-          </Link>
+            }}
+          />
         </li>
       ))}
+      <li sx={{ display: 'inline-block' }}>
+        <Link to="/tags/" children="more →" />
+      </li>
     </ul>
   </Widget>
 )
@@ -158,7 +161,7 @@ const Links = ({ links }) => (
               mr: 1
             }
           }}>
-          <Link to={i.link}>{i.text}</Link>
+          <Link to={i.link} children={i.text} />
         </li>
       ))}
     </ul>
@@ -187,15 +190,15 @@ const Copyright = ({ name, url }) => (
       borderColor: 'border'
     }}>
     <span>
-      &copy; {new Date().getFullYear()} <Link to={url}>{name}</Link>. All Rights
-      Reserved.
+      &copy; {new Date().getFullYear()} <Link to={url} children={name} />. All
+      Rights Reserved.
     </span>
     <ul sx={{ flexGrow: 1, m: 0, mx: 2, p: 0 }}>
       <li sx={{ display: 'inline-block', mr: 1 }}>
-        <Link to="/privacy-policy/">Privacy Policy</Link>
+        <Link to="/privacy-policy/" children="Privacy Policy" />
       </li>
       <li sx={{ display: 'inline-block', mr: 1 }}>
-        <Link to="/terms-of-service/">Terms of Service</Link>
+        <Link to="/terms-of-service/" children="Terms of Service" />
       </li>
     </ul>
     <span

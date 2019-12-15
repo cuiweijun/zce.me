@@ -66,12 +66,16 @@ links:
     link: /about/
   - text: Contact
     link: /contact/
+  - text: Categories
+    link: /categories/
   - text: Archive
     link: /archive/
-  - text: Privacy
-    link: /privacy-policy/
-  - text: Terms
-    link: /terms-of-service/
+  - text: Labs
+    link: /labs/
+  # - text: Privacy
+  #   link: /privacy-policy/
+  # - text: Terms
+  #   link: /terms-of-service/
 
 subscription:
   name: ITBetter

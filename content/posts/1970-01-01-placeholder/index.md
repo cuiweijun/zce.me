@@ -17,6 +17,13 @@ categories:
   - Uncategorized
 tags:
   - Untagged
+meta:
+  - key: title
+    value: Placeholder
+  - key: description
+    value: This is a Placeholder
+  - key: keywords
+    value: placeholder, post
 ---
 
 This is a sample article, mainly to provide a complete example and complete `frontmatter` attributes. Because [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/) does not support defining the structure of `frontmatter`.

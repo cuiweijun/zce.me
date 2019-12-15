@@ -3,12 +3,13 @@ import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
 import { Layout, Container, Row, Card } from '../components'
+import { getMeta } from '../utils/meta'
 
 export default ({ data: { term, posts } }) => (
   <Layout
-    title={(term.meta && term.meta.title) || term.name}
-    description={(term.meta && term.meta.description) || term.description}
-    keywords={term.meta && term.meta.keywords}
+    title={getMeta(term.meta, 'title') || term.name}
+    description={getMeta(term.meta, 'description') || term.description}
+    keywords={getMeta(term.meta, 'keywords')}
     subtitle={`A category of ${posts.totalCount} posts`}
     cover={term.cover}>
     <Container>
@@ -31,8 +32,8 @@ export const query = graphql`
         ...CoverImage
       }
       meta {
-        title
-        description
+        key
+        value
       }
     }
 

@@ -45,63 +45,7 @@ export const usePinned = (initial = true, offset = 200, tolerance = 10) => {
 // export const useMetadata = () => {
 //   return useStaticQuery(
 //     graphql`
-//       query Metadata {
-//         metadata: config {
-//           url
-//           name
-//           title
-//           description
-//           slogan
-//           keywords
-//           author {
-//             name
-//             email
-//             url
-//           }
-//           language
-//           cover {
-//             childImageSharp {
-//               fluid {
-//                 src
-//               }
-//             }
-//           }
-//           navigation {
-//             text
-//             link
-//           }
-//           socials {
-//             name
-//             link
-//           }
-//           links {
-//             text
-//             link
-//           }
-//           subscription {
-//             name
-//             qrcode {
-//               childImageSharp {
-//                 fluid {
-//                   src
-//                 }
-//               }
-//             }
-//           }
-//           card {
-//             image {
-//               childImageSharp {
-//                 fluid {
-//                   src
-//                 }
-//               }
-//             }
-//           }
-//           disqus {
-//             shortname
-//           }
-//         }
-//       }
+//       query Metadata {}
 //     `
 //   ).config
 // }

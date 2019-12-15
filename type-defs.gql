@@ -1,7 +1,9 @@
 type Meta {
-  title: String
-  description: String
-  keywords: [String]
+  # title: String
+  # description: String
+  # keywords: [String]
+  key: String!
+  value: String
 }
 
 type Social {
@@ -25,7 +27,7 @@ type Author implements Node @dontInfer {
   website: String
   location: String
   social: Social,
-  meta: Meta,
+  meta: [Meta]
   type: String!
   template: String!
   permalink: String!
@@ -36,7 +38,8 @@ type Category implements Node @dontInfer {
   slug: String!
   description: String
   cover: File @fileByRelativePath
-  meta: Meta,
+  private: Boolean
+  meta: [Meta]
   type: String!
   template: String!
   permalink: String!
@@ -47,10 +50,19 @@ type Tag implements Node @dontInfer {
   slug: String!
   description: String
   cover: File @fileByRelativePath
-  meta: Meta,
+  private: Boolean
+  meta: [Meta]
   type: String!
   template: String!
   permalink: String!
+}
+
+type Link implements Node @dontInfer {
+  text: String!
+  link: String!
+  icon: File @fileByRelativePath
+  target: String
+  rel: String
 }
 
 type Fields {
@@ -67,9 +79,10 @@ type Fields {
   private: Boolean
   featured: Boolean
   comment: Boolean
-  # authors: [Author!]
-  # categories: [Category!]
-  # tags: [Tag!]
+  # authors: [Author]
+  # categories: [Category]
+  # tags: [Tag]
+  meta: [Meta]
 }
 
 type Frontmatter {
@@ -83,9 +96,10 @@ type Frontmatter {
   private: Boolean
   featured: Boolean
   comment: Boolean
-  # authors: [Author!]
-  # categories: [Category!]
-  # tags: [Tag!]
+  # authors: [Author]
+  # categories: [Category]
+  # tags: [Tag]
+  meta: [Meta]
 }
 
 type MarkdownRemark implements Node @donInfer {

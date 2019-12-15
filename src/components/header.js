@@ -105,6 +105,7 @@ const Menu = ({ items }) => (
           to={i.link}
           sx={{
             display: 'inline-block',
+            opacity: 0.9,
             p: 2,
             ':hover': {
               textDecoration: 'none'

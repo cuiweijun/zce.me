@@ -16,8 +16,10 @@
     twitter: w_zce
     facebook: zccce
   meta:
-    title: Lei’s speaking
-    description: This is Lei’s speaking
+    - key: title
+      value: Lei’s speaking
+    - key: description
+      value: This is Lei’s speaking
 
 - name: Ziwen Wang
   slug: ziwen

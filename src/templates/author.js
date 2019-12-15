@@ -3,12 +3,13 @@ import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 
 import { Layout, Container, Row, Card, Avatar } from '../components'
+import { getMeta } from '../utils/meta'
 
 export default ({ data: { author, posts } }) => (
   <Layout
-    title={(author.meta && author.meta.title) || author.name}
-    description={(author.meta && author.meta.description) || author.bio}
-    keywords={author.meta && author.meta.keywords}
+    title={getMeta(author.meta, 'title') || author.name}
+    description={getMeta(author.meta, 'description') || author.bio}
+    keywords={getMeta(author.meta, 'keywords')}
     subtitle={author.bio}
     cover={author.cover}
     hero={
@@ -49,8 +50,8 @@ export const query = graphql`
       }
       bio
       meta {
-        title
-        description
+        key
+        value
       }
     }
 

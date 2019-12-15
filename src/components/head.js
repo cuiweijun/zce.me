@@ -16,7 +16,6 @@ const query = graphql`
       author {
         name
       }
-      language
       cover {
         childImageSharp {
           fluid {
@@ -76,7 +75,7 @@ export default memo(
     return (
       <Helmet
         defer={false} // refresh on background
-        htmlAttributes={{ lang: config.language }}
+        // htmlAttributes={{ lang: config.language }}
         title={title}
         defaultTitle={`${config.title} | ${config.slogan}`}
         titleTemplate={`%s - ${config.title}`}

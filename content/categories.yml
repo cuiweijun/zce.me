@@ -3,12 +3,11 @@
   description: Uncategorized contents
   cover: images/uncategorized.jpg
   meta:
-    title: Uncategorized
-    description: This is Uncategorized contents
-
-- name: Guide
-  slug: guide
+    - key: title
+      value: Uncategorized
+    - key: description
+      value: This is Uncategorized contents
 
 - name: Tutorial
   slug: tutorial
-  description: Tutorial contents
+  description: Lei’s Tutorial contents

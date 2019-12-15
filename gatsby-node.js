@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const { readFileSync } = require('fs')
 const { basename } = require('path')
 const { load } = require('js-yaml')
 const { singular } = require('pluralize')
@@ -31,32 +32,32 @@ const options = {
     // draft: false,
     // private: false,
     // featured: false,
-    comment: false,
+    comment: false
     // authors: ['Lei Wang'],
     // categories: ['Uncategorized'],
-    tags: []
+    // tags: []
   },
   post: {
     template: 'post',
-    permalink: '/{year}/{month}/{slug}/',
+    permalink: '/{year}/{month}/{slug}/'
     // draft: false,
     // private: false,
     // featured: false,
     // comment: true,
     // authors: ['Lei Wang'],
     // categories: ['Uncategorized'],
-    tags: []
+    // tags: []
   },
   course: {
     template: 'course',
-    permalink: '/courses/{slug}/',
+    permalink: '/courses/{slug}/'
     // draft: false,
     // private: false,
     // featured: false,
     // comment: true,
     // authors: ['Lei Wang'],
     // categories: ['Uncategorized'],
-    tags: []
+    // tags: []
   },
   author: {
     template: 'author',
@@ -342,102 +343,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 // https://www.gatsbyjs.org/docs/schema-customization/
 exports.createSchemaCustomization = async ({ actions }) => {
-  const typeDefs = `
-    type Meta {
-      title: String
-      description: String
-      keywords: [String]
-    }
-
-    type Social {
-      weibo: String
-      wechat: String
-      qq: String
-      zhihu: String
-      github: String
-      medium: String
-      twitter: String
-      facebook: String
-    }
-
-    type Author implements Node @dontInfer {
-      name: String!
-      slug: String!
-      email: String!
-      avatar: File @fileByRelativePath
-      cover: File @fileByRelativePath
-      bio: String
-      website: String
-      location: String
-      social: Social,
-      meta: Meta,
-      type: String!
-      template: String!
-      permalink: String!
-    }
-
-    type Category implements Node @dontInfer {
-      name: String!
-      slug: String!
-      description: String
-      cover: File @fileByRelativePath
-      meta: Meta,
-      type: String!
-      template: String!
-      permalink: String!
-    }
-
-    type Tag implements Node @dontInfer {
-      name: String!
-      slug: String!
-      description: String
-      cover: File @fileByRelativePath
-      meta: Meta,
-      type: String!
-      template: String!
-      permalink: String!
-    }
-
-    type Fields {
-      type: String!
-      template: String!
-      permalink: String!
-      title: String!
-      slug: String!
-      date: Date @dateformat
-      updated: Date @dateformat
-      cover: File @fileByRelativePath
-      description: String
-      draft: Boolean
-      private: Boolean
-      featured: Boolean
-      comment: Boolean
-      # authors: [Author!]
-      # categories: [Category!]
-      # tags: [Tag!]
-    }
-
-    type Frontmatter {
-      title: String!
-      slug: String
-      date: Date @dateformat
-      updated: Date @dateformat
-      cover: File @fileByRelativePath
-      description: String
-      draft: Boolean
-      private: Boolean
-      featured: Boolean
-      comment: Boolean
-      # authors: [Author!]
-      # categories: [Category!]
-      # tags: [Tag!]
-    }
-
-    type MarkdownRemark implements Node @donInfer {
-      fields: Fields,
-      frontmatter: Frontmatter
-    }
-  `
+  const typeDefs = readFileSync('type-defs.gql', 'utf8')
   actions.createTypes(typeDefs)
 }
 

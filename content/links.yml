@@ -1,4 +1,5 @@
 - text: WEDN.NET
-  url: https://wedn.net
+  link: https://wedn.net
+  icon: ~
   target: _blank
   rel: friend

@@ -3,9 +3,7 @@
   description: Untagged contents
   cover: images/untagged.jpg
   meta:
-    title: Untagged
-    description: This is Untagged contents
-
-- name: Getting Started
-  slug: getting-started
-  description: Getting started contents
+    - key: title
+      value: Untagged
+    - key: description
+      value: This is Untagged contents

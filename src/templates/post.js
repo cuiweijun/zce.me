@@ -34,9 +34,6 @@ const Content = ({ html }) => (
       'h1, h2, h3, h4, h5, h6': {
         m: '1.4em 0 0.8em'
       },
-      // 'ol, ul': {
-      //   pl: 4
-      // }
       '.gatsby-resp-image-wrapper': {
         maxWidth: '800px !important'
       },

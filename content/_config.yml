@@ -6,17 +6,21 @@ name: Lei’s
 title: Lei’s Personal Website
 description: In development, coming soon. # Thoughts, stories and ideas.
 slogan: MAKE IT BETTER!
-keywords: [zce, blog, personal, homepage]
+keywords:
+  - Course
+  - Blog
+  - Homepage
+  - Personal
+  - 汪磊
+  - zce.me
+  - zce
 
 author:
   name: Lei Wang
   email: w@zce.me
   url: https://zce.me
 
-language: en
-
-# inline svg instead
-# logo: images/logo.svg
+# logo: images/logo.svg # inline svg instead
 cover: images/cover.jpg
 
 navigation:
@@ -72,4 +76,3 @@ links:
 subscription:
   name: ITBetter
   qrcode: images/qrcode-wedn.jpg
-  link: ~

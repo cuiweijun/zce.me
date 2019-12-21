@@ -224,12 +224,14 @@ const code = {
     }
   },
   code: {
-    p: 1,
+    px: 2,
+    py: 1,
     borderRadius: 'small',
     color: '#f8f8f2',
     bg: '#272822',
     fontFamily: 'mono',
-    fontSize: '87.5%'
+    fontSize: '87.5%',
+    lineHeight: 'solid'
   }
 }
 

@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import moment from 'moment'
 
 import {
   Layout,
@@ -17,6 +16,40 @@ import {
   ScreenReaderText
 } from '../components'
 import { shade } from '../utils/color'
+
+const Header = ({ title, date, formatDate, category }) => (
+  <header
+    sx={{
+      pt: '6vw',
+      pb: '4vw',
+      color: 'white',
+      textAlign: 'center',
+      textShadow: 'text',
+      fontSize: 'lg'
+    }}>
+    <span sx={{ textTransform: 'uppercase', a: { color: 'inherit' } }}>
+      <time dateTime={date} title={date} aria-label="Posted on">
+        {formatDate}
+      </time>
+      <span
+        role="separator"
+        aria-hidden="true"
+        sx={{
+          ':before': {
+            display: 'inline-block',
+            mx: 2,
+            content: '"\\002f"',
+            opacity: 0.6
+          }
+        }}
+      />
+      <Link to={category.permalink} aria-label="Posted in">
+        {category.name}
+      </Link>
+    </span>
+    <h1 sx={{ fontSize: 8, lineHeight: 'normal' }}>{title}</h1>
+  </header>
+)
 
 const Figure = ({ cover, title }) => (
   <Image
@@ -81,25 +114,29 @@ const Content = ({ html }) => (
   />
 )
 
-const Tags = ({ title, tags, url }) => (
+const More = ({ tags, date, updated, formatUpdated, title, url }) => (
   <section
     sx={{
       display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      borderBottom: 1,
-      borderColor: 'border',
       mb: 3,
       py: 2,
-      // color: 'muted',
+      borderBottom: 1,
+      borderColor: 'border',
+      color: 'muted',
       fontSize: 'sm'
     }}>
-    {tags && (
-      <div
-        aria-label="Tagged with"
-        sx={{ display: 'flex', alignItems: 'center' }}>
-        <Icon name="tag" title="Tagged with" />
-        <ul sx={{ m: 0, ml: 1, p: 0, listStyle: 'none' }}>
+    {date !== updated && (
+      <div title="Updated on" aria-label="Updated on" sx={{ mr: 3 }}>
+        <Icon name="edit-3" />
+        <time dateTime={updated} title={updated} sx={{ ml: 1 }}>
+          {formatUpdated}
+        </time>
+      </div>
+    )}
+    {tags.length > 0 && (
+      <div title="Tagged with" aria-label="Tagged with">
+        <Icon name="tag" />
+        <ul sx={{ display: 'inline', m: 0, ml: 1, p: 0, listStyle: 'none' }}>
           {tags.map(i => (
             <li
               key={i.name}
@@ -131,21 +168,30 @@ const Tags = ({ title, tags, url }) => (
       sx={{
         display: 'flex',
         alignItems: 'center',
+        ml: 'auto',
         span: { mr: 1 },
         a: { ml: 1 }
       }}>
       <span>Share this:</span>
       <Link
         to={`https://twitter.com/share?text=${title}&url=${url}`}
-        title="Twitter">
+        title="Share to Twitter"
+        target="_blank"
+        rel="noopener noreferrer">
         <Icon name="twitter" />
       </Link>
       <Link
         to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-        title="Facebook">
+        title="Share to Facebook"
+        target="_blank"
+        rel="noopener noreferrer">
         <Icon name="facebook" />
       </Link>
-      <Link to={`http://qr.topscan.com/api.php?text=${url}`} title="Moment">
+      <Link
+        to={`http://qr.topscan.com/api.php?text=${url}`}
+        title="Share to Moment"
+        target="_blank"
+        rel="noopener noreferrer">
         <Icon name="aperture" />
       </Link>
     </div>
@@ -248,20 +294,27 @@ const License = () => (
   </section>
 )
 
-const Footer = ({ post, url }) => (
+const Footer = ({ fields, excerpt, url }) => (
   <footer sx={{ mx: 'auto', py: '3vw', maxWidth: 'inner' }}>
-    <Tags title={post.fields.title} tags={post.fields.tags} url={url} />
-    <Authors authors={post.fields.authors} />
+    <More
+      tags={fields.tags}
+      date={fields.date}
+      updated={fields.updated}
+      formatUpdated={fields.formatUpdated}
+      title={fields.title}
+      url={url}
+    />
+    <Authors authors={fields.authors} />
     <License />
-    {post.fields.comment && (
+    {fields.comment && (
       <section sx={{ mb: 7 }}>
         <ScreenReaderText as="h3">Comments</ScreenReaderText>
         <Comments
           type="post"
-          slug={post.fields.slug}
-          title={post.fields.title}
-          excerpt={post.excerpt}
-          permalink={post.fields.permalink}
+          slug={fields.slug}
+          title={fields.title}
+          excerpt={excerpt}
+          permalink={fields.permalink}
         />
       </section>
     )}
@@ -362,7 +415,6 @@ const RelatedPosts = ({ name, category, related, prev, next }) => (
   </aside>
 )
 
-// TODO: meta prev next
 export default ({ data: { post, prev, next, related, meta }, location }) => (
   <Layout
     title={post.fields.title}
@@ -371,45 +423,23 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
     cover={post.fields.cover}
     mask={3}
     hero={false}
+    prev={prev && meta.url + prev.fields.permalink}
+    next={next && meta.url + next.fields.permalink}
     type="article">
     <Container as="article" role="main" sx={{ mb: 5 }}>
-      <header
-        sx={{
-          pt: '6vw',
-          pb: '4vw',
-          color: 'white',
-          textAlign: 'center',
-          textShadow: 'text',
-          fontSize: 'lg'
-        }}>
-        <span sx={{ textTransform: 'uppercase', a: { color: 'inherit' } }}>
-          <time
-            dateTime={post.fields.date}
-            title={post.fields.date}
-            aria-label="Posted on">
-            {moment.utc(post.fields.date).format('ll')}
-          </time>
-          <span
-            role="separator"
-            aria-hidden="true"
-            sx={{
-              ':before': {
-                display: 'inline-block',
-                mx: 2,
-                content: '"\\002f"',
-                opacity: 0.6
-              }
-            }}
-          />
-          <Link to={post.fields.categories[0].permalink} aria-label="Posted in">
-            {post.fields.categories[0].name}
-          </Link>
-        </span>
-        <h1 sx={{ fontSize: 8, lineHeight: 'normal' }}>{post.fields.title}</h1>
-      </header>
+      <Header
+        title={post.fields.title}
+        date={post.fields.date}
+        formatDate={post.fields.formatDate}
+        category={post.fields.categories[0]}
+      />
       <Figure cover={post.fields.cover} title={post.fields.title} />
       <Content html={post.html} />
-      <Footer post={post} url={meta.url + location.pathname} />
+      <Footer
+        fields={post.fields}
+        excerpt={post.excerpt}
+        url={meta.url + location.pathname}
+      />
     </Container>
     <RelatedPosts
       name={meta.name}
@@ -433,7 +463,9 @@ export const query = graphql`
         title
         slug
         date
+        formatDate: date(formatString: "ll")
         updated
+        formatUpdated: updated(formatString: "ll")
         cover {
           ...CoverImage
         }

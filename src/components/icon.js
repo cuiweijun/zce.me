@@ -13,7 +13,7 @@ export default ({ name, size = 16, ...props }) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
-    sx={{ verticalAlign: 'text-bottom' }}
+    // sx={{ verticalAlign: 'text-bottom' }}
     dangerouslySetInnerHTML={{
       __html: icons[name] ? icons[name] : icons['alert-circle']
     }}

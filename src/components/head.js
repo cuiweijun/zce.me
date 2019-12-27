@@ -31,7 +31,7 @@ const query = graphql`
 
 // TODO: Need refactoring
 export default memo(
-  ({ title, description, keywords, type, image, pathname }) => {
+  ({ title, description, keywords, image, type, pathname, prev, next }) => {
     const { config } = useStaticQuery(query)
     const { theme } = useThemeUI()
     const meta = []
@@ -71,6 +71,8 @@ export default memo(
     }
 
     url && link.push({ rel: 'canonical', href: url })
+    prev && link.push({ rel: 'prev', href: prev })
+    next && link.push({ rel: 'next', href: next })
 
     return (
       <Helmet

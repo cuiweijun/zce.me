@@ -15,6 +15,8 @@ export const Layout = props => (
       keywords={props.keywords}
       image={props.cover}
       type={props.type}
+      prev={props.prev}
+      next={props.next}
     />
     <Header
       title={props.title}

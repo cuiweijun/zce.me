@@ -88,6 +88,9 @@ const reboot = {
   },
   small: {
     fontSize: '80%'
+  },
+  svg: {
+    verticalAlign: 'text-bottom'
   }
 }
 

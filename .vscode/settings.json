@@ -1,10 +1,7 @@
 {
-  "breadcrumbs.enabled": false,
-  "editor.fontSize": 12,
   "files.exclude": {
     ".cache": true,
     "node_modules": true,
     "public": true
-  },
-  "workbench.editor.showTabs": true
+  }
 }

@@ -5,7 +5,8 @@ name: Beta Deploy
 on:
   release:
     types:
-      - created
+      # - created
+      - prereleased
 
 jobs:
   build:

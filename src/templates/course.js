@@ -38,9 +38,9 @@ const Main = ({ current, course }) => (
       <div
         sx={{
           py: 3,
+          counterReset: 'video',
           a: {
             display: 'flex',
-            justifyContent: 'space-between',
             alignItems: 'center',
             px: 3,
             py: 2,
@@ -53,16 +53,15 @@ const Main = ({ current, course }) => (
               border: 0
             }
           },
-          span: {
+          small: {
+            ml: 'auto',
             color: 'muted'
           }
         }}>
         {course.fields.sections.map((item, i) => (
           <Link key={i} to={getVideoLink(course.fields.permalink, i)}>
-            {i === current ? '▶ ' : `${pad(i)}. `}
-            {item.title}
-            <span>{moment(item.duration * 1000).format('mm:ss')}</span>
-            {/* <Button size="sm" children="开始学习" /> */}
+            {i === current ? `▶ ${item.title}` : `${pad(i)}. ${item.title}`}
+            <small>{moment(item.duration * 1000).format('mm:ss')}</small>
           </Link>
         ))}
       </div>

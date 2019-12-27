@@ -9,11 +9,6 @@ export default ({ image, name, size, ...props }) => (
     src={image ? image.childImageSharp.fixed.src : defaultAvatar}
     srcSet={image && image.childImageSharp.fixed.srcSet}
     loading="lazy"
-    sx={{
-      size: image ? image.childImageSharp.fixed.width : null,
-      maxWidth: size,
-      maxHeight: size,
-      borderRadius: 'circle'
-    }}
+    sx={{ borderRadius: 'circle', bg: 'white' }}
   />
 )

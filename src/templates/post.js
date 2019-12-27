@@ -90,7 +90,7 @@ const Content = ({ html }) => (
     sx={{
       mx: [-3, 0],
       px: ['5%', '10%'],
-      py: ['3%', '6%'],
+      py: ['4%', '6%'],
       minHeight: '60vh',
       bg: 'background',
       fontSize: 'calc(100% + 0.1vw)',
@@ -212,7 +212,7 @@ const Authors = ({ authors }) => (
       <Avatar
         name={authors[0].name}
         image={authors[0].avatar}
-        sx={{ mr: 3, boxShadow: 'light' }}
+        sx={{ mr: 3, size: 96, boxShadow: 'light' }}
       />
       <div sx={{ flex: '1 1 6rem' }}>
         <h4>{authors[0].name}</h4>

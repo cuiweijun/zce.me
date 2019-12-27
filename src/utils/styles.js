@@ -181,17 +181,15 @@ const link = {
 const code = {
   pre: {
     ...block,
-    overflow: 'auto',
-    px: 3,
-    py: 3,
-    borderRadius: 'medium',
-    fontFamily: 'mono',
-    color: '#f8f8f2',
-    bg: '#272822',
-    wordWrap: 'normal',
-    wordBreak: 'normal',
     code: {
-      color: 'inherit'
+      display: 'block',
+      overflow: 'auto',
+      px: 3,
+      py: 3,
+      borderRadius: 'medium',
+      lineHeight: 'inherit',
+      wordWrap: 'normal',
+      wordBreak: 'normal'
     },
     '.comment, .prolog, .doctype, .cdata': {
       color: 'slategray'
@@ -234,14 +232,15 @@ const code = {
     }
   },
   code: {
-    px: 2,
-    py: 1,
+    px: 1,
+    py: '0.125rem',
     borderRadius: 'small',
-    color: '#f8f8f2',
     bg: '#272822',
+    color: '#f8f8f2',
     fontFamily: 'mono',
     fontSize: '87.5%',
-    lineHeight: 'solid'
+    // fontVariantLigatures: 'common-ligatures',
+    lineHeight: 'dense'
   }
   // kbd, samp
 }

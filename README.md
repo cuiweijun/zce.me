@@ -83,7 +83,7 @@ The default structure is shown below:
   - https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/
 - [x] Progressive Web Apps (PWAs)
   - https://www.gatsbyjs.org/docs/progressive-web-app/
-- [ ] Performance
+- [x] Performance
   - https://www.gatsbyjs.org/docs/performance/
   - https://webpagetest.org/
 - [ ] Lighthouse CI
@@ -95,7 +95,6 @@ The default structure is shown below:
 
 ### Backlog
 
-- [ ] Content type filter
 - [x] Content pages
 - [x] Mapping node types
 - [x] Taxonomy pages
@@ -110,6 +109,11 @@ The default structure is shown below:
 - [x] Site Footer
 - [x] Husky + Lint-staged
 - [x] Netlify Forms
+- [x] Gatsby webpack output config
+- [x] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
+- [x] Create default nodes by programming
+- [ ] Content type filter
+- [ ] authors & categories & tags page
 - [ ] Sitemap support
 - [ ] RSS feed
 - [ ] Comment System (Custom service)
@@ -126,20 +130,12 @@ The default structure is shown below:
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/
   - https://github.com/netlify-templates/gatsby-starter-netlify-cms
-- [ ] Offline support
-- [ ] authors & categories & tags page
-- [ ] Search
-  - [ ] https://www.gatsbyjs.org/docs/adding-search-with-algolia/
 - [ ] write-good
-- [ ] Gatsby webpack output config
 - [ ] Local path & Remote url
 - [ ] Cover with absolute url
 - [ ] Category Hierarchy
 - [ ] Gatsby Theme
-- [ ] CSS-in-JS（Emotion + System UI Theme Spec + Theming)
-- [ ] Create default nodes by programming
 - [ ] Global State
-- [ ] SSR
 - [ ] I18n
 
 ## Deploy

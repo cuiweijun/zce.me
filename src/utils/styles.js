@@ -242,6 +242,7 @@ const code = {
     fontSize: '87.5%',
     lineHeight: 'solid'
   }
+  // kbd, samp
 }
 
 const table = {

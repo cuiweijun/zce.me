@@ -20,7 +20,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
       borderRadius: 'medium',
       bg: 'background',
       boxShadow: 'light',
-      transition: 'background 0.3s, box-shadow 0.3s, transform 0.3s, flex 0.3s', // TODO: flex
+      transition: 'background 0.3s, box-shadow 0.3s, transform 0.3s',
       willChange: 'transform',
       ':hover': {
         boxShadow: 'medium',

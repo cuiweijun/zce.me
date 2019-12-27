@@ -86,6 +86,7 @@ const AsideSection = ({ title, children }) => (
   <section
     sx={{
       p: 3,
+      lineHeight: 'loose',
       ':not(:last-child)': {
         borderBottom: 1,
         borderColor: 'border',

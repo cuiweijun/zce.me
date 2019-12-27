@@ -12,7 +12,7 @@ tags:
   - Webpack
 sections:
   - title: 模块化概述
-    duration: 190
+    duration: 105
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f20.mp4
@@ -21,7 +21,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f40.mp4
   - title: 模块化演变过程
-    duration: 105
+    duration: 282
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f20.mp4
@@ -30,7 +30,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f40.mp4
   - title: 模块化规范的出现
-    duration: 282
+    duration: 420
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f20.mp4
@@ -39,7 +39,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f40.mp4
   - title: 模块化标准规范
-    duration: 420
+    duration: 190
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f20.mp4

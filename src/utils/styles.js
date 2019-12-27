@@ -13,7 +13,8 @@ const block = {
 const pseudo = {
   '::selection': {
     bg: alpha('primary', 0.6),
-    color: readable('primary')
+    color: readable('primary'),
+    textShadow: 'text'
   }
 }
 

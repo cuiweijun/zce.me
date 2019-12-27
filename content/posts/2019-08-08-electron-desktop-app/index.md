@@ -116,7 +116,7 @@ app.on('activate', () => {
 
 克隆基础项目结构代码：
 
-```sh
+```shell
 $ git clone https://github.com/electron/electron-quick-start.git onetext --depth 1
 $ cd onetext
 $ rm -rf .git
@@ -124,7 +124,7 @@ $ rm -rf .git
 
 安装项目依赖的模块：
 
-```sh
+```shell
 $ yarn # or npm install
 ```
 
@@ -273,7 +273,7 @@ my-project/
 
 我们可通过官方提供的模板快速创建这样结构的项目：
 
-```sh
+```shell
 $ git clone https://github.com/electron-userland/electron-webpack-quick-start.git my-project --depth 1
 $ cd my-project
 $ rm -rf .git
@@ -284,7 +284,7 @@ $ yarn # or npm install
 
 这个项目中提供了一些有用的 scripts：
 
-```sh
+```shell
 # run application in development mode
 yarn dev
 
@@ -302,7 +302,7 @@ yarn dist:dir
 
 由于 electron-webpack 中会自动加载 Vue.js 所需的 loader，所以只需要安装对应的模块，Vue.js 单文件组件将自动工作。
 
-```sh
+```shell
 yarn add vue electron-webpack-vue --dev
 ```
 
@@ -310,7 +310,7 @@ yarn add vue electron-webpack-vue --dev
 
 同理，React.js 的工作也只需要安装相应的模块：
 
-```sh
+```shell
 yarn add react react-dom @babel/preset-react --dev
 ```
 

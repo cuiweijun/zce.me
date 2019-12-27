@@ -79,19 +79,19 @@ Yeoman 的优点同样也是它的缺点。在很多专注基于单一框架开�
 
 Yeoman 是基于 Node.js 开发的一个工具模块，使用它的第一步自然是通过 NPM 在全局范围安装它（前提需要有正常的 Node.js 环境）：
 
-```sh
+```shell
 $ npm install yo --global # or yarn global add yo
 ```
 
 通过之前的介绍，我们应该知道，单单只有 `yo` 这个模块是不够的，因为 Yeoman 是需要搭配特定的 Generator 使用的。我们需要找到用于生成我们想要的类型项目的 Generator，例如：我们想要生成一个 Node module 项目，我们可以使用 `generator-node`，使用的方式同样也是将其安装到全局范围：
 
-```sh
+```shell
 $ npm install generator-node --global # or yarn global add generator-node
 ```
 
 有了这两个模块过后，我们就可以通过运行命令去使用 Yeoman 帮我们创建一个新的 Node Module 项目：
 
-```sh
+```shell
 $ cd path/to/project-dir
 $ mkdir my-module
 $ yo node
@@ -103,14 +103,14 @@ $ yo node
 
 有时候我们并不需要创建完整的项目结构，可能只是需要在已有项目基础之上创建某种类型的项目文件。例如给一个项目创建 README.md，又或是在一个原有项目之上某些配置文件，你可以使用 Yeoman 的 Sub Generator 特性来实现。这里我们可以使用 `node:cli` 这个 Sub Generator 来为我们的模块添加 cli 支持，让其成为一个 cli 应用：
 
-```sh
+```shell
 $ cd path/to/project-dir/my-module
 $ yo node:cli
 ```
 
 此时命令行终端会提示是否覆盖 `package.json`，我们选择 Yes：
 
-```sh
+```shell
 $ yo node:cli
  conflict package.json
 ? Overwrite package.json? overwrite
@@ -221,7 +221,7 @@ module.exports = class extends Generator {
 
 准备就绪，我们尝试使用 Yeoman 运行这个生成器：
 
-```sh
+```shell
 $ yo sample
 ```
 
@@ -403,7 +403,7 @@ module.exports = plop => {
 
 完事过后我们就可以通过 Plop 提供的 CLI 去启动这个生成器：
 
-```sh
+```shell
 yarn plop controller
 ```
 

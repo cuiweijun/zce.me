@@ -60,7 +60,7 @@ const Content = ({ html }) => (
       py: ['3%', '6%'],
       minHeight: '60vh',
       bg: 'background',
-      fontSize: t => `calc(${t.fontSizes.sm} + 0.25vw)`,
+      fontSize: 'calc(100% + 0.1vw)',
       // fontFamily: 'serif',
       lineHeight: 'loose',
       wordWrap: 'break-word',

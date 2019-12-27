@@ -71,34 +71,34 @@ type Fields {
   permalink: String!
   title: String!
   slug: String!
-  date: Date
-  updated: Date
+  date: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
+  updated: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
   cover: File @fileByRelativePath
   description: String
   draft: Boolean
   private: Boolean
   featured: Boolean
   comment: Boolean
-  # authors: [Author]
-  # categories: [Category]
-  # tags: [Tag]
+  # authors: [Author!]
+  # categories: [Category!]
+  # tags: [Tag!]
   meta: [Meta]
 }
 
 type Frontmatter {
   title: String!
   slug: String
-  date: Date
-  updated: Date
+  date: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
+  updated: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
   cover: File @fileByRelativePath
   description: String
   draft: Boolean
   private: Boolean
   featured: Boolean
   comment: Boolean
-  # authors: [Author]
-  # categories: [Category]
-  # tags: [Tag]
+  # authors: [Author!]
+  # categories: [Category!]
+  # tags: [Tag!]
   meta: [Meta]
 }
 

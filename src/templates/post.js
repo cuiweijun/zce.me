@@ -18,16 +18,50 @@ import {
 } from '../components'
 import { shade } from '../utils/color'
 
+const Figure = ({ cover, title }) => (
+  <Image
+    Tag="figure"
+    file={cover}
+    alt={title}
+    title={title}
+    sx={{
+      mx: [-3, 0],
+      overflow: 'visible !important',
+      bg: 'dark',
+      ':before,:after': {
+        display: ['none', 'block'],
+        position: 'absolute',
+        top: '10%',
+        zIndex: -1,
+        width: '1rem',
+        height: '120%',
+        background: 'rgba(0, 0, 0, 0.2)',
+        content: '""',
+        filter: 'blur(1rem)'
+      },
+      ':before': {
+        left: '-0.5rem',
+        transform: 'rotate(-1deg)'
+      },
+      ':after': {
+        right: '-0.5rem',
+        transform: 'rotate(1deg)'
+      }
+    }}
+  />
+)
+
 const Content = ({ html }) => (
   <section
     dangerouslySetInnerHTML={{ __html: html }}
     sx={{
-      px: ['3%', '5%', '10%'],
+      mx: [-3, 0],
+      px: ['5%', '10%'],
       py: ['3%', '6%'],
       minHeight: '60vh',
       bg: 'background',
-      fontSize: t => `calc(${t.fontSizes.sm} + 0.33vw)`,
-      fontFamily: 'serif',
+      fontSize: t => `calc(${t.fontSizes.sm} + 0.25vw)`,
+      // fontFamily: 'serif',
       lineHeight: 'loose',
       wordWrap: 'break-word',
       transition: 'background 0.3s',
@@ -35,7 +69,8 @@ const Content = ({ html }) => (
         m: '1.4em 0 0.8em'
       },
       '.gatsby-resp-image-wrapper': {
-        maxWidth: '800px !important'
+        my: '5%',
+        maxWidth: '860px !important'
       },
       '.footnotes': {
         p: {
@@ -372,34 +407,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
         </span>
         <h1 sx={{ fontSize: 8, lineHeight: 'normal' }}>{post.fields.title}</h1>
       </header>
-      <Image
-        Tag="figure"
-        file={post.fields.cover}
-        alt={post.fields.title}
-        title={post.fields.title}
-        sx={{
-          overflow: 'visible !important', // for box-shadow
-          bg: 'dark',
-          ':before,:after': {
-            position: 'absolute',
-            top: '10%',
-            zIndex: -1,
-            width: '1rem',
-            height: '120%',
-            background: 'rgba(0, 0, 0, 0.2)',
-            content: '""',
-            filter: 'blur(1rem)'
-          },
-          ':before': {
-            left: '-0.5rem',
-            transform: 'rotate(-1deg)'
-          },
-          ':after': {
-            right: '-0.5rem',
-            transform: 'rotate(1deg)'
-          }
-        }}
-      />
+      <Figure cover={post.fields.cover} title={post.fields.title} />
       <Content html={post.html} />
       <Footer post={post} url={meta.url + location.pathname} />
     </Container>

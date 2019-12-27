@@ -82,6 +82,12 @@ const reboot = {
   },
   figure: {
     ...block
+  },
+  strong: {
+    fontWeight: 'bolder'
+  },
+  small: {
+    fontSize: '80%'
   }
 }
 

@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql, navigate } from 'gatsby'
-import moment from 'moment'
 
 import {
   Layout,
@@ -9,16 +8,17 @@ import {
   Row,
   Tabs,
   Link,
-  // Button,
   Comments,
   Player
 } from '../components'
 
-const pad = i => ('0' + (i + 1)).substr(-2)
+const pad = n => ('0' + Math.floor(n)).substr(-2)
 
-const getVideoLink = (p, i) => `${p}${pad(i)}/`
+const getVideoLink = (p, i) => `${p}${pad(i + 1)}/`
 
-const Main = ({ current, course }) => (
+const formatDuration = d => `${pad(d / 60)}:${pad(d % 60)}`
+
+const Main = ({ current, fields, excerpt, html }) => (
   <Tabs
     initial={1}
     sx={{
@@ -31,7 +31,7 @@ const Main = ({ current, course }) => (
     <section id="intro" name="简介">
       <div
         sx={{ mb: 4, px: 3, py: 4, lineHeight: 'loose' }}
-        dangerouslySetInnerHTML={{ __html: course.html }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
     </section>
     <section id="toc" name="目录">
@@ -58,22 +58,22 @@ const Main = ({ current, course }) => (
             color: 'muted'
           }
         }}>
-        {course.fields.sections.map((item, i) => (
-          <Link key={i} to={getVideoLink(course.fields.permalink, i)}>
-            {i === current ? `▶ ${item.title}` : `${pad(i)}. ${item.title}`}
-            <small>{moment(item.duration * 1000).format('mm:ss')}</small>
+        {fields.sections.map((item, i) => (
+          <Link key={i} to={getVideoLink(fields.permalink, i)}>
+            {i === current ? `▶ ${item.title}` : `${pad(i + 1)}. ${item.title}`}
+            <small>{formatDuration(item.duration)}</small>
           </Link>
         ))}
       </div>
     </section>
-    {course.fields.comment && (
+    {fields.comment && (
       <section id="talk" name="讨论">
         <Comments
           type="course"
-          slug={course.fields.slug}
-          title={course.fields.title}
-          excerpt={course.excerpt}
-          permalink={course.fields.permalink}
+          slug={fields.slug}
+          title={fields.title}
+          excerpt={excerpt}
+          permalink={fields.permalink}
           sx={{ px: 3 }}
         />
       </section>
@@ -131,7 +131,7 @@ const Aside = ({ video, fields, related }) => (
     </AsideSection>
     <AsideSection title="发布时间">
       <time dateTime={fields.date} title={fields.date} aria-label="Posted on">
-        {moment.utc(fields.date).format('ll')}
+        {fields.formatDate}
       </time>
     </AsideSection>
     <AsideSection title="最后更新">
@@ -139,7 +139,7 @@ const Aside = ({ video, fields, related }) => (
         dateTime={fields.updated}
         title={fields.updated}
         aria-label="Updated on">
-        {moment.utc(fields.updated).format('ll')}
+        {fields.formatUpdated}
       </time>
     </AsideSection>
     <AsideSection title="分类">
@@ -171,7 +171,7 @@ const Aside = ({ video, fields, related }) => (
 )
 
 export default ({ data: { course, related }, pageContext: { current } }) => {
-  const { fields } = course
+  const { fields, excerpt, html } = course
   const video = fields.sections[current]
   const onEnded = () => {
     if (current + 1 === fields.sections.length) return
@@ -182,7 +182,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
     <Layout
       title={video ? video.title : fields.title}
       subtitle={fields.description}
-      description={fields.description || course.excerpt}
+      description={fields.description || excerpt}
       cover={video ? false : fields.cover}
       hero={video ? false : undefined}
       mask={1}
@@ -198,7 +198,12 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
       )}
       <Container>
         <Row>
-          <Main current={current} course={course} />
+          <Main
+            current={current}
+            fields={fields}
+            excerpt={excerpt}
+            html={html}
+          />
           <Aside video={video} fields={fields} related={related} />
         </Row>
       </Container>
@@ -213,7 +218,9 @@ export const query = graphql`
         title
         slug
         date
+        formatDate: date(formatString: "ll")
         updated
+        formatUpdated: updated(formatString: "ll")
         cover {
           ...CoverImage
         }

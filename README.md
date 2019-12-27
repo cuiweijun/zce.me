@@ -4,7 +4,7 @@
 [![Build Status][actions-image]][actions-url]
 [![Code Style][style-image]][style-url]
 
-> zce.me site source code, created by [Gatsby](https://www.gatsbyjs.org).
+> zce.me site source code, created with [Gatsby](https://www.gatsbyjs.org).
 
 ## Getting Started
 

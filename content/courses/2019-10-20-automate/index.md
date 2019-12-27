@@ -14,6 +14,7 @@ tags:
   - npm scripts
 sections:
   - title: 自动化构建简介
+    duration: 110
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8dadf65285890793846028274/v.f20.mp4
@@ -22,6 +23,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8dadf65285890793846028274/v.f40.mp4
   - title: 自动化构建初体验
+    duration: 497
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5ab00ff65285890793844288052/v.f20.mp4
@@ -30,6 +32,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5ab00ff65285890793844288052/v.f40.mp4
   - title: 常用的自动化构建工具
+    duration: 260
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fc07cec5285890793843344500/v.f20.mp4

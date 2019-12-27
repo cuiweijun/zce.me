@@ -12,6 +12,7 @@ tags:
   - Plop
 sections:
   - title: 脚手架工具概要
+    duration: 172
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5a3f26465285890793844220320/v.f20.mp4
@@ -20,6 +21,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5a3f26465285890793844220320/v.f40.mp4
   - title: 常用的脚手架工具
+    duration: 120
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fb12b7f5285890793843339758/v.f20.mp4
@@ -28,6 +30,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fb12b7f5285890793843339758/v.f40.mp4
   - title: Yeoman 简介
+    duration: 108
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c0094a285285890793801136044/v.f20.mp4
@@ -36,6 +39,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c0094a285285890793801136044/v.f40.mp4
   - title: Yeoman 基础使用
+    duration: 432
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5a64746e5285890793844242432/v.f20.mp4
@@ -44,6 +48,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5a64746e5285890793844242432/v.f40.mp4
   - title: Sub Generator
+    duration: 218
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/94a08f7c5285890793587209088/v.f20.mp4
@@ -52,6 +57,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/94a08f7c5285890793587209088/v.f40.mp4
   - title: Yeoman 使用步骤总结
+    duration: 148
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5aadddf55285890793844284019/v.f20.mp4
@@ -60,6 +66,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5aadddf55285890793844284019/v.f40.mp4
   - title: 自定义 Generator
+    duration: 95
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fac2a6b5285890793843330306/v.f20.mp4
@@ -68,6 +75,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fac2a6b5285890793843330306/v.f40.mp4
   - title: 创建 Generator 模块
+    duration: 300
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8b80925285890793846024364/v.f20.mp4
@@ -76,6 +84,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/ef8b80925285890793846024364/v.f40.mp4
   - title: 根据模板创建文件
+    duration: 145
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fac40335285890793843330845/v.f20.mp4
@@ -84,6 +93,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fac40335285890793843330845/v.f40.mp4
   - title: 接收用户输入
+    duration: 177
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/cd88f8755285890793336772417/v.f20.mp4
@@ -92,6 +102,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/cd88f8755285890793336772417/v.f40.mp4
   - title: Vue Generator 案例
+    duration: 376
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fbf53ce5285890793843342153/v.f20.mp4
@@ -100,6 +111,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0fbf53ce5285890793843342153/v.f40.mp4
   - title: 发布 Generator
+    duration: 295
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/94a08f9e5285890793587209099/v.f20.mp4
@@ -108,6 +120,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/94a08f9e5285890793587209099/v.f40.mp4
   - title: Plop 简介
+    duration: 154
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/94a092af5285890793587209102/v.f20.mp4
@@ -116,6 +129,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/94a092af5285890793587209102/v.f40.mp4
   - title: Plop 的基本使用
+    duration: 441
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/cd88f8905285890793336772421/v.f20.mp4
@@ -124,6 +138,7 @@ sections:
       - size: 1080
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/cd88f8905285890793336772421/v.f40.mp4
   - title: 脚手架的工作原理
+    duration: 562
     sources:
       - size: 360
         src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/cd88f8945285890793336772425/v.f20.mp4

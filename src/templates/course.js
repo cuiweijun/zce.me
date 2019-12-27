@@ -9,9 +9,14 @@ import {
   Row,
   Tabs,
   Link,
+  // Button,
   Comments,
   Player
 } from '../components'
+
+const pad = i => ('0' + (i + 1)).substr(-2)
+
+const getVideoLink = (p, i) => `${p}${pad(i)}/`
 
 const Main = ({ current, course }) => (
   <Tabs
@@ -30,42 +35,37 @@ const Main = ({ current, course }) => (
       />
     </section>
     <section id="toc" name="目录">
-      <ol
+      <div
         sx={{
-          p: 0,
           py: 3,
-          listStyle: 'inside decimal-leading-zero',
-          lineHeight: 'loose'
+          a: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            px: 3,
+            py: 2,
+            borderBottom: 1,
+            borderColor: 'border',
+            textDecoration: 'none',
+            lineHeight: 'loose',
+            transition: 'border 0.3s',
+            ':last-child': {
+              border: 0
+            }
+          },
+          span: {
+            color: 'muted'
+          }
         }}>
         {course.fields.sections.map((item, i) => (
-          <li
-            key={item.title}
-            sx={{
-              px: 3,
-              py: 2,
-              // fontSize: i === current || 'sm',
-              color: i === current && 'primary',
-              ':not(:last-child)': {
-                borderBottom: 1,
-                borderColor: 'border',
-                transition: 'border 0.3s'
-              },
-              a: {
-                display: 'inline-block',
-                minWidth: '90%',
-                textDecoration: 'none'
-              }
-            }}>
-            {i === current ? (
-              <span>▶ {item.title}</span>
-            ) : (
-              <Link to={`${course.fields.permalink}${('0' + ++i).substr(-2)}/`}>
-                {item.title}
-              </Link>
-            )}
-          </li>
+          <Link key={i} to={getVideoLink(course.fields.permalink, i)}>
+            {i === current ? '▶ ' : `${pad(i)}. `}
+            {item.title}
+            <span>{moment(item.duration * 1000).format('mm:ss')}</span>
+            {/* <Button size="sm" children="开始学习" /> */}
+          </Link>
         ))}
-      </ol>
+      </div>
     </section>
     {course.fields.comment && (
       <section id="talk" name="讨论">
@@ -175,7 +175,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
   const video = fields.sections[current]
   const onEnded = () => {
     if (current + 1 === fields.sections.length) return
-    const next = `${fields.permalink}${('0' + (current + 2)).substr(-2)}/`
+    const next = getVideoLink(fields.permalink, current + 1)
     setTimeout(() => navigate(next), 2000)
   }
   return (
@@ -222,6 +222,7 @@ export const query = graphql`
         comment
         sections {
           title
+          duration
           sources {
             size
             src

@@ -11,6 +11,7 @@ const query = graphql`
       name
       socials {
         name
+        icon
         link
       }
       links {
@@ -109,7 +110,7 @@ const Follow = ({ socials }) => (
             rel="noopener noreferrer"
             color="border"
             variant="outline"
-            icon={i.name.toLowerCase()}
+            icon={i.icon}
             sx={{ color: 'currentColor' }}
           />
         </li>

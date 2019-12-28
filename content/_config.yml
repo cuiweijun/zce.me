@@ -39,24 +39,34 @@ navigation:
 
 socials:
   - name: Twitter
+    icon: twitter
     link: https://twitter.com/w_zce
   - name: Facebook
+    icon: facebook
     link: https://www.facebook.com/zccce
   - name: LinkedIn
+    icon: linkedin
     link: https://www.linkedin.com/in/zceme
   - name: GitHub
+    icon: github
     link: https://github.com/zce
   - name: YouTube
+    icon: twitter
     link: https://www.youtube.com/channel/UCFUwWB0v2qYqLaB95z1nv9Q
   - name: Weibo
+    icon: weibo
     link: https://weibo.com/zceme
   - name: Weixin
+    icon: weixin
     link: https://img.zce.me/wechat.jpg
   - name: QQ
+    icon: qq
     link: ~
   - name: Bilibili
+    icon: bilibili
     link: https://space.bilibili.com/210242179
   - name: Youku
+    icon: youku
     link: https://i.youku.com/zcezce
 
 links:

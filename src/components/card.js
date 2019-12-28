@@ -82,7 +82,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        flexGrow: 1,
+        flex: 1,
         p: 3
       }}>
       <span sx={{ color: 'muted', textTransform: 'uppercase' }}>
@@ -98,7 +98,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
         {post.fields.title}
       </h3>
 
-      <p sx={{ flexGrow: 1 }}>{post.excerpt}</p>
+      <p sx={{ flex: 1 }}>{post.excerpt}</p>
 
       <footer
         sx={{

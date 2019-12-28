@@ -42,7 +42,7 @@ const Featured = ({ post }) => (
         alt={post.fields.title}
         title={post.fields.title}
         sx={{
-          flexBasis: '22rem',
+          flex: '0 0 22rem',
           order: [0, 0, 1],
           mb: [4, 4, 0],
           ml: [0, 0, 4],
@@ -54,8 +54,7 @@ const Featured = ({ post }) => (
       />
       <div
         sx={{
-          flexGrow: 1,
-          flexBasis: '23rem',
+          flex: '1 0 23rem',
           p: 4,
           lineHeight: 'loose'
         }}>

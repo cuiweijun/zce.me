@@ -72,7 +72,7 @@ const Follow = ({ socials }) => (
         aria-label="Input your email"
         aria-describedby="btn_send"
         sx={{
-          flexGrow: 1,
+          flex: 1,
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0
         }}
@@ -194,11 +194,11 @@ const Copyright = ({ name, url }) => (
       &copy; {new Date().getFullYear()} <Link to={url} children={name} />. All
       Rights Reserved.
     </span>
-    <ul sx={{ flexGrow: 1, m: 0, mx: 2, p: 0 }}>
-      <li sx={{ display: 'inline-block', mr: 1 }}>
+    <ul sx={{ flex: 1, m: 0, ml: 2, p: 0 }}>
+      <li sx={{ display: 'inline', mr: 2 }}>
         <Link to="/privacy-policy/" children="Privacy Policy" />
       </li>
-      <li sx={{ display: 'inline-block', mr: 1 }}>
+      <li sx={{ display: 'inline', mr: 2 }}>
         <Link to="/terms-of-service/" children="Terms of Service" />
       </li>
     </ul>

@@ -11,19 +11,20 @@ export default ({ data: { page } }) => (
     description={page.fields.description || page.excerpt}
     cover={false}
     padding="5vw">
-    <Container sx={{ mb: 9 }}>
+    <Container>
       <Image
         Tag="figure"
         file={page.fields.cover}
         alt={page.fields.title}
         title={page.fields.title}
-        sx={{ mb: 8 }}
+        sx={{ mx: [-3, 0], mb: '6vw' }}
       />
       <div
         dangerouslySetInnerHTML={{ __html: page.html }}
         sx={{
-          maxWidth: '50rem',
+          maxWidth: 'inner',
           mx: 'auto',
+          mb: '8vw',
           lineHeight: 'loose',
           img: { display: 'block', mx: 'auto' }
         }}
@@ -35,12 +36,7 @@ export default ({ data: { page } }) => (
           title={page.fields.title}
           excerpt={page.excerpt}
           permalink={page.fields.permalink}
-          sx={{
-            maxWidth: '50rem',
-            mx: 'auto',
-            lineHeight: 'loose',
-            img: { display: 'block', mx: 'auto' }
-          }}
+          sx={{ maxWidth: 'inner', mx: 'auto' }}
         />
       )}
     </Container>

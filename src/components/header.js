@@ -82,7 +82,7 @@ const Menu = ({ items }) => (
     sx={{
       display: 'flex',
       overflowX: 'auto',
-      flexGrow: 1,
+      flex: 1,
       m: 0,
       mx: [1, 3],
       px: 1,

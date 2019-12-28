@@ -327,7 +327,7 @@ const Category = ({ name, category, related }) => (
       position: 'relative',
       display: 'flex',
       overflow: 'hidden',
-      flex: '1 1 0',
+      flex: '1 1',
       flexBasis: t => ['100%', '100%', '100%', '20rem'],
       flexDirection: 'column',
       // order: [2, 2, 2, 0],
@@ -370,7 +370,7 @@ const Category = ({ name, category, related }) => (
       sx={{ mx: 'auto', stroke: 'rgba(255, 255, 255, 0.25)' }}>
       <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5" />
     </svg>
-    <ul sx={{ flexGrow: 1, m: 3, p: 0, listStyle: 'none' }}>
+    <ul sx={{ flex: 1, m: 3, p: 0, listStyle: 'none' }}>
       {related.nodes.map(item => (
         <li
           key={item.id}

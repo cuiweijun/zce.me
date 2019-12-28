@@ -1,5 +1,6 @@
 ---
-title: 隐私政策
+title: Privacy Policy
+# title: 隐私政策
 slug: privacy-policy
 ---
 

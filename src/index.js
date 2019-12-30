@@ -7,19 +7,15 @@
  */
 
 import React from 'react'
-import { ThemeProvider, InitializeColorMode } from 'theme-ui'
-import { Global } from '@emotion/core'
-
-import theme from './utils/theme'
-import styles from './utils/styles'
 
 import { Wrapper } from './components'
+import { ThemeProvider, InitializeColorMode } from './theme'
+
+import theme from './theme/theme'
+import styles from './theme/styles'
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>
-    {/* https://github.com/system-ui/theme-ui/issues/499 */}
-    {/* <ColorMode /> */}
-    <Global styles={styles} />
+  <ThemeProvider theme={theme} styles={styles}>
     {element}
   </ThemeProvider>
 )
@@ -28,8 +24,8 @@ export const wrapPageElement = ({ element, props }) => (
   <Wrapper {...props}>{element}</Wrapper>
 )
 
-export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents(InitializeColorMode())
+export const onRenderBody = ({ setHeadComponents }) => {
+  setHeadComponents(InitializeColorMode())
 }
 
 export const onServiceWorkerUpdateReady = () => {

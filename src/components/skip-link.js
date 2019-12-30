@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 
 export default ({ id = 'content', ...props }) => (
   <a

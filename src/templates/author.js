@@ -1,9 +1,8 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import { graphql } from 'gatsby'
 
 import { Layout, Container, Row, Card, Avatar } from '../components'
-import { getMeta } from '../utils/meta'
+import { getMeta } from '../utils'
 
 export default ({ data: { author, posts } }) => (
   <Layout

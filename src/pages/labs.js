@@ -1,11 +1,9 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-// import { useState } from 'react'
+import React from 'react'
 
 import { Layout, Container, Button, Tabs, Player } from '../components'
 
 export default () => {
-  // const [count, setCount] = useState(0)
+  // const [count, setCount] = React.useState(0)
   return (
     <Layout title="Labs" cover={false}>
       <Container sx={{ p: 6 }}>
@@ -14,7 +12,7 @@ export default () => {
           <Button color="primary" sx={{ m: 2 }}>
             Hello
           </Button>
-          <Button color="secondary" sx={{ m: 2 }}>
+          {/* <Button color="secondary" sx={{ m: 2 }}>
             Hello
           </Button>
           <Button color="accent" sx={{ m: 2 }}>
@@ -22,7 +20,7 @@ export default () => {
           </Button>
           <Button color="highlight" sx={{ m: 2 }}>
             Hello
-          </Button>
+          </Button> */}
           <Button color="muted" sx={{ m: 2 }}>
             Hello
           </Button>
@@ -30,8 +28,8 @@ export default () => {
             Hello
           </Button>
           {/* <Button color="gray" sx={{ m: 2 }}>
-          Hello
-        </Button> */}
+            Hello
+          </Button> */}
           <Button color="dark" sx={{ m: 2 }}>
             Hello
           </Button>
@@ -97,30 +95,30 @@ export default () => {
         <h3>Icons</h3>
         <div sx={{ mx: -2, mb: 3 }}>
           <div>
-            <Button color="primary" size="sm" icon="heart" sx={{ m: 2 }} />
-            <Button color="primary" size="md" icon="heart" sx={{ m: 2 }} />
-            <Button color="primary" size="lg" icon="heart" sx={{ m: 2 }} />
-            <Button color="dark" size="sm" icon="heart" sx={{ m: 2 }} />
-            <Button color="dark" size="md" icon="heart" sx={{ m: 2 }} />
-            <Button color="dark" size="lg" icon="heart" sx={{ m: 2 }} />
+            <Button color="primary" size="sm" icon="github" sx={{ m: 2 }} />
+            <Button color="primary" size="md" icon="github" sx={{ m: 2 }} />
+            <Button color="primary" size="lg" icon="github" sx={{ m: 2 }} />
+            <Button color="dark" size="sm" icon="github" sx={{ m: 2 }} />
+            <Button color="dark" size="md" icon="github" sx={{ m: 2 }} />
+            <Button color="dark" size="lg" icon="github" sx={{ m: 2 }} />
           </div>
           <div>
-            <Button color="primary" size="sm" icon="heart" sx={{ m: 2 }}>
+            <Button color="primary" size="sm" icon="github" sx={{ m: 2 }}>
               Hello
             </Button>
-            <Button color="primary" size="md" icon="heart" sx={{ m: 2 }}>
+            <Button color="primary" size="md" icon="github" sx={{ m: 2 }}>
               Hello
             </Button>
-            <Button color="primary" size="lg" icon="heart" sx={{ m: 2 }}>
+            <Button color="primary" size="lg" icon="github" sx={{ m: 2 }}>
               Hello
             </Button>
-            <Button color="dark" size="sm" icon="heart" sx={{ m: 2 }}>
+            <Button color="dark" size="sm" icon="github" sx={{ m: 2 }}>
               Hello
             </Button>
-            <Button color="dark" size="md" icon="heart" sx={{ m: 2 }}>
+            <Button color="dark" size="md" icon="github" sx={{ m: 2 }}>
               Hello
             </Button>
-            <Button color="dark" size="lg" icon="heart" sx={{ m: 2 }}>
+            <Button color="dark" size="lg" icon="github" sx={{ m: 2 }}>
               Hello
             </Button>
           </div>

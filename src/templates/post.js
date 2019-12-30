@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import { graphql } from 'gatsby'
 
 import {
@@ -15,7 +14,6 @@ import {
   Comments,
   ScreenReaderText
 } from '../components'
-import { shade } from '../utils/color'
 
 const Header = ({ title, date, formatDate, category }) => (
   <header
@@ -328,14 +326,14 @@ const Category = ({ name, category, related }) => (
       display: 'flex',
       overflow: 'hidden',
       flex: '1 1',
-      flexBasis: t => ['100%', '100%', '100%', '20rem'],
+      flexBasis: ['100%', '100%', '100%', '20rem'],
       flexDirection: 'column',
       // order: [2, 2, 2, 0],
       mx: 3,
       mb: 6,
       p: 5,
       borderRadius: 'medium',
-      bg: shade('primary', 0.65),
+      bg: 'dark',
       color: 'white',
       boxShadow: 'light',
       textAlign: 'center',

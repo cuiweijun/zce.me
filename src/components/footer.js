@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import { Container, Link, Button, Input } from '../components'
@@ -137,7 +136,8 @@ const Tags = ({ tags }) => (
             children={i.name}
             sx={{
               ':before': {
-                content: '"\\0023"'
+                content: '"\\0023"',
+                opacity: 0.7
               }
             }}
           />
@@ -159,7 +159,8 @@ const Links = ({ links }) => (
           sx={{
             ':before': {
               content: '"\\279F"',
-              mr: 1
+              mr: 1,
+              opacity: 0.7
             }
           }}>
           <Link to={i.link} children={i.text} />
@@ -216,7 +217,7 @@ const Copyright = ({ name, url }) => (
       <svg viewBox="0 0 50 50" width="22" height="22" aria-hidden="true">
         <g transform="translate(25 25)">
           <path
-            sx={{ fill: 'accent' }}
+            fill="#fa5252"
             d="M10.9-20.2c-4.5,0-8.5,2.3-10.9,5.8c-2.4-3.5-6.3-5.8-10.9-5.8c-7.3,0-13.1,5.8-13.1,13C-24,5.7-3.7,11.9,0,20.2C3.7,11.9,24,5.8,24-7.2C24-14.4,18.2-20.2,10.9-20.2">
             <animateTransform
               attributeName="transform"

@@ -1,6 +1,6 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-import icons from '../assets/icons.json'
+import React from 'react'
+
+import icons from '../assets/icons'
 
 export default ({ name, size = 16, ...props }) => (
   <svg

@@ -10,9 +10,9 @@ const colors = {
   black: '#000',
 
   primary: '#15aabf', // '#339af0',
-  secondary: '#22b8cf',
-  accent: '#ff6b6b',
-  highlight: '#fcc419',
+  // secondary: '#22b8cf',
+  // accent: '#ff6b6b',
+  // highlight: '#fcc419',
   muted: '#717a82', // '#868e96',
   light: '#f1f3f5',
   // gray: '#738a94', // '#e9ecef',
@@ -25,10 +25,10 @@ const colors = {
   // Color Modes
   modes: {
     dark: {
-      primary: '#f03e3e', // '#4dabf7',
-      secondary: '#3bc9db',
-      accent: '#ff8787',
-      highlight: '#ffd43b',
+      primary: '#f08c00', // '#f03e3e', // '#4dabf7',
+      // secondary: '#3bc9db',
+      // accent: '#ff8787',
+      // highlight: '#ffd43b',
       muted: '#92a3ab', // '#adb5bd',
       light: '#191b1f', // '#343a40',
       // gray: '#92a3ab', // '#292d32',
@@ -43,7 +43,6 @@ const colors = {
 
 // prettier-ignore
 const fonts = {
-  // sans: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
   sans: 'system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
   serif: 'Georgia, Cambria, "Times New Roman", Times, serif',
   mono: '"Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'

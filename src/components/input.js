@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 
 export default ({ variant = 'default', size = 'md', ...props }) => {
   const sizes = {

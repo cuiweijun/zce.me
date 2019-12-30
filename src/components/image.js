@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import Image from 'gatsby-image'
 
 export default ({ as: Tag, file, ...props }) =>

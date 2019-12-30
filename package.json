@@ -22,6 +22,7 @@
     "email": "w@zce.me",
     "url": "https://zce.me"
   },
+  "sideEffects": false,
   "scripts": {
     "format": "prettier --write \"**/*.{js,json,yml,yaml,md}\"",
     "clean": "gatsby clean",
@@ -64,8 +65,9 @@
     "tabWidth": 2
   },
   "dependencies": {
+    "@emotion/babel-plugin-jsx-pragmatic": "0.1.5",
     "@emotion/core": "10.0.27",
-    "@mdx-js/react": "1.5.3",
+    "emotion-theming": "^10.0.27",
     "gatsby": "2.18.17",
     "gatsby-image": "2.2.37",
     "gatsby-plugin-manifest": "2.2.34",
@@ -90,8 +92,7 @@
     "prismjs": "1.17.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-helmet": "5.2.1",
-    "theme-ui": "0.2.52"
+    "react-helmet": "5.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "8.2.0",

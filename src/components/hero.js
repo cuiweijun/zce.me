@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Container from './container'

@@ -1,7 +1,7 @@
-/** @jsx jsx */
-import { jsx, useColorMode } from 'theme-ui'
+import React from 'react'
 
 import Button from './button'
+import { useColorMode } from '../theme'
 
 export default () => {
   const [mode, setMode] = useColorMode()

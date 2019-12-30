@@ -1,8 +1,7 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 
 import Icon from './icon'
-import { darken, readable } from '../utils/color'
+import { darken, readable } from '../theme'
 
 export default ({
   as: Tag = 'button',

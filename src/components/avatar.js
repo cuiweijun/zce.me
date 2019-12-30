@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
+
 import defaultAvatar from '../assets/avatar.svg'
 
 export default ({ image, name, size, ...props }) => (

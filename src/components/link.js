@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 
 const isHash = input => /^#/.test(input)

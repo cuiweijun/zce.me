@@ -1,8 +1,7 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby'
+
 import { loadStyle, loadScript } from '../utils/loader'
 
 if (typeof window !== 'undefined') {

@@ -356,3 +356,21 @@ exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
     actions.replaceWebpackConfig(config)
   }
 }
+
+exports.onCreateBabelConfig = async ({ actions }) => {
+  actions.setBabelPlugin({
+    name: '@emotion/babel-plugin-jsx-pragmatic',
+    options: {
+      export: 'jsx',
+      import: 'h',
+      module: require.resolve('./src/theme')
+    }
+  })
+  actions.setBabelPlugin({
+    name: '@babel/plugin-transform-react-jsx',
+    options: {
+      pragma: 'h',
+      pragmaFrag: 'React.Fragment'
+    }
+  })
+}

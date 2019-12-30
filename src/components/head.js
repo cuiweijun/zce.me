@@ -1,8 +1,8 @@
-/** @jsx jsx */
-import { memo } from 'react'
-import { jsx, useThemeUI } from 'theme-ui'
+import React, { memo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
+
+import { useTheme } from '../theme'
 
 const query = graphql`
   query HeadComponent {
@@ -33,7 +33,7 @@ const query = graphql`
 export default memo(
   ({ title, description, keywords, image, type, pathname, prev, next }) => {
     const { config } = useStaticQuery(query)
-    const { theme } = useThemeUI()
+    const theme = useTheme()
     const meta = []
     const link = []
 

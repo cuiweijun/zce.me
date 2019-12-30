@@ -1,7 +1,6 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { useEffect, useRef } from 'react'
+import React from 'react'
 import { withAssetPrefix } from 'gatsby'
+
 import { loadStyle, loadScript } from '../utils/loader'
 
 // TODO: Hls support
@@ -20,13 +19,13 @@ export default ({
   onEnded,
   ...props
 }) => {
-  const container = useRef(null)
+  const container = React.useRef(null)
 
   if (typeof sources === 'string') {
     sources = [{ src: sources }]
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     const initPlayer = () => {
       // TODO: need multi sources?
       const player = new window.Plyr(container.current, { autoplay })

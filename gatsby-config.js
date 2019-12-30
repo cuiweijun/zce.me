@@ -22,8 +22,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-plugin-nprogress',
     options: {
-      // Setting a color is optional.
-      color: 'var(--theme-ui-colors-primary, #339af0)'
+      color: 'var(--c-primary, #339af0)'
     }
   },
   {

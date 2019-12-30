@@ -1,9 +1,7 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { useState, Children } from 'react'
+import React from 'react'
 
 export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
-  const [current, setCurrent] = useState(initial)
+  const [current, setCurrent] = React.useState(initial)
   return (
     <Tag {...props}>
       <div
@@ -15,7 +13,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
           borderColor: 'border',
           transition: 'border 0.3s'
         }}>
-        {Children.map(children, (item, i) => (
+        {React.Children.map(children, (item, i) => (
           <a
             key={i}
             id={`${item.props.id || i}-tab`}
@@ -44,7 +42,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
         ))}
       </div>
       {/* TODO: load panel on demand */}
-      {Children.map(children, (item, i) => (
+      {React.Children.map(children, (item, i) => (
         <item.type
           key={i}
           id={item.props.id || i}

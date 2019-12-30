@@ -5,9 +5,9 @@
  */
 
 const colors = {
-  transparent: 'transparent',
-  white: '#fff',
-  black: '#000',
+  // transparent: 'transparent',
+  // white: '#fff',
+  // black: '#000',
 
   primary: '#15aabf', // '#339af0',
   // secondary: '#22b8cf',

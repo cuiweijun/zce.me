@@ -83,10 +83,10 @@ export default ({
         px: 3,
         py: 2,
         border: 1,
-        borderColor: color, // 'border',
+        borderColor: color,
         borderRadius: 'medium',
-        bg: color, // 'transparent',
-        color: readable(color, 'white', 'dark'), // 'text',
+        bg: color,
+        color: readable(color, 'white', 'dark'),
         fontSize: 'inherit',
         fontWeight: 'bold',
         lineHeight: 'inherit',
@@ -97,15 +97,15 @@ export default ({
         userSelect: 'none',
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',
         ':hover': {
-          borderColor: darken(color, 0.05), // 'border',
-          bg: darken(color, 0.05), // 'background',
-          color: readable(color, 'white', 'dark'), // 'white',
+          borderColor: darken(color, 0.05),
+          bg: darken(color, 0.05),
+          color: readable(color, 'white', 'dark'),
           textDecoration: 'none'
         },
         ':active': {
-          borderColor: darken(color, 0.15), // 'transparent',
-          bg: darken(color, 0.15), // darken('background', 0.11),
-          color: readable(color, 'white', 'dark') // 'white'
+          borderColor: darken(color, 0.15),
+          bg: darken(color, 0.15),
+          color: readable(color, 'white', 'dark')
         },
         ':focus': {
           boxShadow: 'outline',

@@ -6,6 +6,11 @@
 
 > zce.me site source code, created with [Gatsby](https://www.gatsbyjs.org).
 
+## Preview
+
+- Nightly: https://nightly.zce.me
+- Beta: https://beta.zce.me
+
 ## Getting Started
 
 ```shell

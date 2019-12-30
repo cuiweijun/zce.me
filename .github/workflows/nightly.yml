@@ -2,15 +2,14 @@
 
 name: Nightly Deploy
 
-on:
-  push:
-    branches:
-      - master
+on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{github.ref}}
+
       - name: Checkout
         uses: actions/checkout@v1
 
@@ -30,6 +29,7 @@ jobs:
           CI: true
 
       - name: Deploy to Coding
+        # if: github.ref == 'refs/heads/zh-CN'
         run: npx gh-pages
           -d public
           -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/nightly.zce.me.git
@@ -37,6 +37,7 @@ jobs:
           -u "GitHub Actions <bots@github.com>"
 
       - name: Deploy to Surge
+        # if: github.ref == 'refs/heads/master'
         run: npx surge
           public
           zce.surge.sh

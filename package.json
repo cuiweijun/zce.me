@@ -24,6 +24,7 @@
   },
   "sideEffects": false,
   "scripts": {
+    "new": "plop",
     "format": "prettier --write \"**/*.{js,json,yml,yaml,md}\"",
     "clean": "gatsby clean",
     "build": "gatsby build",
@@ -101,6 +102,7 @@
     "cz-conventional-changelog": "3.0.2",
     "husky": "3.1.0",
     "lint-staged": "9.5.0",
+    "plop": "^2.5.3",
     "prettier": "1.19.1"
   },
   "engines": {

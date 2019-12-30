@@ -1,6 +1,6 @@
 ---
 title: 故事
-title: story
+slug: story
 ---
 
 <p align="center">尚未完成</p>

@@ -1,9 +1,9 @@
-- name: Untagged
+- name: 无标签
   slug: untagged
-  description: Untagged contents
+  description: 无标签内容
   cover: images/untagged.jpg
   meta:
     - key: title
-      value: Untagged
+      value: 无标签
     - key: description
-      value: This is Untagged contents
+      value: 无标签内容

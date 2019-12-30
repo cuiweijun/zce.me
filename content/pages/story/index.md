@@ -1,5 +1,6 @@
 ---
-title: Story
+title: 故事
+title: story
 ---
 
-<p align="center">Not yet.</p>
+<p align="center">尚未完成</p>

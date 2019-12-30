@@ -4,7 +4,7 @@ slug: ajax-essential
 date: 2018-12-30 12:28:38
 cover: cover.png
 categories:
-  - Tutorial
+  - 教程
 tags:
   - AJAX
 ---

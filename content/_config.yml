@@ -3,20 +3,20 @@
 url: https://beta.zce.me # no trailing slash!
 
 name: Lei’s
-title: Lei’s Personal Website
-description: In development, coming soon. # Thoughts, stories and ideas.
+title: 汪磊的个人网站
+description: 正在开发中，敬请期待
 slogan: MAKE IT BETTER!
 keywords:
-  - Blog
-  - Learn
-  - Course
-  - Personal Homepage
+  - 博客
+  - 学习
+  - 课程
+  - 个人主页
   - 汪磊
   - zce.me
   - zce
 
 author:
-  name: Lei Wang
+  name: 汪磊
   email: w@zce.me
   url: https://zce.me
 
@@ -24,67 +24,67 @@ author:
 cover: images/cover.jpg
 
 navigation:
-  - text: Home
+  - text: 首页
     link: /
-  - text: Courses
+  - text: 课程
     link: /courses/
-  - text: Blog
+  - text: 博客
     link: /blog/
-  - text: About
+  - text: 关于
     link: /about/
-  - text: Contact
+  - text: 联系
     link: /contact/
-  - text: Discuss
+  - text: 讨论
     link: /discuss/
 
 socials:
-  - name: Twitter
+  - name: 推特
     icon: twitter
     link: https://twitter.com/w_zce
-  - name: Facebook
+  - name: 脸书
     icon: facebook
     link: https://www.facebook.com/zccce
-  - name: LinkedIn
+  - name: 领英
     icon: linkedin
     link: https://www.linkedin.com/in/zceme
   - name: GitHub
     icon: github
     link: https://github.com/zce
-  - name: YouTube
+  - name: 油管
     icon: youtube
     link: https://www.youtube.com/channel/UCFUwWB0v2qYqLaB95z1nv9Q
-  - name: Weibo
+  - name: 微博
     icon: weibo
     link: https://weibo.com/zceme
-  - name: Weixin
+  - name: 微信
     icon: weixin
     link: https://img.zce.me/wechat.jpg
   - name: QQ
     icon: qq
     link: ~
-  - name: Bilibili
+  - name: 哔哩哔哩
     icon: bilibili
     link: https://space.bilibili.com/210242179
-  - name: Youku
+  - name: 优酷
     icon: youku
     link: https://i.youku.com/zcezce
 
 links:
-  - text: Story
+  - text: 故事
     link: /story/
-  - text: About
+  - text: 关于我们
     link: /about/
-  - text: Contact
+  - text: 联系我们
     link: /contact/
-  - text: Categories
+  - text: 全部分类
     link: /categories/
-  - text: Archive
+  - text: 内容归档
     link: /archive/
-  - text: Labs
+  - text: 实验室
     link: /labs/
-  # - text: Privacy
+  # - text: 隐私策略
   #   link: /privacy-policy/
-  # - text: Terms
+  # - text: 服务条款
   #   link: /terms-of-service/
 
 subscription:

@@ -3,7 +3,7 @@ title: Node.js 中途岛
 slug: nodejs-midway
 date: 2017-11-30 16:08:00
 categories:
-  - Tutorial
+  - 教程
 tags:
   - Node.js
 ---

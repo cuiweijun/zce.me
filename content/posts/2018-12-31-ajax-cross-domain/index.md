@@ -4,7 +4,7 @@ slug: ajax-cross-domain
 date: 2018-12-31 17:55:39
 draft: true
 categories:
-  - Tutorial
+  - 教程
 tags:
   - AJAX
 ---

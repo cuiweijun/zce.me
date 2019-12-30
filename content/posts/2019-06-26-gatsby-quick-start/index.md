@@ -5,7 +5,7 @@ slug: gatsby-quick-start
 date: 2019-06-26 17:05:59
 draft: true
 categories:
-  - Tutorial
+  - 教程
 tags:
   - Gatsby
 ---

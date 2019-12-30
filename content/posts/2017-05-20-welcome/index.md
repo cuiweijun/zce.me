@@ -5,7 +5,7 @@ date: 2017-05-20 00:00:00
 cover: cover.jpg
 featured: true
 categories:
-  - Guide
+  - 指南
 ---
 
 👋 Welcome, it's great to have you here.

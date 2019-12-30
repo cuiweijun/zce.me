@@ -4,9 +4,9 @@ slug: frontend-engineering-scaffolding
 date: 2019-08-21 19:34:29
 cover: cover.png
 categories:
-  - Tutorial
+  - 教程
 tags:
-  - Engineering
+  - 工程化
 ---
 
 在对前端工程化的整体有了初步的认识之后，我们顺着一个项目的开发过程，先从脚手架开始，探讨前端工程化在项目创建环节中的具体表现。

@@ -5,9 +5,8 @@ date: 2019-10-10 15:29:00
 cover: cover.png
 description: 前端工程化的发起者
 categories:
-  - Engineering
+  - 工程化
 tags:
-  - Scaffolding
   - Yeoman
   - Plop
 sections:

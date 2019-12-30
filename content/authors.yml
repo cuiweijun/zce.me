@@ -1,4 +1,4 @@
-- name: Lei Wang
+- name: 汪磊
   slug: zce
   email: w@zce.me
   avatar: images/avatar-zce.jpg
@@ -17,10 +17,10 @@
     facebook: zccce
   meta:
     - key: title
-      value: Lei’s speaking
+      value: 汪磊
     - key: description
-      value: This is Lei’s speaking
+      value: 全部由汪磊发布的内容
 
-- name: Ziwen Wang
+- name: 汪子文
   slug: ziwen
   email: z@zce.me

@@ -12,11 +12,11 @@ private: true
 featured: true
 comment: true
 authors:
-  - Lei Wang
+  - 汪磊
 categories:
-  - Uncategorized
+  - 未分类
 tags:
-  - Untagged
+  - 无标签
 meta:
   - key: title
     value: Placeholder

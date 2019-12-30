@@ -4,7 +4,7 @@ slug: admin-settings
 date: 2017-05-20 00:00:00
 cover: cover.jpg
 categories:
-  - Guide
+  - 指南
 ---
 
 There are a couple of things to do next while you're getting set up:

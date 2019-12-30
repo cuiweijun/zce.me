@@ -5,7 +5,7 @@ date: 2019-06-03 00:00:00
 cover: cover.jpg
 featured: true
 categories:
-  - Guide
+  - 指南
 ---
 
 Ghost has a powerful visual editor with familiar formatting options, as well as the ability to seamlessly add dynamic content.

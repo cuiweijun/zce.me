@@ -5,7 +5,7 @@ slug: building-oauth2-service-with-nodejs
 date: 2019-06-26 19:07:29
 draft: true
 categories:
-  - Tutorial
+  - 教程
 tags:
   - Node.js
   - OAuth

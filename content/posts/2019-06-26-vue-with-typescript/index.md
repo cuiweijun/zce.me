@@ -5,7 +5,7 @@ slug: vue-with-typescript
 date: 2019-06-26 15:29:52
 draft: true
 categories:
-  - Tutorial
+  - 教程
 tags:
   - Vue.js
   - TypeScript

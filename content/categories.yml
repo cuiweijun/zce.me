@@ -1,13 +1,15 @@
-- name: Uncategorized
+- name: 未分类
   slug: uncategorized
-  description: Uncategorized contents
+  description: 未分类内容
   cover: images/uncategorized.jpg
   meta:
     - key: title
-      value: Uncategorized
+      value: 未分类
     - key: description
-      value: This is Uncategorized contents
+      value: 全部未分类内容
 
-- name: Tutorial
+- name: 教程
   slug: tutorial
-  description: Lei’s Tutorial contents
+
+- name: 工程化
+  slug: engineering

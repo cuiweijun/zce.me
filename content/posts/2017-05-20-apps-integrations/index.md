@@ -5,7 +5,7 @@ date: 2017-05-20 00:00:00
 cover: cover.jpg
 featured: true
 categories:
-  - Guide
+  - 指南
 ---
 
 There are three primary ways to work with third-party services in Ghost: using Zapier, editing your theme, or using the Ghost API.

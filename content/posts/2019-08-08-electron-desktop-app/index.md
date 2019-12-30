@@ -4,7 +4,7 @@ slug: electron-desktop-app
 date: 2019-08-08 19:55
 cover: cover.png
 categories:
-  - Tutorial
+  - 教程
 tags:
   - Electron
 ---

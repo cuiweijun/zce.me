@@ -4,9 +4,9 @@ slug: frontend-engineering-summary
 date: 2019-08-20 19:32:30
 cover: cover.jpg
 categories:
-  - Tutorial
+  - 教程
 tags:
-  - Engineering
+  - 工程化
 ---
 
 前端工程化是指遵循一定的标准和规范，通过工具提高开发效率、降低维护成本的一种手段。近些年被广泛的关注和探讨，究其原因，主要是因为前端应用的功能要求不断提高，业务逻辑日益复杂。

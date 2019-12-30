@@ -5,7 +5,7 @@ slug: nodejs-based-frontend-and-backend-separation-solution
 date: 2017-11-28 15:29:52
 draft: true
 categories:
-  - Tutorial
+  - 教程
 tags:
   - Node.js
 ---

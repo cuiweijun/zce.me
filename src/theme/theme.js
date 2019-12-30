@@ -1,42 +1,30 @@
 /**
  * Site theme
- *
- * TODO: Redesign colors
  */
 
+// TODO: Redesign colors
+// transparent, white, black
+// primary, secondary, accent,
+// highlight, muted
+// light, dark
+// text, background, border
 const colors = {
-  // transparent: 'transparent',
-  // white: '#fff',
-  // black: '#000',
-
-  primary: '#15aabf', // '#339af0',
-  // secondary: '#22b8cf',
-  // accent: '#ff6b6b',
-  // highlight: '#fcc419',
-  muted: '#717a82', // '#868e96',
+  primary: '#15aabf',
+  muted: '#717a82',
   light: '#f1f3f5',
-  // gray: '#738a94', // '#e9ecef',
   dark: '#495057',
-
-  text: '#343a40', // '#495057',
-  background: '#f8f9fa', // '#f4f8fb',
-  border: '#dee2e6', // '#e9ecef',
-
-  // Color Modes
+  text: '#343a40',
+  background: '#f8f9fa',
+  border: '#dee2e6',
   modes: {
     dark: {
-      primary: '#f08c00', // '#f03e3e', // '#4dabf7',
-      // secondary: '#3bc9db',
-      // accent: '#ff8787',
-      // highlight: '#ffd43b',
-      muted: '#92a3ab', // '#adb5bd',
-      light: '#191b1f', // '#343a40',
-      // gray: '#92a3ab', // '#292d32',
+      primary: '#f08c00',
+      muted: '#92a3ab',
+      light: '#191b1f',
       dark: '#16181b',
-
       text: 'rgba(255, 255, 255, 0.75)',
-      background: '#212529', // '#0a0c0d',
-      border: '#2b2f36' // '#262b2f'
+      background: '#212529',
+      border: '#2b2f36'
     }
   }
 }
@@ -83,28 +71,13 @@ const lineHeights = {
   solid: 1,
   dense: 1.125,
   normal: 1.5,
-  loose: 1.75
+  loose: 1.75,
+  double: 2
 }
 lineHeights.body = lineHeights.normal
 lineHeights.heading = 1.2
 
-// const letterSpacings = {
-//   tighter: '-0.05em',
-//   tight: '-0.025em',
-//   normal: '0',
-//   wide: '0.025em',
-//   wider: '0.05em',
-//   widest: '0.1em'
-// }
-
 const breakpoints = ['640px', '768px', '1024px', '1280px']
-
-// const mediaQueries = {
-//   small: `@media screen and (min-width: ${breakpoints[0]})`,
-//   medium: `@media screen and (min-width: ${breakpoints[1]})`,
-//   large: `@media screen and (min-width: ${breakpoints[2]})`,
-//   xlarge: `@media screen and (min-width: ${breakpoints[3]})`
-// }
 
 const space = [
   0,
@@ -122,8 +95,7 @@ const space = [
 const sizes = {
   container: '75rem',
   inner: '50rem',
-  nav: '3rem',
-  logo: '1.5rem'
+  nav: '3rem'
 }
 
 const borders = [
@@ -136,11 +108,7 @@ const borders = [
   '24px solid transparent'
 ]
 
-const borderWidths = [0, '1px', '2px', '4px', '8px', '16px', '24px']
-
-// const borderStyles = {
-//   default: 'solid'
-// }
+const borderWidths = [0, 1, 2, 4, 8, 16, 24]
 
 const radii = {
   none: 0,
@@ -148,8 +116,7 @@ const radii = {
   medium: '0.25rem',
   large: '0.5rem',
   pill: '20rem',
-  circle: '50%',
-  default: '0.25rem'
+  circle: '50%'
 }
 
 const shadows = {
@@ -173,37 +140,18 @@ const zIndices = {
   tooltip: 70
 }
 
-// // TODO: not support
-// const transitions = {
-//   base: 'all 0.2s ease-in-out',
-//   fade: 'opacity 0.15s linear'
-// }
-
-// const styles = {}
-
-// const variants = {}
-
 export default {
-  // useCustomProperties: true,
-  // useColorSchemeMediaQuery: true,
-  // initialColorMode: 'default',
   colors,
   fonts,
   fontSizes,
   fontWeights,
   lineHeights,
-  // letterSpacings,
   breakpoints,
-  // mediaQueries,
   space,
   sizes,
   borders,
   borderWidths,
-  // borderStyles,
   radii,
   shadows,
   zIndices
-  // transitions,
-  // styles,
-  // variants
 }

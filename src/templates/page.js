@@ -18,16 +18,18 @@ export default ({ data: { page } }) => (
         title={page.fields.title}
         sx={{ mx: [-3, 0], mb: '6vw' }}
       />
-      <div
-        dangerouslySetInnerHTML={{ __html: page.html }}
-        sx={{
-          maxWidth: 'inner',
-          mx: 'auto',
-          mb: '8vw',
-          lineHeight: 'loose',
-          img: { display: 'block', mx: 'auto' }
-        }}
-      />
+      {page.html && (
+        <div
+          dangerouslySetInnerHTML={{ __html: page.html }}
+          sx={{
+            maxWidth: 'inner',
+            mx: 'auto',
+            mb: '8vw',
+            lineHeight: 'loose',
+            img: { display: 'block', mx: 'auto' }
+          }}
+        />
+      )}
       {page.fields.comment && (
         <Comments
           type="page"
@@ -35,7 +37,7 @@ export default ({ data: { page } }) => (
           title={page.fields.title}
           excerpt={page.excerpt}
           permalink={page.fields.permalink}
-          sx={{ maxWidth: 'inner', mx: 'auto' }}
+          sx={{ maxWidth: 'inner', mx: 'auto', mb: '8vw' }}
         />
       )}
     </Container>

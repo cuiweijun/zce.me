@@ -32,7 +32,10 @@ const Brand = ({ name }) => (
         textDecoration: 'none'
       }
     }}>
-    <svg viewBox="0 0 472 450" aria-hidden="true" sx={{ size: 'logo', mr: 2 }}>
+    <svg
+      viewBox="0 0 472 450"
+      aria-hidden="true"
+      sx={{ size: '1.5rem', mr: 2 }}>
       <defs>
         <filter
           id="shadow"

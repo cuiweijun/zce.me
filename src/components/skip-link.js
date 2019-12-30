@@ -4,7 +4,7 @@ export default ({ id = 'content', ...props }) => (
   <a
     {...props}
     href={`#${id}`}
-    children="Skip to content"
+    children="跳转到内容区"
     sx={{
       position: 'absolute',
       overrflow: 'hidden',

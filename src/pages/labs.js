@@ -5,7 +5,7 @@ import { Layout, Container, Button, Tabs, Player } from '../components'
 export default () => {
   // const [count, setCount] = React.useState(0)
   return (
-    <Layout title="Labs" cover={false}>
+    <Layout title="实验室" cover={false}>
       <Container sx={{ p: 6 }}>
         <h3>Colors</h3>
         <div sx={{ mx: -2, mb: 3 }}>

@@ -9,7 +9,7 @@ export default ({ data: { term, posts } }) => (
     title={getMeta(term.meta, 'title') || term.name}
     description={getMeta(term.meta, 'description') || term.description}
     keywords={getMeta(term.meta, 'keywords')}
-    subtitle={`A tag of ${posts.totalCount} posts`}
+    subtitle={term.description || `包含 ${posts.totalCount} 个内容`}
     cover={term.cover}>
     <Container>
       <Row sx={{ mb: 6 }}>

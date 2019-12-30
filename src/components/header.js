@@ -32,10 +32,7 @@ const Brand = ({ name }) => (
         textDecoration: 'none'
       }
     }}>
-    <svg
-      viewBox="0 0 472 450"
-      aria-hidden="true"
-      sx={{ size: '1.5rem', mr: 2 }}>
+    <svg viewBox="0 0 472 450" aria-hidden="true" sx={{ size: '25px', mr: 2 }}>
       <defs>
         <filter
           id="shadow"
@@ -105,16 +102,16 @@ const Menu = ({ items }) => (
       <li key={i.link}>
         <Link
           to={i.link}
+          children={i.text}
           sx={{
-            display: 'inline-block',
+            display: 'block',
             opacity: 0.9,
             p: 2,
             ':hover': {
               textDecoration: 'none'
             }
-          }}>
-          {i.text}
-        </Link>
+          }}
+        />
       </li>
     ))}
   </ul>
@@ -126,7 +123,7 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
     <header
       sx={{ ':before': { display: 'block', content: '""', height: 'nav' } }}>
       <nav
-        aria-label="Primary Navigation"
+        aria-label="主要导航"
         sx={{
           position: 'fixed',
           top: 0,

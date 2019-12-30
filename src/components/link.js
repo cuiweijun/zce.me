@@ -8,10 +8,10 @@ export default ({ to, ...props }) => {
   // variant = `variants.links.${variant}`
 
   const styles = {
-    color: 'currentColor'
-    // ':hover': {
-    //   textDecoration: 'none'
-    // }
+    color: 'currentColor',
+    ':hover': {
+      textDecoration: 'none'
+    }
   }
 
   if (isHash(to) || isAbsolute(to)) {

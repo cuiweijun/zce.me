@@ -25,8 +25,8 @@ const Header = ({ title, date, formatDate, category }) => (
       textShadow: 'text',
       fontSize: 'lg'
     }}>
-    <span sx={{ textTransform: 'uppercase', a: { color: 'inherit' } }}>
-      <time dateTime={date} title={date} aria-label="Posted on">
+    <span sx={{ textTransform: 'uppercase' }}>
+      <time dateTime={date} title={date} aria-label="发表于">
         {formatDate}
       </time>
       <span
@@ -41,11 +41,11 @@ const Header = ({ title, date, formatDate, category }) => (
           }
         }}
       />
-      <Link to={category.permalink} aria-label="Posted in">
+      <Link to={category.permalink} aria-label="发表在">
         {category.name}
       </Link>
     </span>
-    <h1 sx={{ fontSize: 8, lineHeight: 'normal' }}>{title}</h1>
+    <h1 children={title} sx={{ fontSize: [7, 8], lineHeight: 'normal' }} />
   </header>
 )
 
@@ -89,7 +89,7 @@ const Content = ({ html }) => (
       mx: [-3, 0],
       px: ['5%', '10%'],
       py: ['4%', '6%'],
-      minHeight: '60vh',
+      minHeight: '80vh',
       bg: 'background',
       fontSize: 'calc(100% + 0.1vw)',
       // fontFamily: 'serif',
@@ -124,7 +124,7 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
       fontSize: 'sm'
     }}>
     {date !== updated && (
-      <div title="Updated on" aria-label="Updated on" sx={{ mr: 3 }}>
+      <div title="更新于" aria-label="更新于" sx={{ mr: 3 }}>
         <Icon name="edit-3" />
         <time dateTime={updated} title={updated} sx={{ ml: 1 }}>
           {formatUpdated}
@@ -132,7 +132,7 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
       </div>
     )}
     {tags.length > 0 && (
-      <div title="Tagged with" aria-label="Tagged with">
+      <div title="标记为" aria-label="标记为">
         <Icon name="tag" />
         <ul sx={{ display: 'inline', m: 0, ml: 1, p: 0, listStyle: 'none' }}>
           {tags.map(i => (
@@ -162,7 +162,7 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
       </div>
     )}
     <div
-      aria-label="Share this"
+      aria-label="分享到"
       sx={{
         display: 'flex',
         alignItems: 'center',
@@ -170,24 +170,24 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
         span: { mr: 1 },
         a: { ml: 1 }
       }}>
-      <span>Share this:</span>
+      <span>分享到:</span>
       <Link
         to={`https://twitter.com/share?text=${title}&url=${url}`}
-        title="Share to Twitter"
+        title="分享到推特"
         target="_blank"
         rel="noopener noreferrer">
         <Icon name="twitter" />
       </Link>
       <Link
         to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-        title="Share to Facebook"
+        title="分享到脸书"
         target="_blank"
         rel="noopener noreferrer">
         <Icon name="facebook" />
       </Link>
       <Link
         to={`http://qr.topscan.com/api.php?text=${url}`}
-        title="Share to Moment"
+        title="分享到朋友圈"
         target="_blank"
         rel="noopener noreferrer">
         <Icon name="aperture" />
@@ -198,7 +198,7 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
 
 const Authors = ({ authors }) => (
   <section sx={{ mb: 7 }}>
-    <ScreenReaderText as="h3">Author</ScreenReaderText>
+    <ScreenReaderText as="h3">作者</ScreenReaderText>
     <div
       sx={{
         display: 'flex',
@@ -216,9 +216,12 @@ const Authors = ({ authors }) => (
         <h4>{authors[0].name}</h4>
         {authors[0].bio && <p>{authors[0].bio}</p>}
       </div>
-      <Button as={Link} to={authors[0].permalink} variant="ghost">
-        Read More
-      </Button>
+      <Button
+        as={Link}
+        to={authors[0].permalink}
+        variant="ghost"
+        children="阅读更多"
+      />
     </div>
     {authors.length > 1 && (
       <p
@@ -227,6 +230,7 @@ const Authors = ({ authors }) => (
           fontStyle: 'italic',
           fontSize: 'sm',
           fontFamily: 'serif',
+          span: { mr: 1 },
           'a:not(:last-child)': {
             mr: 1,
             ':after': {
@@ -234,11 +238,9 @@ const Authors = ({ authors }) => (
             }
           }
         }}>
-        <span>Contributors: </span>
+        <span>贡献者:</span>
         {authors.slice(1).map(i => (
-          <Link key={i.name} to={i.permalink}>
-            {i.name}
-          </Link>
+          <Link key={i.name} to={i.permalink} children={i.name} />
         ))}
       </p>
     )}
@@ -247,7 +249,7 @@ const Authors = ({ authors }) => (
 
 const License = () => (
   <section sx={{ mb: 7, textAlign: 'center' }}>
-    <ScreenReaderText as="h3">License</ScreenReaderText>
+    <ScreenReaderText as="h3">许可</ScreenReaderText>
     <Link
       to="https://creativecommons.org/licenses/by-sa/4.0/"
       title="View license"
@@ -280,14 +282,15 @@ const License = () => (
       </svg>
     </Link>
     <p sx={{ color: 'muted', fontStyle: 'italic', fontFamily: 'serif' }}>
-      This work is licensed under a{' '}
+      本作品采用
       <Link
         to="https://creativecommons.org/licenses/by-sa/4.0/"
         title="View license"
         target="_blank"
         rel="noopener noreferrer">
-        Creative Commons Attribution-ShareAlike 4.0 International License
+        《知识共享署名-相同方式共享 4.0 国际许可协议》
       </Link>
+      进行许可
     </p>
   </section>
 )
@@ -306,7 +309,7 @@ const Footer = ({ fields, excerpt, url }) => (
     <License />
     {fields.comment && (
       <section sx={{ mb: 7 }}>
-        <ScreenReaderText as="h3">Comments</ScreenReaderText>
+        <ScreenReaderText as="h3">评论</ScreenReaderText>
         <Comments
           type="post"
           slug={fields.slug}
@@ -389,13 +392,7 @@ const Category = ({ name, category, related }) => (
       ))}
     </ul>
     <footer>
-      {related.totalCount > 1 ? (
-        <Link to={category.permalink}>
-          See all {related.totalCount} posts &rarr;
-        </Link>
-      ) : (
-        <Link to={category.permalink}>See 1 post &rarr;</Link>
-      )}
+      <Link to={category.permalink}>查看更多文章 &rarr;</Link>
     </footer>
   </section>
 )
@@ -403,7 +400,7 @@ const Category = ({ name, category, related }) => (
 const RelatedPosts = ({ name, category, related, prev, next }) => (
   <aside sx={{ pt: 6, bg: 'light' }}>
     <Container>
-      <ScreenReaderText as="h3">Related posts</ScreenReaderText>
+      <ScreenReaderText as="h3">相关文章</ScreenReaderText>
       <Row>
         <Category name={name} category={category} related={related} />
         {prev && <Card post={prev} rel="prev" />}
@@ -461,9 +458,9 @@ export const query = graphql`
         title
         slug
         date
-        formatDate: date(formatString: "ll")
+        formatDate: date(formatString: "ll", locale: "zh-cn")
         updated
-        formatUpdated: updated(formatString: "ll")
+        formatUpdated: updated(formatString: "ll", locale: "zh-cn")
         cover {
           ...CoverImage
         }

@@ -217,9 +217,9 @@ export const query = graphql`
         title
         slug
         date
-        formatDate: date(formatString: "ll")
+        formatDate: date(formatString: "ll", locale: "zh-cn")
         updated
-        formatUpdated: updated(formatString: "ll")
+        formatUpdated: updated(formatString: "ll", locale: "zh-cn")
         cover {
           ...CoverImage
         }

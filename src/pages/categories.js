@@ -4,9 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout, Container, Button, Link } from '../components'
 
 export default ({ data: { categories } }) => (
-  <Layout
-    title="Categories"
-    subtitle={`A collection of ${categories.totalCount} categories`}>
+  <Layout title="全部分类">
     <Container width="inner" sx={{ mb: 9 }}>
       {categories.nodes.map(node => (
         <Button
@@ -32,7 +30,7 @@ export const query = graphql`
         # }
         permalink
       }
-      totalCount
+      # totalCount
     }
   }
 `

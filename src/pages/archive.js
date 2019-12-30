@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout, Container, Row, Card } from '../components'
 
 export default ({ data: { posts } }) => (
-  <Layout title="Archive" description="Archive everything I created">
+  <Layout title="内容归档" description="这里是所有内容归档">
     <Container>
       <Row sx={{ mb: 6 }}>
         {posts.nodes.map(node => (

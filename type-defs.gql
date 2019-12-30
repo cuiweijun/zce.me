@@ -71,8 +71,8 @@ type Fields {
   permalink: String!
   title: String!
   slug: String!
-  date: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
-  updated: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
+  date: Date @dateformat
+  updated: Date @dateformat
   cover: File @fileByRelativePath
   description: String
   draft: Boolean
@@ -88,8 +88,8 @@ type Fields {
 type Frontmatter {
   title: String!
   slug: String
-  date: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
-  updated: Date @dateformat #(formatString: "YYYY-MM-DDTHH:mm:ssZ")
+  date: Date @dateformat
+  updated: Date @dateformat
   cover: File @fileByRelativePath
   description: String
   draft: Boolean
@@ -106,3 +106,5 @@ type MarkdownRemark implements Node @donInfer {
   fields: Fields,
   frontmatter: Frontmatter
 }
+
+# (formatString: "YYYY-MM-DDTHH:mm:ssZ")

@@ -40,35 +40,21 @@ const query = graphql`
 
 const Widget = ({ title, width, children }) => (
   <section sx={{ width: width, mb: [4, 4, 4, 0], px: 3 }}>
-    <h4
-      sx={{
-        fontSize: 'lg',
-        fontWeight: 'light',
-        mt: 0,
-        mb: 2
-      }}
-      children={title}
-    />
+    <h4 sx={{ fontWeight: 'light', mt: 0, mb: 2 }} children={title} />
     {children}
   </section>
 )
 
 const Follow = ({ socials }) => (
-  <Widget title="Follow me" width={['100%', '100%', '100%', '45%']}>
-    <p sx={{ mb: 3 }}>
-      Get all the latest &amp; greatest posts delivered straight to your inbox.
-    </p>
-    <form
-      sx={{
-        display: 'flex',
-        mb: 3
-      }}>
+  <Widget title="社交媒体" width={['100%', '100%', '100%', '45%']}>
+    <p sx={{ mb: 3 }}>我们会将最新的、最有意思的内容直接发送到您的收件箱。</p>
+    <form sx={{ display: 'flex', mb: 3 }}>
       <Input
         type="email"
         name="email"
-        placeholder="Input your email"
+        placeholder="输入您的邮箱"
         autoComplete="off"
-        aria-label="Input your email"
+        aria-label="输入您的邮箱"
         aria-describedby="btn_send"
         sx={{
           flex: 1,
@@ -81,7 +67,7 @@ const Follow = ({ socials }) => (
         variant="outline"
         icon="send"
         id="btn_send"
-        aria-label="Subscribe"
+        aria-label="订阅"
         sx={{
           px: 3,
           borderLeft: 0,
@@ -119,7 +105,7 @@ const Follow = ({ socials }) => (
 )
 
 const Tags = ({ tags }) => (
-  <Widget title="Tags" width={['100%', '100%', '55%', '25%']}>
+  <Widget title="标签" width={['100%', '100%', '55%', '25%']}>
     <ul sx={{ m: 0, p: 0, listStyle: 'none', lineHeight: 'loose' }}>
       {tags.map(i => (
         <li
@@ -151,7 +137,7 @@ const Tags = ({ tags }) => (
 )
 
 const Links = ({ links }) => (
-  <Widget title="Links" width={['100%', '50%', '25%', '15%']}>
+  <Widget title="链接" width={['100%', '50%', '25%', '15%']}>
     <ul sx={{ m: 0, px: 2, listStyle: 'none' }}>
       {links.map(i => (
         <li
@@ -171,7 +157,7 @@ const Links = ({ links }) => (
 )
 
 const Subscription = ({ subscription }) => (
-  <Widget title="Subscription" width={['100%', '50%', '20%', '15%']}>
+  <Widget title="订阅" width={['100%', '50%', '20%', '15%']}>
     <img
       alt={subscription.name}
       title={subscription.name}
@@ -192,22 +178,22 @@ const Copyright = ({ name, url }) => (
       borderColor: 'border'
     }}>
     <span>
-      &copy; {new Date().getFullYear()} <Link to={url} children={name} />. All
-      Rights Reserved.
+      &copy; {new Date().getFullYear()} <Link to={url} children={name} />.
+      保留所有权利.
     </span>
     <ul sx={{ flex: 1, m: 0, ml: 2, p: 0 }}>
       <li sx={{ display: 'inline', mr: 2 }}>
-        <Link to="/privacy-policy/" children="Privacy Policy" />
+        <Link to="/privacy-policy/" children="隐私政策" />
       </li>
       <li sx={{ display: 'inline', mr: 2 }}>
-        <Link to="/terms-of-service/" children="Terms of Service" />
+        <Link to="/terms-of-service/" children="服务条款" />
       </li>
     </ul>
     <span
       sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Link
         to="https://github.com/zce/zce.me"
-        title="Visit the Source"
+        title="查看源代码"
         target="_blank"
         rel="noopener noreferrer"
         children="&lt;/&gt;"
@@ -235,7 +221,7 @@ const Copyright = ({ name, url }) => (
       by
       <Link
         to="https://zce.me"
-        title="Created by"
+        title="由 zce 创作"
         target="_blank"
         rel="noopener noreferrer"
         children="zce"

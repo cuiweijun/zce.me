@@ -51,12 +51,7 @@ const Featured = ({ post }) => (
           transition: 'border 0.3s'
         }}
       />
-      <div
-        sx={{
-          flex: '1 0 23rem',
-          p: 4,
-          lineHeight: 'loose'
-        }}>
+      <div sx={{ flex: '1 0 23rem', p: 4, lineHeight: 'loose' }}>
         <h2 sx={{ mb: 4, fontSize: 7 }}>{post.fields.title}</h2>
         <div
           dangerouslySetInnerHTML={{ __html: post.excerpt }}
@@ -71,7 +66,7 @@ const Featured = ({ post }) => (
           to={post.fields.permalink}
           variant="ghost"
           title={post.fields.title}>
-          Continue reading <span aria-hidden="true">&rarr;</span>
+          继续阅读 <span aria-hidden="true">&rarr;</span>
         </Button>
       </div>
     </Container>
@@ -82,8 +77,8 @@ const Feed = ({ posts, title, subtitle, link }) => (
   <Section>
     <Container>
       <header sx={{ mb: 5, textAlign: 'center' }}>
-        <h2 sx={{ m: 0, mb: 3, fontSize: 7 }}>{title}</h2>
-        <p sx={{ m: 0, fontSize: 'lg' }}>{subtitle}</p>
+        <h2 sx={{ m: 0, mb: 3, fontSize: 7, fontWeight: 'light' }}>{title}</h2>
+        <p sx={{ m: 0, fontSize: 'lg', color: 'muted' }}>{subtitle}</p>
       </header>
       <Row sx={{ mb: 3 }}>
         {posts.map(node => (
@@ -92,7 +87,7 @@ const Feed = ({ posts, title, subtitle, link }) => (
       </Row>
       <footer sx={{ textAlign: 'center' }}>
         <Button as={Link} to={link} title={title} size="lg" variant="outline">
-          Explore more <span aria-hidden="true">&rarr;</span>
+          发现更多 <span aria-hidden="true">&rarr;</span>
         </Button>
       </footer>
     </Container>
@@ -105,8 +100,8 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
 
     <Feed
       posts={posts.nodes}
-      title="Latest Posts"
-      subtitle="Keep the dots in your life."
+      title="近期文章"
+      subtitle="留住生活中的点点滴滴，贵在记录和分享"
       link="/blog/"
     />
 
@@ -114,8 +109,8 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
 
     <Feed
       posts={courses.nodes}
-      title="Latest Courses"
-      subtitle="Continuous learning is a belief."
+      title="最新课程"
+      subtitle="咱们一起来玩点新鲜好玩、有意思的东西，持续学习是一种信仰"
       link="/courses/"
     />
 

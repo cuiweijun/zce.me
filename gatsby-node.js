@@ -33,8 +33,8 @@ const options = {
     // private: false,
     // featured: false,
     comment: false
-    // authors: ['Lei Wang'],
-    // categories: ['Uncategorized'],
+    // authors: ['汪磊'],
+    // categories: ['未分类'],
     // tags: []
   },
   post: {
@@ -44,8 +44,8 @@ const options = {
     // private: false,
     // featured: false,
     // comment: true,
-    // authors: ['Lei Wang'],
-    // categories: ['Uncategorized'],
+    // authors: ['汪磊'],
+    // categories: ['未分类'],
     // tags: []
   },
   course: {
@@ -55,8 +55,8 @@ const options = {
     // private: false,
     // featured: false,
     // comment: true,
-    // authors: ['Lei Wang'],
-    // categories: ['Uncategorized'],
+    // authors: ['汪磊'],
+    // categories: ['未分类'],
     // tags: []
   },
   author: {
@@ -154,8 +154,8 @@ const createMarkdownField = async ({
   fields.featured = fields.featured !== undefined ? fields.featured : false
   fields.comment = fields.comment !== undefined ? fields.comment : true
   fields.sections = fields.sections || []
-  fields.authors = fields.authors || ['Lei Wang'] // TODO: fallback author
-  fields.categories = fields.categories || ['Uncategorized'] // TODO: fallback category
+  fields.authors = fields.authors || ['汪磊'] // TODO: fallback author
+  fields.categories = fields.categories || ['未分类'] // TODO: fallback category
   fields.tags = fields.tags || []
   // TODO: if frontmatter taxonomy is empty
   // fields.authors.length || fields.authors.push(...defaults.authors)

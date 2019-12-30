@@ -6,6 +6,7 @@ import { Layout, Container, Row, Card, Button, Link } from '../components'
 export default ({ data: { posts } }) => (
   <Layout
     title="404 Not found"
+    mask={3}
     hero={
       <Container
         sx={{
@@ -16,10 +17,10 @@ export default ({ data: { posts } }) => (
           // TODO: transition
           // transition: 'padding 0.3s, color 0.3s'
         }}>
-        <h1 sx={{ fontSize: '8rem' }}>404</h1>
-        <p sx={{ fontSize: 'xl', mb: 6 }}>Page not found</p>
+        <h1 sx={{ fontSize: '8rem', fontWeight: 'light' }}>404</h1>
+        <p sx={{ fontSize: 'xl', mb: 6 }}>你似乎来到了新大陆～</p>
         <Button as={Link} to="/">
-          Back to Home &rarr;
+          返回首页 <span aria-hidden="true">&rarr;</span>
         </Button>
       </Container>
     }>

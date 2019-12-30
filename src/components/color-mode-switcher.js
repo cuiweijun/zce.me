@@ -6,7 +6,7 @@ import { useColorMode } from '../theme'
 export default () => {
   const [mode, setMode] = useColorMode()
   const isDark = mode === 'dark'
-  const title = `Switch to ${isDark ? 'light' : 'dark'} mode`
+  const title = `切换至${isDark ? '「亮色」' : '「暗色」'}模式`
   const toggle = () => setMode(isDark ? 'default' : 'dark')
 
   const icon = (

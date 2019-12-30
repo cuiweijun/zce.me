@@ -46,16 +46,10 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
         <item.type
           key={i}
           id={item.props.id || i}
-          className={current === i ? 'active' : ''}
           role="tabpanel"
           aria-labelledby={`${item.props.id || i}-tab`}
           children={item.props.children}
-          sx={{
-            display: 'none',
-            '&.active': {
-              display: 'block'
-            }
-          }}
+          sx={{ display: current === i || 'none' }}
         />
       ))}
     </Tag>

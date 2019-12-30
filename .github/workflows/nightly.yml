@@ -29,7 +29,7 @@ jobs:
           CI: true
 
       - name: Deploy to Coding
-        if: github.ref == 'refs/heads/zh-CN'
+        if: github.ref == 'refs/heads/master'
         run: npx gh-pages
           -d public
           -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/nightly.zce.me.git

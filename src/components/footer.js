@@ -56,11 +56,7 @@ const Follow = ({ socials }) => (
         autoComplete="off"
         aria-label="输入您的邮箱"
         aria-describedby="btn_send"
-        sx={{
-          flex: 1,
-          borderTopRightRadius: 0,
-          borderBottomRightRadius: 0
-        }}
+        sx={{ flex: 1, borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
       />
       <Button
         color="border"
@@ -77,14 +73,7 @@ const Follow = ({ socials }) => (
         }}
       />
     </form>
-    <ul
-      sx={{
-        m: 0,
-        mx: -1,
-        mb: 3,
-        p: 0,
-        listStyle: 'none'
-      }}>
+    <ul sx={{ m: 0, mx: -1, mb: 3, p: 0, listStyle: 'none' }}>
       {socials.map(i => (
         <li key={i.name} sx={{ display: 'inline-block', mx: 1, mb: 2 }}>
           <Button
@@ -113,24 +102,17 @@ const Tags = ({ tags }) => (
           sx={{
             display: 'inline-block',
             mr: 1,
-            ':after': {
-              content: '"\\002C"'
-            }
+            ':after': { content: '"\\002C"' }
           }}>
           <Link
             to={i.permalink}
             children={i.name}
-            sx={{
-              ':before': {
-                content: '"\\0023"',
-                opacity: 0.7
-              }
-            }}
+            sx={{ ':before': { content: '"\\0023"', opacity: 0.8 } }}
           />
         </li>
       ))}
       <li sx={{ display: 'inline-block' }}>
-        <Link to="/tags/" children="more →" />
+        <Link to="/tags/" children="更多 &rarr;" />
       </li>
     </ul>
   </Widget>
@@ -142,13 +124,7 @@ const Links = ({ links }) => (
       {links.map(i => (
         <li
           key={i.text}
-          sx={{
-            ':before': {
-              content: '"\\279F"',
-              mr: 1,
-              opacity: 0.7
-            }
-          }}>
+          sx={{ ':before': { content: '"\\279F"', mr: 1, opacity: 0.7 } }}>
           <Link to={i.link} children={i.text} />
         </li>
       ))}
@@ -197,24 +173,14 @@ const Copyright = ({ name, url }) => (
         target="_blank"
         rel="noopener noreferrer"
         children="&lt;/&gt;"
-        sx={{ mx: 1 }}
+        sx={{ mr: 1 }}
       />
       with
+      {/* prettier-ignore */}
       <svg viewBox="0 0 50 50" width="22" height="22" aria-hidden="true">
         <g transform="translate(25 25)">
-          <path
-            fill="#fa5252"
-            d="M10.9-20.2c-4.5,0-8.5,2.3-10.9,5.8c-2.4-3.5-6.3-5.8-10.9-5.8c-7.3,0-13.1,5.8-13.1,13C-24,5.7-3.7,11.9,0,20.2C3.7,11.9,24,5.8,24-7.2C24-14.4,18.2-20.2,10.9-20.2">
-            <animateTransform
-              attributeName="transform"
-              calcMode="spline"
-              type="scale"
-              values="0.68;0.8;0.6;0.7200000000000001;0.68;0.6400000000000001"
-              keyTimes="0;0.05;0.39;0.45;0.6;1"
-              keySplines="0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1"
-              dur="1s"
-              repeatCount="indefinite"
-            />
+          <path fill="#fa5252" d="M10.9-20.2c-4.5,0-8.5,2.3-10.9,5.8c-2.4-3.5-6.3-5.8-10.9-5.8c-7.3,0-13.1,5.8-13.1,13C-24,5.7-3.7,11.9,0,20.2C3.7,11.9,24,5.8,24-7.2C24-14.4,18.2-20.2,10.9-20.2">
+            <animateTransform attributeName="transform" calcMode="spline" type="scale" values="0.68;0.8;0.6;0.7200000000000001;0.68;0.6400000000000001" keyTimes="0;0.05;0.39;0.45;0.6;1" keySplines="0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1" dur="1s" repeatCount="indefinite" />
           </path>
         </g>
       </svg>
@@ -225,7 +191,7 @@ const Copyright = ({ name, url }) => (
         target="_blank"
         rel="noopener noreferrer"
         children="zce"
-        sx={{ mx: 1 }}
+        sx={{ ml: 1 }}
       />
     </span>
   </div>

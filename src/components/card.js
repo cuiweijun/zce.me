@@ -77,28 +77,20 @@ export default ({ as: Tag = 'article', post, rel }) => (
       </svg>
     )}
 
-    <div
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        flex: 1,
-        p: 3
-      }}>
+    <div sx={{ display: 'flex', flexDirection: 'column', flex: 1, p: 3 }}>
       <span sx={{ color: 'muted', textTransform: 'uppercase' }}>
         {post.fields.categories[0].name}
       </span>
       <h3
+        children={post.fields.title}
         sx={{
           overflow: 'hidden',
           fontSize: 5,
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap'
-        }}>
-        {post.fields.title}
-      </h3>
-
-      <p sx={{ flex: 1 }}>{post.excerpt}</p>
-
+        }}
+      />
+      <p sx={{ flex: 1 }} children={post.excerpt} />
       <footer
         sx={{
           display: 'flex',
@@ -141,17 +133,11 @@ export default ({ as: Tag = 'article', post, rel }) => (
             </li>
           ))}
         </ul>
-
-        {post.fields.type === 'course' ? (
-          <small>
-            {post.fields.sections.length} video
-            {post.fields.sections.length === 1 ? '' : 's'}
-          </small>
-        ) : (
-          <small>
-            {post.timeToRead} min{post.timeToRead === 1 ? '' : 's'}
-          </small>
-        )}
+        <small>
+          {post.fields.type === 'course'
+            ? `${post.fields.sections.length} 视频`
+            : `${post.timeToRead} 分钟`}
+        </small>
       </footer>
     </div>
   </Tag>
@@ -200,7 +186,7 @@ export const GraphQLFragment = graphql`
         permalink
       }
       sections {
-        title
+        duration
       }
     }
   }

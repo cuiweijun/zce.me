@@ -1,3 +1,7 @@
+/**
+ * Skip link
+ */
+
 import React from 'react'
 
 export default ({ id = 'content', ...props }) => (

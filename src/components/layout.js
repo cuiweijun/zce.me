@@ -1,11 +1,14 @@
+/**
+ * Page layout
+ * SEO Meta & Hero
+ */
+
 import React from 'react'
 
 import Head from './head'
-import SkipLink from './skip-link'
-import Header from './header'
-import Footer from './footer'
+// import Hero from './Hero'
 
-export const Layout = props => (
+export default props => (
   <>
     <Head
       title={props.title}
@@ -16,18 +19,8 @@ export const Layout = props => (
       prev={props.prev}
       next={props.next}
     />
-    <Header
-      title={props.title}
-      subtitle={props.subtitle}
-      padding={props.padding}
-      align={props.align}
-      cover={props.cover}
-      mask={props.mask}
-      hero={props.hero}
-    />
     <main
       id="content"
-      children={props.children}
       sx={{
         // display: 'flow-root',
         // flexDirection: 'column',
@@ -37,19 +30,17 @@ export const Layout = props => (
         // minHeight: '40vh',
         bg: props.background,
         transition: 'background 0.3s'
-      }}
-    />
-  </>
-)
-
-// for wrapPageElement
-// Prevent layout components from unmounting
-// https://www.gatsbyjs.org/docs/layout-components/#how-to-prevent-layout-components-from-unmounting
-export const Wrapper = props => (
-  <>
-    <Head pathname={props.location.pathname} />
-    <SkipLink />
-    {props.children}
-    <Footer />
+      }}>
+      {/* <Hero
+        title={props.title}
+        subtitle={props.subtitle}
+        padding={props.padding}
+        align={props.align}
+        cover={props.cover}
+        mask={props.mask}
+        hero={props.hero}
+      /> */}
+      {props.children}
+    </main>
   </>
 )

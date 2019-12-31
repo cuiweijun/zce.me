@@ -1,4 +1,8 @@
-import React, { memo } from 'react'
+/**
+ * Head meta & links
+ */
+
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
@@ -30,7 +34,7 @@ const query = graphql`
 `
 
 // TODO: Need refactoring
-export default memo(
+export default React.memo(
   ({ title, description, keywords, image, type, pathname, prev, next }) => {
     const { config } = useStaticQuery(query)
     const theme = useTheme()

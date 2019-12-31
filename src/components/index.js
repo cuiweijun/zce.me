@@ -14,7 +14,6 @@ export { default as Card } from './card'
 export { default as Comments } from './comments'
 export { default as Player } from './player'
 
-export { Layout, Wrapper } from './layout'
-
-// export { Fragment as Wrapper } from 'react'
-// export const Wrapper = props => props.children
+// layout component
+export { default as Layout } from './layout'
+export { default as Wrapper } from './wrapper'

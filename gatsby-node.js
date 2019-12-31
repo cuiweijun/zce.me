@@ -347,15 +347,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
   actions.createTypes(typeDefs)
 }
 
-// https://www.gatsbyjs.org/docs/add-custom-webpack-config/
-exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
-  if (stage === 'build-javascript') {
-    const config = getConfig()
-    config.output.filename = '[contenthash:8].js'
-    config.output.chunkFilename = '[contenthash:8].js'
-    actions.replaceWebpackConfig(config)
-  }
-}
+// // https://www.gatsbyjs.org/docs/add-custom-webpack-config/
+// exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
+//   if (stage === 'build-javascript') {
+//     const config = getConfig()
+//     config.output.filename = '[contenthash:8].js'
+//     config.output.chunkFilename = '[contenthash:8].js'
+//     actions.replaceWebpackConfig(config)
+//   }
+// }
 
 exports.onCreateBabelConfig = async ({ actions }) => {
   actions.setBabelPlugin({

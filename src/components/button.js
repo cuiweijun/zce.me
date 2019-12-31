@@ -1,3 +1,7 @@
+/**
+ * Button
+ */
+
 import React from 'react'
 
 import Icon from './icon'
@@ -36,12 +40,12 @@ export default ({
   const variants = {
     outline: {
       bg: 'transparent',
-      color: color // readable('background', 'white', 'dark')
+      color: color
     },
     ghost: {
       borderColor: 'transparent',
       bg: 'transparent',
-      color: color // readable('background', 'white', 'dark')
+      color: color
     },
     pill: {
       borderRadius: 'pill'
@@ -115,8 +119,8 @@ export default ({
           opacity: 0.5,
           cursor: 'default'
         },
-        // pass variant prop to sx
-        variant: `variants.buttons.${variant}`,
+        // // pass variant prop to sx
+        // variant: `variants.buttons.${variant}`,
         ...mixins
       }}>
       {icon}

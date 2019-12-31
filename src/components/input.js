@@ -1,3 +1,7 @@
+/**
+ * Input
+ */
+
 import React from 'react'
 
 export default ({ variant = 'default', size = 'md', ...props }) => {

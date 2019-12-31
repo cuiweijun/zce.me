@@ -1,3 +1,7 @@
+/**
+ * Media Player
+ */
+
 import React from 'react'
 import { withAssetPrefix } from 'gatsby'
 

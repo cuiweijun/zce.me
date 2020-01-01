@@ -37,7 +37,7 @@ const Hero = ({ title, subtitle, children, ...props }) => {
         transition: 'padding 0.3s, color 0.3s' // TODO: ???
       }}>
       {children || (
-        <Container width="inner">
+        <Container>
           <h1 sx={{ fontSize: 9 }}>{title}</h1>
           {subtitle && <p>{subtitle}</p>}
         </Container>

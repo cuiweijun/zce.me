@@ -10,7 +10,7 @@ export default ({ data: { page } }) => (
     <Hero
       title={page.fields.title}
       subtitle={page.fields.description}
-      sx={{ py: '5vw' }}
+      sx={{ py: '5vw', color: 'text', textShadow: 'none' }}
     />
     <Container>
       <Image

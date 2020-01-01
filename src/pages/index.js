@@ -59,6 +59,8 @@ const Featured = ({ post }) => (
           dangerouslySetInnerHTML={{ __html: post.excerpt }}
           sx={{
             mb: 4,
+            fontSize: 'lg',
+            textIndent: '2em',
             maskImage:
               'linear-gradient(to top, rgba(0, 0, 0, 0), #000 10%, #000)'
           }}
@@ -98,9 +100,9 @@ const Feed = ({ posts, title, subtitle, link }) => (
 
 export default ({ data: { featured, posts, courses, about, meta } }) => (
   <Layout>
-    <Cover type={1} />
+    <Cover type={1} sx={{ minHeight: '50vw' }} />
 
-    <Hero sx={{ py: '18vw' }} />
+    <Hero sx={{ py: '18vw', h1: { fontSize: '6rem' } }} />
 
     {featured.nodes[0] && <Featured post={featured.nodes[0]} />}
 
@@ -183,7 +185,7 @@ export const query = graphql`
           }
           permalink
         }
-        excerpt(format: HTML, pruneLength: 500)
+        excerpt(format: HTML, pruneLength: 400)
       }
     }
 

@@ -18,18 +18,19 @@ const query = graphql`
   }
 `
 
-const Cover = ({ image, type = 2 }) => {
+const Cover = ({ image, type = 2, ...props }) => {
   const { meta } = useStaticQuery(query)
 
   return (
     <Image
+      {...props}
       file={image || meta.cover}
       sx={{
         position: 'absolute !important',
         top: 0,
         zIndex: -1,
         width: '100%',
-        minHeight: '30rem',
+        minHeight: '40rem',
         maxHeight: '100vh',
         bg: 'dark',
         ':before,:after': type > 0 && {

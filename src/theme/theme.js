@@ -121,8 +121,8 @@ const shadows = {
   outline: '0 0 0 0.2rem rgba(0, 123, 255, 0.2)',
   underline: 'inset 0 -1px 0 currentColor',
   text: '0 0 0.25rem rgba(0, 0, 0, 0.4)',
-  light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.1)',
-  medium: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.15)',
+  light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.2)',
+  medium: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.2)',
   severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.2)'
 }
 

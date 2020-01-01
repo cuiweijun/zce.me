@@ -106,7 +106,7 @@ export default () => {
         sx={{
           position: 'fixed',
           top: 0,
-          zIndex: 'fixed',
+          zIndex: 30,
           width: '100%',
           borderBottom: 1,
           borderColor: 'border',

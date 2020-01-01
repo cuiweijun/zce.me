@@ -108,8 +108,6 @@ const borders = [
   '24px solid transparent'
 ]
 
-const borderWidths = [0, 1, 2, 4, 8, 16, 24]
-
 const radii = {
   none: 0,
   small: '0.1875rem',
@@ -128,18 +126,6 @@ const shadows = {
   severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.2)'
 }
 
-const zIndices = {
-  auto: 'auto',
-  zero: 0,
-  dropdown: 10,
-  sticky: 20,
-  fixed: 30,
-  backdrop: 40,
-  modal: 50,
-  popover: 60,
-  tooltip: 70
-}
-
 export default {
   colors,
   fonts,
@@ -150,8 +136,6 @@ export default {
   space,
   sizes,
   borders,
-  borderWidths,
   radii,
-  shadows,
-  zIndices
+  shadows
 }

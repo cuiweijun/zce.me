@@ -217,17 +217,12 @@ const table = {
     borderCollapse: 'collapse',
     borderSpacing: 0
   },
-  th: {
+  'th, td': {
     px: 3,
     py: 2,
     textAlign: 'left',
-    borderWidth: 1
-  },
-  td: {
-    px: 3,
-    py: 2,
-    textAlign: 'left',
-    borderWidth: 1
+    border: 1,
+    borderColor: 'border'
   }
 }
 
@@ -240,36 +235,36 @@ const form = {
 }
 
 const more = {
-  '[data-title]': {
-    position: 'relative',
-    ':after': {
-      position: 'absolute',
-      left: '50%',
-      bottom: '100%',
-      zIndex: 'tooltip',
-      overflow: 'hidden',
-      display: 'block',
-      px: 2,
-      py: 1,
-      borderRadius: 'medium',
-      bg: alpha('dark', 0.9),
-      color: 'white',
-      fontSize: '87.5%',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'pre',
-      content: 'attr(data-title)',
-      opacity: 0,
-      pointerEvents: 'none',
-      transform: t => `translate(-50%, ${t.space[2]})`,
-      transition: 'opacity .2s, transform .2s'
-    },
-    ':hover': {
-      ':after': {
-        opacity: 1,
-        transform: t => `translate(-50%, -${t.space[1]})`
-      }
-    }
-  }
+  // '[data-title]': {
+  //   position: 'relative',
+  //   ':after': {
+  //     position: 'absolute',
+  //     left: '50%',
+  //     bottom: '100%',
+  //     zIndex: 70,
+  //     overflow: 'hidden',
+  //     display: 'block',
+  //     px: 2,
+  //     py: 1,
+  //     borderRadius: 'medium',
+  //     bg: alpha('dark', 0.9),
+  //     color: 'white',
+  //     fontSize: '87.5%',
+  //     textOverflow: 'ellipsis',
+  //     whiteSpace: 'pre',
+  //     content: 'attr(data-title)',
+  //     opacity: 0,
+  //     pointerEvents: 'none',
+  //     transform: t => `translate(-50%, ${t.space[2]})`,
+  //     transition: 'opacity .2s, transform .2s'
+  //   },
+  //   ':hover': {
+  //     ':after': {
+  //       opacity: 1,
+  //       transform: t => `translate(-50%, -${t.space[1]})`
+  //     }
+  //   }
+  // }
 }
 
 export default {

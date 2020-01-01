@@ -1,7 +1,7 @@
-// =============================================================================
-// Hooks
-// ref: https://reactjs.org/docs/hooks-intro.html
-// =============================================================================
+/**
+ * Hooks
+ * ref: https://reactjs.org/docs/hooks-intro.html
+ */
 
 import { useState, useEffect } from 'react'
 // import { useStaticQuery, graphql } from 'gatsby'

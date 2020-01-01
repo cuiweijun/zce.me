@@ -1,3 +1,7 @@
+/**
+ * Color mode switcher
+ */
+
 import React from 'react'
 
 import Button from './button'
@@ -72,18 +76,3 @@ export default () => {
     />
   )
 }
-
-// export default () => {
-//   const [mode, setMode] = useColorMode()
-//   const title = `Switch to ${mode === 'default' ? 'dark' : 'light'} mode`
-//   return (
-//     <Button
-//       variant="ghost"
-//       icon={mode === 'default' ? 'moon' : 'sun'}
-//       title={title}
-//       aria-label={title}
-//       sx={{ color: 'muted' }}
-//       onClick={() => setMode(mode === 'default' ? 'dark' : 'default')}
-//     />
-//   )
-// }

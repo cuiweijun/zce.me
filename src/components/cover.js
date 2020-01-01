@@ -1,4 +1,9 @@
+/**
+ * Cover
+ */
+
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Image from './image'
@@ -13,10 +18,12 @@ const query = graphql`
   }
 `
 
-export default ({ image, mask = 2 }) => {
+const Cover = ({ image, type = 2, ...props }) => {
   const { meta } = useStaticQuery(query)
+
   return (
     <Image
+      {...props}
       file={image || meta.cover}
       sx={{
         position: 'absolute !important',
@@ -26,7 +33,7 @@ export default ({ image, mask = 2 }) => {
         minHeight: '40rem',
         maxHeight: '100vh',
         bg: 'dark',
-        ':before,:after': mask > 0 && {
+        ':before,:after': type > 0 && {
           position: 'absolute',
           top: 0,
           right: 0,
@@ -36,21 +43,33 @@ export default ({ image, mask = 2 }) => {
           content: '""',
           transition: 'opacity 0.3s'
         },
-        ':before': mask > 0 && {
-          background: `0/4px url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2' stroke='%23000' stroke-linecap='square' stroke-width='0.5'%3E%3Cline x1='0' y1='1' x2='1' y2='0'/%3E%3Cline x1='1' y1='2' x2='2' y2='1'/%3E%3C/svg%3E")`,
+        ':before': type > 0 && {
+          background: `0/4px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2' stroke='%23000' stroke-linecap='square' stroke-width='0.5'%3E%3Cline x1='0' y1='1' x2='1' y2='0'/%3E%3Cline x1='1' y1='2' x2='2' y2='1'/%3E%3C/svg%3E")`,
           opacity: 0.6
         },
-        ':after': mask > 1 && {
+        ':after': type > 1 && {
           background: t =>
             `linear-gradient(transparent 45%, ${t.colors.background})`
         },
-        img: mask > 2 && {
+        img: type > 2 && {
           filter: 'blur(5rem)',
           transform: 'translateZ(0) scale(1.1)'
         }
       }}
     />
   )
+}
+
+// Cover.Types = {
+//   OnlyImage: 0,
+//   WithMask: 1,
+//   WithGradient: 2,
+//   WithBlur: 3
+// }
+
+Cover.propTypes = {
+  image: PropTypes.object,
+  type: PropTypes.oneOf([0, 1, 2, 3])
 }
 
 export const GraphQLFragment = graphql`
@@ -65,3 +84,5 @@ export const GraphQLFragment = graphql`
     }
   }
 `
+
+export default Cover

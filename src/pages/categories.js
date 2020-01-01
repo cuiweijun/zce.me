@@ -1,10 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Container, Button, Link } from '../components'
+import { Layout, Container, Button, Link, Hero, Cover } from '../components'
 
 export default ({ data: { categories } }) => (
   <Layout title="全部分类">
+    <Cover />
+    <Hero title="分类" />
     <Container width="inner" sx={{ mb: 9 }}>
       {categories.nodes.map(node => (
         <Button

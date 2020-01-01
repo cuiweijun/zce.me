@@ -1,16 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Container, Row, Card } from '../components'
+import { Layout, Container, Hero, Cover, Card } from '../components'
 
 export default ({ data: { posts } }) => (
-  <Layout title="博客" subtitle={`共有 ${posts.totalCount} 篇文章`}>
-    <Container>
-      <Row sx={{ mb: 6 }}>
-        {posts.nodes.map(node => (
-          <Card post={node} key={node.id} />
-        ))}
-      </Row>
+  <Layout title="博客">
+    <Cover />
+    <Hero title="博客" subtitle={`共有 ${posts.totalCount} 篇文章`} />
+    <Container row sx={{ mb: 6 }}>
+      {posts.nodes.map(node => (
+        <Card post={node} key={node.id} />
+      ))}
     </Container>
   </Layout>
 )

@@ -1,3 +1,7 @@
+/**
+ * Screen reader text
+ */
+
 import React from 'react'
 
 export default ({ as: Tag = 'span', ...props }) => {

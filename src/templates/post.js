@@ -4,27 +4,20 @@ import { graphql } from 'gatsby'
 import {
   Layout,
   Container,
-  Row,
   Image,
   Avatar,
   Link,
   Icon,
   Button,
+  Hero,
+  Cover,
   Card,
   Comments,
   ScreenReaderText
 } from '../components'
 
 const Header = ({ title, date, formatDate, category }) => (
-  <header
-    sx={{
-      pt: '6vw',
-      pb: '4vw',
-      color: 'white',
-      textAlign: 'center',
-      textShadow: 'text',
-      fontSize: 'lg'
-    }}>
+  <Hero sx={{ pt: '6vw', pb: '4vw' }}>
     <span sx={{ textTransform: 'uppercase' }}>
       <time dateTime={date} title={date} aria-label="发表于">
         {formatDate}
@@ -46,7 +39,7 @@ const Header = ({ title, date, formatDate, category }) => (
       </Link>
     </span>
     <h1 children={title} sx={{ fontSize: [7, 8], lineHeight: 'normal' }} />
-  </header>
+  </Hero>
 )
 
 const Figure = ({ cover, title }) => (
@@ -399,13 +392,11 @@ const Category = ({ name, category, related }) => (
 
 const RelatedPosts = ({ name, category, related, prev, next }) => (
   <aside sx={{ pt: 6, bg: 'light' }}>
-    <Container>
+    <Container row>
       <ScreenReaderText as="h3">相关文章</ScreenReaderText>
-      <Row>
-        <Category name={name} category={category} related={related} />
-        {prev && <Card post={prev} rel="prev" />}
-        {next && <Card post={next} rel="next" />}
-      </Row>
+      <Category name={name} category={category} related={related} />
+      {prev && <Card post={prev} rel="prev" />}
+      {next && <Card post={next} rel="next" />}
     </Container>
   </aside>
 )
@@ -413,14 +404,11 @@ const RelatedPosts = ({ name, category, related, prev, next }) => (
 export default ({ data: { post, prev, next, related, meta }, location }) => (
   <Layout
     title={post.fields.title}
-    subtitle={post.fields.description}
     description={post.fields.description || post.excerpt}
-    cover={post.fields.cover}
-    mask={3}
-    hero={false}
-    prev={prev && meta.url + prev.fields.permalink}
-    next={next && meta.url + next.fields.permalink}
+    prev={prev && prev.fields.permalink}
+    next={next && next.fields.permalink}
     type="article">
+    <Cover image={post.fields.cover} type={3} />
     <Container as="article" role="main" sx={{ mb: 5 }}>
       <Header
         title={post.fields.title}

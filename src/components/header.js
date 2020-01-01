@@ -1,15 +1,17 @@
+/**
+ * Site header
+ */
+
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Container from './container'
 import Link from './link'
-import Hero from './hero'
-import Cover from './cover'
+import Container from './container'
 import ColorModeSwitcher from './color-mode-switcher'
-import { usePinned } from '../utils/hooks'
+import { usePinned } from '../utils'
 
 const query = graphql`
-  query HeaderComponent {
+  query NavigationComponent {
     meta: config {
       name
       navigation {
@@ -23,40 +25,22 @@ const query = graphql`
 const Brand = ({ name }) => (
   <Link
     to="/"
+    aria-label="回到首页"
     sx={{
       display: 'flex',
       alignItems: 'center',
       px: 1,
       fontSize: 'xl',
-      ':hover': {
-        textDecoration: 'none'
-      }
+      ':hover': { textDecoration: 'none' }
     }}>
+    {/* prettier-ignore */}
     <svg viewBox="0 0 472 450" aria-hidden="true" sx={{ size: '25px', mr: 2 }}>
       <defs>
-        <filter
-          id="shadow"
-          x="-12.7%"
-          y="-13.4%"
-          width="125.4%"
-          height="126.7%"
-          filterUnits="objectBoundingBox">
+        <filter id="shadow" x="-12.7%" y="-13.4%" width="125.4%" height="126.7%" filterUnits="objectBoundingBox">
           <feOffset in="SourceAlpha" result="offset-outer" />
-          <feGaussianBlur
-            stdDeviation="20"
-            in="offset-outer"
-            result="blue-outer"
-          />
-          <feComposite
-            in="blue-outer"
-            in2="SourceAlpha"
-            operator="out"
-            result="blue-outer"
-          />
-          <feColorMatrix
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
-            in="blue-outer"
-          />
+          <feGaussianBlur stdDeviation="20" in="offset-outer" result="blue-outer" />
+          <feComposite in="blue-outer" in2="SourceAlpha" operator="out" result="blue-outer" />
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" in="blue-outer" />
         </filter>
       </defs>
       <mask id="mask" fill="#fff">
@@ -66,10 +50,7 @@ const Brand = ({ name }) => (
         <path d="M0 0h472v449H0z" />
       </g>
       <g mask="url(#mask)">
-        <path
-          d="M0 335.74l64.9 113.74L472 114.26 407.1.52z"
-          filter="url(#shadow)"
-        />
+        <path d="M0 335.74l64.9 113.74L472 114.26 407.1.52z" filter="url(#shadow)" />
       </g>
     </svg>
     <span>{name}</span>
@@ -107,9 +88,7 @@ const Menu = ({ items }) => (
             display: 'block',
             opacity: 0.9,
             p: 2,
-            ':hover': {
-              textDecoration: 'none'
-            }
+            ':hover': { textDecoration: 'none' }
           }}
         />
       </li>
@@ -117,7 +96,7 @@ const Menu = ({ items }) => (
   </ul>
 )
 
-export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
+export default () => {
   const { meta } = useStaticQuery(query)
   return (
     <header
@@ -144,22 +123,6 @@ export default ({ title, subtitle, hero, padding, align, cover, mask }) => {
           <ColorModeSwitcher />
         </Container>
       </nav>
-      {hero !== false && (
-        <Hero
-          title={title}
-          subtitle={subtitle}
-          children={hero}
-          sx={{
-            py: padding || '10vw',
-            textAlign: align || 'center',
-            color: cover === false ? 'text' : 'white',
-            textShadow: cover === false ? null : 'text'
-            // TODO: transition
-            // transition: 'padding 0.3s, color 0.3s'
-          }}
-        />
-      )}
-      {cover !== false && <Cover image={cover} mask={mask} />}
     </header>
   )
 }

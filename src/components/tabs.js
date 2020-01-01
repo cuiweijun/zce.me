@@ -1,3 +1,7 @@
+/**
+ * Tabs
+ */
+
 import React from 'react'
 
 export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {

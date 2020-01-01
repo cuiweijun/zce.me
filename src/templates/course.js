@@ -4,9 +4,10 @@ import { graphql, navigate } from 'gatsby'
 import {
   Layout,
   Container,
-  Row,
   Tabs,
   Link,
+  Hero,
+  Cover,
   Comments,
   Player
 } from '../components'
@@ -180,13 +181,15 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
   return (
     <Layout
       title={video ? video.title : fields.title}
-      subtitle={fields.description}
-      description={fields.description || excerpt}
-      cover={video ? false : fields.cover}
-      hero={video ? false : undefined}
-      mask={1}
-      align="left"
-      background="background">
+      description={fields.description || excerpt}>
+      {video || <Cover image={fields.cover} type={1} />}
+      {video || (
+        <Hero
+          title={video ? video.title : fields.title}
+          subtitle={fields.description}
+          sx={{ textAlign: 'left' }}
+        />
+      )}
       {video && (
         <Player
           {...video}
@@ -195,8 +198,8 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
           sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
         />
       )}
-      <Container>
-        <Row>
+      <section sx={{ bg: 'background' }}>
+        <Container row>
           <Main
             current={current}
             fields={fields}
@@ -204,8 +207,8 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
             html={html}
           />
           <Aside video={video} fields={fields} related={related} />
-        </Row>
-      </Container>
+        </Container>
+      </section>
     </Layout>
   )
 }

@@ -1,55 +1,26 @@
+/**
+ * Page layout
+ * with SEO Meta
+ */
+
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Head from './head'
-import SkipLink from './skip-link'
-import Header from './header'
-import Footer from './footer'
 
-export const Layout = props => (
+const Layout = ({ children, ...props }) => (
   <>
-    <Head
-      title={props.title}
-      description={props.description}
-      keywords={props.keywords}
-      image={props.cover}
-      type={props.type}
-      prev={props.prev}
-      next={props.next}
-    />
-    <Header
-      title={props.title}
-      subtitle={props.subtitle}
-      padding={props.padding}
-      align={props.align}
-      cover={props.cover}
-      mask={props.mask}
-      hero={props.hero}
-    />
-    <main
-      id="content"
-      children={props.children}
-      sx={{
-        // display: 'flow-root',
-        // flexDirection: 'column',
-        // position: 'relative',
-        // fix sticky
-        // overflow: 'hidden',
-        // minHeight: '40vh',
-        bg: props.background,
-        transition: 'background 0.3s'
-      }}
-    />
+    <Head {...props} />
+    <main id="content" children={children} />
   </>
 )
 
-// for wrapPageElement
-// Prevent layout components from unmounting
-// https://www.gatsbyjs.org/docs/layout-components/#how-to-prevent-layout-components-from-unmounting
-export const Wrapper = props => (
-  <>
-    <Head pathname={props.location.pathname} />
-    <SkipLink />
-    {props.children}
-    <Footer />
-  </>
-)
+Layout.propTypes = {
+  ...Head.propTypes,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+}
+
+export default Layout

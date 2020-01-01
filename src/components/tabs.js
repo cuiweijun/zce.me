@@ -28,7 +28,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
             onClick={() => setCurrent(i)}
             children={item.props.name}
             sx={{
-              mb: t => `-${t.borderWidths[2]}`,
+              mb: '-2px',
               px: 3,
               py: 2,
               borderBottom: 2,

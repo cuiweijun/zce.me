@@ -198,7 +198,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
           sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
         />
       )}
-      <section sx={{ bg: 'background' }}>
+      <section sx={{ bg: 'background', transition: 'background 0.3s' }}>
         <Container row>
           <Main
             current={current}

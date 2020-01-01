@@ -43,6 +43,7 @@ export default ({
 
     if (window.Plyr) return initPlayer()
 
+    // ___webpackCompilationHash
     Promise.all([
       loadStyle(withAssetPrefix('/assets/plyr.css?v=20200101')),
       loadScript(withAssetPrefix('/assets/plyr.js?v=20200101'))

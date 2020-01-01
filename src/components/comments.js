@@ -60,6 +60,7 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
 
     if (window.Gitalk) return initGitalk()
 
+    // ___webpackCompilationHash
     Promise.all([
       loadStyle(withAssetPrefix('/assets/gitalk.css?v=20200101')),
       loadScript(withAssetPrefix('/assets/gitalk.js?v=20200101'))

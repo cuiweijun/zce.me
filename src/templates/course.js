@@ -85,7 +85,6 @@ const AsideSection = ({ title, children }) => (
   <section
     sx={{
       p: 3,
-      lineHeight: 'loose',
       ':not(:last-child)': {
         borderBottom: 1,
         borderColor: 'border',
@@ -106,6 +105,7 @@ const Aside = ({ video, fields, related }) => (
       flex: '1 1 16rem',
       p: 3,
       pl: [3, 3, 0],
+      lineHeight: 'loose',
       color: 'muted',
       a: {
         ':not(:last-child)': {
@@ -158,7 +158,7 @@ const Aside = ({ video, fields, related }) => (
       </AsideSection>
     )}
     <AsideSection title="相关推荐">
-      <ul>
+      <ul sx={{ mt: 2 }}>
         {related.nodes.map(i => (
           <li key={i.id}>
             <Link to={i.fields.permalink}>{i.fields.title}</Link>

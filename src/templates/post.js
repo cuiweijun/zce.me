@@ -361,8 +361,8 @@ const Category = ({ name, category, related }) => (
         <li
           key={item.id}
           sx={{
-            overflow: 'hidden',
             p: 3,
+            overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
             ':not(:last-child)': {

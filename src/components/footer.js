@@ -128,7 +128,7 @@ const Tags = ({ tags }) => (
 
 const Links = ({ links }) => (
   <Widget title="链接" width={['100%', '50%', '25%', '15%']}>
-    <ul sx={{ px: 2, listStyle: 'none' }}>
+    <ul sx={{ px: 1, listStyle: 'none' }}>
       {links.map(i => (
         <li
           key={i.text}

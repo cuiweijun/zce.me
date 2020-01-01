@@ -99,6 +99,8 @@ The default structure is shown below:
   - https://github.com/TryGhost/Casper/blob/master/assets/css/screen.css#L399-L414
 - [ ] Staticman
   - https://www.gatsbycentral.com/tutorial-comments-with-staticman-in-gatsby
+- [ ] gatsby-plugin-catch-links
+- [ ] gatsby-plugin-sitemap
 
 ### Backlog
 

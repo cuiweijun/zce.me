@@ -17,6 +17,9 @@ exports.plugins = [
     resolve: 'gatsby-plugin-no-sourcemaps'
   },
   {
+    resolve: 'gatsby-plugin-emotion'
+  },
+  {
     resolve: 'gatsby-plugin-react-helmet'
   },
   {

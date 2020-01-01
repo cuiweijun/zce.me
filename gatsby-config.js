@@ -28,7 +28,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      name: 'Lei’s Personal Website',
+      name: '汪磊的个人网站',
       short_name: 'Lei’s',
       start_url: '/',
       background_color: '#339af0',

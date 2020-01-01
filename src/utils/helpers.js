@@ -3,7 +3,7 @@
  */
 
 export const get = (obj, key, def) => {
-  key = key && key.split ? key.split('.') : [key]
+  key = key.split ? key.split('.') : key
   key.forEach(key => {
     obj = obj ? obj[key] : undefined
   })

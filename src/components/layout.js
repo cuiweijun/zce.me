@@ -6,41 +6,36 @@
 import React from 'react'
 
 import Head from './head'
-// import Hero from './Hero'
+import Cover from './cover'
+import Hero from './hero'
 
-export default props => (
+const Layout = ({ ...props }) => (
   <>
-    <Head
-      title={props.title}
-      description={props.description}
-      keywords={props.keywords}
-      image={props.cover}
-      type={props.type}
-      prev={props.prev}
-      next={props.next}
-    />
+    <Head {...props} />
+    <Cover {...props} />
+    <Hero {...props} />
     <main
       id="content"
-      sx={{
-        // display: 'flow-root',
-        // flexDirection: 'column',
-        // position: 'relative',
-        // fix sticky
-        // overflow: 'hidden',
-        // minHeight: '40vh',
-        bg: props.background,
-        transition: 'background 0.3s'
-      }}>
-      {/* <Hero
-        title={props.title}
-        subtitle={props.subtitle}
-        padding={props.padding}
-        align={props.align}
-        cover={props.cover}
-        mask={props.mask}
-        hero={props.hero}
-      /> */}
+      sx={
+        {
+          // display: 'flow-root',
+          // flexDirection: 'column',
+          // position: 'relative',
+          // fix sticky
+          // overflow: 'hidden',
+          // minHeight: '40vh',
+          // bg: props.background,
+          // transition: 'background 0.3s'
+        }
+      }>
       {props.children}
     </main>
   </>
 )
+
+Layout.propTypes = {
+  ...Head.propTypes,
+  ...Cover.propTypes
+}
+
+export default Layout

@@ -418,8 +418,8 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
     cover={post.fields.cover}
     mask={3}
     hero={false}
-    prev={prev && meta.url + prev.fields.permalink}
-    next={next && meta.url + next.fields.permalink}
+    prev={prev && prev.fields.permalink}
+    next={next && next.fields.permalink}
     type="article">
     <Container as="article" role="main" sx={{ mb: 5 }}>
       <Header

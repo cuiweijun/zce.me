@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout, Container, Row, Card } from '../components'
 
 export default ({ data: { courses } }) => (
-  <Layout title="Courses" subtitle={`目前共有 ${courses.totalCount} 套课程`}>
+  <Layout title="课程" subtitle={`目前共有 ${courses.totalCount} 套课程`}>
     <Container>
       <Row sx={{ mb: 6 }}>
         {courses.nodes.map(node => (

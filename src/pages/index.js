@@ -100,7 +100,7 @@ const Feed = ({ posts, title, subtitle, link }) => (
 
 export default ({ data: { featured, posts, courses, about, meta } }) => (
   <Layout>
-    <Cover type={1} sx={{ minHeight: '50vw' }} />
+    <Cover type={1} />
 
     <Hero sx={{ py: '18vw', h1: { fontSize: '6rem' } }} />
 

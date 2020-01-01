@@ -274,7 +274,7 @@ const parseProps = props => {
 }
 
 export const jsx = (type, props, ...children) => {
-  return emotion(type, parseProps(props), ...children)
+  return emotion.apply(null, [type, parseProps(props), ...children])
 }
 
 // =============================================================================

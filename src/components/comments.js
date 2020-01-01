@@ -61,8 +61,8 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
     if (window.Gitalk) return initGitalk()
 
     Promise.all([
-      loadStyle(withAssetPrefix('/assets/gitalk.css')),
-      loadScript(withAssetPrefix('/assets/gitalk.js'))
+      loadStyle(withAssetPrefix('/assets/gitalk.css?v=20200101')),
+      loadScript(withAssetPrefix('/assets/gitalk.js?v=20200101'))
     ]).then(initGitalk)
 
     // TODO: destory scripts

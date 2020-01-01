@@ -101,7 +101,6 @@ const Aside = ({ video, fields, related }) => (
   <aside
     sx={{
       position: 'sticky',
-      // top: t => t.sizes.nav, // TODO
       top: 0,
       alignSelf: 'flex-start',
       flex: '1 1 16rem',

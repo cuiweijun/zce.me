@@ -85,8 +85,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
           sx={{
             zIndex: 2,
             display: 'flex',
-            m: 0,
-            p: 0,
+            mb: 0,
+            pl: 0,
             listStyle: 'none',
             ':hover': { li: { ml: 0 } }
           }}>

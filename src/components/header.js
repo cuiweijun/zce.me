@@ -63,7 +63,7 @@ const Menu = ({ items }) => (
       display: 'flex',
       overflowX: 'auto',
       flex: 1,
-      m: 0,
+      mb: 0,
       mx: [1, 3],
       px: 1,
       listStyle: 'none',

@@ -8,6 +8,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Link from '../components/link'
 import Input from '../components/input'
 import Button from '../components/button'
+import Row from '../components/row'
 import Container from '../components/container'
 
 const query = graphql`
@@ -47,7 +48,7 @@ const query = graphql`
 
 const Widget = ({ title, width, children }) => (
   <section sx={{ width: width, mb: [4, 4, 4, 0], px: 3 }}>
-    <h4 sx={{ fontWeight: 'light', mt: 0, mb: 2 }} children={title} />
+    <h4 sx={{ fontWeight: 'light', mb: 2 }} children={title} />
     {children}
   </section>
 )
@@ -80,7 +81,7 @@ const Follow = ({ socials }) => (
         }}
       />
     </form>
-    <ul sx={{ m: 0, mx: -1, mb: 3, p: 0, listStyle: 'none' }}>
+    <ul sx={{ mx: -1, pl: 0, listStyle: 'none' }}>
       {socials.map(i => (
         <li key={i.name} sx={{ display: 'inline-block', mx: 1, mb: 2 }}>
           <Button
@@ -102,7 +103,7 @@ const Follow = ({ socials }) => (
 
 const Tags = ({ tags }) => (
   <Widget title="标签" width={['100%', '100%', '55%', '25%']}>
-    <ul sx={{ m: 0, p: 0, listStyle: 'none', lineHeight: 'loose' }}>
+    <ul sx={{ pl: 0, listStyle: 'none', lineHeight: 'loose' }}>
       {tags.map(i => (
         <li
           key={i.name}
@@ -114,7 +115,7 @@ const Tags = ({ tags }) => (
           <Link
             to={i.permalink}
             children={i.name}
-            sx={{ ':before': { content: '"\\0023"', opacity: 0.8 } }}
+            sx={{ ':before': { content: '"\\0023"' } }}
           />
         </li>
       ))}
@@ -127,7 +128,7 @@ const Tags = ({ tags }) => (
 
 const Links = ({ links }) => (
   <Widget title="链接" width={['100%', '50%', '25%', '15%']}>
-    <ul sx={{ m: 0, px: 2, listStyle: 'none' }}>
+    <ul sx={{ px: 2, listStyle: 'none' }}>
       {links.map(i => (
         <li
           key={i.text}
@@ -164,7 +165,7 @@ const Copyright = ({ name, url }) => (
       &copy; {new Date().getFullYear()} <Link to={url} children={name} />.
       保留所有权利.
     </span>
-    <ul sx={{ flex: 1, m: 0, ml: 2, p: 0 }}>
+    <ul sx={{ flex: 1, mb: 0, ml: 2, pl: 0 }}>
       <li sx={{ display: 'inline', mr: 2 }}>
         <Link to="/privacy-policy/" children="隐私政策" />
       </li>
@@ -220,12 +221,12 @@ export default () => {
         transition: 'background 0.3s, border 0.3s'
       }}>
       <Container>
-        <aside sx={{ display: 'flex', flexWrap: 'wrap', mx: -3, mb: 4 }}>
+        <Row as="aside" sx={{ mb: 4 }}>
           <Follow socials={meta.socials} />
           <Tags tags={tags.nodes} />
           <Links links={meta.links} />
           <Subscription subscription={meta.subscription} />
-        </aside>
+        </Row>
         <Copyright name={meta.name} url={meta.url} />
       </Container>
     </footer>

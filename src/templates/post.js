@@ -127,7 +127,7 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
     {tags.length > 0 && (
       <div title="标记为" aria-label="标记为">
         <Icon name="tag" />
-        <ul sx={{ display: 'inline', m: 0, ml: 1, p: 0, listStyle: 'none' }}>
+        <ul sx={{ display: 'inline', mb: 0, ml: 1, pl: 0, listStyle: 'none' }}>
           {tags.map(i => (
             <li
               key={i.name}
@@ -352,19 +352,11 @@ const Category = ({ name, category, related }) => (
     <h3 sx={{ p: 2, fontWeight: 'light' }}>
       <Link to={category.permalink}>{category.name}</Link>
     </h3>
-    <svg
-      viewBox="0 0 24 24"
-      width="50"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="0.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      sx={{ mx: 'auto', stroke: 'rgba(255, 255, 255, 0.25)' }}>
+    {/* prettier-ignore */}
+    <svg viewBox="0 0 24 24" width="50" fill="none" stroke="rgba(255, 255, 255, 0.25)" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ margin: '0 auto' }}>
       <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5" />
     </svg>
-    <ul sx={{ flex: 1, m: 3, p: 0, listStyle: 'none' }}>
+    <ul sx={{ flex: 1, m: 3, pl: 0, listStyle: 'none' }}>
       {related.nodes.map(item => (
         <li
           key={item.id}

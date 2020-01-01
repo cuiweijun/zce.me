@@ -81,8 +81,8 @@ const Feed = ({ posts, title, subtitle, link }) => (
   <Section>
     <Container>
       <header sx={{ mb: 5, textAlign: 'center' }}>
-        <h2 sx={{ m: 0, mb: 3, fontSize: 7, fontWeight: 'light' }}>{title}</h2>
-        <p sx={{ m: 0, fontSize: 'lg', color: 'muted' }}>{subtitle}</p>
+        <h2 sx={{ fontSize: 7 }}>{title}</h2>
+        <p sx={{ fontSize: 'lg', color: 'muted' }}>{subtitle}</p>
       </header>
       <Row sx={{ mb: 3 }}>
         {posts.map(node => (

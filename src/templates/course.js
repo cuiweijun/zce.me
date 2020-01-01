@@ -182,8 +182,8 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
     <Layout
       title={video ? video.title : fields.title}
       description={fields.description || excerpt}>
-      {video || <Cover image={fields.cover} type={1} />}
-      {video || (
+      {!video && <Cover image={fields.cover} type={1} />}
+      {!video && (
         <Hero
           title={video ? video.title : fields.title}
           subtitle={fields.description}
@@ -193,7 +193,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
       {video && (
         <Player
           {...video}
-          autoplay={true}
+          autoplay
           onEnded={onEnded}
           sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
         />

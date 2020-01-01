@@ -8,6 +8,8 @@ import {
   Link,
   Button,
   Image,
+  Hero,
+  Cover,
   Card
 } from '../components'
 
@@ -95,7 +97,11 @@ const Feed = ({ posts, title, subtitle, link }) => (
 )
 
 export default ({ data: { featured, posts, courses, about, meta } }) => (
-  <Layout padding="18vw" mask={1}>
+  <Layout>
+    <Cover type={1} />
+
+    <Hero sx={{ py: '18vw' }} />
+
     {featured.nodes[0] && <Featured post={featured.nodes[0]} />}
 
     <Feed

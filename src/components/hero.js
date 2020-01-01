@@ -3,6 +3,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Container from './container'
@@ -16,7 +17,7 @@ const query = graphql`
   }
 `
 
-const Hero = ({ title, subtitle, padding, align, hero }) => {
+const Hero = ({ title, subtitle, children, ...props }) => {
   const { meta } = useStaticQuery(query)
 
   if (!title) {
@@ -25,24 +26,33 @@ const Hero = ({ title, subtitle, padding, align, hero }) => {
   }
 
   return (
-    <section
-      // role="banner"
+    <header
+      {...props}
       sx={{
-        py: padding || '10vw',
-        textAlign: align || 'center',
+        py: '10vw',
+        textAlign: 'center',
         color: 'white',
-        textShadow: 'text'
-        // TODO: transition
-        // transition: 'padding 0.3s, color 0.3s'
+        fontSize: 'xl',
+        textShadow: 'text',
+        transition: 'padding 0.3s, color 0.3s' // TODO: ???
       }}>
-      {hero || (
-        <Container>
+      {children || (
+        <Container width="inner">
           <h1 sx={{ fontSize: 9 }}>{title}</h1>
-          {subtitle && <p sx={{ fontSize: 'xl' }}>{subtitle}</p>}
+          {subtitle && <p>{subtitle}</p>}
         </Container>
       )}
-    </section>
+    </header>
   )
+}
+
+Hero.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 }
 
 export default Hero

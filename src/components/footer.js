@@ -5,7 +5,10 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { Container, Link, Button, Input } from '../components'
+import Link from '../components/link'
+import Input from '../components/input'
+import Button from '../components/button'
+import Container from '../components/container'
 
 const query = graphql`
   query FooterComponent {

@@ -1,15 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Container, Layout, Image, Comments } from '../components'
+import { Container, Layout, Image, Hero, Comments } from '../components'
 
 export default ({ data: { page } }) => (
   <Layout
     title={page.fields.title}
-    subtitle={page.fields.description}
-    description={page.fields.description || page.excerpt}
-    cover={false}
-    padding="5vw">
+    description={page.fields.description || page.excerpt}>
+    <Hero
+      title={page.fields.title}
+      subtitle={page.fields.description}
+      sx={{ py: '5vw' }}
+    />
     <Container>
       <Image
         Tag="figure"

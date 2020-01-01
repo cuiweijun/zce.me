@@ -6,7 +6,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby'
 
-import { loadStyle, loadScript } from '../utils/loader'
+import { loadStyle, loadScript } from '../utils'
 
 if (typeof window !== 'undefined') {
   window.React = React

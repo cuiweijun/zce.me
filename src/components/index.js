@@ -12,6 +12,7 @@ export { default as Image } from './image'
 export { default as Avatar } from './avatar'
 export { default as Tabs } from './tabs'
 export { default as Hero } from './hero'
+export { default as Cover } from './cover'
 export { default as ScreenReaderText } from './screen-reader-text'
 
 // business components

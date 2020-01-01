@@ -5,10 +5,10 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Container from './container'
 import Link from './link'
+import Container from './container'
 import ColorModeSwitcher from './color-mode-switcher'
-import { usePinned } from '../utils/hooks'
+import { usePinned } from '../utils'
 
 const query = graphql`
   query NavigationComponent {
@@ -25,6 +25,7 @@ const query = graphql`
 const Brand = ({ name }) => (
   <Link
     to="/"
+    aria-label="回到首页"
     sx={{
       display: 'flex',
       alignItems: 'center',

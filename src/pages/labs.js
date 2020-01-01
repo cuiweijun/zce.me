@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { Layout, Container, Button, Tabs, Player } from '../components'
+import { Layout, Container, Button, Tabs, Hero, Player } from '../components'
 
 export default () => {
   // const [count, setCount] = React.useState(0)
   return (
-    <Layout title="实验室" cover={false}>
+    <Layout title="实验室">
+      <Hero title="实验室" subtitle="新特性、新组件、新尝试" />
       <Container sx={{ p: 6 }}>
         <h3>Colors</h3>
         <div sx={{ mx: -2, mb: 3 }}>

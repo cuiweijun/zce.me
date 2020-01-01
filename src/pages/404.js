@@ -1,35 +1,30 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Container, Row, Card, Button, Link } from '../components'
+import {
+  Layout,
+  Container,
+  Button,
+  Link,
+  Hero,
+  Cover,
+  Card
+} from '../components'
 
 export default ({ data: { posts } }) => (
-  <Layout
-    title="404 Not found"
-    mask={3}
-    hero={
-      <Container
-        sx={{
-          py: '12vw',
-          textAlign: 'center',
-          color: 'white',
-          textShadow: 'text'
-          // TODO: transition
-          // transition: 'padding 0.3s, color 0.3s'
-        }}>
-        <h1 sx={{ fontSize: '8rem', fontWeight: 'light' }}>404</h1>
-        <p sx={{ fontSize: 'xl', mb: 6 }}>你似乎来到了新大陆～</p>
-        <Button as={Link} to="/">
-          返回首页 <span aria-hidden="true">&rarr;</span>
-        </Button>
-      </Container>
-    }>
-    <Container>
-      <Row sx={{ mb: 6 }}>
-        {posts.nodes.map(node => (
-          <Card post={node} key={node.id} />
-        ))}
-      </Row>
+  <Layout title="404 Not found">
+    <Cover type={3} />
+    <Hero sx={{ py: '12vw' }}>
+      <h1 sx={{ fontSize: '8rem', fontWeight: 'light' }}>404</h1>
+      <p sx={{ mb: 6 }}>你似乎来到了新大陆～</p>
+      <Button as={Link} to="/">
+        返回首页 <span aria-hidden="true">&rarr;</span>
+      </Button>
+    </Hero>
+    <Container row sx={{ mb: 6 }}>
+      {posts.nodes.map(node => (
+        <Card post={node} key={node.id} />
+      ))}
     </Container>
   </Layout>
 )

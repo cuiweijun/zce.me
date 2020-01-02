@@ -129,7 +129,7 @@ const multiples = {
 
 const responsive = styles => theme => {
   const next = {}
-  const breakpoints = get(theme, 'breakpoints', defaultTheme.breakpoints)
+  const breakpoints = get(theme, 'breakpoints', [])
   const mediaQueries = [
     null,
     ...breakpoints.map(n => `@media screen and (min-width: ${n})`)

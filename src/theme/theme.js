@@ -61,8 +61,8 @@ fontSizes.body = fontSizes[2]
 const fontWeights = {
   light: 300,
   normal: 400,
-  bold: 500,
-  bolder: 600
+  bold: 600,
+  bolder: 700
 }
 fontWeights.body = fontWeights.normal
 fontWeights.heading = fontWeights.bold

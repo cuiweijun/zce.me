@@ -223,6 +223,9 @@ const table = {
     textAlign: 'left',
     border: 1,
     borderColor: 'border'
+  },
+  th: {
+    fontWeight: 'bold'
   }
 }
 

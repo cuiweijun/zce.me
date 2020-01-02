@@ -8,6 +8,9 @@
     - key: description
       value: 全部未分类内容
 
+- name: 旅行
+  slug: travel
+
 - name: 教程
   slug: tutorial
 

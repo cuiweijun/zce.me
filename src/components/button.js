@@ -96,7 +96,6 @@ export default ({
         lineHeight: 'inherit',
         textAlign: 'center',
         textDecoration: 'none',
-        verticalAlign: 'middle',
         cursor: 'pointer',
         userSelect: 'none',
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',

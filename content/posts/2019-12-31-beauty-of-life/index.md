@@ -4,8 +4,8 @@ slug: beauty-of-life
 date: 2019-12-31 01:18
 cover: cover.jpg
 featured: true
-# categories:
-#   - 未分类
+categories:
+  - 旅行
 ---
 
 或许没有轰轰烈烈的传奇故事，但就是那份平淡，才得以让我们疲惫的心得到休息。在这当中，不乏生活中的美。

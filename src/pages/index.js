@@ -43,24 +43,23 @@ const Featured = ({ post }) => (
         alt={post.fields.title}
         title={post.fields.title}
         sx={{
-          flex: '0 0 22rem',
-          order: [0, 0, 1],
-          mb: [4, 4, 0],
-          ml: [0, 0, 4],
+          flex: '0 1 22rem',
+          order: [0, null, null, 1],
+          m: [0, 4],
           border: 6,
           borderColor: 'background',
           boxShadow: 'medium',
           transition: 'border 0.3s'
         }}
       />
-      <div sx={{ flex: '1 0 23rem', p: 4, lineHeight: 'loose' }}>
+      <div sx={{ flex: '1 1 30rem', p: [0, 4] }}>
         <h2 sx={{ mb: 4, fontSize: 7 }}>{post.fields.title}</h2>
         <div
           dangerouslySetInnerHTML={{ __html: post.excerpt }}
           sx={{
             mb: 4,
             fontSize: 'lg',
-            textIndent: '2em',
+            lineHeight: 'loose',
             maskImage:
               'linear-gradient(to top, rgba(0, 0, 0, 0), #000 10%, #000)'
           }}
@@ -140,17 +139,16 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
     </Section>
 
     <Section padding={6}>
-      <Container>
-        <p
-          children={meta.slogan}
-          sx={{
-            color: 'muted',
-            fontFamily: 'serif',
-            fontSize: 'xl',
-            textAlign: 'center'
-          }}
-        />
-      </Container>
+      <Container
+        as="p"
+        children={meta.slogan}
+        sx={{
+          color: 'muted',
+          fontFamily: 'serif',
+          fontSize: 'xl',
+          textAlign: 'center'
+        }}
+      />
     </Section>
   </Layout>
 )

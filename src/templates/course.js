@@ -104,7 +104,7 @@ const Aside = ({ video, fields, related }) => (
       alignSelf: 'flex-start',
       flex: '1 1 16rem',
       p: 3,
-      pl: [3, 3, 0],
+      pl: [3, null, 0],
       lineHeight: 'loose',
       color: 'muted',
       a: {

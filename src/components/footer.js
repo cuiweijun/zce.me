@@ -47,14 +47,14 @@ const query = graphql`
 `
 
 const Widget = ({ title, width, children }) => (
-  <section sx={{ width: width, mb: [4, 4, 4, 0], px: 3 }}>
+  <section sx={{ width: width, mb: 4, px: 3 }}>
     <h4 sx={{ fontWeight: 'light', mb: 2 }} children={title} />
     {children}
   </section>
 )
 
 const Follow = ({ socials }) => (
-  <Widget title="社交媒体" width={['100%', '100%', '100%', '45%']}>
+  <Widget title="社交媒体" width={['100%', null, null, '45%']}>
     <p sx={{ mb: 3 }}>我们会将最新的、最有意思的内容直接发送到您的收件箱。</p>
     <form sx={{ display: 'flex', mb: 3 }}>
       <Input
@@ -102,7 +102,7 @@ const Follow = ({ socials }) => (
 )
 
 const Tags = ({ tags }) => (
-  <Widget title="标签" width={['100%', '100%', '55%', '25%']}>
+  <Widget title="标签" width={['100%', null, '55%', '25%']}>
     <ul sx={{ pl: 0, listStyle: 'none', lineHeight: 'loose' }}>
       {tags.map(i => (
         <li
@@ -221,7 +221,7 @@ export default () => {
         transition: 'background 0.3s, border 0.3s'
       }}>
       <Container>
-        <Row as="aside" sx={{ mb: 4 }}>
+        <Row as="aside">
           <Follow socials={meta.socials} />
           <Tags tags={tags.nodes} />
           <Links links={meta.links} />

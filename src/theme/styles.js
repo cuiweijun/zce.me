@@ -25,10 +25,10 @@ const reboot = {
     m: 0,
     color: 'text',
     bg: 'background',
-    fontSize: 'body',
-    fontFamily: 'body',
-    fontWeight: 'body',
-    lineHeight: 'body',
+    fontSize: 'md',
+    fontFamily: 'sans',
+    fontWeight: 'normal',
+    lineHeight: 'normal',
     transition: 'background 0.3s, color 0.3s',
     WebkitTextSizeAdjust: '100%',
     WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
@@ -60,9 +60,8 @@ const reboot = {
 
 const heading = {
   ...block,
-  fontFamily: 'heading',
-  lineHeight: 'heading',
-  fontWeight: 'heading'
+  lineHeight: 1.2,
+  fontWeight: 500
 }
 
 const typography = {

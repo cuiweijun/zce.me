@@ -8,6 +8,7 @@
 // highlight, muted
 // light, dark
 // text, background, border
+
 const colors = {
   primary: '#15aabf',
   muted: '#717a82',
@@ -35,8 +36,6 @@ const fonts = {
   serif: 'Georgia, Cambria, "Times New Roman", Times, serif',
   mono: '"Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
 }
-fonts.body = fonts.sans
-fonts.heading = null
 
 const fontSizes = [
   '0.75rem',
@@ -56,7 +55,6 @@ fontSizes.sm = fontSizes[1]
 fontSizes.md = fontSizes[2]
 fontSizes.lg = fontSizes[3]
 fontSizes.xl = fontSizes[4]
-fontSizes.body = fontSizes[2]
 
 const fontWeights = {
   light: 300,
@@ -64,8 +62,6 @@ const fontWeights = {
   bold: 600,
   bolder: 700
 }
-fontWeights.body = fontWeights.normal
-fontWeights.heading = fontWeights.bold
 
 const lineHeights = {
   solid: 1,
@@ -74,8 +70,6 @@ const lineHeights = {
   loose: 1.75,
   double: 2
 }
-lineHeights.body = lineHeights.normal
-lineHeights.heading = 1.2
 
 const breakpoints = ['640px', '768px', '1024px', '1280px']
 

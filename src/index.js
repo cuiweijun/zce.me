@@ -9,10 +9,10 @@
 import React from 'react'
 
 import { Wrapper } from './components'
-import { ThemeProvider, Global } from './theme'
+import { ThemeProvider, Global } from './utils'
 
-import theme from './utils/theme'
-import styles from './utils/styles'
+import theme from './theme'
+import styles from './styles'
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>

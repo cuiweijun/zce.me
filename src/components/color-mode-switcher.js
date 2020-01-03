@@ -5,7 +5,7 @@
 import React from 'react'
 
 import Button from './button'
-import { useThemeMode } from '../theme'
+import { useThemeMode } from '../utils'
 
 export default () => {
   const [mode, setMode] = useThemeMode()

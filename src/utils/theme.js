@@ -1,123 +1,336 @@
-/**
- * Site theme
- */
+import { useState, useEffect } from 'react'
+import { jsx as emotion, Global as EmotionGlobal } from '@emotion/core'
+import { ThemeProvider as EmotionProvider, useTheme } from 'emotion-theming'
+import * as p from 'polished'
 
-// TODO: Redesign colors
-// transparent, white, black
-// primary, secondary, accent,
-// highlight, muted
-// light, dark
-// text, background, border
+const storageKey = 'theme-mode'
 
-export default {
-  colors: {
-    primary: '#15aabf',
-    muted: '#717a82',
-    light: '#f1f3f5',
-    dark: '#495057',
-    text: '#343a40',
-    background: '#f8f9fa',
-    border: '#dee2e6'
-  },
-  // prettier-ignore
-  fonts: {
-    sans: 'system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-    serif: 'Georgia, Cambria, "Times New Roman", Times, serif',
-    mono: '"Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
-  },
-  fontSizes: {
-    0: '0.75rem',
-    1: '0.875rem',
-    2: '1rem',
-    3: '1.125rem',
-    4: '1.25rem',
-    5: '1.5rem',
-    6: '1.875rem',
-    7: '2.25rem',
-    8: '3rem',
-    9: '4rem',
-    10: '5rem',
-    xs: '0.75rem',
-    sm: '0.875rem',
-    md: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem'
-  },
-  fontWeights: {
-    light: 300,
-    normal: 400,
-    bold: 600,
-    bolder: 700
-  },
-  lineHeights: {
-    solid: 1,
-    dense: 1.125,
-    normal: 1.5,
-    loose: 1.75,
-    double: 2
-  },
-  breakpoints: ['640px', '768px', '1024px', '1280px'],
-  space: [
-    0,
-    '0.25rem',
-    '0.5rem',
-    '1rem',
-    '1.5rem',
-    '2rem',
-    '2.5rem',
-    '3rem',
-    '5rem',
-    '7rem'
-  ],
-  sizes: {
-    container: '75rem',
-    inner: '50rem',
-    nav: '3rem'
-  },
-  borders: [
-    0,
-    t => `1px solid ${t.colors.border}`,
-    t => `2px solid ${t.colors.border}`,
-    t => `4px solid ${t.colors.border}`,
-    t => `8px solid ${t.colors.border}`,
-    t => `16px solid ${t.colors.border}`,
-    t => `24px solid ${t.colors.border}`
-  ],
-  radii: {
-    none: 0,
-    small: '0.1875rem',
-    medium: '0.25rem',
-    large: '0.5rem',
-    pill: '20rem',
-    circle: '50%'
-  },
-  shadows: {
-    outline: '0 0 0 0.2rem rgba(21, 170, 191, 0.2)',
-    underline: 'inset 0 -1px 0 currentColor',
-    text: '0 0 0.25rem rgba(0, 0, 0, 0.4)',
-    light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.2)',
-    medium: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.2)',
-    severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.2)'
-  },
-  modes: {
-    dark: {
-      colors: {
-        primary: '#f08c00',
-        muted: '#92a3ab',
-        light: '#191b1f',
-        dark: '#16181b',
-        text: 'rgba(255, 255, 255, 0.75)',
-        background: '#212529',
-        border: '#2b2f36'
-      },
-      shadows: {
-        outline: '0 0 0 0.2rem rgba(240, 140, 0, 0.2)',
-        underline: 'inset 0 -1px 0 currentColor',
-        text: '0 0 0.25rem rgba(0, 0, 0, 0.4)',
-        light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.3)',
-        medium: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.3)',
-        severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.3)'
+const defaultTheme = {}
+
+// =============================================================================
+// Delve get
+// ref: https://github.com/developit/dlv/blob/master/index.js
+// =============================================================================
+
+const get = (obj, key, def) => {
+  key = key && key.split ? key.split('.') : [key]
+  key.forEach(key => {
+    obj = obj ? obj[key] : undefined
+  })
+  return obj === undefined ? def : obj
+}
+
+// =============================================================================
+// Themed css
+// ref: https://github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
+// =============================================================================
+
+const scales = {
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  margin: 'space',
+  marginTop: 'space',
+  marginRight: 'space',
+  marginBottom: 'space',
+  marginLeft: 'space',
+  marginX: 'space',
+  marginY: 'space',
+  padding: 'space',
+  paddingTop: 'space',
+  paddingRight: 'space',
+  paddingBottom: 'space',
+  paddingLeft: 'space',
+  paddingX: 'space',
+  paddingY: 'space',
+  top: 'space',
+  right: 'space',
+  bottom: 'space',
+  left: 'space',
+  gridGap: 'space',
+  gridColumnGap: 'space',
+  gridRowGap: 'space',
+  gap: 'space',
+  columnGap: 'space',
+  rowGap: 'space',
+  fontFamily: 'fonts',
+  fontSize: 'fontSizes',
+  fontWeight: 'fontWeights',
+  lineHeight: 'lineHeights',
+  letterSpacing: 'letterSpacings',
+  border: 'borders',
+  borderTop: 'borders',
+  borderRight: 'borders',
+  borderBottom: 'borders',
+  borderLeft: 'borders',
+  borderWidth: 'borderWidths',
+  borderStyle: 'borderStyles',
+  borderRadius: 'radii',
+  borderTopRightRadius: 'radii',
+  borderTopLeftRadius: 'radii',
+  borderBottomRightRadius: 'radii',
+  borderBottomLeftRadius: 'radii',
+  borderTopWidth: 'borderWidths',
+  borderTopColor: 'colors',
+  borderTopStyle: 'borderStyles',
+  borderBottomWidth: 'borderWidths',
+  borderBottomColor: 'colors',
+  borderBottomStyle: 'borderStyles',
+  borderLeftWidth: 'borderWidths',
+  borderLeftColor: 'colors',
+  borderLeftStyle: 'borderStyles',
+  borderRightWidth: 'borderWidths',
+  borderRightColor: 'colors',
+  borderRightStyle: 'borderStyles',
+  outlineColor: 'colors',
+  boxShadow: 'shadows',
+  textShadow: 'shadows',
+  zIndex: 'zIndices',
+  width: 'sizes',
+  minWidth: 'sizes',
+  maxWidth: 'sizes',
+  height: 'sizes',
+  minHeight: 'sizes',
+  maxHeight: 'sizes',
+  flexBasis: 'sizes',
+  size: 'sizes',
+  // svg
+  fill: 'colors',
+  stroke: 'colors'
+}
+
+const aliases = {
+  bg: 'backgroundColor',
+  m: 'margin',
+  mt: 'marginTop',
+  mr: 'marginRight',
+  mb: 'marginBottom',
+  ml: 'marginLeft',
+  mx: 'marginX',
+  my: 'marginY',
+  p: 'padding',
+  pt: 'paddingTop',
+  pr: 'paddingRight',
+  pb: 'paddingBottom',
+  pl: 'paddingLeft',
+  px: 'paddingX',
+  py: 'paddingY'
+}
+
+const multiples = {
+  marginX: ['marginLeft', 'marginRight'],
+  marginY: ['marginTop', 'marginBottom'],
+  paddingX: ['paddingLeft', 'paddingRight'],
+  paddingY: ['paddingTop', 'paddingBottom'],
+  size: ['width', 'height']
+}
+
+const responsive = styles => theme => {
+  const next = {}
+  const breakpoints = get(theme, 'breakpoints', [])
+  const mediaQueries = [
+    null,
+    ...breakpoints.map(n => `@media screen and (min-width: ${n})`)
+  ]
+
+  for (const key in styles) {
+    const value =
+      typeof styles[key] === 'function' ? styles[key](theme) : styles[key]
+
+    if (value == null) continue
+    if (!Array.isArray(value)) {
+      next[key] = value
+      continue
+    }
+
+    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
+      const media = mediaQueries[i]
+      if (value[i] == null) continue
+      if (!media) {
+        next[key] = value[i]
+        continue
       }
+      next[media] = next[media] || {}
+      next[media][key] = value[i]
     }
   }
+
+  return next
+}
+
+const negative = (scale, value) => {
+  if (typeof value !== 'number' || value >= 0) {
+    return get(scale, value, value)
+  }
+  const absolute = Math.abs(value)
+  const n = get(scale, absolute, absolute)
+  if (typeof n === 'string') return '-' + n
+  return n * -1
+}
+
+const shouldTransforms = [
+  'margin',
+  'marginTop',
+  'marginRight',
+  'marginBottom',
+  'marginLeft',
+  'marginX',
+  'marginY',
+  'top',
+  'bottom',
+  'left',
+  'right'
+]
+
+const transforms = shouldTransforms.reduce(
+  (prev, current) => ({ ...prev, [current]: negative }),
+  {}
+)
+
+const css = args => (props = {}) => {
+  const theme = { ...defaultTheme, ...(props.theme || props) }
+  const obj = typeof args === 'function' ? args(theme) : args
+  const styles = responsive(obj)(theme)
+  const result = {}
+
+  for (const key in styles) {
+    const x = styles[key]
+    const val = typeof x === 'function' ? x(theme) : x
+
+    if (key === 'variant') {
+      const variant = css(get(theme, val))(theme)
+      Object.assign(result, variant)
+      continue
+    }
+
+    if (val && typeof val === 'object') {
+      result[key] = css(val)(theme)
+      continue
+    }
+
+    const prop = get(aliases, key, key)
+    const scaleName = get(scales, prop)
+    const scale = get(theme, scaleName, get(theme, prop, {}))
+    const transform = get(transforms, prop, get)
+
+    let value = transform(scale, val, val)
+
+    // dynamic value
+    value = typeof value === 'function' ? value(theme) : value
+
+    if (multiples[prop]) {
+      for (const item of multiples[prop]) {
+        result[item] = value
+      }
+    } else {
+      result[prop] = value
+    }
+  }
+
+  return result
+}
+
+// =============================================================================
+// Color utils
+// ref: https://github.com/system-ui/theme/blob/master/packages/color/src/index.js
+// =============================================================================
+
+const g = (t, c) => get(t, `colors.${c}`, c)
+
+export const darken = (c, n) => t => p.darken(n, g(t, c))
+export const lighten = (c, n) => t => p.lighten(n, g(t, c))
+// export const rotate = (c, d) => t => p.adjustHue(d, g(t, c))
+// export const hue = (c, h) => t => p.setHue(h, g(t, c))
+// export const saturation = (c, s) => t => p.setSaturation(s, g(t, c))
+// export const lightness = (c, l) => t => p.setLightness(l, g(t, c))
+// export const desaturate = (c, n) => t => p.desaturate(n, g(t, c))
+// export const saturate = (c, n) => t => p.saturate(n, g(t, c))
+// export const shade = (c, n) => t => p.shade(n, g(t, c))
+// export const tint = (c, n) => t => p.tint(n, g(t, c))
+export const alpha = (c, n) => t => p.rgba(g(t, c), n)
+// export const mix = (a, b, n = 0.5) => t => p.mix(n, g(t, a), g(t, b))
+// export const complement = c => t => p.complement(g(t, c))
+// export const invert = c => t => p.invert(g(t, c))
+// export const grayscale = c => t => p.grayscale(g(t, c))
+export const readable = (c, l = 'white', d = 'black') => t =>
+  p.getLuminance(g(t, c)) > 0.4 ? g(t, d) : g(t, l)
+
+// =============================================================================
+// jsx for sx prop
+// ref: https://github.com/system-ui/theme/blob/master/packages/theme/src/jsx.js
+// =============================================================================
+
+const parseProps = props => {
+  if (!props || !props.sx) return props
+
+  const next = { ...props }
+  delete next.sx
+
+  next.css = theme => {
+    const styles = css(props.sx)(theme)
+    const raw = typeof props.css === 'function' ? props.css(theme) : props.css
+    return [styles, raw]
+  }
+
+  return next
+}
+
+export const jsx = (type, props, ...children) => {
+  return emotion.apply(null, [type, parseProps(props), ...children])
+}
+
+// =============================================================================
+// ThemeProvider wrapper
+// =============================================================================
+
+const getInitialMode = () => {
+  if (
+    typeof window === 'undefined' ||
+    typeof localStorage === 'undefined' ||
+    typeof matchMedia === 'undefined'
+  )
+    return 'default'
+  const mode = localStorage.getItem(storageKey)
+  if (mode) return mode
+  if (matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'
+  if (matchMedia('(prefers-color-scheme: light)').matches) return 'light'
+  return 'default'
+}
+
+export const ThemeProvider = ({ theme, children }) => {
+  const [mode, setMode] = useState('default')
+
+  // for ssr
+  useEffect(() => setMode(getInitialMode()), [])
+
+  const { modes = {}, ...rest } = { ...defaultTheme, ...theme }
+  // apply theme mode
+  theme = { ...rest, ...modes[mode] }
+
+  theme = {
+    ...theme,
+    mode,
+    setMode: value => {
+      if (value === mode) return
+      localStorage.setItem(storageKey, value)
+      setMode(value)
+    }
+  }
+
+  return jsx(EmotionProvider, { theme }, children)
+}
+
+export { useTheme }
+
+export const useThemeMode = () => {
+  const { mode, setMode } = useTheme()
+  return [mode, setMode]
+}
+
+// =============================================================================
+// Global wrapper for support theme
+// =============================================================================
+
+export const Global = ({ ...props }) => {
+  return jsx(EmotionGlobal, { styles: css(props.styles) })
 }

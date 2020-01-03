@@ -363,7 +363,7 @@ exports.onCreateBabelConfig = async ({ actions }) => {
     options: {
       export: 'jsx',
       import: 'h',
-      module: require.resolve('./src/theme')
+      module: require.resolve('./src/utils')
     }
   })
   actions.setBabelPlugin({

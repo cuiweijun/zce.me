@@ -5,7 +5,7 @@
 import React from 'react'
 
 import Icon from './icon'
-import { darken, readable } from '../theme'
+import { darken, readable } from '../utils'
 
 export default ({
   as: Tag = 'button',

@@ -1,13 +1,11 @@
-import React from 'react'
-import { jsx as emotion, Global } from '@emotion/core'
+import { useState, useEffect } from 'react'
+import { jsx as emotion, Global as EmotionGlobal } from '@emotion/core'
 import { ThemeProvider as EmotionProvider, useTheme } from 'emotion-theming'
 import * as p from 'polished'
 
-const storageKey = 'color-mode'
-const varPrefix = '--c-'
+const storageKey = 'theme-mode'
 
 const defaultTheme = {}
-const defaultStyles = {}
 
 // =============================================================================
 // Delve get
@@ -189,7 +187,7 @@ const transforms = shouldTransforms.reduce(
   {}
 )
 
-export const css = args => (props = {}) => {
+const css = args => (props = {}) => {
   const theme = { ...defaultTheme, ...(props.theme || props) }
   const obj = typeof args === 'function' ? args(theme) : args
   const styles = responsive(obj)(theme)
@@ -214,7 +212,11 @@ export const css = args => (props = {}) => {
     const scaleName = get(scales, prop)
     const scale = get(theme, scaleName, get(theme, prop, {}))
     const transform = get(transforms, prop, get)
-    const value = transform(scale, val, val)
+
+    let value = transform(scale, val, val)
+
+    // dynamic value
+    value = typeof value === 'function' ? value(theme) : value
 
     if (multiples[prop]) {
       for (const item of multiples[prop]) {
@@ -233,7 +235,7 @@ export const css = args => (props = {}) => {
 // ref: https://github.com/system-ui/theme/blob/master/packages/color/src/index.js
 // =============================================================================
 
-const g = (t, c) => get(t, `rawColors.${c}`, c)
+const g = (t, c) => get(t, `colors.${c}`, c)
 
 export const darken = (c, n) => t => p.darken(n, g(t, c))
 export const lighten = (c, n) => t => p.lighten(n, g(t, c))
@@ -282,98 +284,53 @@ export const jsx = (type, props, ...children) => {
 // =============================================================================
 
 const getInitialMode = () => {
-  if (typeof window === 'undefined') return 'default'
+  if (
+    typeof window === 'undefined' ||
+    typeof localStorage === 'undefined' ||
+    typeof matchMedia === 'undefined'
+  )
+    return 'default'
   const mode = localStorage.getItem(storageKey)
   if (mode) return mode
-  const isDark = matchMedia('(prefers-color-scheme: dark)').matches
-  return isDark ? 'dark' : 'default'
+  if (matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'
+  if (matchMedia('(prefers-color-scheme: light)').matches) return 'light'
+  return 'default'
 }
 
-const colorModeStyles = theme => {
-  const { modes, ...colors } = theme.rawColors
+export const ThemeProvider = ({ theme, children }) => {
+  const [mode, setMode] = useState('default')
 
-  const styles = {}
+  // for ssr
+  useEffect(() => setMode(getInitialMode()), [])
 
-  styles[':root'] = {}
-  for (const name in colors) {
-    styles[':root'][varPrefix + name] = colors[name]
-  }
+  const { modes = {}, ...rest } = { ...defaultTheme, ...theme }
+  // apply theme mode
+  theme = { ...rest, ...modes[mode] }
 
-  // modes
-  for (const mode in modes) {
-    styles[`:root.${mode}`] = {}
-    for (const name in modes[mode]) {
-      styles[`:root.${mode}`][varPrefix + name] = modes[mode][name]
-    }
-  }
-
-  return styles
-}
-
-export const ThemeProvider = ({ theme, styles, children }) => {
-  const [mode, setMode] = React.useState(getInitialMode())
-
-  React.useEffect(() => document.documentElement.classList.remove(mode))
-
-  theme = { ...defaultTheme, ...theme }
-  styles = css({ ...defaultStyles, ...styles })
-
-  const { modes = {}, ...rest } = theme.colors || {}
-
-  const colors = { ...rest, ...modes[mode] }
-  const rawColors = { ...colors, modes }
-
-  // custom properties
-  // for (const [name, color] of Object.entries(colors)) {
-  //   colors[name] = `var(${varPrefix}${name}, ${color})`
-  // }
-
-  // custom properties without defaults
-  for (const name in colors) {
-    colors[name] = `var(${varPrefix}${name})`
-  }
-
-  const context = {
+  theme = {
     ...theme,
-    colors,
-    rawColors,
-    colorMode: mode,
-    setColorMode: value => {
+    mode,
+    setMode: value => {
       if (value === mode) return
       localStorage.setItem(storageKey, value)
       setMode(value)
     }
   }
 
-  return (
-    <EmotionProvider theme={context}>
-      <Global styles={colorModeStyles} />
-      <Global styles={styles} />
-      {children}
-    </EmotionProvider>
-  )
+  return jsx(EmotionProvider, { theme }, children)
 }
 
 export { useTheme }
 
-// =============================================================================
-// Color mode API
-// =============================================================================
-
-export const useColorMode = () => {
-  const { colorMode, setColorMode } = useTheme()
-  return [colorMode, setColorMode]
+export const useThemeMode = () => {
+  const { mode, setMode } = useTheme()
+  return [mode, setMode]
 }
 
-export const InitializeColorMode = () => (
-  <script
-    id="theme-no-flash"
-    key="theme-no-flash"
-    dangerouslySetInnerHTML={{
-      __html: `(function() { try {
-        var mode = localStorage.getItem('${storageKey}');
-        mode && document.documentElement.classList.add(mode);
-      } catch (e) {} })();`
-    }}
-  />
-)
+// =============================================================================
+// Global wrapper for support theme
+// =============================================================================
+
+export const Global = ({ ...props }) => {
+  return jsx(EmotionGlobal, { styles: css(props.styles) })
+}

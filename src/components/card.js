@@ -23,7 +23,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
       borderRadius: 'medium',
       bg: 'background',
       boxShadow: 'light',
-      transition: 'background 0.3s, box-shadow 0.3s, transform 0.3s',
+      transition: 'box-shadow 0.3s, transform 0.3s',
       willChange: 'transform',
       ':hover': {
         boxShadow: 'medium',
@@ -105,9 +105,7 @@ export default ({ as: Tag = 'article', post, rel }) => (
                   sx={{
                     size: 30,
                     border: 1,
-                    borderColor: 'border',
-                    verticalAlign: 'middle',
-                    transition: 'border 0.3s'
+                    verticalAlign: 'middle'
                   }}
                 />
               </Link>

@@ -38,7 +38,6 @@ export default ({ variant = 'default', size = 'md', ...props }) => {
         px: 3,
         py: 2,
         border: 1,
-        borderColor: 'border',
         borderRadius: 'medium',
         bg: 'transparent',
         color: 'text',

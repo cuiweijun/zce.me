@@ -4,9 +4,17 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-export {
-  wrapRootElement,
-  wrapPageElement,
-  onServiceWorkerUpdateReady,
-  registerServiceWorker
-} from './src'
+import React from 'react'
+
+import { Wrapper } from './src/components'
+
+export const wrapPageElement = ({ element, props }) => (
+  <Wrapper {...props}>{element}</Wrapper>
+)
+
+export const onServiceWorkerUpdateReady = () => {
+  const answer = window.confirm('此应用程序已更新，重新加载以显示最新版本？')
+  answer && window.location.reload()
+}
+
+export const registerServiceWorker = () => true

@@ -24,9 +24,7 @@ const Main = ({ current, fields, excerpt, html }) => (
     sx={{
       flex: '3 1 32rem',
       p: 3,
-      borderRight: 1,
-      borderColor: 'border',
-      transition: 'border 0.3s'
+      borderRight: 1
     }}>
     <section id="intro" name="简介">
       <div
@@ -45,10 +43,8 @@ const Main = ({ current, fields, excerpt, html }) => (
             px: 3,
             py: 2,
             borderBottom: 1,
-            borderColor: 'border',
             textDecoration: 'none',
             lineHeight: 'loose',
-            transition: 'border 0.3s',
             ':last-child': {
               border: 0
             }
@@ -86,9 +82,7 @@ const AsideSection = ({ title, children }) => (
     sx={{
       p: 3,
       ':not(:last-child)': {
-        borderBottom: 1,
-        borderColor: 'border',
-        transition: 'border 0.3s'
+        borderBottom: 1
       }
     }}>
     <span sx={{ fontWeight: 'bold' }}>{title}: </span>
@@ -197,7 +191,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
           sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
         />
       )}
-      <section sx={{ bg: 'background', transition: 'background 0.3s' }}>
+      <section sx={{ bg: 'background' }}>
         <Container row>
           <Main
             current={current}

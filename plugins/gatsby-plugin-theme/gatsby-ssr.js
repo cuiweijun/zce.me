@@ -6,18 +6,16 @@
 
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { cache } from 'emotion'
-import { CacheProvider } from '@emotion/core'
 import { extractCritical } from 'emotion-server'
+
+export { wrapRootElement } from './gatsby-browser'
 
 export const replaceRenderer = ({
   bodyComponent,
   setHeadComponents,
   replaceBodyHTMLString
 }) => {
-  let { html, ids, css } = extractCritical(
-    renderToString(<CacheProvider value={cache}>{bodyComponent}</CacheProvider>)
-  )
+  const { ids, css, html } = extractCritical(renderToString(bodyComponent))
   setHeadComponents([
     <style
       data-emotion-css={ids.join(' ')}
@@ -25,4 +23,15 @@ export const replaceRenderer = ({
     />
   ])
   replaceBodyHTMLString(html)
+}
+
+// for prevent flashing
+export const onRenderBody = ({ setBodyAttributes }) => {
+  setBodyAttributes({
+    style: {
+      opacity: 0,
+      background: '#35363a',
+      transition: 'opacity 1s'
+    }
+  })
 }

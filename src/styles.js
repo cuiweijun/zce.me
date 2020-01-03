@@ -2,7 +2,15 @@
  * Global styles
  */
 
-import { alpha, darken, lighten, readable } from '.'
+import { alpha, darken, lighten, readable } from './utils'
+
+const variables = {
+  ':root': t =>
+    Object.keys(t.colors).reduce(
+      (prev, item) => ({ ...prev, [`--c-${item}`]: t.colors[item] }),
+      {}
+    )
+}
 
 const block = {
   m: 0,
@@ -25,11 +33,10 @@ const reboot = {
     m: 0,
     color: 'text',
     bg: 'background',
-    fontSize: 'body',
-    fontFamily: 'body',
-    fontWeight: 'body',
-    lineHeight: 'body',
-    transition: 'background 0.3s, color 0.3s',
+    fontSize: 'md',
+    fontFamily: 'sans',
+    fontWeight: 'normal',
+    lineHeight: 'normal',
     WebkitTextSizeAdjust: '100%',
     WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     textRendering: 'optimizeLegibility',
@@ -60,9 +67,8 @@ const reboot = {
 
 const heading = {
   ...block,
-  fontFamily: 'heading',
-  lineHeight: 'heading',
-  fontWeight: 'heading'
+  lineHeight: 1.2,
+  fontWeight: 500
 }
 
 const typography = {
@@ -102,8 +108,7 @@ const typography = {
     borderLeft: 4,
     borderColor: lighten('primary', 0.1),
     borderRadius: 'medium',
-    bg: 'light',
-    transition: 'background 0.3s, border 0.3s'
+    bg: 'light'
   }
 }
 
@@ -221,8 +226,7 @@ const table = {
     px: 3,
     py: 2,
     textAlign: 'left',
-    border: 1,
-    borderColor: 'border'
+    border: 1
   },
   th: {
     fontWeight: 'bold'
@@ -271,6 +275,7 @@ const more = {
 }
 
 export default {
+  ...variables,
   ...pseudo,
   ...reboot,
   ...typography,

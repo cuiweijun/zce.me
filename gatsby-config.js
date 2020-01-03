@@ -14,10 +14,10 @@ exports.plugins = [
     resolve: 'gatsby-plugin-minify'
   },
   {
-    resolve: 'gatsby-plugin-no-sourcemaps'
+    resolve: 'gatsby-plugin-build'
   },
   {
-    resolve: 'gatsby-plugin-emotion'
+    resolve: 'gatsby-plugin-theme'
   },
   {
     resolve: 'gatsby-plugin-react-helmet'

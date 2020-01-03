@@ -4,4 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-export { wrapRootElement, wrapPageElement, onRenderBody } from './src'
+export { wrapPageElement } from './gatsby-browser'

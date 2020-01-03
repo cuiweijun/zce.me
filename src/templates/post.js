@@ -88,7 +88,6 @@ const Content = ({ html }) => (
       // fontFamily: 'serif',
       lineHeight: 'loose',
       wordWrap: 'break-word',
-      transition: 'background 0.3s',
       'h1, h2, h3, h4, h5, h6': {
         m: '1.4em 0 0.8em'
       },
@@ -112,7 +111,6 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
       mb: 3,
       py: 2,
       borderBottom: 1,
-      borderColor: 'border',
       color: 'muted',
       fontSize: 'sm'
     }}>

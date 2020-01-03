@@ -8,8 +8,18 @@ import React from 'react'
 import { cache } from 'emotion'
 import { CacheProvider } from '@emotion/core'
 
+import { ThemeProvider, Global } from '../../src/utils'
+
+import theme from '../../src/theme'
+import styles from '../../src/styles'
+
 export const wrapRootElement = ({ element }) => (
-  <CacheProvider value={cache}>{element}</CacheProvider>
+  <CacheProvider value={cache}>
+    <ThemeProvider theme={theme}>
+      <Global styles={styles} />
+      {element}
+    </ThemeProvider>
+  </CacheProvider>
 )
 
 // for prevent flashing

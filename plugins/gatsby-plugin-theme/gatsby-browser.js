@@ -25,7 +25,9 @@ export const wrapRootElement = ({ element }) => (
 // for prevent flashing
 export const onClientEntry = () => {
   window.addEventListener('load', () => {
-    document.body.style.opacity = null
-    document.body.style.background = null
+    setTimeout(() => {
+      document.body.style.opacity = null
+      document.body.style.background = null
+    }, 100)
   })
 }

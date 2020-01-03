@@ -26,12 +26,19 @@ export const wrapPageElement = ({ element, props }) => (
 )
 
 export const onRenderBody = ({ setBodyAttributes }) => {
-  setBodyAttributes({ style: { opacity: 0, transition: 'opacity 1s' } })
+  setBodyAttributes({
+    style: {
+      opacity: 0,
+      background: '#35363a',
+      transition: 'opacity 1s'
+    }
+  })
 }
 
 export const onClientEntry = () => {
   window.addEventListener('load', () => {
     document.body.style.opacity = null
+    document.body.style.background = null
   })
 }
 

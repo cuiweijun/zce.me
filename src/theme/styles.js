@@ -29,7 +29,7 @@ const reboot = {
     fontFamily: 'sans',
     fontWeight: 'normal',
     lineHeight: 'normal',
-    transition: 'background 0.3s, color 0.3s',
+    // transition: 'background 0.3s, color 0.3s',
     WebkitTextSizeAdjust: '100%',
     WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     textRendering: 'optimizeLegibility',

@@ -7,6 +7,7 @@
 export {
   wrapRootElement,
   wrapPageElement,
+  onClientEntry,
   onServiceWorkerUpdateReady,
   registerServiceWorker
 } from './src'

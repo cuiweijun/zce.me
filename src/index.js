@@ -9,13 +9,14 @@
 import React from 'react'
 
 import { Wrapper } from './components'
-import { ThemeProvider, InitializeColorMode } from './theme'
+import { ThemeProvider, Global } from './theme'
 
 import theme from './theme/theme'
 import styles from './theme/styles'
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme} styles={styles}>
+  <ThemeProvider theme={theme}>
+    <Global styles={styles} />
     {element}
   </ThemeProvider>
 )
@@ -24,8 +25,14 @@ export const wrapPageElement = ({ element, props }) => (
   <Wrapper {...props}>{element}</Wrapper>
 )
 
-export const onRenderBody = ({ setHeadComponents }) => {
-  setHeadComponents(InitializeColorMode())
+export const onRenderBody = ({ setBodyAttributes }) => {
+  setBodyAttributes({ style: { opacity: 0, transition: 'opacity 1s' } })
+}
+
+export const onClientEntry = () => {
+  window.addEventListener('load', () => {
+    document.body.style.opacity = null
+  })
 }
 
 export const onServiceWorkerUpdateReady = () => {

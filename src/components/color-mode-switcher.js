@@ -5,10 +5,10 @@
 import React from 'react'
 
 import Button from './button'
-import { useColorMode } from '../theme'
+import { useThemeMode } from '../theme'
 
 export default () => {
-  const [mode, setMode] = useColorMode()
+  const [mode, setMode] = useThemeMode()
   const isDark = mode === 'dark'
   const title = `切换至${isDark ? '「亮色」' : '「暗色」'}模式`
   const toggle = () => setMode(isDark ? 'default' : 'dark')

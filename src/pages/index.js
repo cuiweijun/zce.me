@@ -44,13 +44,13 @@ const Featured = ({ post }) => (
         sx={{
           flex: '0 1 22rem',
           order: [0, null, null, 1],
-          m: [0, 4],
+          m: 4,
           border: 6,
           borderColor: 'background',
           boxShadow: 'medium'
         }}
       />
-      <div sx={{ flex: '1 1 30rem', p: [0, 4] }}>
+      <div sx={{ flex: '1 1 30rem', p: [2, 4] }}>
         <h2 sx={{ mb: 4, fontSize: 7 }}>{post.fields.title}</h2>
         <div
           dangerouslySetInnerHTML={{ __html: post.excerpt }}

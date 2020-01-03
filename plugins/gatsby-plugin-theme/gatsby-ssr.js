@@ -16,7 +16,12 @@ export const replaceRenderer = ({
   replaceBodyHTMLString
 }) => {
   const { ids, css, html } = extractCritical(renderToString(bodyComponent))
-  setHeadComponents([<style data-emotion-css={ids.join(' ')} children={css} />])
+  setHeadComponents([
+    <style
+      data-emotion-css={ids.join(' ')}
+      dangerouslySetInnerHTML={{ __html: css }}
+    />
+  ])
   replaceBodyHTMLString(html)
 }
 

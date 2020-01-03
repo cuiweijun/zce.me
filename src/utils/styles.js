@@ -2,7 +2,7 @@
  * Global styles
  */
 
-import { alpha, darken, lighten, readable } from '.'
+import { alpha, darken, lighten, readable } from '../theme'
 
 const block = {
   m: 0,

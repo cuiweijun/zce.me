@@ -4,7 +4,6 @@ import { ThemeProvider as EmotionProvider, useTheme } from 'emotion-theming'
 import * as p from 'polished'
 
 const storageKey = 'theme-mode'
-// const varPrefix = '--c-'
 
 const defaultTheme = {}
 

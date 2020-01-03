@@ -34,7 +34,7 @@ const Hero = ({ title, subtitle, children, ...props }) => {
         color: 'white',
         fontSize: 'xl',
         textShadow: 'text',
-        transition: 'padding 0.3s, color 0.3s' // TODO: ???
+        transition: 'padding 0.3s' // TODO: ???
       }}>
       {children || (
         <Container>

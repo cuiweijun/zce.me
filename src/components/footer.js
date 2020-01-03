@@ -215,8 +215,7 @@ export default () => {
         bg: 'background',
         color: 'muted',
         fontSize: 'sm',
-        textAlign: ['center', 'left'],
-        transition: 'background 0.3s, border 0.3s'
+        textAlign: ['center', 'left']
       }}>
       <Container>
         <Row as="aside" sx={{ mb: 4 }}>

@@ -40,8 +40,7 @@ const Cover = ({ image, type = 2, ...props }) => {
           bottom: 0,
           left: 0,
           zIndex: 1,
-          content: '""',
-          transition: 'opacity 0.3s'
+          content: '""'
         },
         ':before': type > 0 && {
           background: `0/4px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2' stroke='%23000' stroke-linecap='square' stroke-width='0.5'%3E%3Cline x1='0' y1='1' x2='1' y2='0'/%3E%3Cline x1='1' y1='2' x2='2' y2='1'/%3E%3C/svg%3E")`,

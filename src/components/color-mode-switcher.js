@@ -25,7 +25,9 @@ export default () => {
         boxShadow: isDark ? 'none' : 'inset 8px -8px 0px 0px currentColor',
         bg: isDark ? 'currentColor' : 'transparent',
         transform: isDark ? 'scale(0.55)' : 'scale(1)',
-        transition: 'all 0.35s',
+        transition:
+          'border 0.3s, box-shadow 0.3s, background 0.3s, transform 0.3s',
+        willChange: 'transform',
         ':before': {
           position: 'absolute',
           right: '-9px',
@@ -36,7 +38,8 @@ export default () => {
           content: '""',
           opacity: isDark ? 0 : 1,
           transform: isDark ? 'translate(14px, -14px)' : 'translate(0, 0)',
-          transition: 'transform 0.35s'
+          transition: 'border 0.3s, opacity 0.3s, transform 0.3s',
+          willChange: 'transform'
         },
         ':after': {
           position: 'absolute',
@@ -55,7 +58,8 @@ export default () => {
             15px -15px 0 currentColor,
             -15px -15px 0 currentColor`,
           transform: isDark ? 'scale(1)' : 'scale(0)',
-          transition: 'all 0.35s'
+          transition: 'transform 0.3s',
+          willChange: 'transform'
         }
       }}
     />

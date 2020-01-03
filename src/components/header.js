@@ -46,7 +46,7 @@ const Brand = ({ name }) => (
       <mask id="mask" fill="#fff">
         <path d="M472 114.26L203.029 335.74H407.1L472 449.48H64.9L0 335.74l268.971-221.48H64.9L0 .52h407.1z" />
       </mask>
-      <g mask="url(#mask)" sx={{ fill: 'primary', transition: 'fill 0.3s' }}>
+      <g mask="url(#mask)" sx={{ fill: 'primary' }}>
         <path d="M0 0h472v449H0z" />
       </g>
       <g mask="url(#mask)">
@@ -111,7 +111,7 @@ export default () => {
           borderBottom: 1,
           bg: 'background',
           transform: `translateY(${usePinned() ? '0%' : '-100%'})`,
-          transition: 'background 0.3s, border 0.3s, transform 0.3s linear',
+          transition: 'transform 0.3s linear',
           willChange: 'transform'
         }}>
         <Container

@@ -13,8 +13,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
         aria-orientation="horizontal"
         sx={{
           display: 'flex',
-          borderBottom: 2,
-          transition: 'border 0.3s'
+          borderBottom: 2
         }}>
         {React.Children.map(children, (item, i) => (
           <a

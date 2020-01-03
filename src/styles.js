@@ -4,6 +4,14 @@
 
 import { alpha, darken, lighten, readable } from './utils'
 
+const variables = {
+  ':root': t =>
+    Object.keys(t.colors).reduce(
+      (prev, item) => ({ ...prev, [`--c-${item}`]: t.colors[item] }),
+      {}
+    )
+}
+
 const block = {
   m: 0,
   mb: 3
@@ -29,7 +37,6 @@ const reboot = {
     fontFamily: 'sans',
     fontWeight: 'normal',
     lineHeight: 'normal',
-    // transition: 'background 0.3s, color 0.3s',
     WebkitTextSizeAdjust: '100%',
     WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     textRendering: 'optimizeLegibility',
@@ -269,6 +276,7 @@ const more = {
 }
 
 export default {
+  ...variables,
   ...pseudo,
   ...reboot,
   ...typography,

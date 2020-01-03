@@ -220,8 +220,7 @@ const table = {
     px: 3,
     py: 2,
     textAlign: 'left',
-    border: 1,
-    borderColor: 'border'
+    border: 1
   },
   th: {
     fontWeight: 'bold'

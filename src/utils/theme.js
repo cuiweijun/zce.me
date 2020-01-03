@@ -76,12 +76,12 @@ export default {
   },
   borders: [
     0,
-    '1px solid transparent',
-    '2px solid transparent',
-    '4px solid transparent',
-    '8px solid transparent',
-    '16px solid transparent',
-    '24px solid transparent'
+    '1px solid #dee2e6',
+    '2px solid #dee2e6',
+    '4px solid #dee2e6',
+    '8px solid #dee2e6',
+    '16px solid #dee2e6',
+    '24px solid #dee2e6'
   ],
   radii: {
     none: 0,
@@ -109,7 +109,16 @@ export default {
         text: 'rgba(255, 255, 255, 0.75)',
         background: '#212529',
         border: '#2b2f36'
-      }
+      },
+      borders: [
+        0,
+        '1px solid #2b2f36',
+        '2px solid #2b2f36',
+        '4px solid #2b2f36',
+        '8px solid #2b2f36',
+        '16px solid #2b2f36',
+        '24px solid #2b2f36'
+      ]
     }
   }
 }

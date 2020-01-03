@@ -112,7 +112,6 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
       mb: 3,
       py: 2,
       borderBottom: 1,
-      borderColor: 'border',
       color: 'muted',
       fontSize: 'sm'
     }}>

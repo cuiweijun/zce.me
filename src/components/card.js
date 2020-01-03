@@ -105,7 +105,6 @@ export default ({ as: Tag = 'article', post, rel }) => (
                   sx={{
                     size: 30,
                     border: 1,
-                    borderColor: 'border',
                     verticalAlign: 'middle',
                     transition: 'border 0.3s'
                   }}

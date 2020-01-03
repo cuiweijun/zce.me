@@ -109,7 +109,6 @@ export default () => {
           zIndex: 30,
           width: '100%',
           borderBottom: 1,
-          borderColor: 'border',
           bg: 'background',
           transform: `translateY(${usePinned() ? '0%' : '-100%'})`,
           transition: 'background 0.3s, border 0.3s, transform 0.3s linear',

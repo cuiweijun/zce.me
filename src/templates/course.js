@@ -25,7 +25,6 @@ const Main = ({ current, fields, excerpt, html }) => (
       flex: '3 1 32rem',
       p: 3,
       borderRight: 1,
-      borderColor: 'border',
       transition: 'border 0.3s'
     }}>
     <section id="intro" name="简介">
@@ -45,7 +44,6 @@ const Main = ({ current, fields, excerpt, html }) => (
             px: 3,
             py: 2,
             borderBottom: 1,
-            borderColor: 'border',
             textDecoration: 'none',
             lineHeight: 'loose',
             transition: 'border 0.3s',
@@ -87,7 +85,6 @@ const AsideSection = ({ title, children }) => (
       p: 3,
       ':not(:last-child)': {
         borderBottom: 1,
-        borderColor: 'border',
         transition: 'border 0.3s'
       }
     }}>

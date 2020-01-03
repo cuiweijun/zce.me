@@ -158,8 +158,7 @@ const Copyright = ({ name, url }) => (
       display: 'flex',
       flexDirection: ['column', 'row'],
       pt: 3,
-      borderTop: 1,
-      borderColor: 'border'
+      borderTop: 1
     }}>
     <span>
       &copy; {new Date().getFullYear()} <Link to={url} children={name} />.
@@ -213,7 +212,6 @@ export default () => {
       sx={{
         py: 7,
         borderTop: 1,
-        borderColor: 'border',
         bg: 'background',
         color: 'muted',
         fontSize: 'sm',

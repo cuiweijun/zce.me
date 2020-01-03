@@ -25,23 +25,6 @@ export const wrapPageElement = ({ element, props }) => (
   <Wrapper {...props}>{element}</Wrapper>
 )
 
-export const onRenderBody = ({ setBodyAttributes }) => {
-  setBodyAttributes({
-    style: {
-      opacity: 0,
-      background: '#35363a',
-      transition: 'opacity 1s'
-    }
-  })
-}
-
-export const onClientEntry = () => {
-  window.addEventListener('load', () => {
-    document.body.style.opacity = null
-    document.body.style.background = null
-  })
-}
-
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm('此应用程序已更新，重新加载以显示最新版本？')
   answer && window.location.reload()

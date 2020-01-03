@@ -19,3 +19,14 @@ export const replaceRenderer = ({
   setHeadComponents([<style data-emotion-css={ids.join(' ')} children={css} />])
   replaceBodyHTMLString(html)
 }
+
+// for prevent flashing
+export const onRenderBody = ({ setBodyAttributes }) => {
+  setBodyAttributes({
+    style: {
+      opacity: 0,
+      background: '#35363a',
+      transition: 'opacity 1s'
+    }
+  })
+}

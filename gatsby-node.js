@@ -346,31 +346,3 @@ exports.createSchemaCustomization = async ({ actions }) => {
   const typeDefs = readFileSync('type-defs.gql', 'utf8')
   actions.createTypes(typeDefs)
 }
-
-// https://www.gatsbyjs.org/docs/add-custom-webpack-config/
-exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
-  if (stage === 'build-javascript') {
-    const config = getConfig()
-    config.output.filename = '[contenthash:8].js'
-    config.output.chunkFilename = '[contenthash:8].js'
-    actions.replaceWebpackConfig(config)
-  }
-}
-
-exports.onCreateBabelConfig = async ({ actions }) => {
-  actions.setBabelPlugin({
-    name: '@emotion/babel-plugin-jsx-pragmatic',
-    options: {
-      export: 'jsx',
-      import: 'h',
-      module: require.resolve('./src/utils')
-    }
-  })
-  actions.setBabelPlugin({
-    name: '@babel/plugin-transform-react-jsx',
-    options: {
-      pragma: 'h',
-      pragmaFrag: 'React.Fragment'
-    }
-  })
-}

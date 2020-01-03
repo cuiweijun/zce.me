@@ -212,7 +212,11 @@ const css = args => (props = {}) => {
     const scaleName = get(scales, prop)
     const scale = get(theme, scaleName, get(theme, prop, {}))
     const transform = get(transforms, prop, get)
-    const value = transform(scale, val, val)
+
+    let value = transform(scale, val, val)
+
+    // dynamic value
+    value = typeof value === 'function' ? value(theme) : value
 
     if (multiples[prop]) {
       for (const item of multiples[prop]) {

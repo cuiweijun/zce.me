@@ -76,12 +76,12 @@ export default {
   },
   borders: [
     0,
-    '1px solid #dee2e6',
-    '2px solid #dee2e6',
-    '4px solid #dee2e6',
-    '8px solid #dee2e6',
-    '16px solid #dee2e6',
-    '24px solid #dee2e6'
+    t => `1px solid ${t.colors.border}`,
+    t => `2px solid ${t.colors.border}`,
+    t => `4px solid ${t.colors.border}`,
+    t => `8px solid ${t.colors.border}`,
+    t => `16px solid ${t.colors.border}`,
+    t => `24px solid ${t.colors.border}`
   ],
   radii: {
     none: 0,
@@ -92,7 +92,7 @@ export default {
     circle: '50%'
   },
   shadows: {
-    outline: '0 0 0 0.2rem rgba(0, 123, 255, 0.2)',
+    outline: '0 0 0 0.2rem rgba(21, 170, 191, 0.2)',
     underline: 'inset 0 -1px 0 currentColor',
     text: '0 0 0.25rem rgba(0, 0, 0, 0.4)',
     light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.2)',
@@ -110,15 +110,14 @@ export default {
         background: '#212529',
         border: '#2b2f36'
       },
-      borders: [
-        0,
-        '1px solid #2b2f36',
-        '2px solid #2b2f36',
-        '4px solid #2b2f36',
-        '8px solid #2b2f36',
-        '16px solid #2b2f36',
-        '24px solid #2b2f36'
-      ]
+      shadows: {
+        outline: '0 0 0 0.2rem rgba(240, 140, 0, 0.2)',
+        underline: 'inset 0 -1px 0 currentColor',
+        text: '0 0 0.25rem rgba(0, 0, 0, 0.4)',
+        light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.3)',
+        medium: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.3)',
+        severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.3)'
+      }
     }
   }
 }

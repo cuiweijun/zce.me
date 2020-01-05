@@ -6,8 +6,8 @@ import { getMeta } from '../utils'
 
 export default ({ data: { author, posts } }) => (
   <Layout
-    title={getMeta(author.meta, 'title') || author.name}
-    description={getMeta(author.meta, 'description') || author.bio}
+    title={getMeta(author.meta, 'title', author.name)}
+    description={getMeta(author.meta, 'description', author.bio)}
     keywords={getMeta(author.meta, 'keywords')}>
     <Cover image={author.cover} />
     <Hero sx={{ py: '5vw' }}>

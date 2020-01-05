@@ -10,10 +10,9 @@ export const get = (obj, key, def) => {
   return obj === undefined ? def : obj
 }
 
-export const getMeta = (meta, key) => {
-  if (!meta) return
-  if (!Array.isArray(meta)) return meta[key]
-  for (const item of meta) {
-    if (item.key === key) return item.value
-  }
+export const getMeta = (meta, key, def) => {
+  if (!meta) return def
+  if (!Array.isArray(meta)) return meta[key] || def
+  const item = meta.find(i => i.key === key)
+  return item ? item.value : def
 }

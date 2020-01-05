@@ -23,5 +23,6 @@ export default ({ to, ...props }) => {
     return <a {...props} href={to} sx={styles} />
   }
 
+  // activeClassName="active" partiallyActive
   return <GatsbyLink {...props} to={to} sx={styles} />
 }

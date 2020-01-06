@@ -30,8 +30,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "develop": "gatsby develop",
-    "dev": "yarn develop",
     "dist": "yarn clean && yarn build --prefix-paths",
+    "dev": "yarn develop",
     "commit": "git-cz"
   },
   "husky": {

@@ -184,7 +184,8 @@ const Copyright = ({ name, url }) => (
       />
       with
       {/* prettier-ignore */}
-      <svg viewBox="0 0 50 50" width="22" height="22" aria-hidden="true">
+      <svg viewBox="0 0 50 50" width="22" height="22">
+        <title>heart</title>
         <g transform="translate(25 25)">
           <path fill="#fa5252" d="M10.9-20.2c-4.5,0-8.5,2.3-10.9,5.8c-2.4-3.5-6.3-5.8-10.9-5.8c-7.3,0-13.1,5.8-13.1,13C-24,5.7-3.7,11.9,0,20.2C3.7,11.9,24,5.8,24-7.2C24-14.4,18.2-20.2,10.9-20.2">
             <animateTransform attributeName="transform" calcMode="spline" type="scale" values="0.68;0.8;0.6;0.7200000000000001;0.68;0.6400000000000001" keyTimes="0;0.05;0.39;0.45;0.6;1" keySplines="0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1;0.215 0.61,0.355 1" dur="1s" repeatCount="indefinite" />

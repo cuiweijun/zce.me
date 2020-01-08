@@ -86,11 +86,7 @@ exports.pathPrefix = ''
 
 exports.polyfill = false
 
-exports.mapping = {
-  'MarkdownRemark.fields.authors': 'Author.name',
-  'MarkdownRemark.fields.categories': 'Category.name',
-  'MarkdownRemark.fields.tags': 'Tag.name'
-}
+exports.mapping = null
 
 exports.proxy = null
 

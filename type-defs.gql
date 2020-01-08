@@ -31,6 +31,7 @@ type Author implements Node @dontInfer {
   type: String!
   template: String!
   permalink: String!
+  posts: [MarkdownRemark] @link(by: "fields.authors.name", from: "name")
 }
 
 type Category implements Node @dontInfer {
@@ -43,6 +44,7 @@ type Category implements Node @dontInfer {
   type: String!
   template: String!
   permalink: String!
+  posts: [MarkdownRemark] @link(by: "fields.categories.name", from: "name")
 }
 
 type Tag implements Node @dontInfer {
@@ -55,6 +57,7 @@ type Tag implements Node @dontInfer {
   type: String!
   template: String!
   permalink: String!
+  posts: [MarkdownRemark] @link(by: "fields.tags.name", from: "name")
 }
 
 type Link implements Node @dontInfer {
@@ -79,9 +82,9 @@ type Fields {
   private: Boolean
   featured: Boolean
   comment: Boolean
-  # authors: [Author!]
-  # categories: [Category!]
-  # tags: [Tag!]
+  authors: [Author] @link(by: "name")
+  categories: [Category] @link(by: "name")
+  tags: [Tag] @link(by: "name")
   meta: [Meta]
 }
 
@@ -96,9 +99,9 @@ type Frontmatter {
   private: Boolean
   featured: Boolean
   comment: Boolean
-  # authors: [Author!]
-  # categories: [Category!]
-  # tags: [Tag!]
+  authors: [Author] @link(by: "name")
+  categories: [Category] @link(by: "name")
+  tags: [Tag] @link(by: "name")
   meta: [Meta]
 }
 

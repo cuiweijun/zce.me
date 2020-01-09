@@ -252,7 +252,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               template
               permalink
               sections {
-                title
+                duration
               }
               categories {
                 id

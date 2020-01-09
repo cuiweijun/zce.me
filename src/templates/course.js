@@ -51,6 +51,7 @@ const Main = ({ current, fields, excerpt, html }) => (
           },
           small: {
             ml: 'auto',
+            fontFamily: 'mono',
             color: 'muted'
           }
         }}>
@@ -225,10 +226,7 @@ export const query = graphql`
         sections {
           title
           duration
-          sources {
-            size
-            src
-          }
+          sources
         }
         authors {
           name

@@ -1,5 +1,4 @@
-/* https://unpkg.com/plyr/dist/plyr.css */
-
+/* https://unpkg.com/plyr@3.5.6/dist/plyr.css */
 @keyframes plyr-progress {
   to {
     background-position: 25px 0;

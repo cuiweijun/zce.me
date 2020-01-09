@@ -13,40 +13,25 @@ tags:
 sections:
   - title: 模块化概述
     duration: 105
-    sources:
-      - size: 360
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f20.mp4
-      - size: 720
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f30.mp4
-      - size: 1080
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5fd738af5285890794219270219/v.f40.mp4
+    sources: http://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5fd738af5285890794219270219/bZJ7IW4ZkN0A.mp4
   - title: 模块化演变过程
-    duration: 282
-    sources:
-      - size: 360
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f20.mp4
-      - size: 720
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f30.mp4
-      - size: 1080
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/c05973c65285890794268956839/v.f40.mp4
+    duration: 281
+    sources: http://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/c05973c65285890794268956839/ezArOf4OlScA.mp4
   - title: 模块化规范的出现
     duration: 420
-    sources:
-      - size: 360
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f20.mp4
-      - size: 720
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f30.mp4
-      - size: 1080
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/8123b4c35285890794271210044/v.f40.mp4
+    sources: http://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/8123b4c35285890794271210044/Wartzg9SPLoA.mp4
   - title: 模块化标准规范
     duration: 190
-    sources:
-      - size: 360
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f20.mp4
-      - size: 720
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f30.mp4
-      - size: 1080
-        src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/2bc08ad05285890794137300758/v.f40.mp4
+    sources: http://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/2bc08ad05285890794137300758/jsKffBOZDqUA.mp4
+  - title: ES Module 特性
+    duration: 478
+    sources: http://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/c07d10445285890794268975665/030301zhyoMA.mp4
+  - title: ES Module 导出
+    duration: 371
+    sources: http://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5fd7416c5285890794219270432/tWSafCRV5TMA.mp4
+  - title: ES Module 导入导出的注意事项
+    duration: 563
+    sources: http://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/c05a7c4a5285890794268958499/fxLenzi2uaUA.mp4
 ---
 
 模块化可以说是当下最重要的前端开发范式之一。随着前端应用的日益复杂，我们的项目代码已经逐渐膨胀到了不得不花大量时间去管理的程度了。而模块化就是一种最主流的代码组织方式，它通过把复杂的代码按照功能的不同划分为不同的模块单独维护，从而提高开发效率、降低维护成本。

@@ -6,7 +6,7 @@ updated: 1970-01-01 00:00:00
 cover: cover.png
 description: post description
 template: post
-permalink: /{author}/{category}/{year}/{month}/{day}/{slug}.html
+permalink: /posts/{author}/{category}/{year}/{month}/{day}/{slug}.html
 draft: true
 private: true
 featured: true

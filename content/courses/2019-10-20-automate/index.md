@@ -14,109 +14,109 @@ tags:
 sections:
   - title: 自动化构建简介
     duration: 110
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/9a4e91f45285890797461910068/K9NjGLaf3bEA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/9a4e91f45285890797461910068/v.f240.m3u8
   - title: 自动化构建初体验
     duration: 496
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/d1ac5c285285890797591878395/2Z6BSdA3AEUA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/d1ac5c285285890797591878395/v.f240.m3u8
   - title: 常用的自动化构建工具
     duration: 260
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5d58592e5285890797593236001/1aDAg5TlVDYA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5d58592e5285890797593236001/v.f240.m3u8
   - title: Grunt 的基本使用
     duration: 308
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/3fd809e35285890797460387967/AZcl5yi1B1gA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd809e35285890797460387967/v.f240.m3u8
   - title: Grunt 标记任务失败
     duration: 184
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/01d1df355285890797547814430/3g4XMmEvykUA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/01d1df355285890797547814430/v.f240.m3u8
   - title: Grunt 的配置方法
     duration: 143
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/9a4e922f5285890797461910081/VXQ0lmsmqXAA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/9a4e922f5285890797461910081/v.f240.m3u8
   - title: Grunt 多目标任务
     duration: 311
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/026327c75285890797547895286/sO1xRM1z3R8A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/026327c75285890797547895286/v.f240.m3u8
   - title: Grunt 插件的使用
     duration: 249
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0ba2e5545285890797592028630/QkTUadaY2z0A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0ba2e5545285890797592028630/v.f240.m3u8
   - title: Grunt 常用插件及总结
     duration: 923
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/3fd80a225285890797460387984/WaVMrAd3yzkA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd80a225285890797460387984/v.f240.m3u8
   - title: Gulp 的基本使用
     duration: 370
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5d4773be5285890797593228664/rs0wOjubzccA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5d4773be5285890797593228664/v.f240.m3u8
   - title: Gulp 的组合任务
     duration: 152
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/026330435285890797547895480/JSPT53BTSIEA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/026330435285890797547895480/v.f240.m3u8
   - title: Gulp 的异步任务
     duration: 430
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/764246725285890797590210781/dOvxIWxGnJ8A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/764246725285890797590210781/v.f240.m3u8
   - title: Gulp 构建过程核心工作原理
     duration: 355
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/3fd86f305285890797460388002/trqs0PyeJZwA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd86f305285890797460388002/v.f240.m3u8
   - title: Gulp 文件操作 API
     duration: 279
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/7642b9315285890797590211176/NtDeLqvWNngA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/7642b9315285890797590211176/v.f240.m3u8
   - title: Gulp 案例 - 样式编译
     duration: 731
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/3fd86f335285890797460388005/aS3wbQQv340A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd86f335285890797460388005/v.f240.m3u8
   - title: Gulp 案例 - 脚本编译
     duration: 343
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5db1d5a65285890797593284697/LSdhpWMuVzIA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5db1d5a65285890797593284697/v.f240.m3u8
   - title: Gulp 案例 - 页面模板编译
     duration: 420
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0b9165955285890797592019901/AeKX1fDs49wA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0b9165955285890797592019901/v.f240.m3u8
   - title: Gulp 案例 - 图片和字体文件转换
     duration: 298
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/d422773f5285890797591992614/4s9Wxs36Kw8A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/d422773f5285890797591992614/v.f240.m3u8
   - title: Gulp 案例 - 其他文件及文件清除
     duration: 356
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5d559f8e5285890797593231105/Z38LJ6rNVvcA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5d559f8e5285890797593231105/v.f240.m3u8
   - title: Gulp 案例 - 自动加载插件
     duration: 189
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0b9e866d5285890797592020721/DaoRT9gTvkEA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0b9e866d5285890797592020721/v.f240.m3u8
   - title: Gulp 案例 - 开发服务器
     duration: 600
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/3fd86f715285890797460388021/0M7HKApgI9sA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd86f715285890797460388021/v.f240.m3u8
   - title: Gulp 案例 - 监视变化以及构建优化
     duration: 1076
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/9a4e958b5285890797461910113/3veUOr8zVYEA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/9a4e958b5285890797461910113/v.f240.m3u8
   - title: Gulp 案例 - useref 文件引用处理
     duration: 545
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/01d267565285890797547815331/fHvCiU3nEesA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/01d267565285890797547815331/v.f240.m3u8
   - title: Gulp 案例 - 文件压缩
     duration: 673
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0263afe25285890797547896181/1phti7pD5LUA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0263afe25285890797547896181/v.f240.m3u8
   - title: Gulp 案例 - 重新规划构建过程
     duration: 545
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/d42407a35285890797591995156/CzYDWGEwa6oA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/d42407a35285890797591995156/v.f240.m3u8
   - title: Gulp 案例 - 补充
     duration: 363
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5f75ad995285890797593303674/7oGUVLhAOt0A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5f75ad995285890797593303674/v.f240.m3u8
   - title: 封装工作流 - 准备
     duration: 492
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/d4241cc65285890797591995645/kcH59P10gcUA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/d4241cc65285890797591995645/v.f240.m3u8
   - title: 封装工作流 - 提取 gulpfile
     duration: 777
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/3fd86fd85285890797460388055/tElyhbMhbaoA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd86fd85285890797460388055/v.f240.m3u8
   - title: 封装工作流 - 解决模块中的问题
     duration: 654
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0c1f57a05285890797592094495/dKZnIOhRJWkA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0c1f57a05285890797592094495/v.f240.m3u8
   - title: 封装工作流 - 抽象路径配置
     duration: 755
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/9a4e95d05285890797461910136/mBoH7qVcXYIA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/9a4e95d05285890797461910136/v.f240.m3u8
   - title: 封装工作流 - 包装 Gulp CLI
     duration: 887
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/3fd86ffd5285890797460388069/yt9wj04044wA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd86ffd5285890797460388069/v.f240.m3u8
   - title: 封装工作流 - 发布并使用模块
     duration: 484
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/9a4e95f15285890797461910146/XY4dvad9is4A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/9a4e95f15285890797461910146/v.f240.m3u8
   - title: 封装工作流 - 总结
     duration: 337
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/01d2e6915285890797547816001/9OnVKoid2lUA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/01d2e6915285890797547816001/v.f240.m3u8
   - title: FIS 的基本使用
     duration: 386
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0dd33bd45285890797592107173/N7N2zCGD1x0A.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0dd33bd45285890797592107173/v.f240.m3u8
   - title: FIS 编译与压缩
     duration: 623
-    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/5dc2bb9e5285890797593292078/n6okiBR7rPUA.mp4
+    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5dc2bb9e5285890797593292078/v.f240.m3u8
 ---
 
 自动化构建是前端工程化中一个非常重要的组成部分，在具体学习之前我们先来解读一下这个开发行业经常提及的名词：

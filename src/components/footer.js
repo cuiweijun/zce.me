@@ -60,7 +60,7 @@ const Follow = ({ socials }) => (
       <Input
         type="email"
         name="email"
-        placeholder="输入您的邮箱"
+        placeholder="输入您的邮箱（尚未实现）"
         autoComplete="off"
         aria-label="输入您的邮箱"
         aria-describedby="btn_send"

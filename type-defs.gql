@@ -1,9 +1,12 @@
 type Meta {
-  # title: String
-  # description: String
-  # keywords: [String]
   key: String!
   value: String
+}
+
+type Section {
+  title: String!
+  duration: String!
+  source: String!
 }
 
 type Social {
@@ -85,6 +88,7 @@ type Fields {
   authors: [Author] @link(by: "name")
   categories: [Category] @link(by: "name")
   tags: [Tag] @link(by: "name")
+  sections: [Section]
   meta: [Meta]
 }
 
@@ -102,6 +106,7 @@ type Frontmatter {
   authors: [Author] @link(by: "name")
   categories: [Category] @link(by: "name")
   tags: [Tag] @link(by: "name")
+  sections: [Section]
   meta: [Meta]
 }
 

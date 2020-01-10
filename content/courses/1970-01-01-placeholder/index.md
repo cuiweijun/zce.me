@@ -20,14 +20,14 @@ tags:
 sections:
   - title: 脚手架工具概要
     duration: 172
-    sources: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0ba0b89b5285890797592024776/0FHm0CnQCH8A.mp4
-  #   sources:
+    source: https://1251429982.vod2.myqcloud.com/02e36d2dvodcq1251429982/0ba0b89b5285890797592024776/0FHm0CnQCH8A.mp4
+  #   source:
   #     - size: 360
-  #       src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5a3f26465285890793844220320/v.f20.mp4
+  #       src: https://video.zce.me/0ba0b89b5285890797592024776/v.f20.mp4
   #     - size: 720
-  #       src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5a3f26465285890793844220320/v.f30.mp4
+  #       src: https://video.zce.me/0ba0b89b5285890797592024776/v.f30.mp4
   #     - size: 1080
-  #       src: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5a3f26465285890793844220320/v.f40.mp4
+  #       src: https://video.zce.me/0ba0b89b5285890797592024776/v.f40.mp4
 meta:
   - key: title
     value: Placeholder

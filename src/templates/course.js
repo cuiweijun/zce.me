@@ -226,7 +226,7 @@ export const query = graphql`
         sections {
           title
           duration
-          sources
+          source
         }
         authors {
           name

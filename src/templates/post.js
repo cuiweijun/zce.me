@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, withAssetPrefix } from 'gatsby'
 
 import {
   Layout,
@@ -15,6 +15,7 @@ import {
   Comments,
   ScreenReaderText
 } from '../components'
+import { loadScript } from '../utils'
 
 const Header = ({ title, date, formatDate, category }) => (
   <Hero sx={{ pt: '6vw', pb: '4vw' }}>
@@ -75,34 +76,54 @@ const Figure = ({ cover, title }) => (
   />
 )
 
-const Content = ({ html }) => (
-  <section
-    dangerouslySetInnerHTML={{ __html: html }}
-    sx={{
-      mx: [-3, 0],
-      px: ['5%', '10%'],
-      py: ['4%', '6%'],
-      minHeight: '80vh',
-      bg: 'background',
-      fontSize: 'calc(100% + 0.1vw)',
-      // fontFamily: 'serif',
-      lineHeight: 'loose',
-      wordWrap: 'break-word',
-      'h1, h2, h3, h4, h5, h6': {
-        m: '1.4em 0 0.8em'
-      },
-      '.gatsby-resp-image-wrapper': {
-        my: '5%',
-        maxWidth: '860px !important'
-      },
-      '.footnotes': {
-        p: {
-          display: 'inline'
+const Content = ({ html }) => {
+  React.useEffect(() => {
+    // prevent image link
+    const links = document.querySelectorAll('.gatsby-resp-image-link')
+    links.forEach(item => {
+      item.onclick = e => e.preventDefault()
+    })
+    // zoom
+    const initZoom = () =>
+      window.mediumZoom('.gatsby-resp-image-image', {
+        margin: 20,
+        background: '#000'
+      })
+    if (window.mediumZoom) return initZoom()
+    loadScript(withAssetPrefix('/assets/medium-zoom.js?v=20200101')).then(
+      initZoom
+    )
+  })
+
+  return (
+    <section
+      dangerouslySetInnerHTML={{ __html: html }}
+      sx={{
+        mx: [-3, 0],
+        px: ['5%', '10%'],
+        py: ['4%', '6%'],
+        minHeight: '80vh',
+        bg: 'background',
+        fontSize: 'calc(100% + 0.1vw)',
+        // fontFamily: 'serif',
+        lineHeight: 'loose',
+        wordWrap: 'break-word',
+        'h1, h2, h3, h4, h5, h6': {
+          m: '1.4em 0 0.8em'
+        },
+        '.gatsby-resp-image-wrapper': {
+          my: '5%',
+          maxWidth: '860px !important'
+        },
+        '.footnotes': {
+          p: {
+            display: 'inline'
+          }
         }
-      }
-    }}
-  />
-)
+      }}
+    />
+  )
+}
 
 const More = ({ tags, date, updated, formatUpdated, title, url }) => (
   <section

@@ -90,9 +90,7 @@ const Content = ({ html }) => {
         background: '#000'
       })
     if (window.mediumZoom) return initZoom()
-    loadScript(withAssetPrefix('/assets/medium-zoom.js?v=20200101')).then(
-      initZoom
-    )
+    loadScript(withAssetPrefix('/assets/zoom.js?v=20200101')).then(initZoom)
   })
 
   return (

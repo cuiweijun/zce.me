@@ -23,7 +23,7 @@ tags:
 
 一个最基本的 Electron 项目需要有如下的几个必要文件：
 
-```
+```text
 your-app/
 ├── index.html
 ├── main.js
@@ -32,7 +32,7 @@ your-app/
 
 与 Web 所不同的是，这里 Electron 启动的入口是 JavaScript 文件，也就是这里的 `main.js` 文件（简单示例）。
 
-```js
+```javascript
 // main.js
 const { app, BrowserWindow } = require('electron')
 
@@ -50,7 +50,7 @@ app.on('ready', () => {
 
 在这个 JavaScript 文件中创建页面窗口用于加载所需要在界面上显示的页面文件 `index.html`。更完整的 `main.js` 应该如下：
 
-```js
+```javascript
 const { app, BrowserWindow } = require('electron')
 
 // 保持对 window 对象的全局引用，如果不这么做的话，
@@ -167,7 +167,7 @@ $ yarn # or npm install
 
 页面脚本文件 `renderer.js`：
 
-```js
+```javascript
 // renderer.js
 const os = require('os')
 const fs = require('fs')
@@ -199,7 +199,7 @@ document.addEventListener('keydown', e => {
 
 当然 Electron 模块中提供了更合适的 APIs，用于提示用户保存文件位置、让用户选择打开某个文件：
 
-```js
+```javascript
 const fs = require('fs')
 const { dialog } = require('electron').remote
 
@@ -260,7 +260,7 @@ Electron 中有两种进程类型，分别为「主进程」和「渲染进程�
 
 它要求你有通过特定的项目结构编写代码：
 
-```
+```text
 my-project/
 ├─ src/
 │  ├─ main/

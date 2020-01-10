@@ -152,7 +152,7 @@ $ yo node:cli
 
 创建 Generator 实际上就是创建一个 NPM 模块，一个基本的 Generator 结构如下：
 
-```
+```text
 ├─ generators/ ········································ 生成器目录
 │  └─ app/ ············································ 默认生成器目录
 │     └─ index.js ····································· 默认生成器实现
@@ -174,7 +174,7 @@ $ yo node:cli
 
 同时，Yeoman Generator 还支持直接将生成器目录放到项目根目录下：
 
-```
+```text
 ├─ app/ ··············································· 默认生成器目录
 │  └─ index.js ········································ 默认生成器实现
 ├─ other/ ············································· 其他生成器目录
@@ -193,7 +193,7 @@ $ yo node:cli
 3. 安装 `yeoman-generator` 模块依赖
 4. 按照结构要求创建 `generators/app/index.js` 文件
 
-```js
+```javascript
 // generators/app/index.js
 // 此文件为 Generator 的核心入口
 // 需要导出一个继承自 Yeoman Generator 的类型
@@ -247,7 +247,7 @@ $ yo sample
 </html>
 ```
 
-```js
+```javascript
 // generators/app/index.js
 const Generator = require('yeoman-generator')
 
@@ -269,7 +269,7 @@ module.exports = class extends Generator {
 
 对于模板中动态的数据一般我们需要通过命令行交互的方式询问使用者获取，在 Generator 中我们可以通过实现 prompting 方法，在此方法中通过 `this.prompt()` 方法实现与用户交互：
 
-```js
+```javascript
 const Generator = require('yeoman-generator')
 
 module.exports = class extends Generator {
@@ -315,7 +315,7 @@ module.exports = class extends Generator {
 
 需要注意的是如果模板文件中存在的 EJS 模板标记不希望被转换，则需要使用 `<%%` 转义。
 
-```js
+```javascript
 const templates = [
   '.browserslistrc',
   '.editorconfig',
@@ -378,7 +378,7 @@ Plop 其实是一款主要用于创建项目中特定类型文件的小工具，
 
 例如用于生成 Node.js 项目中的控制器：
 
-```js
+```javascript
 // plopfile.js
 module.exports = plop => {
   plop.setGenerator('controller', {

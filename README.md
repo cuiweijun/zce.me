@@ -51,29 +51,29 @@ $ yarn build
 
 The default structure is shown below:
 
-```
-└─ content ·································· content dir
-   ├─ images ································ content dir
-   │  └─ cover.jpg ·························· content dir
-   ├─ pages ································· pages dir
-   │  ├─ about ······························ page dir
-   │  │  └─ index.md ························ page markdown
-   │  └─ contact ···························· page dir
-   │     └─ index.md ························ page markdown
-   ├─ posts ································· posts dir
-   │  ├─ 1992-02-25-hello-world ············· post item dir
-   │  │  └─ index.md ························ post markdown
-   │  └─ 2000-01-01-placeholder ············· post item dir
-   │     ├─ media ··························· post relevant
-   │     │  ├─ cover.png ···················· relevant file
-   │     │  ├─ img-01.jpg ··················· relevant file
-   │     │  └─ img-02.jpg ··················· relevant file
-   │     └─ index.md ························ post markdown
+```text
+└─ content ·································· all contents
+   ├─ images ································ images
+   │  └─ cover.jpg ·························· a image file
+   ├─ pages ································· pages (content type)
+   │  └─ about ······························ a page
+   │     ├─ intro.mp4 ······················· attachments
+   │     └─ index.md ························ content
+   ├─ courses ······························· courses (content type)
+   │  └─ 1970-01-01-javascript-essential ···· a course
+   │     ├─ cover.png ······················· attachments
+   │     └─ index.md ························ content
+   ├─ posts ································· posts (content type)
+   │  └─ 1970-01-01-hello-world ············· a post
+   │     ├─ cover.png ······················· attachments
+   │     ├─ img-01.jpg ······················ attachments
+   │     ├─ img-02.jpg ······················ attachments
+   │     └─ index.md ························ content
    ├─ authors.yml ··························· author collections
    ├─ categories.yml ························ category collections
    ├─ tags.yml ······························ tag collections
-   ├─ site.yml ······························ site metadata & config
-   └─ README.md ····························· this file
+   ├─ links.yml ····························· link collections
+   └─ _config.yml ··························· site metadata & config
 ```
 
 ## Features
@@ -150,6 +150,19 @@ The default structure is shown below:
 ## Deploy
 
 [![Deploy to Netlify][deploy-image]][deploy-url]
+
+## Assets
+
+```text
+gitalk.css - custom build
+gitalk.js - custom build
+hls.js - v0.13.1 (hls.light.js)
+plyr.js - v3.5.6 (custom locales)
+plyr.css - v3.5.6 (custom color)
+plyr.svg - v3.5.6
+blank.mp4 - v3.5.6
+zoom.js - v1.0.5
+```
 
 ## License
 

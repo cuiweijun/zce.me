@@ -58,12 +58,10 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
       container.current && gitalk.render(container.current)
     }
 
-    if (window.Gitalk) return initGitalk()
-
     // ___webpackCompilationHash
     Promise.all([
-      loadStyle(withAssetPrefix('/assets/gitalk.css?v=20200101')),
-      loadScript(withAssetPrefix('/assets/gitalk.js?v=20200101'))
+      loadStyle(withAssetPrefix('/assets/gitalk.css?v=20200110')),
+      loadScript(withAssetPrefix('/assets/gitalk.js?v=20200110'))
     ]).then(initGitalk)
 
     // TODO: destory scripts

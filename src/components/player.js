@@ -23,13 +23,11 @@ export default ({ source, autoplay, onEnded, ...props }) => {
       new window.Plyr(container.current, { autoplay }).on('ended', onEnded)
     }
 
-    if (window.Plyr && window.Hls) return initPlayer()
-
     // ___webpackCompilationHash
     Promise.all([
-      loadStyle(withAssetPrefix('/assets/plyr.css?v=20200101')),
-      loadScript(withAssetPrefix('/assets/plyr.js?v=20200101')),
-      loadScript(withAssetPrefix('/assets/hls.js?v=20200101'))
+      loadStyle(withAssetPrefix('/assets/plyr.css?v=20200110')),
+      loadScript(withAssetPrefix('/assets/plyr.js?v=20200110')),
+      loadScript(withAssetPrefix('/assets/hls.js?v=20200110'))
     ]).then(initPlayer)
   })
 

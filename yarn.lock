@@ -6010,10 +6010,10 @@ gatsby-graphiql-explorer@^0.2.32:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-gatsby-image@2.2.37:
-  version "2.2.37"
-  resolved "https://registry.npm.taobao.org/gatsby-image/download/gatsby-image-2.2.37.tgz#dc7e6b15860e1d505925d0a08cd390f7d32efec0"
-  integrity sha1-3H5rFYYOHVBZJdCgjNOQ99Mu/sA=
+gatsby-image@2.2.38:
+  version "2.2.38"
+  resolved "https://registry.npm.taobao.org/gatsby-image/download/gatsby-image-2.2.38.tgz#52d970845eacdc1f91b2ffcb33c2fead5fc17b60"
+  integrity sha1-UtlwhF6s3B+Rsv/LM8L+rV/Be2A=
   dependencies:
     "@babel/runtime" "^7.7.6"
     object-fit-images "^3.2.4"
@@ -6147,10 +6147,10 @@ gatsby-remark-autolink-headers@2.1.23:
     mdast-util-to-string "^1.0.7"
     unist-util-visit "^1.4.1"
 
-gatsby-remark-copy-linked-files@2.1.35:
-  version "2.1.35"
-  resolved "https://registry.npm.taobao.org/gatsby-remark-copy-linked-files/download/gatsby-remark-copy-linked-files-2.1.35.tgz#555f1c35e54d43c61caecfe9cbe0fc7aacb5c765"
-  integrity sha1-VV8cNeVNQ8Ycrs/py+D8eqy1x2U=
+gatsby-remark-copy-linked-files@2.1.36:
+  version "2.1.36"
+  resolved "https://registry.npm.taobao.org/gatsby-remark-copy-linked-files/download/gatsby-remark-copy-linked-files-2.1.36.tgz#fdc22d99af67f8cfb7dd2c016dd6bc485af0a0fc"
+  integrity sha1-/cItma9n+M+33SwBbda8SFrwoPw=
   dependencies:
     "@babel/runtime" "^7.7.6"
     cheerio "^1.0.0-rc.3"

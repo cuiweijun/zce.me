@@ -104,7 +104,7 @@ const Content = ({ html }) => {
         bg: 'background',
         fontSize: 'calc(100% + 0.1vw)',
         // fontFamily: 'serif',
-        lineHeight: 'loose',
+        lineHeight: 'double',
         wordWrap: 'break-word',
         'h1, h2, h3, h4, h5, h6': {
           m: '1.4em 0 0.8em'

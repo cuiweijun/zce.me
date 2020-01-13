@@ -19,8 +19,9 @@ module.exports = plop => {
         type: 'input',
         name: 'slug',
         message: 'post slug',
-        // when: answers => /[\u4e00-\u9fa5]/.test(answers.title),
-        default: answers => kebabCase(answers.title)
+        default: answers => kebabCase(answers.title),
+        filter: input => kebabCase(input)
+        // when: answers => /[\u4e00-\u9fa5]/.test(answers.title)
       }
     ],
     actions: [

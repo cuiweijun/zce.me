@@ -3,7 +3,6 @@
  */
 
 import React from 'react'
-import { withAssetPrefix } from 'gatsby'
 
 import { loadStyle, loadScript } from '../utils'
 
@@ -25,9 +24,9 @@ export default ({ source, autoplay, onEnded, ...props }) => {
 
     // ___webpackCompilationHash
     Promise.all([
-      loadStyle(withAssetPrefix('/assets/plyr.css?v=20200110')),
-      loadScript(withAssetPrefix('/assets/plyr.js?v=20200110')),
-      loadScript(withAssetPrefix('/assets/hls.js?v=20200110'))
+      loadStyle(`/assets/plyr.css?v=${process.env.STATIC_VERSION}`),
+      loadScript(`/assets/plyr.js?v=${process.env.STATIC_VERSION}`),
+      loadScript(`/assets/hls.js?v=${process.env.STATIC_VERSION}`)
     ]).then(initPlayer)
   })
 

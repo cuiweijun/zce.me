@@ -2,6 +2,8 @@
  * Loader
  */
 
+import { withAssetPrefix } from 'gatsby'
+
 // Prevent duplicate loading
 const cache = []
 
@@ -11,7 +13,7 @@ export const loadStyle = url => {
     const link = document.createElement('link')
     // link.id = `style-${Date.now()}`
     link.rel = 'stylesheet'
-    link.href = url
+    link.href = withAssetPrefix(url)
     link.onload = resolve
     link.onerror = reject
     document.head.appendChild(link)
@@ -26,7 +28,7 @@ export const loadScript = url => {
     // script.id = `script-${Date.now()}`
     script.async = true
     // script.defer = true
-    script.src = url
+    script.src = withAssetPrefix(url)
     script.onload = resolve
     script.onerror = reject
     document.body.appendChild(script)

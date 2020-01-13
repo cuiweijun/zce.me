@@ -9,4 +9,3 @@ export const onRouteUpdate = ({ location = {} }) => {
     `${location.pathname}${location.search}${location.hash}`
   ])
 }
-analyticsanalytics

@@ -2,11 +2,10 @@ import React from 'react'
 
 // for prevent flashing
 export const onRenderBody = ({ setPostBodyComponents }) => {
-  console.log(JSON.stringify(process.env))
   setPostBodyComponents(
     <script
       key="gatsby-plugin-analytics"
-      src={`https://hm.baidu.com/hm.js?${process.env.BAIDU_ID}`}
+      src={`https://hm.baidu.com/hm.js?${process.env.GATSBY_BAIDU_ID}`}
     />
   )
 }

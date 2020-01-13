@@ -4,7 +4,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import { loadStyle, loadScript } from '../utils'
 
@@ -60,8 +60,8 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
 
     // ___webpackCompilationHash
     Promise.all([
-      loadStyle(withAssetPrefix('/assets/gitalk.css?v=20200110')),
-      loadScript(withAssetPrefix('/assets/gitalk.js?v=20200110'))
+      loadStyle(`/assets/gitalk.css?v=${process.env.STATIC_VERSION}`),
+      loadScript(`/assets/gitalk.js?v=${process.env.STATIC_VERSION}`)
     ]).then(initGitalk)
 
     // TODO: destory scripts

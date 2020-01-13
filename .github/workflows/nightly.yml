@@ -24,6 +24,7 @@ jobs:
         run: yarn dist
         env:
           NODE_ENV: production
+          BAIDU_ID: 4d08bf9017848e0be9654da64ef7053d
           CI: true
 
       - name: Deploy to Coding

@@ -17,6 +17,9 @@ exports.plugins = [
     resolve: 'gatsby-plugin-build'
   },
   {
+    resolve: 'gatsby-plugin-analytics'
+  },
+  {
     resolve: 'gatsby-plugin-theme'
   },
   {

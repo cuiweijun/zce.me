@@ -53,16 +53,14 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
   }
 
   React.useEffect(() => {
-    const initGitalk = () => {
-      const gitalk = new window.Gitalk(options)
-      container.current && gitalk.render(container.current)
-    }
-
     // ___webpackCompilationHash
     Promise.all([
-      loadStyle(`/assets/gitalk.css?v=${process.env.STATIC_VERSION}`),
-      loadScript(`/assets/gitalk.js?v=${process.env.STATIC_VERSION}`)
-    ]).then(initGitalk)
+      loadStyle(`/assets/gitalk.css?v=${process.env.GATSBY_STATIC_VERSION}`),
+      loadScript(`/assets/gitalk.js?v=${process.env.GATSBY_STATIC_VERSION}`)
+    ]).then(() => {
+      const gitalk = new window.Gitalk(options)
+      container.current && gitalk.render(container.current)
+    })
 
     // TODO: destory scripts
     // https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/

@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, withAssetPrefix } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import {
   Layout,
@@ -84,13 +84,16 @@ const Content = ({ html }) => {
       item.onclick = e => e.preventDefault()
     })
     // zoom
-    const initZoom = () =>
-      window.mediumZoom('.gatsby-resp-image-image', {
-        margin: 20,
-        background: '#000'
-      })
-    if (window.mediumZoom) return initZoom()
-    loadScript(withAssetPrefix('/assets/zoom.js?v=20200101')).then(initZoom)
+    let zoom = null
+    loadScript(`/assets/zoom.js?v=${process.env.GATSBY_STATIC_VERSION}`).then(
+      () => {
+        zoom = window.mediumZoom('.gatsby-resp-image-image', {
+          margin: 20,
+          background: '#000'
+        })
+      }
+    )
+    return () => zoom && zoom.detach()
   })
 
   return (

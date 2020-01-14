@@ -1,7 +1,9 @@
 import React from 'react'
 
-// for prevent flashing
 export const onRenderBody = ({ setPostBodyComponents }) => {
+  // Don't track while developing.
+  if (process.env.NODE_ENV !== 'production') return
+
   setPostBodyComponents(
     <script
       key="gatsby-plugin-analytics"

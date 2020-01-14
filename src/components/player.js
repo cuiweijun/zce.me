@@ -10,7 +10,12 @@ export default ({ source, autoplay, onEnded, ...props }) => {
   const container = React.useRef(null)
 
   React.useEffect(() => {
-    const initPlayer = () => {
+    // ___webpackCompilationHash
+    Promise.all([
+      loadStyle(`/assets/plyr.css?v=${process.env.GATSBY_STATIC_VERSION}`),
+      loadScript(`/assets/plyr.js?v=${process.env.GATSBY_STATIC_VERSION}`),
+      loadScript(`/assets/hls.js?v=${process.env.GATSBY_STATIC_VERSION}`)
+    ]).then(() => {
       if (source.substr(-4) !== '.mp4' && window.Hls.isSupported()) {
         const hls = new window.Hls()
         hls.loadSource(source)
@@ -20,14 +25,7 @@ export default ({ source, autoplay, onEnded, ...props }) => {
       }
 
       new window.Plyr(container.current, { autoplay }).on('ended', onEnded)
-    }
-
-    // ___webpackCompilationHash
-    Promise.all([
-      loadStyle(`/assets/plyr.css?v=${process.env.STATIC_VERSION}`),
-      loadScript(`/assets/plyr.js?v=${process.env.STATIC_VERSION}`),
-      loadScript(`/assets/hls.js?v=${process.env.STATIC_VERSION}`)
-    ]).then(initPlayer)
+    })
   })
 
   // eslint-disable-next-line jsx-a11y/media-has-caption

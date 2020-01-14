@@ -1,5 +1,5 @@
 export const onRouteUpdate = ({ location = {} }) => {
-  if (typeof _hmt !== 'function') return
+  if (typeof _hmt === 'undefined') return
 
   window._hmt.push([
     '_trackPageview',

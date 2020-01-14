@@ -13,6 +13,7 @@ exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
     // rename output bundle
     config.output.filename = '[contenthash:6].js'
     config.output.chunkFilename = '[contenthash:6].js'
+    // css https://github.com/imdaveead/plugins/blob/539e3d7f5472b5ef04f5f52fd87e6030935a2e7d/gatsby-plugin-hidenames/gatsby-node.js
     actions.replaceWebpackConfig(config)
   }
 }

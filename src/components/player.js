@@ -16,7 +16,7 @@ export default ({ source, autoplay, onEnded, ...props }) => {
       loadScript(`/assets/plyr.js?v=${process.env.GATSBY_STATIC_VERSION}`),
       loadScript(`/assets/hls.js?v=${process.env.GATSBY_STATIC_VERSION}`)
     ]).then(() => {
-      if (source.substr(-4) !== '.mp4' && window.Hls.isSupported()) {
+      if (source.slice(-4) !== '.mp4' && window.Hls.isSupported()) {
         const hls = new window.Hls()
         hls.loadSource(source)
         hls.attachMedia(container.current)

@@ -90,7 +90,7 @@
     "gatsby-transformer-sharp": "2.3.12",
     "pluralize": "8.0.0",
     "polished": "3.4.2",
-    "prismjs": "1.18.0",
+    "prismjs": "1.19.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-helmet": "5.2.1"

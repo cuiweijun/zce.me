@@ -143,14 +143,15 @@ const responsive = styles => theme => {
       continue
     }
 
-    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
+    const length = Math.min(value.length, mediaQueries.length)
+    for (let i = 0; i < length; i++) {
       const media = mediaQueries[i]
-      if (value[i] == null) continue
       if (!media) {
         next[key] = value[i]
         continue
       }
       next[media] = next[media] || {}
+      if (value[i] == null) continue
       next[media][key] = value[i]
     }
   }

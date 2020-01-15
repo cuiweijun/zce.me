@@ -6068,10 +6068,10 @@ gatsby-plugin-nprogress@2.1.18:
     "@babel/runtime" "^7.7.6"
     nprogress "^0.2.0"
 
-gatsby-plugin-offline@3.0.31:
-  version "3.0.31"
-  resolved "https://registry.npm.taobao.org/gatsby-plugin-offline/download/gatsby-plugin-offline-3.0.31.tgz#bf72635ab1fad91bee9d1dde171ca063eb4ab348"
-  integrity sha1-v3JjWrH62RvunR3eFxygY+tKs0g=
+gatsby-plugin-offline@3.0.32:
+  version "3.0.32"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-offline/download/gatsby-plugin-offline-3.0.32.tgz#9907421e7359f79b22da7f654c4a69749cf136c5"
+  integrity sha1-mQdCHnNZ95si2n9lTEppdJzxNsU=
   dependencies:
     "@babel/runtime" "^7.7.6"
     cheerio "^1.0.0-rc.3"

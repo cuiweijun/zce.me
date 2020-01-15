@@ -5,7 +5,7 @@ slug: privacy-policy
 
 ### 我是谁
 
-我是汪磊，我的站点地址是：https://beta.zce.me。
+我是汪磊，我的站点地址是：https://blog.zce.me。
 
 ### 我们收集何种及为何收集个人数据
 

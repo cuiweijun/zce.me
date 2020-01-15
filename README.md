@@ -10,6 +10,7 @@
 
 - Nightly: https://nightly.zce.me
 - Beta: https://beta.zce.me
+- Stable: https://blog.zce.me
 
 ## Getting Started
 

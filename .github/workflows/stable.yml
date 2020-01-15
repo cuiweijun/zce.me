@@ -27,7 +27,7 @@ jobs:
         run: yarn dist
         env:
           NODE_ENV: production
-          GATSBY_BAIDU_ID: b03089dd45bcef4ab4be511dce81dbc8
+          GATSBY_BAIDU_ID: ebba0e1e4fd2aeae212a8de341d8e1bb
           CI: true
 
       - name: Deploy to Coding

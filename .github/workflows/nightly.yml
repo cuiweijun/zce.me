@@ -31,7 +31,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: npx gh-pages
           -d public
-          -r https://${{secrets.CODING_TOKEN}}@git.dev.tencent.com/zce/nightly.zce.me.git
+          -r https://${{secrets.CODING_TOKEN}}@e.coding.net/zce/nightly.zce.me.git
           -b master
           -u "GitHub Actions <bots@github.com>"
 

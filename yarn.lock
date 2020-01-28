@@ -10635,10 +10635,10 @@ pnp-webpack-plugin@^1.5.0:
   dependencies:
     ts-pnp "^1.1.2"
 
-polished@3.4.2:
-  version "3.4.2"
-  resolved "https://registry.npm.taobao.org/polished/download/polished-3.4.2.tgz#b4780dad81d64df55615fbfc77acb52fd17d88cd"
-  integrity sha1-tHgNrYHWTfVWFfv8d6y1L9F9iM0=
+polished@3.4.3:
+  version "3.4.3"
+  resolved "https://registry.npm.taobao.org/polished/download/polished-3.4.3.tgz#9b2580a3ead4ef2e030265c3eccbc06a2b68a049"
+  integrity sha1-myWAo+rU7y4DAmXD7MvAaitooEk=
   dependencies:
     "@babel/runtime" "^7.6.3"
 

@@ -6025,10 +6025,10 @@ gatsby-page-utils@^0.0.37:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-manifest@2.2.37:
-  version "2.2.37"
-  resolved "https://registry.npm.taobao.org/gatsby-plugin-manifest/download/gatsby-plugin-manifest-2.2.37.tgz?cache=0&sync_timestamp=1578599640467&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgatsby-plugin-manifest%2Fdownload%2Fgatsby-plugin-manifest-2.2.37.tgz#ea385bbd453d8455d3c4715c4f3b1e8c1313a97b"
-  integrity sha1-6jhbvUU9hFXTxHFcTzsejBMTqXs=
+gatsby-plugin-manifest@2.2.39:
+  version "2.2.39"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-manifest/download/gatsby-plugin-manifest-2.2.39.tgz?cache=0&sync_timestamp=1580140347575&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgatsby-plugin-manifest%2Fdownload%2Fgatsby-plugin-manifest-2.2.39.tgz#6690db911dc5c20ef34a2d89c4db845def9c3d15"
+  integrity sha1-ZpDbkR3Fwg7zSi2JxNuEXe+cPRU=
   dependencies:
     "@babel/runtime" "^7.7.6"
     gatsby-core-utils "^1.0.26"
@@ -6084,10 +6084,10 @@ gatsby-plugin-react-helmet@3.1.21:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-gatsby-plugin-sharp@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npm.taobao.org/gatsby-plugin-sharp/download/gatsby-plugin-sharp-2.4.0.tgz?cache=0&sync_timestamp=1579592788977&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgatsby-plugin-sharp%2Fdownload%2Fgatsby-plugin-sharp-2.4.0.tgz#9df4c2646a34fb7ea4ff5428f6662ef3c0a80cde"
-  integrity sha1-nfTCZGo0+36k/1Qo9mYu88CoDN4=
+gatsby-plugin-sharp@2.4.3:
+  version "2.4.3"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-sharp/download/gatsby-plugin-sharp-2.4.3.tgz#b5c72a8e5eeeaedd13f49e6056ab6275a93882fc"
+  integrity sha1-tccqjl7urt0T9J5gVqtidak4gvw=
   dependencies:
     "@babel/runtime" "^7.7.6"
     async "^2.6.3"
@@ -6274,10 +6274,10 @@ gatsby-transformer-sharp@2.3.13:
     semver "^5.7.1"
     sharp "^0.23.4"
 
-gatsby@2.19.1:
-  version "2.19.1"
-  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.19.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgatsby%2Fdownload%2Fgatsby-2.19.1.tgz#eaea19aec7580a459a7d2b9acea6e1445902ec36"
-  integrity sha1-6uoZrsdYCkWafSuazqbhRFkC7DY=
+gatsby@2.19.7:
+  version "2.19.7"
+  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-2.19.7.tgz#670d04f25259a914db0049ebd56c14bc04f62d38"
+  integrity sha1-Zw0E8lJZqRTbAEnr1WwUvAT2LTg=
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.7.5"

@@ -101,7 +101,7 @@
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.1.0",
     "husky": "4.2.1",
-    "lint-staged": "10.0.2",
+    "lint-staged": "10.0.4",
     "plop": "2.5.3",
     "prettier": "1.19.1"
   },

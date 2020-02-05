@@ -1,9 +1,5 @@
 # zce.me
 
-[![Netlify Status][netlify-image]][netlify-url]
-[![Build Status][actions-image]][actions-url]
-[![Code Style][style-image]][style-url]
-
 > zce.me site source code, created with [Gatsby](https://www.gatsbyjs.org).
 
 ## Preview
@@ -148,10 +144,6 @@ The default structure is shown below:
 - [ ] Global State
 - [ ] I18n
 
-## Deploy
-
-[![Deploy to Netlify][deploy-image]][deploy-url]
-
 ## Assets
 
 ```text
@@ -168,12 +160,3 @@ zoom.js - v1.0.5
 ## License
 
 [MIT](LICENSE) &copy; [汪磊](https://zce.me) &amp; [WEDN.NET](https://wedn.net)
-
-[netlify-image]: https://api.netlify.com/api/v1/badges/cabdddaa-eb82-4780-b97e-fdf636c55314/deploy-status
-[netlify-url]: https://app.netlify.com/sites/zce/deploys
-[actions-image]: https://github.com/zce/zce.me/workflows/CI/badge.svg
-[actions-url]: https://github.com/zce/zce.me/actions
-[style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-[style-url]: https://standardjs.com
-[deploy-image]: https://www.netlify.com/img/deploy/button.svg
-[deploy-url]: https://app.netlify.com/start/deploy?repository=https://github.com/zce/zce.me

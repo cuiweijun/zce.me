@@ -30,10 +30,11 @@ jobs:
       - name: Deploy to Coding
         if: github.ref == 'refs/heads/master'
         run: npx gh-pages
-          -d public
+          -d public -t
           -r https://${{secrets.CODING_TOKEN}}@e.coding.net/zce/zce.me/nightly.git
           -b master
           -u "GitHub Actions <bots@github.com>"
+          -f
 
       - name: Deploy to Surge
         if: github.ref == 'refs/heads/master'

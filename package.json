@@ -25,13 +25,13 @@
   "sideEffects": false,
   "scripts": {
     "new": "plop",
-    "format": "prettier --write \"**/*.{js,json,yml,yaml,md}\"",
+    "format": "prettier --write \"**/*.{js,json,yml,md}\"",
     "clean": "gatsby clean",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "develop": "gatsby develop",
-    "dist": "yarn clean && yarn build --prefix-paths",
-    "dev": "yarn develop",
+    "release": "gatsby clean && gatsby build --prefix-paths",
+    "dev": "gatsby develop",
     "commit": "git-cz"
   },
   "husky": {
@@ -46,7 +46,7 @@
     ]
   },
   "lint-staged": {
-    "*.{js,json,yml,yaml,md}": [
+    "*.{js,json,yml,md}": [
       "prettier --write",
       "git add"
     ]

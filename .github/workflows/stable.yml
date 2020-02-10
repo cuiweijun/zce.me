@@ -18,13 +18,13 @@ jobs:
         uses: actions/setup-node@v1
 
       - name: Install Dependencies
-        run: yarn
+        run: npm install
 
       - name: Format Source
-        run: yarn format
+        run: npm run format
 
       - name: Build Site
-        run: yarn dist
+        run: npm run release
         env:
           NODE_ENV: production
           GATSBY_BAIDU_ID: ebba0e1e4fd2aeae212a8de341d8e1bb

@@ -15,20 +15,20 @@
 $ git clone https://github.com/zce/zce.me.git
 $ cd zce.me
 # install dependencies
-$ yarn # or npm install
+$ npm install # or yarn
 ```
 
 ### Available Scripts
 
 ```shell
 # serve with hot reload at http://localhost:8000
-$ yarn dev
+$ npm run dev
 
 # format the source files.
-$ yarn format
+$ npm run format
 
 # build for production with minification
-$ yarn build
+$ npm run build
 ```
 
 ## Concepts

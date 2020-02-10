@@ -33,7 +33,8 @@ jobs:
 
       - name: Deploy to Coding
         run: npx gh-pages
-          -d public
+          -d public -t
           -r https://${{secrets.CODING_TOKEN}}@e.coding.net/zce/zce.me/beta.git
           -b master
           -u "GitHub Actions <bots@github.com>"
+          -f

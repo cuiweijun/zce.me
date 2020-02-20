@@ -445,9 +445,6 @@
   top: 0;
   right: 0;
 }
-.gt-container .gt-comment-body {
-  color: #333 !important;
-}
 @-webkit-keyframes gt-kf-rotate {
   0% {
     -webkit-transform: rotate(0);

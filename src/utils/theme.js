@@ -302,7 +302,10 @@ export const ThemeProvider = ({ theme, children }) => {
   const [mode, setMode] = useState('default')
 
   // for ssr
-  useEffect(() => setMode(getInitialMode()), [])
+  useEffect(() => {
+    setMode(getInitialMode())
+    window.ThemeReady = true
+  }, [])
 
   const { modes = {}, ...rest } = { ...defaultTheme, ...theme }
   // apply theme mode

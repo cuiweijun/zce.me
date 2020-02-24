@@ -25,9 +25,14 @@ export const wrapRootElement = ({ element }) => (
 // for prevent flashing
 export const onClientEntry = () => {
   window.addEventListener('load', () => {
-    setTimeout(() => {
+    const show = () => {
+      // ensure theme color mode ready
+      if (!window.ThemeReady) {
+        return setTimeout(show, 0)
+      }
       document.body.style.opacity = null
       document.body.style.background = null
-    }, 100)
+    }
+    show()
   })
 }

@@ -61,7 +61,7 @@ socials:
     link: https://img.zce.me/wechat.jpg
   - name: QQ
     icon: qq
-    link: ~
+    link: http://wpa.qq.com/msgrd?v=3&uin=27102514&site=qq&menu=yes
   - name: 哔哩哔哩
     icon: bilibili
     link: https://space.bilibili.com/210242179
@@ -89,4 +89,4 @@ links:
 
 subscription:
   name: ITBetter
-  qrcode: images/qrcode-wedn.jpg
+  qrcode: https://img.zce.me/qrcode/itbetter.jpg

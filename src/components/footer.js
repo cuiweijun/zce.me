@@ -27,13 +27,7 @@ const query = graphql`
       }
       subscription {
         name
-        qrcode {
-          childImageSharp {
-            fixed(width: 128, height: 128) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
+        qrcode
       }
     }
 
@@ -145,8 +139,7 @@ const Subscription = ({ subscription }) => (
     <img
       alt={subscription.name}
       title={subscription.name}
-      src={subscription.qrcode.childImageSharp.fixed.src}
-      srcSet={subscription.qrcode.childImageSharp.fixed.srcSet}
+      src={subscription.qrcode}
       sx={{ display: 'block !important', mx: 'auto' }}
     />
   </Widget>

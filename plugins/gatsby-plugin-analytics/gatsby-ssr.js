@@ -7,7 +7,7 @@ export const onRenderBody = ({ setPostBodyComponents }) => {
   setPostBodyComponents(
     <script
       key="gatsby-plugin-analytics"
-      src={`https://hm.baidu.com/hm.js?${process.env.GATSBY_BAIDU_ID}`}
+      src={`https://hm.baidu.com/hm.js?${process.env.GATSBY_ANALYTICS_ID}`}
     />
   )
 }

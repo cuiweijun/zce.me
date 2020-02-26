@@ -3,6 +3,8 @@ title: 大时代小访客
 slug: big-time-small-visitors
 date: 2020-01-13 09:59
 cover: cover.jpg
+categories:
+  - 生活
 ---
 
 昨晚在爱奇艺上线了《爱情公寓》系列的最终季，我看了三集。由于本身并没有抱着太高的要求，所以整体感觉还不错。

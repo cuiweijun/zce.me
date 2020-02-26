@@ -71,7 +71,7 @@
     "emotion": "10.0.27",
     "emotion-server": "10.0.27",
     "emotion-theming": "10.0.27",
-    "gatsby": "2.19.21",
+    "gatsby": "2.19.22",
     "gatsby-image": "2.2.41",
     "gatsby-plugin-manifest": "2.2.42",
     "gatsby-plugin-nprogress": "2.1.19",
@@ -101,7 +101,7 @@
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.1.0",
     "husky": "4.2.3",
-    "lint-staged": "10.0.7",
+    "lint-staged": "10.0.8",
     "plop": "2.5.4",
     "prettier": "1.19.1"
   },

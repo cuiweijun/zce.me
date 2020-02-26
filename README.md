@@ -1,4 +1,4 @@
-# zce.me
+# zce.me ![CI](https://github.com/zce/zce.me/workflows/CI/badge.svg)
 
 > zce.me site source code, created with [Gatsby](https://www.gatsbyjs.org).
 

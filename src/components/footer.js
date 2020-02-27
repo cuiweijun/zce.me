@@ -140,7 +140,7 @@ const Subscription = ({ subscription }) => (
       alt={subscription.name}
       title={subscription.name}
       src={subscription.qrcode}
-      sx={{ display: 'block !important', mx: 'auto' }}
+      sx={{ display: 'block', mx: 'auto', maxWidth: 140 }}
     />
   </Widget>
 )

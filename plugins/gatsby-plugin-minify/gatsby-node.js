@@ -1,3 +1,9 @@
+/**
+ * Implement Gatsby's Node APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/node-apis/
+ */
+
 const fs = require('fs')
 const { promisify } = require('util')
 const glob = require('glob')

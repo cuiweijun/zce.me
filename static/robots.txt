@@ -1,0 +1,5 @@
+Sitemap: https://blog.zce.me/sitemap.xml
+
+User-agent: *
+Disallow: /
+# Allow: /

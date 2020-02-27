@@ -8,8 +8,8 @@
     - key: description
       value: 全部未分类内容
 
-- name: 生活
-  slug: life
+- name: 日志
+  slug: journal
 
 - name: 旅行
   slug: travel

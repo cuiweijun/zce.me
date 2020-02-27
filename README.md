@@ -81,6 +81,7 @@ The default structure is shown below:
 
 - [x] SEO
   - https://www.gatsbyjs.org/docs/seo/
+- [x] Sitemap support
 - [x] Offline & Manifest
   - https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/
 - [x] Progressive Web Apps (PWAs)
@@ -88,16 +89,20 @@ The default structure is shown below:
 - [x] Performance
   - https://www.gatsbyjs.org/docs/performance/
   - https://webpagetest.org/
+- [ ] Authentication
+  - https://www.gatsbyjs.org/docs/building-a-site-with-authentication/
+  - https://www.gatsbyjs.org/tutorial/authentication-tutorial/
+  - https://www.gatsbyjs.org/blog/2019-03-21-add-auth0-to-gatsby-livestream/
+  - https://auth0.com/blog/securing-gatsby-with-auth0/
+  - https://github.com/auth0-blog/gatsby-auth0
+  - https://github.com/gatsbyjs/gatsby/issues/1100
+  - https://www.gatsbyjs.org/packages/gatsby-plugin-create-client-paths/
+  - https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/
 - [ ] Lighthouse CI
 - [ ] Search
   - https://github.com/algolia/docsearch
   - https://www.gatsbyjs.org/docs/adding-search-with-algolia/
-- [ ] Underline
-  - https://github.com/TryGhost/Casper/blob/master/assets/css/screen.css#L399-L414
-- [ ] Staticman
-  - https://www.gatsbycentral.com/tutorial-comments-with-staticman-in-gatsby
 - [ ] gatsby-plugin-catch-links
-- [ ] gatsby-plugin-sitemap
 
 ### Backlog
 
@@ -120,18 +125,9 @@ The default structure is shown below:
 - [x] Create default nodes by programming
 - [ ] Content type filter
 - [ ] authors & categories & tags page
-- [ ] Sitemap support
 - [ ] RSS feed
 - [ ] Comment System (Custom service)
   - https://www.taniarascia.com/add-comments-to-static-site/
-- [ ] Authentication
-  - https://www.gatsbyjs.org/tutorial/authentication-tutorial/
-  - https://www.gatsbyjs.org/blog/2019-03-21-add-auth0-to-gatsby-livestream/
-  - https://auth0.com/blog/securing-gatsby-with-auth0/
-  - https://github.com/auth0-blog/gatsby-auth0
-  - https://github.com/gatsbyjs/gatsby/issues/1100
-  - https://www.gatsbyjs.org/packages/gatsby-plugin-create-client-paths/
-  - https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/
 - [ ] Netlify CMS
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
   - https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/
@@ -143,6 +139,10 @@ The default structure is shown below:
 - [ ] Gatsby Theme
 - [ ] Global State
 - [ ] I18n
+- [ ] Staticman
+  - https://www.gatsbycentral.com/tutorial-comments-with-staticman-in-gatsby
+- [ ] Underline
+  - https://github.com/TryGhost/Casper/blob/master/assets/css/screen.css#L399-L414
 
 ## Assets
 

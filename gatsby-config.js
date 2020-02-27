@@ -4,27 +4,15 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-// use content/_config.yml instead
-// https://github.com/gatsbyjs/gatsby/issues/2968
-exports.siteMetadata = {}
-
-exports.plugins = [
-  // plugin
-  {
-    resolve: 'gatsby-plugin-minify'
-  },
-  {
-    resolve: 'gatsby-plugin-build'
-  },
-  {
-    resolve: 'gatsby-plugin-analytics'
-  },
-  {
-    resolve: 'gatsby-plugin-theme'
-  },
-  {
-    resolve: 'gatsby-plugin-react-helmet'
-  },
+const plugins = [
+  'gatsby-plugin-minify',
+  'gatsby-plugin-build',
+  'gatsby-plugin-analytics',
+  'gatsby-plugin-sitemap',
+  'gatsby-plugin-offline',
+  'gatsby-plugin-sharp',
+  'gatsby-plugin-theme',
+  'gatsby-plugin-react-helmet',
   {
     resolve: 'gatsby-plugin-nprogress',
     options: {
@@ -39,31 +27,24 @@ exports.plugins = [
       start_url: '/',
       background_color: '#339af0',
       theme_color: '#339af0',
-      // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-      // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
       display: 'standalone',
-      icon: 'static/icon.png', // This path is relative to the root of the site.
-      // An optional attribute which provides support for CORS check.
-      // If you do not provide a crossOrigin option, it will skip CORS for manifest.
-      // Any invalid keyword or empty string defaults to 'anonymous'
+      icon: 'static/icon.png',
       crossOrigin: 'use-credentials'
     }
-  },
-  {
-    resolve: 'gatsby-plugin-offline'
-  },
-  {
-    resolve: 'gatsby-plugin-sharp'
-  },
-  // source
+  }
+]
+
+const sources = [
   {
     resolve: 'gatsby-source-filesystem',
     options: {
       name: 'content',
       path: 'content'
     }
-  },
-  // transformer
+  }
+]
+
+const transformers = [
   {
     // https://using-remark.gatsbyjs.org
     resolve: 'gatsby-transformer-remark',
@@ -78,10 +59,17 @@ exports.plugins = [
       ]
     }
   },
-  {
-    resolve: 'gatsby-transformer-sharp'
-  }
+  'gatsby-transformer-sharp'
 ]
+
+// use content/_config.yml instead
+// https://github.com/gatsbyjs/gatsby/issues/2968
+exports.siteMetadata = {
+  // for gatsby-plugin-sitemap (sync with content/_config.yml)
+  siteUrl: 'https://blog.zce.me'
+}
+
+exports.plugins = [...plugins, ...sources, ...transformers]
 
 exports.assetPrefix = ''
 

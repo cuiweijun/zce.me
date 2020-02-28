@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Layout, Container, Button, Tabs, Hero, Player } from '../components'
 
 export default () => {
+  const [now, setNow] = useState(0)
+  useEffect(() => {
+    fetch('/api/now')
+      .then(res => res.json())
+      .then(data => setNow(data.now))
+  })
   // const [count, setCount] = React.useState(0)
   return (
     <Layout title="实验室">
@@ -17,6 +23,15 @@ export default () => {
           h3: { mt: 5 },
           hr: { my: 8 }
         }}>
+        <div>
+          <h2>Serverless functions</h2>
+          <p>
+            GET <code>/api/now</code>: {now}
+          </p>
+        </div>
+
+        <hr />
+
         <div sx={{ div: { mx: -2, mb: 3 }, button: { mr: 2, mb: 3 } }}>
           <h2>Buttons</h2>
           <h3>Colors</h3>

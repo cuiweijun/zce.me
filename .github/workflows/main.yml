@@ -17,16 +17,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-
       - name: Setup Node
         uses: actions/setup-node@v1
-
       - name: Install Dependencies
         run: npm install
-
       - name: Format Source
         run: npm run format
-
       - name: Build Site
         run: npm run release
         env:

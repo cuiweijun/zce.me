@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { jsx as emotion, Global as EmotionGlobal } from '@emotion/core'
+import { jsx as emotion, Global as EGlobal, keyframes } from '@emotion/core'
 import { ThemeProvider as EmotionProvider, useTheme } from 'emotion-theming'
 import * as p from 'polished'
 
@@ -285,29 +285,29 @@ export const jsx = (type, props, ...children) => {
 // =============================================================================
 
 const getInitialMode = () => {
-  if (
-    typeof window === 'undefined' ||
-    typeof localStorage === 'undefined' ||
-    typeof matchMedia === 'undefined'
-  )
+  if (typeof window === 'undefined' || typeof localStorage === 'undefined')
     return 'default'
   const mode = localStorage.getItem(storageKey)
   if (mode) return mode
+  if (typeof matchMedia === 'undefined') return 'default'
   if (matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'
   if (matchMedia('(prefers-color-scheme: light)').matches) return 'light'
   return 'default'
 }
 
 export const ThemeProvider = ({ theme, children }) => {
+  // ssr can not get initial state.
   const [mode, setMode] = useState('default')
 
-  // for ssr
   useEffect(() => {
+    // for ssr (running in browser)
     setMode(getInitialMode())
-    window.ThemeReady = true
-  }, [])
+    // theme ready signal (for prevent the page from flashing)
+    window.dispatchEvent(new Event('themeready'))
+  }, [mode])
 
   const { modes = {}, ...rest } = { ...defaultTheme, ...theme }
+
   // apply theme mode
   theme = { ...rest, ...modes[mode] }
 
@@ -324,8 +324,6 @@ export const ThemeProvider = ({ theme, children }) => {
   return jsx(EmotionProvider, { theme }, children)
 }
 
-export { useTheme }
-
 export const useThemeMode = () => {
   const { mode, setMode } = useTheme()
   return [mode, setMode]
@@ -336,5 +334,11 @@ export const useThemeMode = () => {
 // =============================================================================
 
 export const Global = ({ ...props }) => {
-  return jsx(EmotionGlobal, { styles: css(props.styles) })
+  return jsx(EGlobal, { styles: css(props.styles) })
 }
+
+// =============================================================================
+// Re-export
+// =============================================================================
+
+export { useTheme, keyframes }

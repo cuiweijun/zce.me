@@ -2,6 +2,9 @@
  * Implement Gatsby's Browser APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
+ *
+ * Ref:
+ * - https://github.com/emotion-js/emotion/blob/master/site/plugins/gatsby-plugin-emotion-next-compat/gatsby-browser.js
  */
 
 import React from 'react'
@@ -24,15 +27,9 @@ export const wrapRootElement = ({ element }) => (
 
 // for prevent flashing
 export const onClientEntry = () => {
-  window.addEventListener('load', () => {
-    const show = () => {
-      // ensure theme color mode ready
-      if (!window.ThemeReady) {
-        return setTimeout(show, 0)
-      }
-      document.body.style.opacity = null
-      document.body.style.background = null
-    }
-    show()
+  window.addEventListener('themeready', () => {
+    // ensure theme color mode ready
+    document.body.style.opacity = null
+    document.body.style.background = null
   })
 }

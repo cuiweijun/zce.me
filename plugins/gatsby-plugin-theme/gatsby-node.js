@@ -2,8 +2,12 @@
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
+ *
+ * Ref:
+ * - https://github.com/emotion-js/emotion/blob/master/packages/babel-preset-css-prop/src/index.js
  */
 
+// jsx pragmatic
 exports.onCreateBabelConfig = async ({ actions }) => {
   const pragmaName = '___ThemeJSX'
 

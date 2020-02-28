@@ -2,6 +2,9 @@
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
+ *
+ * Ref:
+ * - https://github.com/emotion-js/emotion/blob/master/site/plugins/gatsby-plugin-emotion-next-compat/gatsby-ssr.js
  */
 
 import React from 'react'
@@ -10,6 +13,7 @@ import { extractCritical } from 'emotion-server'
 
 export { wrapRootElement } from './gatsby-browser'
 
+// extract styles
 export const replaceRenderer = ({
   bodyComponent,
   setHeadComponents,
@@ -30,7 +34,7 @@ export const onRenderBody = ({ setBodyAttributes }) => {
   setBodyAttributes({
     style: {
       opacity: 0,
-      background: '#35363a',
+      background: '#000',
       transition: 'opacity 0.5s'
     }
   })

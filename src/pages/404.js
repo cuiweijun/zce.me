@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { keyframes } from '@emotion/core'
 
 import {
   Layout,
@@ -11,6 +10,7 @@ import {
   Cover,
   Card
 } from '../components'
+import { keyframes } from '../utils'
 
 const move = keyframes`
   10% {
@@ -60,7 +60,7 @@ const Heading = () => (
     sx={{
       display: 'inline',
       position: 'relative',
-      fontSize: '8rem',
+      fontSize: 'calc(8rem + 10vw)',
       color: 'transparent',
       ':before': {
         position: 'absolute',
@@ -88,7 +88,7 @@ const Heading = () => (
 export default ({ data: { posts } }) => (
   <Layout title="404 Not found">
     <Cover type={3} />
-    <Hero sx={{ py: '12vw' }}>
+    <Hero sx={{ py: '10vw' }}>
       <Heading />
       <p sx={{ mb: 6 }}>你似乎来到了新大陆～</p>
       <Button as={Link} to="/">

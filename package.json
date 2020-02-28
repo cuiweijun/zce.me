@@ -28,10 +28,9 @@
     "format": "prettier --write \"**/*.{js,json,yml,md}\"",
     "clean": "gatsby clean",
     "build": "gatsby build",
+    "release": "gatsby clean && gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "develop": "gatsby develop",
-    "release": "gatsby clean && gatsby build --prefix-paths",
-    "dev": "gatsby develop",
     "commit": "git-cz"
   },
   "husky": {

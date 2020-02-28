@@ -31,6 +31,15 @@ $ npm run format
 $ npm run build
 ```
 
+### Deploy
+
+```shell
+# version tag
+$ npm version <version> # patch | minor | major
+# push tags
+$ git push --follow-tags
+```
+
 ## Concepts
 
 - Content Type

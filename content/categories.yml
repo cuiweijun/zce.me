@@ -14,6 +14,9 @@
 - name: 旅行
   slug: travel
 
+- name: 周刊
+  slug: weekly
+
 - name: 教程
   slug: tutorial
 

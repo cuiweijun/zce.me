@@ -3,5 +3,11 @@
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "status": 404, "dest": "/404" }
-  ]
+  ],
+  "build": {
+    "env": {
+      "GATSBY_STATIC_VERSION": "20200220",
+      "GATSBY_ANALYTICS_ID": "ebba0e1e4fd2aeae212a8de341d8e1bb"
+    }
+  }
 }

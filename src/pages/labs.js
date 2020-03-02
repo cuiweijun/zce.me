@@ -31,6 +31,14 @@ export default () => {
         </div>
 
         <hr />
+        <div>
+          <h2>Environment Variables</h2>
+          <p>
+            <code>NODE_ENV: {process.env.NODE_ENV}</code>
+          </p>
+        </div>
+
+        <hr />
 
         <div sx={{ div: { mx: -2, mb: 3 }, button: { mr: 2, mb: 3 } }}>
           <h2>Buttons</h2>

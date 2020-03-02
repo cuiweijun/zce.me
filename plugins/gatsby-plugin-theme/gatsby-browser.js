@@ -30,6 +30,5 @@ export const onClientEntry = () => {
   window.addEventListener('themeready', () => {
     // ensure theme color mode ready
     document.body.style.opacity = null
-    document.body.style.background = null
   })
 }

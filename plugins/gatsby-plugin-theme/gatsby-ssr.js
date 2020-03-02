@@ -34,7 +34,6 @@ export const onRenderBody = ({ setBodyAttributes }) => {
   setBodyAttributes({
     style: {
       opacity: 0,
-      background: '#35363a',
       transition: 'opacity 0.5s'
     }
   })

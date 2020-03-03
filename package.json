@@ -102,7 +102,7 @@
     "cz-conventional-changelog": "3.1.0",
     "husky": "4.2.3",
     "lint-staged": "10.0.8",
-    "plop": "2.5.4",
+    "plop": "2.6.0",
     "prettier": "1.19.1"
   },
   "engines": {

@@ -1,7 +1,7 @@
 ---
 title: Electron 跨平台桌面应用开发
 slug: electron-desktop-app
-date: 2019-08-08 19:55
+date: 2019-08-08 19:55:00
 cover: cover.png
 categories:
   - 教程

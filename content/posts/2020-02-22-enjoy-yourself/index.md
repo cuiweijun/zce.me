@@ -1,7 +1,7 @@
 ---
 title: 快乐成长，活出生命
 slug: enjoy-yourself
-date: 2020-02-22 09:13
+date: 2020-02-22 09:13:00
 cover: cover.jpg
 categories:
   - 日志

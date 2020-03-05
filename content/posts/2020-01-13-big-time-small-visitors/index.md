@@ -1,7 +1,7 @@
 ---
 title: 大时代小访客
 slug: big-time-small-visitors
-date: 2020-01-13 09:59
+date: 2020-01-13 09:59:00
 cover: cover.jpg
 categories:
   - 日志

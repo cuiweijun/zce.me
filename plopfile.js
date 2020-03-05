@@ -31,7 +31,7 @@ module.exports = plop => {
         templateFile: 'templates/post.hbs',
         data: {
           date: moment().format('YYYY-MM-DD'),
-          datetime: moment().format('YYYY-MM-DD HH:mm')
+          datetime: moment().format('YYYY-MM-DD HH:mm:ss')
         }
       }
     ]
@@ -85,7 +85,7 @@ module.exports = plop => {
         templateFile: 'templates/course.hbs',
         data: {
           date: moment().format('YYYY-MM-DD'),
-          datetime: moment().format('YYYY-MM-DD HH:mm')
+          datetime: moment().format('YYYY-MM-DD HH:mm:ss')
         }
       }
     ]

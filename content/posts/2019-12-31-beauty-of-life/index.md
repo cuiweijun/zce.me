@@ -1,7 +1,7 @@
 ---
 title: 发现生活中的美好
 slug: beauty-of-life
-date: 2019-12-31 01:18
+date: 2019-12-31 01:18:00
 cover: cover.jpg
 private: true
 categories:

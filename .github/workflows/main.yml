@@ -24,7 +24,7 @@ jobs:
       - name: Format Source
         run: npm run format
       - name: Build Site
-        run: npm run release
+        run: npm run release # GATSBY_DB_NODES=loki
         env:
           NODE_ENV: production
           CI: true

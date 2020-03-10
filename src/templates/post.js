@@ -281,7 +281,7 @@ const License = () => (
       </svg>
     </Link>
     <p sx={{ mt: 2, color: 'muted', fontStyle: 'italic', fontFamily: 'serif' }}>
-      本作品采用
+      本文采用
       <Link
         to="https://creativecommons.org/licenses/by-sa/4.0/"
         title="View license"

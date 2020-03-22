@@ -135,7 +135,8 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
       borderBottom: 1,
       color: 'muted',
       fontSize: 'sm'
-    }}>
+    }}
+  >
     {date !== updated && (
       <div title="更新于" aria-label="更新于" sx={{ mr: 3 }}>
         <Icon name="edit-3" />
@@ -159,14 +160,16 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
                     content: '"\\002c"'
                   }
                 }
-              }}>
+              }}
+            >
               <Link
                 to={i.permalink}
                 sx={{
                   ':before': {
                     content: '"\\0023"'
                   }
-                }}>
+                }}
+              >
                 {i.name}
               </Link>
             </li>
@@ -182,27 +185,31 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
         ml: 'auto',
         span: { mr: 1 },
         a: { ml: 1 }
-      }}>
+      }}
+    >
       <span>分享到:</span>
       <Link
         to={`https://twitter.com/share?text=${title}&url=${url}`}
         title="分享到推特"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <Icon name="twitter" />
       </Link>
       <Link
         to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
         title="分享到脸书"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <Icon name="facebook" />
       </Link>
       <Link
         to={`http://qr.topscan.com/api.php?text=${url}`}
         title="分享到朋友圈"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <Icon name="aperture" />
       </Link>
     </div>
@@ -219,7 +226,8 @@ const Authors = ({ authors }) => (
         justifyContent: 'center',
         flexWrap: 'wrap',
         py: 4
-      }}>
+      }}
+    >
       <Avatar
         name={authors[0].name}
         image={authors[0].avatar}
@@ -250,7 +258,8 @@ const Authors = ({ authors }) => (
               content: '"\\002c"'
             }
           }
-        }}>
+        }}
+      >
         <span>贡献者:</span>
         {authors.slice(1).map(i => (
           <Link key={i.name} to={i.permalink} children={i.name} />
@@ -267,7 +276,8 @@ const License = () => (
       to="https://creativecommons.org/licenses/by-sa/4.0/"
       title="View license"
       target="_blank"
-      rel="noopener noreferrer">
+      rel="noopener noreferrer"
+    >
       {/* prettier-ignore */}
       <svg viewBox="0 0 120 42" width="160" aria-hidden="true">
         <path fill="currentColor" d="M117.8,0H2.2C1,0,0,1,0,2.2v39.2C0,41.8,0.2,42,0.5,42h119c0.3,0,0.5-0.2,0.5-0.5V2.2C120,1,119,0,117.8,0z M2.2,1h115.5c0.7,0,1.2,0.6,1.2,1.2c0,0,0,15.8,0,27.2H36.4c-3,5.5-8.9,9.2-15.5,9.2c-6.7,0-12.5-3.7-15.5-9.2H1C1,18.1,1,2.2,1,2.2C1,1.6,1.6,1,2.2,1z" />
@@ -286,7 +296,8 @@ const License = () => (
         to="https://creativecommons.org/licenses/by-sa/4.0/"
         title="View license"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         《知识共享署名-相同方式共享 4.0 国际许可协议》
       </Link>
       进行许可
@@ -341,7 +352,8 @@ const Category = ({ name, category, related }) => (
       a: {
         textDecoration: 'none'
       }
-    }}>
+    }}
+  >
     <small
       sx={{
         color: 'rgba(255, 255, 255, 0.5)',
@@ -351,7 +363,8 @@ const Category = ({ name, category, related }) => (
           content: '"\\2014\\2014"',
           color: 'rgba(255, 255, 255, 0.25)'
         }
-      }}>
+      }}
+    >
       {name}
     </small>
     <h3 sx={{ p: 2, fontWeight: 'light' }}>
@@ -374,7 +387,8 @@ const Category = ({ name, category, related }) => (
               borderBottom: 1,
               borderColor: 'rgba(255, 255, 255, 0.1)'
             }
-          }}>
+          }}
+        >
           <Link to={item.fields.permalink} title={item.fields.title}>
             {item.fields.title}
           </Link>
@@ -404,7 +418,8 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
     description={post.fields.description || post.excerpt}
     prev={prev && prev.fields.permalink}
     next={next && next.fields.permalink}
-    type="article">
+    type="article"
+  >
     <Cover image={post.fields.cover} type={3} />
     <Container as="article" role="main" sx={{ mb: 5 }}>
       <Header

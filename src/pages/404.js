@@ -80,7 +80,8 @@ const Heading = () => (
         mixBlendMode: 'lighten',
         animation: `${move} 2.2s infinite -0.5s`
       }
-    }}>
+    }}
+  >
     404
   </h1>
 )

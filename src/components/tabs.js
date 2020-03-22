@@ -14,7 +14,8 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
         sx={{
           display: 'flex',
           borderBottom: 2
-        }}>
+        }}
+      >
         {React.Children.map(children, (item, i) => (
           <a
             key={i}

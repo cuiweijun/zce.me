@@ -76,7 +76,7 @@ xhr.open('GET', '/time')
 // 3. 通过连接发送一次请求 —— 相当于回车或者点击访问发送请求
 xhr.send(null)
 // 4. 指定 xhr 状态变化事件处理函数 —— 相当于处理网页呈现后的操作
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   // 通过 xhr 的 readyState 判断此次请求的响应是否接收完成
   if (this.readyState === 4) {
     // 通过 xhr 的 responseText 获取到响应的响应体
@@ -134,7 +134,7 @@ console.log(xhr.readyState)
 
 xhr.send()
 
-xhr.addEventListener('readystatechange', function() {
+xhr.addEventListener('readystatechange', function () {
   switch (this.readyState) {
     case 2:
       // => 2
@@ -169,7 +169,7 @@ xhr.addEventListener('readystatechange', function() {
 通过理解每一个状态值的含义得出一个结论：一般我们都是在 `readyState` 值为 `4` 时，执行响应的后续逻辑。
 
 ```javascript
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (this.readyState === 4) {
     // 后续逻辑......
   }
@@ -188,7 +188,7 @@ xhr.setRequestHeader('Accept', 'text/plain')
 // 设置请求体
 xhr.send(null)
 
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (this.readyState === 4) {
     // 获取响应状态码
     console.log(this.status)
@@ -223,7 +223,7 @@ var xhr = new XMLHttpRequest()
 xhr.open('GET', '/delete?id=1')
 // 一般在 GET 请求时无需设置响应体，可以传 null 或者干脆不传
 xhr.send(null)
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (this.readyState === 4) {
     console.log(this.responseText)
   }
@@ -246,7 +246,7 @@ xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 // 需要提交到服务端的数据可以通过 send 方法的参数传递
 // 格式：name=zhangsan&age=18
 xhr.send('name=zhangsan&age=18')
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (this.readyState === 4) {
     console.log(this.responseText)
   }
@@ -268,7 +268,7 @@ var xhr = new XMLHttpRequest()
 // 默认第三个参数为 true 意味着采用异步方式执行
 xhr.open('GET', '/time', true)
 xhr.send(null)
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (this.readyState === 4) {
     // 这里的代码最后执行
     console.log('request done')
@@ -368,7 +368,7 @@ console.log('after ajax')
 var xhr = new XMLHttpRequest()
 xhr.open('GET', '/time')
 xhr.send(null)
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (this.readyState !== 4) return
   console.log(this.responseText)
   // => 每次得到的结果都是相同的
@@ -387,7 +387,7 @@ xhr.onreadystatechange = function() {
 var xhr = new XMLHttpRequest()
 xhr.open('GET', '/time?t=' + Date.now())
 xhr.send(null)
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (this.readyState !== 4) return
   console.log(this.responseText)
   // =>
@@ -431,12 +431,12 @@ HTML5 中对 XMLHttpRequest 类型全面升级，更易用，更强大
 ```javascript
 var xhr = new XMLHttpRequest()
 xhr.open('GET', '/time')
-xhr.onload = function() {
+xhr.onload = function () {
   // onload readyState => 4
   // 只在请求完成时触发
   console.log(this.readyState)
 }
-xhr.onprogress = function(e) {
+xhr.onprogress = function (e) {
   // onprogress readyState => 3
   // 只在请求进行中触发
   console.log(this.readyState)
@@ -458,7 +458,7 @@ var xhr = new XMLHttpRequest()
 xhr.open('GET', '/api/users')
 // 主观认为服务端返回的响应体为 JSON 格式
 xhr.responseType = 'json'
-xhr.onload = function() {
+xhr.onload = function () {
   console.log(this.response)
   // => Array 而不是 JSON String
 }
@@ -493,7 +493,7 @@ data.append('file', dom.files[0])
 var xhr = new XMLHttpRequest()
 xhr.open('POST', '/api/upload')
 xhr.send(data)
-xhr.onload = function() {
+xhr.onload = function () {
   console.log(this.responseText)
 }
 ```
@@ -531,7 +531,7 @@ function ajax(url, method, params, done) {
     ? new XMLHttpRequest()
     : new ActiveXObject('Microsoft.XMLHTTP')
 
-  xhr.addEventListener('readystatechange', function() {
+  xhr.addEventListener('readystatechange', function () {
     if (this.readyState !== 4) return
 
     // 尝试通过 JSON 格式解析响应体
@@ -558,11 +558,11 @@ function ajax(url, method, params, done) {
   xhr.send(data)
 }
 
-ajax('get', '/getsomthing', { id: 123 }, function(data) {
+ajax('get', '/getsomthing', { id: 123 }, function (data) {
   console.log(data)
 })
 
-ajax('post', '/addsomthing', { foo: 'posted data' }, function(data) {
+ajax('post', '/addsomthing', { foo: 'posted data' }, function (data) {
   console.log(data)
 })
 ```
@@ -593,16 +593,16 @@ $.ajax({
   type: 'get',
   dataType: 'json',
   data: { id: 1 },
-  beforeSend: function(xhr) {
+  beforeSend: function (xhr) {
     console.log('before send')
   },
-  success: function(data) {
+  success: function (data) {
     console.log(data)
   },
-  error: function(xhr) {
+  error: function (xhr) {
     console.log(xhr)
   },
-  complete: function(xhr) {
+  complete: function (xhr) {
     console.log('request completed')
   }
 })
@@ -652,10 +652,10 @@ Axios 是目前应用最为广泛的 AJAX 封装库，相对于 jQuery 的优势
 ```javascript
 axios
   .get('/time')
-  .then(function(res) {
+  .then(function (res) {
     console.log(res.data)
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.error(err)
   })
 ```

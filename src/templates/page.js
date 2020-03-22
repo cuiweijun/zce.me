@@ -6,7 +6,8 @@ import { Container, Layout, Image, Hero, Comments } from '../components'
 export default ({ data: { page } }) => (
   <Layout
     title={page.fields.title}
-    description={page.fields.description || page.excerpt}>
+    description={page.fields.description || page.excerpt}
+  >
     <Hero
       title={page.fields.title}
       subtitle={page.fields.description}

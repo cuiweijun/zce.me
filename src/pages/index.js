@@ -35,7 +35,8 @@ const Featured = ({ post }) => (
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap'
-      }}>
+      }}
+    >
       <Image
         as="figure"
         file={post.fields.cover}
@@ -66,7 +67,8 @@ const Featured = ({ post }) => (
           as={Link}
           to={post.fields.permalink}
           variant="ghost"
-          title={post.fields.title}>
+          title={post.fields.title}
+        >
           继续阅读 <span aria-hidden="true">&rarr;</span>
         </Button>
       </div>

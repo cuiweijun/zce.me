@@ -105,7 +105,8 @@ const Tags = ({ tags }) => (
             display: 'inline-block',
             mr: 1,
             ':after': { content: '"\\002C"' }
-          }}>
+          }}
+        >
           <Link
             to={i.permalink}
             children={i.name}
@@ -126,7 +127,8 @@ const Links = ({ links }) => (
       {links.map(i => (
         <li
           key={i.text}
-          sx={{ ':before': { content: '"\\279F"', mr: 1, opacity: 0.7 } }}>
+          sx={{ ':before': { content: '"\\279F"', mr: 1, opacity: 0.7 } }}
+        >
           <Link to={i.link} children={i.text} />
         </li>
       ))}
@@ -152,7 +154,8 @@ const Copyright = ({ name, url }) => (
       flexDirection: ['column', 'row'],
       pt: 3,
       borderTop: 1
-    }}>
+    }}
+  >
     <span>
       &copy; {new Date().getFullYear()} <Link to={url} children={name} />.
       保留所有权利.
@@ -166,7 +169,8 @@ const Copyright = ({ name, url }) => (
       </li>
     </ul>
     <span
-      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+    >
       <Link
         to="https://github.com/zce/zce.me"
         title="查看源代码"
@@ -210,7 +214,8 @@ export default () => {
         color: 'muted',
         fontSize: 'sm',
         textAlign: ['center', 'left']
-      }}>
+      }}
+    >
       <Container>
         <Row as="aside">
           <Follow socials={meta.socials} />

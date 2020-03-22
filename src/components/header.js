@@ -32,7 +32,8 @@ const Brand = ({ name }) => (
       px: 1,
       fontSize: 'xl',
       ':hover': { textDecoration: 'none' }
-    }}>
+    }}
+  >
     {/* prettier-ignore */}
     <svg viewBox="0 0 472 450" aria-hidden="true" sx={{ size: '25px', mr: 2 }}>
       <defs>
@@ -78,7 +79,8 @@ const Menu = ({ items }) => (
       '::-webkit-scrollbar': {
         display: 'none'
       }
-    }}>
+    }}
+  >
     {items.map(i => (
       <li key={i.link}>
         <Link
@@ -100,7 +102,8 @@ export default () => {
   const { meta } = useStaticQuery(query)
   return (
     <header
-      sx={{ ':before': { display: 'block', content: '""', height: 'nav' } }}>
+      sx={{ ':before': { display: 'block', content: '""', height: 'nav' } }}
+    >
       <nav
         aria-label="主要导航"
         sx={{
@@ -113,9 +116,11 @@ export default () => {
           transform: `translateY(${usePinned() ? '0%' : '-100%'})`,
           transition: 'transform 0.3s linear',
           willChange: 'transform'
-        }}>
+        }}
+      >
         <Container
-          sx={{ display: 'flex', alignItems: 'center', height: 'nav' }}>
+          sx={{ display: 'flex', alignItems: 'center', height: 'nav' }}
+        >
           <Brand name={meta.name} />
           <Menu items={meta.navigation} />
           {/* <Search /> */}

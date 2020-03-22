@@ -8,7 +8,8 @@ export default ({ data: { term, posts } }) => (
   <Layout
     title={getMeta(term.meta, 'title', term.name)}
     description={getMeta(term.meta, 'description', term.description)}
-    keywords={getMeta(term.meta, 'keywords')}>
+    keywords={getMeta(term.meta, 'keywords')}
+  >
     <Cover image={term.cover} />
     <Hero
       title={term.name}

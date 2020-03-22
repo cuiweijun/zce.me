@@ -22,7 +22,8 @@ export default () => {
           h2: { textAlign: 'center' },
           h3: { mt: 5 },
           hr: { my: 8 }
-        }}>
+        }}
+      >
         <div>
           <h2>Serverless functions</h2>
           <p>

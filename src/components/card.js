@@ -29,7 +29,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
         boxShadow: 'medium',
         transform: 'translate(0, -2px)'
       }
-    }}>
+    }}
+  >
     <Link
       to={post.fields.permalink}
       title={post.fields.type.toUpperCase() + ' - ' + post.fields.title}
@@ -81,7 +82,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
           alignItems: 'center',
           justifyContent: 'space-between',
           color: 'muted'
-        }}>
+        }}
+      >
         <ul
           sx={{
             zIndex: 2,
@@ -90,7 +92,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
             pl: 0,
             listStyle: 'none',
             ':hover': { li: { ml: 0 } }
-          }}>
+          }}
+        >
           {post.fields.authors.map((author, i) => (
             <li
               key={author.name}
@@ -98,7 +101,8 @@ export default ({ as: Tag = 'article', post, rel }) => (
                 zIndex: post.fields.authors.length - i,
                 ml: i > 0 ? -3 : 0,
                 transition: 'margin 0.2s'
-              }}>
+              }}
+            >
               <Link to={author.permalink} title={author.name}>
                 <Avatar
                   name={author.name}

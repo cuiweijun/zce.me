@@ -25,7 +25,8 @@ const Main = ({ current, fields, excerpt, html }) => (
       flex: '3 1 32rem',
       p: 3,
       borderRight: 1
-    }}>
+    }}
+  >
     <section id="intro" name="简介">
       <div
         sx={{ mb: 4, px: 3, py: 4, lineHeight: 'loose' }}
@@ -54,7 +55,8 @@ const Main = ({ current, fields, excerpt, html }) => (
             fontFamily: 'mono',
             color: 'muted'
           }
-        }}>
+        }}
+      >
         {fields.sections.map((item, i) => (
           <Link key={i} to={getVideoLink(fields.permalink, i)}>
             {i === current ? `▶ ${item.title}` : `${pad(i + 1)}. ${item.title}`}
@@ -85,7 +87,8 @@ const AsideSection = ({ title, children }) => (
       ':not(:last-child)': {
         borderBottom: 1
       }
-    }}>
+    }}
+  >
     <span sx={{ fontWeight: 'bold' }}>{title}: </span>
     {children}
   </section>
@@ -110,7 +113,8 @@ const Aside = ({ video, fields, related }) => (
           }
         }
       }
-    }}>
+    }}
+  >
     {video && (
       <AsideSection title="课程">
         <Link to={fields.permalink}>《{fields.title}》</Link>
@@ -132,7 +136,8 @@ const Aside = ({ video, fields, related }) => (
       <time
         dateTime={fields.updated}
         title={fields.updated}
-        aria-label="Updated on">
+        aria-label="Updated on"
+      >
         {fields.formatUpdated}
       </time>
     </AsideSection>
@@ -175,7 +180,8 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
   return (
     <Layout
       title={video ? video.title : fields.title}
-      description={fields.description || excerpt}>
+      description={fields.description || excerpt}
+    >
       {!video && <Cover image={fields.cover} type={1} />}
       {!video && (
         <Hero

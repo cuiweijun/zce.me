@@ -35,7 +35,8 @@ const Hero = ({ title, subtitle, children, ...props }) => {
         fontSize: 'xl',
         textShadow: 'text'
         // transition: 'padding 0.3s' // TODO: ???
-      }}>
+      }}
+    >
       {children || (
         <Container>
           <h1 sx={{ fontSize: 9 }}>{title}</h1>

@@ -121,7 +121,8 @@ export default ({
         // // pass variant prop to sx
         // variant: `variants.buttons.${variant}`,
         ...mixins
-      }}>
+      }}
+    >
       {icon}
       {children}
     </Tag>

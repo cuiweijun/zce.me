@@ -56,13 +56,10 @@
     }
   },
   "prettier": {
-    "endOfLine": "lf",
-    "jsxBracketSameLine": true,
-    "jsxSingleQuote": false,
-    "printWidth": 80,
+    "arrowParens": "avoid",
     "semi": false,
     "singleQuote": true,
-    "tabWidth": 2
+    "trailingComma": "none"
   },
   "dependencies": {
     "@emotion/babel-plugin-jsx-pragmatic": "0.1.5",

@@ -7,6 +7,7 @@
 const plugins = [
   'gatsby-plugin-minify',
   'gatsby-plugin-build',
+  'gatsby-plugin-mourning',
   'gatsby-plugin-analytics',
   'gatsby-plugin-sitemap',
   'gatsby-plugin-offline',

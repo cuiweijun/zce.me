@@ -17,30 +17,29 @@ export default () => {
     <span
       sx={{
         display: 'block',
-        overflow: isDark ? 'visible' : 'hidden',
+        // overflow: isDark ? 'visible' : 'hidden',
         position: 'relative',
         size: 24,
         borderRadius: 'circle',
-        border: isDark ? '4px solid currentColor' : 0,
+        // border: isDark ? '4px solid currentColor' : 0,
         boxShadow: isDark ? 'none' : 'inset 8px -8px 0px 0px currentColor',
         bg: isDark ? 'currentColor' : 'transparent',
-        transform: isDark ? 'scale(0.55)' : 'scale(1)',
-        transition:
-          'border 0.3s, box-shadow 0.3s, background 0.3s, transform 0.3s',
+        transform: isDark ? 'scale(0.425)' : 'scale(0.8)',
+        transition: 'box-shadow 0.3s, transform 0.3s',
         willChange: 'transform',
-        ':before': {
-          position: 'absolute',
-          right: '-9px',
-          top: '-9px',
-          size: 24,
-          border: isDark ? '2px solid currentColor' : 0,
-          borderRadius: 'circle',
-          content: '""',
-          opacity: isDark ? 0 : 1,
-          transform: isDark ? 'translate(14px, -14px)' : 'translate(0, 0)',
-          transition: 'border 0.3s, opacity 0.3s, transform 0.3s',
-          willChange: 'transform'
-        },
+        // ':before': {
+        //   position: 'absolute',
+        //   right: '-9px',
+        //   top: '-9px',
+        //   size: 24,
+        //   // border: isDark ? '2px solid currentColor' : 0,
+        //   borderRadius: 'circle',
+        //   content: '""',
+        //   opacity: isDark ? 0 : 1,
+        //   transform: isDark ? 'translate(14px, -14px)' : 'translate(0, 0)',
+        //   transition: 'opacity 0.3s, transform 0.3s',
+        //   willChange: 'transform'
+        // },
         ':after': {
           position: 'absolute',
           top: '50%',
@@ -68,13 +67,14 @@ export default () => {
   return (
     <Button
       color="transparent"
+      size="sm"
       icon={icon}
       title={title}
       aria-label={title}
       onClick={toggle}
       sx={{
         color: 'muted',
-        transform: 'scale(0.75)',
+        // transform: 'scale(0.75)',
         ':hover': { color: 'muted' }
       }}
     />

@@ -4,6 +4,7 @@ slug: engineering-summary
 date: 2019-10-01 15:29:00
 cover: cover.png
 description: 前端工程化是指遵循一定的标准和规范，通过工具提高开发效率、降低维护成本的一种手段。
+private: true
 categories:
   - 工程化
 sections:

@@ -11,49 +11,49 @@ tags:
 sections:
   - title: 快应用简介
     duration: 381
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f6928d755285890800186799353/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f6928d755285890800186799353/v.f240.m3u8
   - title: 环境搭建
     duration: 525
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/712e7e105285890800418496851/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/712e7e105285890800418496851/v.f240.m3u8
   - title: 快速上手
     duration: 1171
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/71089b0a5285890800418473544/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/71089b0a5285890800418473544/v.f240.m3u8
   - title: 基础知识铺垫
     duration: 1252
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/41813dd85285890800391385898/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/41813dd85285890800391385898/v.f240.m3u8
   - title: 项目演示及目标
     duration: 423
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8f057725285890800247188549/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8f057725285890800247188549/v.f240.m3u8
   - title: 克隆项目骨架
     duration: 310
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f6929ebb5285890800186799773/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f6929ebb5285890800186799773/v.f240.m3u8
   - title: 运行项目调整项目配置文件
     duration: 392
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/c962c9765285890800396683719/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/c962c9765285890800396683719/v.f240.m3u8
   - title: 首页界面布局
     duration: 1477
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7c35e3aa5285890800418907344/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7c35e3aa5285890800418907344/v.f240.m3u8
   - title: 首页数据加载和绑定
     duration: 1336
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7a80f3d65285890800418892992/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7a80f3d65285890800418892992/v.f240.m3u8
   - title: 页面导航并传递参数
     duration: 585
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7591f96e5285890800418659290/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7591f96e5285890800418659290/v.f240.m3u8
   - title: 列表选项卡组件使用
     duration: 1049
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7c8db5b05285890800418952854/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7c8db5b05285890800418952854/v.f240.m3u8
   - title: 列表页默认显示选中分类
     duration: 399
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8f0f0915285890800247189844/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8f0f0915285890800247189844/v.f240.m3u8
   - title: 列表数据加载
     duration: 489
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f83ff2675285890800186800536/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f83ff2675285890800186800536/v.f240.m3u8
   - title: 上拉加载更多
     duration: 1079
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f83ff3275285890800186800590/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f83ff3275285890800186800590/v.f240.m3u8
   - title: 详细页
     duration: 1426
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/4ad3a56a5285890800391781623/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/4ad3a56a5285890800391781623/v.f240.m3u8
 ---
 
 快应用是小米华为等数十家国内一线手机厂商提出的移动应用新生态，原生 App 体验、无需安装、即点即用、用完即走。对于开发者，快应用让开发者的工作更高效更有价值。

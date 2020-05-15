@@ -11,106 +11,106 @@ tags:
 sections:
   - title: 业务角度认识微信小程序
     duration: 406
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a026dfc5285890800391014170/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a026dfc5285890800391014170/v.f240.m3u8
   - title: 技术角度了解微信小程序
     duration: 335
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6e46d23c5285890800418313213/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6e46d23c5285890800418313213/v.f240.m3u8
   - title: 快速体验小程序能力
     duration: 940
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/2fccf3555285890800417988266/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/2fccf3555285890800417988266/v.f240.m3u8
   - title: 课程安排说明
     duration: 185
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/67db80965285890800418099849/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/67db80965285890800418099849/v.f240.m3u8
   - title: 注册小程序账号
     duration: 269
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/67b2f12d5285890800418071976/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/67b2f12d5285890800418071976/v.f240.m3u8
   - title: 搭建开发环境
     duration: 427
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a0287415285890800391014751/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a0287415285890800391014751/v.f240.m3u8
   - title: 开发工具的基本使用
     duration: 413
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6e5ba01e5285890800418328011/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6e5ba01e5285890800418328011/v.f240.m3u8
   - title: 小程序项目项目结构
     duration: 936
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/bfc4a7e95285890800396241617/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/bfc4a7e95285890800396241617/v.f240.m3u8
   - title: 小程序页面组织结构
     duration: 890
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8ef3f0a5285890800247186570/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8ef3f0a5285890800247186570/v.f240.m3u8
   - title: 小程序的配置文件
     duration: 953
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/67b61ce45285890800418077214/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/67b61ce45285890800418077214/v.f240.m3u8
   - title: 标签栏的配置
     duration: 732
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6ed8c0925285890800418395657/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6ed8c0925285890800418395657/v.f240.m3u8
   - title: 逻辑与界面分离的结构
     duration: 215
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8ef46eb5285890800247186724/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8ef46eb5285890800247186724/v.f240.m3u8
   - title: 逻辑层的JavaScript
     duration: 446
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6a1990005285890800418180422/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6a1990005285890800418180422/v.f240.m3u8
   - title: 应用的生命周期
     duration: 1716
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/48030aa55285890800391617233/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/48030aa55285890800391617233/v.f240.m3u8
   - title: 页面的生命周期
     duration: 1219
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/480317ca5285890800391617562/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/480317ca5285890800391617562/v.f240.m3u8
   - title: 数据绑定和WXS
     duration: 1414
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/bfc5c54f5285890800396243747/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/bfc5c54f5285890800396243747/v.f240.m3u8
   - title: 控制属性（条件渲染）
     duration: 1044
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8ef4c145285890800247186895/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8ef4c145285890800247186895/v.f240.m3u8
   - title: 控制属性（列表渲染）
     duration: 1807
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a0427865285890800391017609/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a0427865285890800391017609/v.f240.m3u8
   - title: 事件处理
     duration: 1126
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/70e60fd05285890800418456594/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/70e60fd05285890800418456594/v.f240.m3u8
   - title: 单向数据流
     duration: 721
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/bfc65a305285890800396244945/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/bfc65a305285890800396244945/v.f240.m3u8
   - title: WXSS
     duration: 1043
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/70bea4a65285890800418430925/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/70bea4a65285890800418430925/v.f240.m3u8
   - title: 课后练习介绍
     duration: 1056
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6c15f08b5285890800418233767/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6c15f08b5285890800418233767/v.f240.m3u8
   - title: 项目介绍
     duration: 530
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efb9c35285890800247187121/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efb9c35285890800247187121/v.f240.m3u8
   - title: 外观及标签栏的配置
     duration: 530
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/c48563905285890800396459208/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/c48563905285890800396459208/v.f240.m3u8
   - title: 公共样式及Sublime打开项目
     duration: 427
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6c85af6b5285890800418299017/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6c85af6b5285890800418299017/v.f240.m3u8
   - title: 首页布局
     duration: 1559
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efbe485285890800247187243/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efbe485285890800247187243/v.f240.m3u8
   - title: 关于小程序中发送HTTP请求
     duration: 734
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efbef35285890800247187299/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efbef35285890800247187299/v.f240.m3u8
   - title: 首页数据加载及数据绑定
     duration: 788
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/730338865285890800418523175/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/730338865285890800418523175/v.f240.m3u8
   - title: 页面间跳转
     duration: 734
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a12661f5285890800391020581/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/3a12661f5285890800391020581/v.f240.m3u8
   - title: 列表页分类信息加载
     duration: 784
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6c4eeb705285890800418268485/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/6c4eeb705285890800418268485/v.f240.m3u8
   - title: 第一页商铺信息的加载
     duration: 666
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7372a2da5285890800418588769/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/7372a2da5285890800418588769/v.f240.m3u8
   - title: 上拉加载更多
     duration: 1645
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f69280935285890800186799045/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f69280935285890800186799045/v.f240.m3u8
   - title: 下拉刷新及搜索
     duration: 600
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efd7505285890800247187809/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/f8efd7505285890800247187809/v.f240.m3u8
   - title: 详细页
     duration: 901
-    source: http://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/77ac05e35285890800418720911/v.f240.m3u8
+    source: https://1251429982.vod2.myqcloud.com/481822f2vodtransgzp1251429982/77ac05e35285890800418720911/v.f240.m3u8
 ---
 
 微信是国内目前最大最活跃的 App，作为国民级别的移动端超级入口，微信用户群巨大，有着不可或缺的地位。2017 年微信正式上线小程序功能，为用户提供一种无需下载、即点即用、用完即走的 App 使用体验，用户无需再安装各种繁杂的 App，但却可以通过小程序得到应有的体验。正是这样一种巨大的优势，使得小程序一上线就备受瞩目，同时市场对小程序的需求也就日渐剧增。

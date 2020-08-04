@@ -1,9 +1,13 @@
+.DS_Store
+
 node_modules/
 .cache/
 public/
 
-.DS_Store
 .env
+
+package-lock.json
+yarn.lock
 
 *.log
 npm-debug.log*

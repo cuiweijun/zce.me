@@ -4,7 +4,7 @@ slug: modularization
 date: 2019-10-26 15:29:00
 cover: cover.png
 description: 当下最重要的前端开发范式
-private: true
+# private: true
 categories:
   - 工程化
 tags:
@@ -18,21 +18,21 @@ sections:
   - title: 模块化演变过程
     duration: 281
     source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/764603565285890797590217166/v.f240.m3u8
-  - title: 模块化规范的出现
-    duration: 420
-    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5dc61ec25285890797593298625/v.f240.m3u8
-  - title: 模块化标准规范
-    duration: 190
-    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd8703e5285890797460388088/v.f240.m3u8
-  - title: ES Module 特性
-    duration: 478
-    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5dc6919d5285890797593299025/v.f240.m3u8
-  - title: ES Module 导出
-    duration: 371
-    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0c21087e5285890797592097715/v.f240.m3u8
-  - title: ES Module 导入导出的注意事项
-    duration: 563
-    source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0dd3e1195285890797592108726/v.f240.m3u8
+  # - title: 模块化规范的出现
+  #   duration: 420
+  #   source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5dc61ec25285890797593298625/v.f240.m3u8
+  # - title: 模块化标准规范
+  #   duration: 190
+  #   source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/3fd8703e5285890797460388088/v.f240.m3u8
+  # - title: ES Module 特性
+  #   duration: 478
+  #   source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/5dc6919d5285890797593299025/v.f240.m3u8
+  # - title: ES Module 导出
+  #   duration: 371
+  #   source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0c21087e5285890797592097715/v.f240.m3u8
+  # - title: ES Module 导入导出的注意事项
+  #   duration: 563
+  #   source: https://1251429982.vod2.myqcloud.com/d9cd5ad5vodtranscq1251429982/0dd3e1195285890797592108726/v.f240.m3u8
 ---
 
 模块化可以说是当下最重要的前端开发范式之一。随着前端应用的日益复杂，我们的项目代码已经逐渐膨胀到了不得不花大量时间去管理的程度了。而模块化就是一种最主流的代码组织方式，它通过把复杂的代码按照功能的不同划分为不同的模块单独维护，从而提高开发效率、降低维护成本。

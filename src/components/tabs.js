@@ -23,6 +23,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
             href={`#${item.props.id || i}`}
             role="tab"
             aria-controls={item.props.id || i}
+            aria-label={item.props.name}
             aria-selected={current === i}
             onClick={() => setCurrent(i)}
             children={item.props.name}

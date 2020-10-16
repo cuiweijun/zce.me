@@ -105,16 +105,23 @@ const Content = ({ html }) => {
         py: ['4%', '6%'],
         minHeight: '80vh',
         bg: 'background',
-        fontSize: 'calc(100% + 0.1vw)',
+        fontSize: 'calc(100% + 0.05vw)',
         // fontFamily: 'serif',
-        lineHeight: 'double',
+        lineHeight: 'loose',
         wordWrap: 'break-word',
         'h1, h2, h3, h4, h5, h6': {
           m: '1.4em 0 0.8em'
         },
+        p: {
+          mb: '1em'
+        },
+        'p > img': {
+          display: 'block',
+          mx: 'auto'
+        },
         '.gatsby-resp-image-wrapper': {
-          my: '5%',
-          maxWidth: '860px !important'
+          // my: '5%',
+          maxWidth: '100% !important'
         },
         '.footnotes': {
           p: {

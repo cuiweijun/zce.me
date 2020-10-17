@@ -1,29 +1,15 @@
 ---
 title: Webpack：现代化前端应用的基石
 slug: webpack-the-cornerstone-of-modern-app
-date: 2020-10-16 14:41:25
-# updated: 2020-10-16 14:41:25
+date: 2020-04-16 14:41:25
+# updated: 2020-04-16 14:41:25
 cover: cover.png
-# description: ~
-# template: post
-# permalink: /posts/webpack-the-cornerstone-of-modern-app/
-# draft: true
-# private: false
-# featured: false
-# comment: true
-# authors:
-#   - 汪磊
 categories:
   - 教程
 tags:
   - Webpack
   - 工程化
   - 模块化
-# meta:
-#   - key: title
-#     value: ~
-#   - key: description
-#     value: ~
 ---
 
 经过最近几年的爆炸式发展，前端已经绝不再是简简单单的页面开发了，从早期只是配合后端“切图”，到现在已经能够独立驱动整个业务，这背后就需要引入更多的思想、框架和工具。比如：

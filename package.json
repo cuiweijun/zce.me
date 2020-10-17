@@ -64,6 +64,7 @@
     "emotion-theming": "10.0.27",
     "gatsby": "2.24.80",
     "gatsby-image": "2.4.21",
+    "gatsby-plugin-catch-links": "2.3.15",
     "gatsby-plugin-manifest": "2.4.35",
     "gatsby-plugin-nprogress": "2.3.13",
     "gatsby-plugin-offline": "3.2.33",
@@ -90,7 +91,6 @@
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "gatsby-plugin-catch-links": "^2.3.15",
     "husky": "4.3.0",
     "lint-staged": "10.4.2",
     "plop": "2.7.4",

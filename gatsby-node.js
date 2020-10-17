@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+// @ts-check
+
 const { readFileSync } = require('fs')
 const { basename } = require('path')
 const { load } = require('js-yaml')
@@ -224,6 +226,7 @@ const createMarkdownField = async ({
   createNodeField({ node, name: 'tags', value: fields.tags })
 }
 
+/** @type {import('gatsby').GatsbyNode['onCreateNode']} */
 exports.onCreateNode = async args => {
   const { internal } = args.node
   if (internal.mediaType === 'text/yaml') {
@@ -234,6 +237,7 @@ exports.onCreateNode = async args => {
   }
 }
 
+/** @type {import('gatsby').GatsbyNode['createPages']} */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
@@ -342,6 +346,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 }
 
 // https://www.gatsbyjs.org/docs/schema-customization/
+/** @type {import('gatsby').GatsbyNode['createSchemaCustomization']} */
 exports.createSchemaCustomization = async ({ actions }) => {
   const typeDefs = readFileSync('type-defs.gql', 'utf8')
   actions.createTypes(typeDefs)

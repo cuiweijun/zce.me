@@ -4,8 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+// @ts-check
+
+/** @type {import('gatsby').GatsbyBrowser['onClientEntry']} */
 export const onClientEntry = () => {
   const isMourning = (date = new Date()) => {
+    /** @param {number} y */
     const isLeapYear = y => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0
 
     const days = ['0512', '0918']

@@ -4,9 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
+// @ts-check
+
 import React from 'react'
 
-export const onRenderBody = ({ setPostBodyComponents }) => {
+/** @type {import('gatsby').GatsbySSR['onRenderBody']} */
+export const onRenderBody = async ({ setPostBodyComponents }) => {
   // Don't track while developing.
   if (process.env.NODE_ENV !== 'production') return
 

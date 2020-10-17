@@ -7,6 +7,8 @@
  * - https://github.com/emotion-js/emotion/blob/master/site/plugins/gatsby-plugin-emotion-next-compat/gatsby-browser.js
  */
 
+// @ts-check
+
 import React from 'react'
 import { cache } from 'emotion'
 import { CacheProvider } from '@emotion/core'
@@ -16,6 +18,7 @@ import { ThemeProvider, Global } from '../../src/utils'
 import theme from '../../src/theme'
 import styles from '../../src/styles'
 
+/** @type {import('gatsby').GatsbyBrowser['wrapRootElement']} */
 export const wrapRootElement = ({ element }) => (
   <CacheProvider value={cache}>
     <ThemeProvider theme={theme}>
@@ -26,6 +29,7 @@ export const wrapRootElement = ({ element }) => (
 )
 
 // for prevent flashing
+/** @type {import('gatsby').GatsbyBrowser['onClientEntry']} */
 export const onClientEntry = () => {
   window.addEventListener('themeready', () => {
     // ensure theme color mode ready

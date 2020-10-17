@@ -7,6 +7,8 @@
  * - https://github.com/emotion-js/emotion/blob/master/site/plugins/gatsby-plugin-emotion-next-compat/gatsby-ssr.js
  */
 
+// @ts-check
+
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { extractCritical } from 'emotion-server'
@@ -14,7 +16,9 @@ import { extractCritical } from 'emotion-server'
 export { wrapRootElement } from './gatsby-browser'
 
 // extract styles
-export const replaceRenderer = ({
+/** @type {import('gatsby').GatsbySSR['replaceRenderer']} */
+// @ts-ignore
+export const replaceRenderer = async ({
   bodyComponent,
   setHeadComponents,
   replaceBodyHTMLString
@@ -30,7 +34,8 @@ export const replaceRenderer = ({
 }
 
 // for prevent flashing
-export const onRenderBody = ({ setBodyAttributes }) => {
+/** @type {import('gatsby').GatsbySSR['onRenderBody']} */
+export const onRenderBody = async ({ setBodyAttributes }) => {
   setBodyAttributes({
     style: {
       opacity: 0,

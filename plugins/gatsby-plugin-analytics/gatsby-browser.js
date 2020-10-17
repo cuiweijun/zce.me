@@ -4,9 +4,14 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-export const onRouteUpdate = ({ location = {} }) => {
-  if (typeof _hmt === 'undefined') return
+// @ts-check
 
+/** @type {import('gatsby').GatsbyBrowser['onRouteUpdate']} */
+export const onRouteUpdate = ({ location = {} }) => {
+  // @ts-ignore
+  if (typeof window._hmt === 'undefined') return
+
+  // @ts-ignore
   window._hmt.push([
     '_trackPageview',
     `${location.pathname}${location.search}${location.hash}`

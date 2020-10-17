@@ -7,7 +7,10 @@
  * - https://github.com/emotion-js/emotion/blob/master/packages/babel-preset-css-prop/src/index.js
  */
 
+// @ts-check
+
 // jsx pragmatic
+/** @type {import('gatsby').GatsbyNode['onCreateWebpackConfig']} */
 exports.onCreateBabelConfig = async ({ actions }) => {
   const pragmaName = '___ThemeJSX'
 

@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+// @ts-check
+
 const fs = require('fs')
 const { promisify } = require('util')
 const glob = require('glob')
@@ -13,6 +15,7 @@ const globAsync = promisify(glob)
 const readFile = promisify(fs.readFile)
 const writeFile = promisify(fs.writeFile)
 
+/** @type {import('html-minifier').Options} */
 const defaultOptions = {
   collapseWhitespace: true,
   minifyCSS: true,
@@ -24,6 +27,7 @@ const defaultOptions = {
   processConditionalComments: true
 }
 
+/** @type {import('gatsby').GatsbyNode['onPostBuild']} */
 exports.onPostBuild = async (_, pluginOptions) => {
   const options = Object.assign(defaultOptions, pluginOptions)
   const matches = await globAsync('public/**/*.html', { nodir: true })

@@ -1,10 +1,14 @@
 /**
  * Implement Gatsby's Node APIs in this file.
  *
- * See: https://www.gatsbyjs.org/docs/node-apis/
+ * See:
+ * - https://www.gatsbyjs.org/docs/node-apis/
+ * - https://www.gatsbyjs.org/docs/add-custom-webpack-config/
  */
 
-// https://www.gatsbyjs.org/docs/add-custom-webpack-config/
+// @ts-check
+
+/** @type {import('gatsby').GatsbyNode['onCreateWebpackConfig']} */
 exports.onCreateWebpackConfig = async ({ stage, getConfig, actions }) => {
   if (stage === 'build-javascript') {
     const config = getConfig()

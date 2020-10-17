@@ -16,6 +16,7 @@ const plugins = [
   'gatsby-plugin-offline',
   'gatsby-plugin-sharp',
   'gatsby-plugin-theme',
+  'gatsby-plugin-catch-links',
   'gatsby-plugin-react-helmet',
   {
     resolve: 'gatsby-plugin-nprogress',

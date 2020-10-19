@@ -3,27 +3,13 @@ title: 如何使用 Webpack 实现模块化打包？
 slug: how-to-use-webpack-modular-package
 date: 2020-04-19 16:59:04
 # updated: 2020-04-19 16:59:04
-# cover: cover.jpg
-# description: ~
-# template: post
-# permalink: /posts/how-to-use-webpack-modular-package/
-# draft: true
-# private: false
-# featured: false
-# comment: true
-# authors:
-#   - 汪磊
+cover: cover.png
 categories:
   - 教程
 tags:
   - Webpack
   - 工程化
   - 模块化
-# meta:
-#   - key: title
-#     value: ~
-#   - key: description
-#     value: ~
 ---
 
 你好，我是汪磊，今天我要跟你分享的内容是如何使用 Webpack 实现模块化打包？
@@ -280,7 +266,7 @@ module.exports = config
 
 不过需要注意一点，这种导入类型的方式并不是 ES Modules 中的 [Dynamic Imports](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import#动态import)，而是 TypeScript 中提供特性。虽然我们这里只是一个 JavaScript 文件，但是在 VSCode 中的类型系统都是基于 TypeScript 的，所以可以直接按照这种方式使用，详细信息你可以参考这种 [import-types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types) 的文档。
 
-其次，这种 @type 类型注释的方式是基于[JSDo](https://jsdoc.app)[c](https://jsdoc.app/tags-type.html)实现的。JSDoc 中类型注释的用法还有很多，详细可以参考[官方文档中对 @type 标签的介绍](https://jsdoc.app/tags-type.html)。
+其次，这种 `@type` 类型注释的方式是基于 [JSDoc](https://jsdoc.app) 实现的。JSDoc 中类型注释的用法还有很多，详细可以参考[官方文档中对 @type 标签的介绍](https://jsdoc.app/tags-type.html)。
 
 ### Webpack 工作模式
 
@@ -294,8 +280,8 @@ Webpack 4 新增了一个工作模式的用法，这种用法大大简化了 Web
 
 想要修改 Webpack 工作模式的方式有两种：
 
-- 通过 CLI --mode 参数传入；
-- 通过配置文件设置 mode 属性。
+- 通过 CLI `--mode` 参数传入；
+- 通过配置文件设置 `mode` 属性。
 
 上述三种 Webpack 工作模式的详细差异我们不再赘述了，你可以在[官方文档](https://webpack.js.org/configuration/mode/)中查看：[https://webpack.js.org/configuration/mode/](https://webpack.js.org/configuration/mode/)
 
@@ -313,7 +299,7 @@ Webpack 4 新增了一个工作模式的用法，这种用法大大简化了 Web
 
 > TIPS：
 >
-> - VSCode 中折叠代码的快捷键是 Ctrl + K，Ctrl + 0 （macOS：Command + K，Command + 0）
+> - VSCode 中折叠代码的快捷键是 Ctrl + K，Ctrl + 0（macOS：Command + K，Command + 0）
 
 ![折叠后的 bundle.js 文件](image-4.png)
 
@@ -345,7 +331,7 @@ Webpack 4 新增了一个工作模式的用法，这种用法大大简化了 Web
 
 其实通过我们的探索你会发现，当你打开“黑盒子”后，里面的东西并没有想象的那么复杂。很多时候你离“成功”就只有一步之遥，而驱使你走向“成功”的其实是你的好奇心。在我看来，好奇心应该是一个优秀开发者的基本素质，对待未知的好奇就是我们进步的源泉，与君共勉。
 
-最后我来总结一下本课时的重点，你也可以通过这几个重点反思一下掌握与否：
+最后我来总结一下今天的重点，你也可以通过这几个重点反思一下掌握与否：
 
 1. Webpack 是如何满足模块化打包需求的。
 2. Webpack 打包的配置方式以及一个可以实现配置文件智能提示的小技巧。

@@ -253,13 +253,12 @@ module.exports = config
 ```javascript
 // ./webpack.config.js
 /** @type {import('webpack').Configuration} */
-const config = {
+module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js'
   }
 }
-module.exports = config
 ```
 
 这种方式同样也可以实现载入类型，而且相比于在代码中通过 import 语句导入类型更为方便，也更为合理。

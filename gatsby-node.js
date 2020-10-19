@@ -141,15 +141,16 @@ const createMarkdownField = async ({
   const pathItems = file.relativePath.split('/')
   const type = singular(pathItems[0])
 
-  const fields = { ...options[type], ...node.frontmatter }
+  const fields = { type, ...options[type], ...node.frontmatter }
 
   // fallback values
   fields.slug = fields.slug || kebabCase(fields.title)
   fields.date = new Date(fields.date || file.birthtime)
+  fields.year = fields.date.getFullYear()
   fields.updated = new Date(fields.updated || file.mtime)
   // fields.cover = fields.cover || `${repeat('../', pathItems.length - 1)}images/default.png` // TODO: fallback cover
   fields.description = fields.description || ''
-  fields.template = fields.template || type
+  fields.template = fields.template || fields.type
   fields.permalink = fields.permalink || '/{slug}/'
   fields.draft = fields.draft !== undefined ? fields.draft : false
   fields.private = fields.private !== undefined ? fields.private : false
@@ -204,26 +205,9 @@ const createMarkdownField = async ({
     category: cache[`category-${fields.categories[0]}`]
   })
 
-  createNodeField({ node, name: 'type', value: type })
-  createNodeField({ node, name: 'template', value: fields.template })
-  createNodeField({ node, name: 'permalink', value: fields.permalink })
-  createNodeField({ node, name: 'draft', value: fields.draft })
-  createNodeField({ node, name: 'private', value: fields.private })
-  createNodeField({ node, name: 'featured', value: fields.featured })
-  createNodeField({ node, name: 'comment', value: fields.comment })
-
-  createNodeField({ node, name: 'title', value: fields.title })
-  createNodeField({ node, name: 'slug', value: fields.slug })
-  createNodeField({ node, name: 'date', value: fields.date })
-  createNodeField({ node, name: 'updated', value: fields.updated })
-  createNodeField({ node, name: 'cover', value: fields.cover })
-  createNodeField({ node, name: 'description', value: fields.description })
-
-  createNodeField({ node, name: 'sections', value: fields.sections })
-
-  createNodeField({ node, name: 'authors', value: fields.authors })
-  createNodeField({ node, name: 'categories', value: fields.categories })
-  createNodeField({ node, name: 'tags', value: fields.tags })
+  Object.keys(fields).forEach(name =>
+    createNodeField({ node, name, value: fields[name] })
+  )
 }
 
 /** @type {import('gatsby').GatsbyNode['onCreateNode']} */

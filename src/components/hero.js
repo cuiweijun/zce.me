@@ -31,10 +31,8 @@ const Hero = ({ title, subtitle, children, ...props }) => {
       sx={{
         py: '10vw',
         textAlign: 'center',
-        color: 'white',
-        fontSize: 'xl',
-        textShadow: 'text'
-        // transition: 'padding 0.3s' // TODO: ???
+        color: 'text',
+        fontSize: 'xl'
       }}
     >
       {children || (

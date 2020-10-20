@@ -53,6 +53,10 @@ const Cover = ({ image, type = 2, ...props }) => {
         img: type > 2 && {
           filter: 'blur(5rem)',
           transform: 'translateZ(0) scale(1.1)'
+        },
+        '+ header': {
+          color: 'white',
+          textShadow: 'text'
         }
       }}
     />

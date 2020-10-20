@@ -15,7 +15,7 @@ export default () => {
       <Hero
         title="实验室"
         subtitle="新特性、新组件、新尝试"
-        sx={{ py: '5vw', color: 'text', textShadow: 'none' }}
+        sx={{ py: '5vw' }}
       />
       <Container
         sx={{

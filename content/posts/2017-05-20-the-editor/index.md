@@ -25,7 +25,7 @@ You can insert a card either by clicking the `+` button on a new line, or typing
 - Create unique content like a button or content opt-in using the HTML card
 - Need to share some code? Embed code blocks directly
 
-```html
+```handlebars
 <header class="site-header outer">
   <div class="inner">
     {{> "site-nav"}}

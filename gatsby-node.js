@@ -165,6 +165,7 @@ const createMarkdownField = async ({
   // fields.categories.length || fields.categories.push(...defaults.categories)
   // fields.tags.length || fields.tags.push(...defaults.tags)
 
+  /** @param {string} type @param {string[]} taxonomies */
   const createMissingTaxonomy = (type, taxonomies) => {
     taxonomies.forEach((item, i) => {
       // ignore duplicated

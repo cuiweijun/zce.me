@@ -4,28 +4,37 @@ import { graphql } from 'gatsby'
 import { Layout, Container, Hero, Link } from '../components'
 
 let currentYear
+
 export default ({ data: { posts } }) => (
-  <Layout title="内容归档" description="所有内容归档">
-    {/* <Cover /> */}
-    <Hero title="归档" subtitle={`总计产出 ${posts.totalCount} 篇内容`} />
-    <Container width="inner" sx={{ mb: 6 }}>
+  <Layout
+    title="内容归档"
+    description={`所有内容归档，总计产出 ${posts.totalCount} 篇内容`}
+  >
+    <Hero
+      title="归档"
+      subtitle={`总计产出 ${posts.totalCount} 篇内容`}
+      sx={{ py: '4vw' }}
+    />
+    <Container width="inner" sx={{ mb: 9 }}>
       {posts.nodes.map(post => (
         <>
           {currentYear !== post.fields.year &&
             ((currentYear = post.fields.year),
-            (<h3 sx={{ mt: '2em' }}>{currentYear}</h3>))}
-          <div sx={{ my: '0.5rem' }}>
+            (<h3 sx={{ mt: 5 }}>{currentYear}</h3>))}
+          <div sx={{ my: 3 }}>
             <time
               dateTime={post.fields.date}
               title={post.fields.date}
               aria-label="发表于"
-            >
-              {post.fields.date}
-            </time>
-            <small>【{post.fields.type === 'course' ? '课程' : '文章'}】</small>
+              children={post.fields.formatDate}
+              sx={{ color: 'muted', fontFamily: 'mono', fontWeight: 'light' }}
+            />
+            <span sx={{ ml: 2, color: 'primary' }}>
+              【{post.fields.type === 'course' ? '课程' : '文章'}】
+            </span>
             <Link
               to={post.fields.permalink}
-              title={post.fields.type.toUpperCase() + ' - ' + post.fields.title}
+              title={post.fields.title}
               children={post.fields.title}
             />
           </div>
@@ -52,18 +61,11 @@ export const query = graphql`
         id
         fields {
           title
-          year: date(formatString: "yyyy", locale: "zh-cn")
-          date: date(formatString: "MMMM DD", locale: "zh-cn")
+          date
+          year: date(formatString: "yyyy")
+          formatDate: date(formatString: "MMM DD")
           type
           permalink
-          authors {
-            name
-            permalink
-          }
-          categories {
-            name
-            permalink
-          }
         }
       }
     }

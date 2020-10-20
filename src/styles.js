@@ -134,7 +134,7 @@ const link = {
   a: {
     color: 'primary',
     textDecoration: 'none',
-    // transition: 'box-shadow 0.25s',
+    transition: 'color 0.25s',
     ':hover': {
       color: darken('primary', 0.05),
       textDecoration: 'underline'

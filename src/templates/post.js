@@ -172,11 +172,7 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
               <Link
                 to={i.permalink}
                 children={i.name}
-                sx={{
-                  ':before': {
-                    content: '"\\0023"'
-                  }
-                }}
+                sx={{ ':before': { content: '"\\0023"' } }}
               />
             </li>
           ))}
@@ -199,32 +195,29 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
         title="分享到推特"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        <Icon name="twitter" />
-      </Link>
+        children={<Icon name="twitter" />}
+      />
       <Link
         to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
         title="分享到脸书"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        <Icon name="facebook" />
-      </Link>
+        children={<Icon name="facebook" />}
+      />
       <Link
         to={`http://qr.topscan.com/api.php?text=${url}`}
         title="分享到朋友圈"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        <Icon name="aperture" />
-      </Link>
+        children={<Icon name="aperture" />}
+      />
     </div>
   </section>
 )
 
 const Authors = ({ authors }) => (
   <section sx={{ mb: 7 }}>
-    <ScreenReaderText as="h3">作者</ScreenReaderText>
+    <ScreenReaderText as="h3" children="作者" />
     <div
       sx={{
         display: 'flex',
@@ -277,7 +270,7 @@ const Authors = ({ authors }) => (
 
 const License = () => (
   <section sx={{ mb: 7, textAlign: 'center' }}>
-    <ScreenReaderText as="h3">许可</ScreenReaderText>
+    <ScreenReaderText as="h3" children="许可" />
     <Link
       to="https://creativecommons.org/licenses/by-sa/4.0/"
       title="View license"
@@ -303,9 +296,8 @@ const License = () => (
         title="View license"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        《知识共享署名-相同方式共享 4.0 国际许可协议》
-      </Link>
+        children="《知识共享署名-相同方式共享 4.0 国际许可协议》"
+      />
       进行许可
     </p>
   </section>
@@ -325,7 +317,7 @@ const Footer = ({ fields, excerpt, url }) => (
     <License />
     {fields.comment && (
       <section sx={{ mb: 7 }}>
-        <ScreenReaderText as="h3">评论</ScreenReaderText>
+        <ScreenReaderText as="h3" children="评论" />
         <Comments
           type="post"
           slug={fields.slug}
@@ -361,6 +353,7 @@ const Category = ({ name, category, related }) => (
     }}
   >
     <small
+      children={name}
       sx={{
         color: 'rgba(255, 255, 255, 0.5)',
         ':before, :after': {
@@ -370,11 +363,9 @@ const Category = ({ name, category, related }) => (
           color: 'rgba(255, 255, 255, 0.25)'
         }
       }}
-    >
-      {name}
-    </small>
+    />
     <h3 sx={{ p: 2, fontWeight: 'light' }}>
-      <Link to={category.permalink}>{category.name}</Link>
+      <Link to={category.permalink} children={category.name} />
     </h3>
     {/* prettier-ignore */}
     <svg viewBox="0 0 24 24" width="50" fill="none" stroke="rgba(255, 255, 255, 0.25)" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ margin: '0 auto' }}>
@@ -395,14 +386,16 @@ const Category = ({ name, category, related }) => (
             }
           }}
         >
-          <Link to={item.fields.permalink} title={item.fields.title}>
-            {item.fields.title}
-          </Link>
+          <Link
+            to={item.fields.permalink}
+            title={item.fields.title}
+            children={item.fields.title}
+          />
         </li>
       ))}
     </ul>
     <footer>
-      <Link to={category.permalink}>查看更多文章 &rarr;</Link>
+      <Link to={category.permalink} children="查看更多文章 &rarr;" />
     </footer>
   </section>
 )
@@ -410,7 +403,7 @@ const Category = ({ name, category, related }) => (
 const RelatedPosts = ({ name, category, related, prev, next }) => (
   <aside sx={{ pt: 6, bg: 'light' }}>
     <Container row>
-      <ScreenReaderText as="h3">相关文章</ScreenReaderText>
+      <ScreenReaderText as="h3" children="相关文章" />
       <Category name={name} category={category} related={related} />
       {prev && <Card post={prev} rel="prev" />}
       {next && <Card post={next} rel="next" />}

@@ -29,6 +29,9 @@ const reboot = {
   '*, *:after, *:before': {
     boxSizing: 'border-box'
   },
+  ':last-child': {
+    mb: 0
+  },
   body: {
     m: 0,
     color: 'text',
@@ -97,10 +100,7 @@ const typography = {
     fontSize: 2
   },
   p: {
-    ...block,
-    ':last-child': {
-      mb: 0
-    }
+    ...block
   },
   blockquote: {
     ...block,

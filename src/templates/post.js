@@ -109,11 +109,11 @@ const Content = ({ html }) => {
         // fontFamily: 'serif',
         lineHeight: 'loose',
         wordWrap: 'break-word',
+        '> *': {
+          mb: '1em'
+        },
         'h1, h2, h3, h4, h5, h6': {
           m: '1.4em 0 0.8em'
-        },
-        'p:not(:last-child)': {
-          mb: '1em'
         },
         'p > img': {
           display: 'block',

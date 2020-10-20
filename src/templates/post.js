@@ -18,7 +18,7 @@ import {
 import { loadScript } from '../utils'
 
 const Header = ({ title, date, formatDate, category }) => (
-  <Hero sx={{ pt: '6vw', pb: '4vw' }}>
+  <Hero sx={{ pt: '6vw', pb: '4vw', color: 'white', textShadow: 'text' }}>
     <span sx={{ textTransform: 'uppercase' }}>
       <time dateTime={date} title={date} aria-label="发表于">
         {formatDate}
@@ -171,14 +171,13 @@ const More = ({ tags, date, updated, formatUpdated, title, url }) => (
             >
               <Link
                 to={i.permalink}
+                children={i.name}
                 sx={{
                   ':before': {
                     content: '"\\0023"'
                   }
                 }}
-              >
-                {i.name}
-              </Link>
+              />
             </li>
           ))}
         </ul>

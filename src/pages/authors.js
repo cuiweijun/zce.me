@@ -4,15 +4,15 @@ import { graphql } from 'gatsby'
 import { Layout, Container, Button, Link, Hero } from '../components'
 
 // TODO: Re-design this page.
-export default ({ data: { categories } }) => (
-  <Layout title="全部分类">
+export default ({ data: { authors } }) => (
+  <Layout title="全部作者">
     <Hero
-      title="分类"
-      subtitle={`总计 ${categories.totalCount} 个分类`}
+      title="作者"
+      subtitle={`总计 ${authors.totalCount} 位作者`}
       sx={{ py: '4vw' }}
     />
     <Container width="inner" sx={{ mb: 9 }}>
-      {categories.nodes.map(item => (
+      {authors.nodes.map(item => (
         <Button
           key={item.name}
           as={Link}
@@ -27,8 +27,8 @@ export default ({ data: { categories } }) => (
 )
 
 export const query = graphql`
-  query CategoriesPage {
-    categories: allCategory(sort: { fields: name }) {
+  query AuthorsPage {
+    authors: allAuthor(sort: { fields: name }) {
       totalCount
       nodes {
         name

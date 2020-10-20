@@ -6,9 +6,9 @@ cover: cover.png
 description: 当下最重要的前端开发范式
 # private: true
 categories:
-  - 工程化
+  - 指南
 tags:
-  - Modular
+  - 工程化
   - ES Modules
   - Webpack
 sections:

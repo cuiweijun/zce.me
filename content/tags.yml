@@ -7,3 +7,91 @@
       value: 无标签
     - key: description
       value: 无标签内容
+
+- name: 工程化
+  slug: engineering
+  description: 工程化相关内容
+
+- name: 自动化
+  slug: automation
+  description: 自动化相关内容
+
+- name: 脚手架
+  slug: scaffolding
+  description: 脚手架相关内容
+
+- name: 模块化
+  slug: modularization
+  description: 模块化相关内容
+
+- name: 轻应用
+  slug: light-app
+  description: 轻应用
+
+- name: 快应用
+  slug: quickapp
+  description: 快应用相关内容
+
+- name: 小程序
+  slug: mini-program
+  description: 小程序相关内容
+
+- name: Webpack
+  slug: webpack
+  description: Webpack 相关内容
+
+- name: Electron
+  slug: electron
+  description: Electron 相关内容
+
+- name: Vue.js
+  slug: vuejs
+  description: Vue 相关内容
+
+- name: Gatsby
+  slug: gatsby
+  description: Gatsby 相关内容
+
+- name: TypeScript
+  slug: typescript
+  description: TypeScript 相关内容
+
+- name: Node.js
+  slug: nodejs
+  description: Node 相关内容
+
+- name: OAuth
+  slug: oauth
+  description: OAuth 相关内容
+
+- name: AJAX
+  slug: ajax
+  description: AJAX 相关内容
+
+- name: ES Modules
+  slug: esmodules
+  description: ES 相关内容
+
+- name: Gulp
+  slug: gulp
+  description: Gulp 相关内容
+
+- name: Grunt
+  slug: grunt
+  description: Grunt 相关内容
+
+- name: FIS3
+  slug: fis3
+  description: FIS3 相关内容
+
+- name: npm scripts
+  slug: npm-scripts
+  description: npm 相关内容
+
+- name: Yeoman
+  slug: yeoman
+  description: Yeoman 相关内容
+
+- name: Plop
+  slug: plop
+  description: Plop 相关内容

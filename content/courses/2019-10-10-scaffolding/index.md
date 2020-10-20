@@ -6,8 +6,10 @@ cover: cover.png
 description: 脚手架是前端工程化的起步，本课程中重点探讨前端工程化在项目创建环节中的具体表现。
 # private: true
 categories:
-  - 工程化
+  - 指南
 tags:
+  - 工程化
+  - 脚手架
   - Yeoman
   - Plop
 sections:

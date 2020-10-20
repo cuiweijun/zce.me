@@ -5,9 +5,10 @@ date: 2017-09-01 15:29:00
 cover: cover.png
 description: 主要面向有一些简单前端开发经验的人群，从零到一通过一个完善的项目案例理解微信小程序的开发。
 categories:
-  - 轻应用
+  - 指南
 tags:
-  - 微信小程序
+  - 轻应用
+  - 小程序
 sections:
   - title: 业务角度认识微信小程序
     duration: 406

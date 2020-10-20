@@ -12,21 +12,25 @@ const { load } = require('js-yaml')
 const { singular } = require('pluralize')
 const { capitalize, kebabCase } = require('lodash')
 
-// collection permalink tags:
-// - {slug} - the post slug, eg. my-post
-// - {year} - publication year, eg. 2019
-// - {month} - publication month, eg. 04
-// - {day} - publication day, eg. 29
-// - {author} - slug of first author, eg. cameron
-// - {category} - slug of first category, eg. tutorial
-// collection status:
-// - draft
-// - private
-// - published
-// - deprecated
-// - trashed
-// taxonomies permalink tags:
-// - {slug} - the taxonomy slug, eg. tom-jerry
+/**
+ * Content type options
+ *
+ * collection permalink tags:
+ * - {slug} - the post slug, eg. my-post
+ * - {year} - publication year, eg. 2019
+ * - {month} - publication month, eg. 04
+ * - {day} - publication day, eg. 29
+ * - {author} - slug of first author, eg. cameron
+ * - {category} - slug of first category, eg. tutorial
+ * collection status:
+ * - draft
+ * - private
+ * - published
+ * - deprecated
+ * - trashed
+ * taxonomies permalink tags:
+ * - {slug} - the taxonomy slug, eg. tom-jerry
+ */
 const options = {
   page: {
     template: 'page',
@@ -75,8 +79,14 @@ const options = {
   }
 }
 
-const cache = {}
+// for createMarkdownField (collection permalink)
+const cache = new Map()
 
+/**
+ * Parse permalink template
+ * @param {string} template
+ * @param {{ [key: string]: string }} context
+ */
 const parsePermalink = (template, context) => {
   if (!/{([a-z_]+)}/.test(template)) return template
 
@@ -86,6 +96,10 @@ const parsePermalink = (template, context) => {
   })
 }
 
+/**
+ * Create all yaml node
+ * @type {import('gatsby').GatsbyNode['onCreateNode']}
+ */
 const createYamlNode = async ({
   node,
   actions,
@@ -97,11 +111,15 @@ const createYamlNode = async ({
 
   const content = await loadNodeContent(node)
   const parsed = load(content)
+
+  // return if empty yaml
+  if (!parsed) return
+
   const list = Array.isArray(parsed) ? parsed : [parsed]
 
   list.forEach((item, i) => {
     // ignore duplicated
-    if (cache[`${type}-${item.name}`]) return
+    if (cache.has(`${type}-${item.name}`)) return
 
     const data = { ...options[type], ...item }
 
@@ -112,8 +130,7 @@ const createYamlNode = async ({
       data.template = data.template || data.type
       data.permalink = parsePermalink(data.permalink, data)
 
-      // for createMarkdownField
-      cache[`${type}-${data.name}`] = data.slug
+      cache.set(`${type}-${data.name}`, data.slug)
     }
 
     actions.createNode({
@@ -128,6 +145,10 @@ const createYamlNode = async ({
   })
 }
 
+/**
+ * Create all markdown field
+ * @type {import('gatsby').GatsbyNode['onCreateNode']}
+ */
 const createMarkdownField = async ({
   node,
   actions,
@@ -138,6 +159,7 @@ const createMarkdownField = async ({
   const { createNode, createNodeField } = actions
 
   const file = getNode(node.parent)
+  // @ts-ignore
   const pathItems = file.relativePath.split('/')
   const type = singular(pathItems[0])
 
@@ -159,7 +181,7 @@ const createMarkdownField = async ({
   fields.sections = fields.sections || []
   fields.authors = fields.authors || ['汪磊'] // TODO: fallback author
   fields.categories = fields.categories || ['未分类'] // TODO: fallback category
-  fields.tags = fields.tags || []
+  fields.tags = fields.tags || [] // TODO: fallback tag
   // TODO: if frontmatter taxonomy is empty
   // fields.authors.length || fields.authors.push(...defaults.authors)
   // fields.categories.length || fields.categories.push(...defaults.categories)
@@ -169,7 +191,7 @@ const createMarkdownField = async ({
   const createMissingTaxonomy = (type, taxonomies) => {
     taxonomies.forEach((item, i) => {
       // ignore duplicated
-      if (cache[`${type}-${item}`]) return
+      if (cache.has(`${type}-${item}`)) return
 
       const data = { ...options[type], name: item }
 
@@ -178,8 +200,7 @@ const createMarkdownField = async ({
       data.template = data.template || data.type
       data.permalink = parsePermalink(data.permalink, data)
 
-      // for collection permalink
-      cache[`${type}-${data.name}`] = data.slug
+      cache.set(`${type}-${data.name}`, data.slug)
 
       createNode({
         ...data,
@@ -202,8 +223,8 @@ const createMarkdownField = async ({
     year: fields.date.getFullYear(),
     month: ('0' + (fields.date.getMonth() + 1)).substr(-2),
     day: ('0' + fields.date.getDate()).substr(-2),
-    author: cache[`author-${fields.authors[0]}`],
-    category: cache[`category-${fields.categories[0]}`]
+    author: cache.get(`author-${fields.authors[0]}`),
+    category: cache.get(`category-${fields.categories[0]}`)
   })
 
   Object.keys(fields).forEach(name =>
@@ -211,18 +232,24 @@ const createMarkdownField = async ({
   )
 }
 
-/** @type {import('gatsby').GatsbyNode['onCreateNode']} */
+/**
+ * Gatsby onCreateNode hook
+ * @type {import('gatsby').GatsbyNode['onCreateNode']}
+ */
 exports.onCreateNode = async args => {
   const { internal } = args.node
   if (internal.mediaType === 'text/yaml') {
-    await createYamlNode(args)
+    createYamlNode(args)
   }
   if (internal.type === 'MarkdownRemark') {
-    await createMarkdownField(args)
+    createMarkdownField(args)
   }
 }
 
-/** @type {import('gatsby').GatsbyNode['createPages']} */
+/**
+ * Gatsby createPages hook
+ * @type {import('gatsby').GatsbyNode['createPages']}
+ */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
@@ -296,7 +323,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       createPage({
         path: fields.permalink,
         component: require.resolve(template),
-        // 让页面自己决定需要什么数据
+        // Why only provide ID parameter？
+        // Let the page decide what data it needs
         context: { id, cat, prev, next }
       })
 

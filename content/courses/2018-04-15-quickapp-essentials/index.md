@@ -5,8 +5,9 @@ date: 2018-04-15 15:29:00
 cover: cover.png
 description: 本课程面向有一定前端开发经验的同学，从零到一通过一个项目案例（类似美团）理解快应用的开发。
 categories:
-  - 轻应用
+  - 指南
 tags:
+  - 轻应用
   - 快应用
 sections:
   - title: 快应用简介

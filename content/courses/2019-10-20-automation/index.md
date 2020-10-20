@@ -6,8 +6,10 @@ cover: cover.jpg
 description: 自动化构建也是前端工程化中很重要的一部分，本课程中着重介绍前端行业目前最主流的前端自动化构建方案和工具。
 # private: true
 categories:
-  - 工程化
+  - 指南
 tags:
+  - 工程化
+  - 自动化
   - Gulp
   - Grunt
   - FIS3

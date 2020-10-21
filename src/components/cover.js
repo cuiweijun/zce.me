@@ -43,7 +43,9 @@ const Cover = ({ image, type = 2, ...props }) => {
           content: '""'
         },
         ':before': type > 0 && {
-          background: `0/4px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2' stroke='%23000' stroke-linecap='square' stroke-width='0.5'%3E%3Cline x1='0' y1='1' x2='1' y2='0'/%3E%3Cline x1='1' y1='2' x2='2' y2='1'/%3E%3C/svg%3E")`,
+          // background: `0/2px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2' stroke='%23000' stroke-linecap='square' stroke-width='1'%3E%3Cline x1='0' y1='1' x2='1' y2='0'/%3E%3Cline x1='1' y1='2' x2='2' y2='1'/%3E%3C/svg%3E")`,
+          background:
+            '0/10px url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAlElEQVRoge3XsQmAQBQE0S1H+y/l7EcxMBER9QT/4IQ/mw0exyXJlGRI0pLMH91jx42OX+9P498Yg45vVQz0jEHHlzPwZAw6vqyBO2PQ8eUNXBmDjscYOBuDjscZOBqDjteABnwH4PEIA/4HNPB3A74D1ceg45EG9jc6Hm1gu9HxGqhwa0ADGtCABjSgAQ1oABmftAVn11AarBfn/QAAAABJRU5ErkJggg==)',
           opacity: 0.6
         },
         ':after': type > 1 && {
@@ -63,12 +65,16 @@ const Cover = ({ image, type = 2, ...props }) => {
   )
 }
 
-// Cover.Types = {
-//   OnlyImage: 0,
-//   WithMask: 1,
-//   WithGradient: 2,
-//   WithBlur: 3
-// }
+Cover.types = {
+  /** 0 */
+  image: 0,
+  /** 1 */
+  mask: 1,
+  /** 2 */
+  gradient: 2,
+  /** 3 */
+  blur: 3
+}
 
 Cover.propTypes = {
   image: PropTypes.object,

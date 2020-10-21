@@ -182,7 +182,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
       title={video ? video.title : fields.title}
       description={fields.description || excerpt}
     >
-      {!video && <Cover image={fields.cover} type={1} />}
+      {!video && <Cover image={fields.cover} type={Cover.types.mask} />}
       {!video && (
         <Hero
           title={video ? video.title : fields.title}

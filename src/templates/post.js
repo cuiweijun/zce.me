@@ -425,7 +425,7 @@ export default ({ data: { post, prev, next, related, meta }, location }) => (
     next={next && next.fields.permalink}
     type="article"
   >
-    <Cover image={post.fields.cover} type={3} />
+    <Cover image={post.fields.cover} type={Cover.types.blur} />
     <Container as="article" role="main" sx={{ mb: 5 }}>
       <Header
         title={post.fields.title}

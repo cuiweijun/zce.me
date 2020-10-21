@@ -57,9 +57,11 @@ const move = keyframes`
 
 const Heading = () => (
   <h1
+    children="404"
     sx={{
-      display: 'inline',
+      display: 'inline-block',
       position: 'relative',
+      mb: '5vw',
       fontSize: 'calc(8rem + 10vw)',
       color: 'transparent',
       ':before': {
@@ -81,18 +83,16 @@ const Heading = () => (
         animation: `${move} 2.2s infinite -0.5s`
       }
     }}
-  >
-    404
-  </h1>
+  />
 )
 
 export default ({ data: { posts } }) => (
   <Layout title="404 Not found">
-    <Cover type={3} />
-    <Hero sx={{ py: '10vw' }}>
+    <Cover type={Cover.types.blur} />
+    <Hero sx={{ py: '8vw' }}>
       <Heading />
       <p sx={{ mb: 6 }}>你似乎来到了新大陆～</p>
-      <Button as={Link} to="/">
+      <Button as={Link} variant="ghost" color="light" to="/">
         返回首页 <span aria-hidden="true">&rarr;</span>
       </Button>
     </Hero>

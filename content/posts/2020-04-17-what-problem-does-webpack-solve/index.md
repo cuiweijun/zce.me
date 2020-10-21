@@ -302,4 +302,6 @@ window.moduleB = {
 
 总的来说，我们可以把 Webpack 看作现代化前端应用的“管家”，这个“管家”所践行的核心理论就是“模块化”，也就是说**Webpack 以模块化思想为核心，帮助开发者更好的管理整个前端工程。**
 
+---
+
 > Photo by [Simon Goetz](https://unsplash.com/@slgoetz) on [Unsplash](https://unsplash.com/s/photos/modular)

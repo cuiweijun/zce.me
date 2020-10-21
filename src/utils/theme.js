@@ -22,7 +22,7 @@ const get = (obj, key, def) => {
 
 // =============================================================================
 // Themed css
-// ref: https://github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
+// ref: https://github.com/styled-system/styled-system/blob/685be747c51862b4c574bc18b03a6715c6c7ee6e/packages/css/src/index.js
 // =============================================================================
 
 const scales = {
@@ -233,7 +233,7 @@ const css = args => (props = {}) => {
 
 // =============================================================================
 // Color utils
-// ref: https://github.com/system-ui/theme/blob/master/packages/color/src/index.js
+// ref: https://github.com/system-ui/theme-ui/blob/master/packages/color/src/index.ts
 // =============================================================================
 
 const g = (t, c) => get(t, `colors.${c}`, c)
@@ -258,7 +258,7 @@ export const readable = (c, l = 'white', d = 'black') => t =>
 
 // =============================================================================
 // jsx for sx prop
-// ref: https://github.com/system-ui/theme/blob/master/packages/theme/src/jsx.js
+// ref: https://github.com/system-ui/theme-ui/blob/master/packages/core/src/index.ts
 // =============================================================================
 
 const parseProps = props => {

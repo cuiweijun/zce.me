@@ -110,7 +110,7 @@ const Content = ({ html }) => {
         lineHeight: 'loose',
         wordWrap: 'break-word',
         '> *': {
-          mb: '1em'
+          mb: '1.25em'
         },
         'h1, h2, h3, h4, h5, h6': {
           m: '1.4em 0 0.8em'
@@ -119,9 +119,15 @@ const Content = ({ html }) => {
           display: 'block',
           mx: 'auto'
         },
-        '.gatsby-resp-image-wrapper': {
-          // my: '5%',
-          maxWidth: '100% !important'
+        // '.gatsby-resp-image-wrapper': {
+        //   // my: '5%',
+        //   maxWidth: '100% !important'
+        // },
+        figcaption: {
+          p: 1,
+          color: 'muted',
+          textAlign: 'center',
+          fontStyle: 'italic'
         },
         '.footnotes': {
           p: {

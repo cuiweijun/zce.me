@@ -59,7 +59,14 @@ const transformers = [
       plugins: [
         'gatsby-remark-smartypants',
         'gatsby-remark-autolink-headers',
-        'gatsby-remark-images',
+        {
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 950,
+            showCaptions: true,
+            backgroundColor: 'none'
+          }
+        },
         'gatsby-remark-prismjs',
         'gatsby-remark-responsive-iframe',
         'gatsby-remark-copy-linked-files'

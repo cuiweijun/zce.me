@@ -3,6 +3,7 @@ title: 前端构建新玩法：Vite 上手与思考
 slug: vite-getting-started
 date: 2020-10-23 18:04:42
 # updated: 2020-10-23 18:04:42
+cover: cover.png
 categories:
   - 教程
 tags:

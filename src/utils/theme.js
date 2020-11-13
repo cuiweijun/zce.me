@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
-import { jsx as emotion, Global as EGlobal, keyframes } from '@emotion/core'
-import { ThemeProvider as EmotionProvider, useTheme } from 'emotion-theming'
+import {
+  useTheme,
+  keyframes,
+  jsx as emotion,
+  Global as EGlobal,
+  ThemeProvider as EmotionProvider
+} from '@emotion/react'
 import * as p from 'polished'
 
 const storageKey = 'theme-mode'
@@ -277,7 +282,7 @@ const parseProps = props => {
 }
 
 export const jsx = (type, props, ...children) => {
-  return emotion.apply(null, [type, parseProps(props), ...children])
+  return emotion.apply(undefined, [type, parseProps(props), ...children])
 }
 
 // =============================================================================

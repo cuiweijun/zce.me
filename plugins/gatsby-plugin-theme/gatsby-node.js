@@ -10,19 +10,18 @@
 // @ts-check
 
 // jsx pragmatic
+
 /** @type {import('gatsby').GatsbyNode['onCreateWebpackConfig']} */
 exports.onCreateBabelConfig = async ({ actions }) => {
   const pragmaName = '___ThemeJSX'
 
+  // https://github.com/emotion-js/emotion/tree/master/packages/babel-plugin#options
   actions.setBabelPlugin({
-    name: 'babel-plugin-emotion',
-    options: {
-      sourceMap: process.env.NODE_ENV !== 'production',
-      autoLabel: process.env.NODE_ENV !== 'production',
-      cssPropOptimization: true
-    }
+    name: '@emotion/babel-plugin',
+    options: {}
   })
 
+  // https://github.com/emotion-js/emotion/tree/master/packages/babel-plugin-jsx-pragmatic
   actions.setBabelPlugin({
     name: '@emotion/babel-plugin-jsx-pragmatic',
     options: {
@@ -32,6 +31,7 @@ exports.onCreateBabelConfig = async ({ actions }) => {
     }
   })
 
+  // https://babeljs.io/docs/en/babel-plugin-transform-react-jsx
   actions.setBabelPlugin({
     name: '@babel/plugin-transform-react-jsx',
     options: {

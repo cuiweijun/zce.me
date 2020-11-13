@@ -10,13 +10,13 @@
 // @ts-check
 
 import React from 'react'
-import { cache } from 'emotion'
-import { CacheProvider } from '@emotion/core'
+import { CacheProvider } from '@emotion/react'
 
 import { ThemeProvider, Global } from '../../src/utils'
 
 import theme from '../../src/theme'
 import styles from '../../src/styles'
+import cache from './cache'
 
 /** @type {import('gatsby').GatsbyBrowser['wrapRootElement']} */
 export const wrapRootElement = ({ element }) => (

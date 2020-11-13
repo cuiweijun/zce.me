@@ -11,11 +11,15 @@
 
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { extractCritical } from 'emotion-server'
+import createEmotionServer from '@emotion/server/create-instance'
+
+import cache from './cache'
 
 export { wrapRootElement } from './gatsby-browser'
 
 // extract styles
+const { extractCritical } = createEmotionServer(cache)
+
 /** @type {import('gatsby').GatsbySSR['replaceRenderer']} */
 // @ts-ignore
 export const replaceRenderer = async ({

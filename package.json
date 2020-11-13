@@ -57,11 +57,10 @@
     ]
   },
   "dependencies": {
+    "@emotion/babel-plugin": "11.0.0",
     "@emotion/babel-plugin-jsx-pragmatic": "0.1.5",
-    "@emotion/core": "10.1.1",
-    "emotion": "10.0.27",
-    "emotion-server": "10.0.27",
-    "emotion-theming": "10.0.27",
+    "@emotion/react": "11.0.0",
+    "@emotion/server": "11.0.0",
     "gatsby": "2.26.0",
     "gatsby-image": "2.5.0",
     "gatsby-plugin-catch-links": "2.4.0",
@@ -84,8 +83,8 @@
     "pluralize": "8.0.0",
     "polished": "4.0.3",
     "prismjs": "1.22.0",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-helmet": "6.1.0"
   },
   "devDependencies": {

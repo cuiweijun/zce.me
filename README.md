@@ -110,7 +110,7 @@ The default structure is shown below:
 - [ ] Search
   - https://github.com/algolia/docsearch
   - https://www.gatsbyjs.org/docs/adding-search-with-algolia/
-- [ ] gatsby-plugin-catch-links
+- TypeScript
 
 ### Backlog
 

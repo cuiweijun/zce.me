@@ -11,7 +11,7 @@ export default ({ data: { author, posts } }) => (
     keywords={getMeta(author.meta, 'keywords')}
   >
     <Cover image={author.cover} />
-    <Hero sx={{ py: '5vw' }}>
+    <Hero>
       <Avatar
         name={author.name}
         image={author.avatar}

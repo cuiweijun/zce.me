@@ -3,27 +3,24 @@ import { graphql } from 'gatsby'
 
 import { Container, Layout, Image, Hero, Comments } from '../components'
 
-export default ({ data: { page } }) => (
-  <Layout
-    title={page.fields.title}
-    description={page.fields.description || page.excerpt}
-  >
-    <Hero
-      title={page.fields.title}
-      subtitle={page.fields.description}
-      sx={{ py: '5vw' }}
-    />
+export default ({
+  data: {
+    page: { fields, excerpt, html }
+  }
+}) => (
+  <Layout title={fields.title} description={fields.description || excerpt}>
+    <Hero title={fields.title} subtitle={fields.description} />
     <Container>
       <Image
         Tag="figure"
-        file={page.fields.cover}
-        alt={page.fields.title}
-        title={page.fields.title}
+        file={fields.cover}
+        alt={fields.title}
+        title={fields.title}
         sx={{ mx: [-3, 0], mb: '6vw' }}
       />
-      {page.html && (
+      {html && (
         <div
-          dangerouslySetInnerHTML={{ __html: page.html }}
+          dangerouslySetInnerHTML={{ __html: html }}
           sx={{
             maxWidth: 'inner',
             mx: 'auto',
@@ -33,13 +30,13 @@ export default ({ data: { page } }) => (
           }}
         />
       )}
-      {page.fields.comment && (
+      {fields.comment && (
         <Comments
           type="page"
-          slug={page.fields.slug}
-          title={page.fields.title}
-          excerpt={page.excerpt}
-          permalink={page.fields.permalink}
+          slug={fields.slug}
+          title={fields.title}
+          excerpt={excerpt}
+          permalink={fields.permalink}
           sx={{ maxWidth: 'inner', mx: 'auto', mb: '8vw' }}
         />
       )}

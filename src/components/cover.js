@@ -66,19 +66,15 @@ const Cover = ({ image, type = 2, ...props }) => {
 }
 
 Cover.types = {
-  /** 0 */
   image: 0,
-  /** 1 */
   mask: 1,
-  /** 2 */
   gradient: 2,
-  /** 3 */
   blur: 3
 }
 
 Cover.propTypes = {
   image: PropTypes.object,
-  type: PropTypes.oneOf([0, 1, 2, 3])
+  type: PropTypes.oneOf(Object.values(Cover.types))
 }
 
 export const GraphQLFragment = graphql`

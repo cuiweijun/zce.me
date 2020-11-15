@@ -101,7 +101,14 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
   <Layout>
     <Cover type={Cover.types.mask} />
 
-    <Hero sx={{ py: '18vw', h1: { fontSize: '6rem' } }} />
+    <Hero
+      title={meta.name}
+      subtitle={meta.description}
+      sx={{
+        py: '16rem',
+        h1: { fontSize: '6rem' }
+      }}
+    />
 
     {featured.nodes[0] && <Featured post={featured.nodes[0]} />}
 
@@ -156,6 +163,8 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
 export const query = graphql`
   query HomePage {
     meta: config {
+      name
+      description
       slogan
     }
 

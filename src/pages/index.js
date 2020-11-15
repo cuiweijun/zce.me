@@ -145,15 +145,17 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
       </Container>
     </Section>
 
-    <Section padding={6}>
+    <Section padding={4}>
       <Container
         as="p"
         children={meta.slogan}
         sx={{
+          mb: 0,
           color: 'muted',
           fontFamily: 'serif',
           fontSize: 'xl',
-          textAlign: 'center'
+          textAlign: 'center',
+          opacity: 0.5
         }}
       />
     </Section>

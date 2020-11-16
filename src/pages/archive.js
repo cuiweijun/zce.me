@@ -10,11 +10,7 @@ export default ({ data: { posts } }) => (
     title="内容归档"
     description={`所有内容归档，总计产出 ${posts.totalCount} 篇内容`}
   >
-    <Hero
-      title="归档"
-      subtitle={`总计产出 ${posts.totalCount} 篇内容`}
-      sx={{ py: '4vw' }}
-    />
+    <Hero title="归档" subtitle={`总计产出 ${posts.totalCount} 篇内容`} />
     <Container width="inner" sx={{ mb: 9 }}>
       {posts.nodes.map(post => (
         <>

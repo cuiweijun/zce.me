@@ -12,11 +12,7 @@ export default () => {
   // const [count, setCount] = React.useState(0)
   return (
     <Layout title="实验室">
-      <Hero
-        title="实验室"
-        subtitle="新特性、新组件、新尝试"
-        sx={{ py: '5vw' }}
-      />
+      <Hero title="实验室" subtitle="新特性、新组件、新尝试" />
       <Container
         sx={{
           h2: { textAlign: 'center' },

@@ -61,8 +61,8 @@ const Heading = () => (
     sx={{
       display: 'inline-block',
       position: 'relative',
-      mb: '5vw',
-      fontSize: 'calc(8rem + 10vw)',
+      mb: '5rem',
+      fontSize: 'calc(10rem + 5vw)',
       color: 'transparent',
       ':before': {
         position: 'absolute',
@@ -89,7 +89,7 @@ const Heading = () => (
 export default ({ data: { posts } }) => (
   <Layout title="404 Not found">
     <Cover type={Cover.types.blur} />
-    <Hero sx={{ py: '8vw' }}>
+    <Hero>
       <Heading />
       <p sx={{ mb: 6 }}>你似乎来到了新大陆～</p>
       <Button as={Link} variant="ghost" color="light" to="/">

@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "11.0.0",
-    "@emotion/react": "11.0.0",
+    "@emotion/react": "11.1.1",
     "@emotion/server": "11.0.0",
     "gatsby": "2.26.1",
     "gatsby-image": "2.5.0",

@@ -10,7 +10,7 @@ import {
   Cover,
   Card
 } from '../components'
-import { keyframes } from '../utils'
+import { keyframes } from '@emotion/react'
 
 const move = keyframes`
   10% {
@@ -58,31 +58,29 @@ const move = keyframes`
 const Heading = () => (
   <h1
     children="404"
-    sx={{
+    css={t => ({
       display: 'inline-block',
       position: 'relative',
-      mb: '5rem',
+      marginBottom: t.space[8],
       fontSize: 'calc(10rem + 5vw)',
+      fontWeight: t.fontWeights.bold,
       color: 'transparent',
-      ':before': {
+      ':before, :after': {
         position: 'absolute',
         top: 0,
         left: 0,
         content: '"404"',
+        mixBlendMode: 'lighten'
+      },
+      ':before': {
         color: 'red',
-        mixBlendMode: 'lighten',
         animation: `${move} 0.95s infinite`
       },
       ':after': {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        content: '"404"',
         color: 'cyan',
-        mixBlendMode: 'lighten',
         animation: `${move} 2.2s infinite -0.5s`
       }
-    }}
+    })}
   />
 )
 
@@ -91,12 +89,12 @@ export default ({ data: { posts } }) => (
     <Cover type={Cover.types.blur} />
     <Hero>
       <Heading />
-      <p sx={{ mb: 6 }}>你似乎来到了新大陆～</p>
-      <Button as={Link} variant="ghost" color="light" to="/">
+      <p css={t => ({ marginBottom: t.space[6] })}>你似乎来到了新大陆～</p>
+      <Button as={Link} variant="ghost" to="/">
         返回首页 <span aria-hidden="true">&rarr;</span>
       </Button>
     </Hero>
-    <Container row sx={{ mb: 6 }}>
+    <Container row css={t => ({ marginBottom: t.space[6] })}>
       {posts.nodes.map(node => (
         <Card post={node} key={node.id} />
       ))}

@@ -7,7 +7,7 @@ import { Layout, Container, Button, Link, Hero } from '../components'
 export default ({ data: { categories } }) => (
   <Layout title="全部分类">
     <Hero title="分类" subtitle={`总计 ${categories.totalCount} 个分类`} />
-    <Container width="inner" sx={{ mb: 9 }}>
+    <Container width="inner" css={t => ({ marginBottom: t.space[9] })}>
       {categories.nodes.map(item => (
         <Button
           key={item.name}
@@ -15,7 +15,7 @@ export default ({ data: { categories } }) => (
           variant="ghost"
           to={item.permalink}
           children={item.name}
-          sx={{ mx: 3, my: 2 }}
+          css={t => ({ margin: `${t.space[2]} ${t.space[3]}` })}
         />
       ))}
     </Container>

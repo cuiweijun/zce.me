@@ -16,18 +16,17 @@ export default ({
         file={fields.cover}
         alt={fields.title}
         title={fields.title}
-        sx={{ mx: [-3, 0], mb: '6vw' }}
+        css={t => ({ margin: `0 -${t.space[3]} 6vw` })}
       />
       {html && (
         <div
           dangerouslySetInnerHTML={{ __html: html }}
-          sx={{
-            maxWidth: 'inner',
-            mx: 'auto',
-            mb: '8vw',
-            lineHeight: 'loose',
-            img: { display: 'block', mx: 'auto' }
-          }}
+          css={t => ({
+            maxWidth: t.sizes.inner,
+            margin: '0 auto 8vw',
+            lineHeight: t.lineHeights.loose,
+            img: { display: 'block', margin: '0 auto' }
+          })}
         />
       )}
       {fields.comment && (
@@ -37,7 +36,7 @@ export default ({
           title={fields.title}
           excerpt={excerpt}
           permalink={fields.permalink}
-          sx={{ maxWidth: 'inner', mx: 'auto', mb: '8vw' }}
+          css={t => ({ maxWidth: t.sizes.inner, margin: '0 auto 8vw' })}
         />
       )}
     </Container>

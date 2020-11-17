@@ -10,16 +10,17 @@ import Container from './container'
 const Hero = ({ title, subtitle, padding, children, ...props }) => (
   <header
     {...props}
-    sx={{
-      py: '5rem',
+    css={t => ({
+      paddingTop: t.space[8],
+      paddingBottom: t.space[8],
       textAlign: 'center',
-      color: 'text',
-      fontSize: 'xl'
-    }}
+      color: t.colors.text,
+      fontSize: t.fontSizes.xl
+    })}
   >
     {children || (
-      <Container sx={{ '> :last-child': { mb: 0 } }}>
-        <h1 sx={{ fontSize: 9 }}>{title}</h1>
+      <Container css={{ '> :last-child': { marginBottom: 0 } }}>
+        <h1 css={t => ({ fontSize: t.fontSizes[9] })}>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
       </Container>
     )}

@@ -9,28 +9,28 @@ export default ({ id = 'content', ...props }) => (
     {...props}
     href={`#${id}`}
     children="跳转到内容区"
-    sx={{
+    css={t => ({
       position: 'absolute',
       overrflow: 'hidden',
-      height: 1,
       width: 1,
-      m: -1,
-      p: 0,
+      height: 1,
+      margin: -1,
+      padding: 0,
       top: -999,
       clip: 'rect(0 0 0 0)',
       ':focus': {
         position: 'fixed',
-        zIndex: 99,
+        zIndex: t.zIndices.tooltip,
         top: 0,
         left: 0,
         width: 'auto',
         height: 'auto',
-        m: 2,
-        p: 3,
-        fontWeight: 'bold',
-        bg: 'background',
+        margin: t.space[2],
+        padding: t.space[3],
+        fontWeight: t.fontWeights.bold,
+        background: t.colors.background,
         clip: 'auto'
       }
-    }}
+    })}
   />
 )

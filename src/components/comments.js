@@ -47,9 +47,7 @@ export default ({ type, slug, title, excerpt, permalink, ...props }) => {
   }
 
   if (permalink) {
-    options.body = `
-    ${excerpt || 'none'}\n\n**Permalink**: ${meta.url}${permalink}
-    `.trim()
+    options.body = `${excerpt}\n\n**Permalink**: ${meta.url}${permalink}`
   }
 
   React.useEffect(() => {

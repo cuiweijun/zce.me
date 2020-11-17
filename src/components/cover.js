@@ -25,14 +25,14 @@ const Cover = ({ image, type = 2, ...props }) => {
     <Image
       {...props}
       file={image || meta.cover}
-      sx={{
+      css={t => ({
         position: 'absolute !important',
         top: 0,
         zIndex: -1,
         width: '100%',
         minHeight: '40rem',
         maxHeight: '100vh',
-        bg: 'dark',
+        background: t.colors.dark,
         ':before,:after': type > 0 && {
           position: 'absolute',
           top: 0,
@@ -49,18 +49,17 @@ const Cover = ({ image, type = 2, ...props }) => {
           opacity: 0.6
         },
         ':after': type > 1 && {
-          background: t =>
-            `linear-gradient(transparent 45%, ${t.colors.background})`
+          background: `linear-gradient(transparent 45%, ${t.colors.background})`
         },
         img: type > 2 && {
           filter: 'blur(5rem)',
           transform: 'translateZ(0) scale(1.1)'
         },
         '+ header': {
-          color: 'white',
-          textShadow: 'text'
+          color: '#fff',
+          textShadow: t.shadows.text
         }
-      }}
+      })}
     />
   )
 }

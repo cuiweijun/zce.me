@@ -2,41 +2,46 @@
  * Global styles
  */
 
-import { alpha, darken, lighten, readable } from './utils'
+/** @typedef {import('@emotion/serialize').Interpolation<import('@emotion/react').Theme>} Interpolation */
+import { rgba, darken, lighten, getLuminance } from 'polished'
 
-const variables = {
-  ':root': t =>
-    Object.keys(t.colors).reduce(
-      (prev, item) => ({ ...prev, [`--c-${item}`]: t.colors[item] }),
-      {}
-    )
-}
+const readable = (c, l, d) => (getLuminance(c) > 0.4 ? d : l)
 
-const block = {
-  m: 0,
-  mb: 3
-}
+/** @type {Interpolation} */
+const variables = t => ({
+  ':root': Object.keys(t.colors).reduce(
+    (prev, item) => ({ ...prev, [`--c-${item}`]: t.colors[item] }),
+    {}
+  )
+})
 
-const pseudo = {
+/** @type {Interpolation} */
+const block = t => ({
+  margin: `0 0 ${t.space[3]}`
+})
+
+/** @type {Interpolation} */
+const pseudo = t => ({
   '::selection': {
-    bg: alpha('primary', 0.6),
-    color: readable('primary'),
+    background: rgba(t.colors.primary, 0.6),
+    color: readable(t.colors.primary),
     textShadow: 'text'
   }
-}
+})
 
-const reboot = {
+/** @type {Interpolation} */
+const reboot = t => ({
   '*, *:after, *:before': {
     boxSizing: 'border-box'
   },
   body: {
-    m: 0,
-    color: 'text',
-    bg: 'background',
-    fontSize: 'md',
-    fontFamily: 'sans',
-    fontWeight: 'normal',
-    lineHeight: 'normal',
+    margin: 0,
+    color: t.colors.text,
+    background: t.colors.background,
+    fontSize: t.fontSizes.md,
+    fontFamily: t.fonts.sans,
+    fontWeight: t.fontWeights.normal,
+    lineHeight: t.lineHeights.normal,
     WebkitTextSizeAdjust: '100%',
     WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     textRendering: 'optimizeLegibility',
@@ -45,17 +50,17 @@ const reboot = {
   },
   hr: {
     height: 1,
-    my: 3,
+    margin: `${t.space[3]} 0`,
     border: 0,
     color: 'inherit',
-    bg: 'currentColor',
+    background: 'currentColor',
     opacity: 0.2
   },
   figure: {
-    ...block
+    ...block(t)
   },
   strong: {
-    fontWeight: 'bolder'
+    fontWeight: t.fontWeights.bolder
   },
   small: {
     fontSize: '80%'
@@ -63,98 +68,101 @@ const reboot = {
   svg: {
     verticalAlign: 'text-bottom'
   }
-}
+})
 
-const heading = {
-  ...block,
-  lineHeight: 1.2,
-  fontWeight: 500
-}
+/** @type {Interpolation} */
+const heading = t => ({
+  ...block(t),
+  lineHeight: t.lineHeights.heading,
+  fontWeight: t.fontWeights.heading
+})
 
-const typography = {
+/** @type {Interpolation} */
+const typography = t => ({
   h1: {
     ...heading,
-    fontSize: 7
+    fontSize: t.fontSizes[7]
   },
   h2: {
     ...heading,
-    fontSize: 6
+    fontSize: t.fontSizes[6]
   },
   h3: {
     ...heading,
-    fontSize: 5
+    fontSize: t.fontSizes[5]
   },
   h4: {
     ...heading,
-    fontSize: 4
+    fontSize: t.fontSizes[4]
   },
   h5: {
     ...heading,
-    fontSize: 3
+    fontSize: t.fontSizes[3]
   },
   h6: {
     ...heading,
-    fontSize: 2
+    fontSize: t.fontSizes[2]
   },
   p: {
-    ...block
+    ...block(t)
   },
   blockquote: {
-    ...block,
-    p: 3,
-    borderLeft: 4,
-    borderColor: lighten('primary', 0.1),
-    borderRadius: 'medium',
-    bg: 'light',
+    ...block(t),
+    padding: t.space[3],
+    borderLeft: `8px solid ${lighten(0.1, t.colors.primary)}`,
+    borderRadius: t.radii.medium,
+    background: t.colors.light,
     '> :last-child': {
-      mb: 0
+      marginBottom: 0
     }
   }
-}
+})
 
-const list = {
+/** @type {Interpolation} */
+const list = t => ({
   'ol, ul, dl': {
-    ...block
+    ...block(t)
   },
   'ol, ul': {
-    pl: 5
+    paddingLeft: t.space[5]
   },
   'ol ol, ul ul, ol ul, ul ol': {
-    mb: 0
+    marginBottom: 0
   }
-}
+})
 
-const image = {
+/** @type {Interpolation} */
+const image = t => ({
   img: {
     maxWidth: '100%'
   }
-}
+})
 
-const link = {
+/** @type {Interpolation} */
+const link = t => ({
   a: {
-    color: 'primary',
+    color: t.colors.primary,
     textDecoration: 'none',
     transition: 'color 0.25s',
     ':hover': {
-      color: darken('primary', 0.05),
+      color: darken(0.05, t.colors.primary),
       textDecoration: 'underline'
-      // boxShadow: 'underline'
     },
     ':active': {
-      color: darken('primary', 0.1)
+      color: darken(0.1, t.colors.primary)
     }
   }
-}
+})
 
-const code = {
+/** @type {Interpolation} */
+const code = t => ({
   pre: {
-    ...block,
+    ...block(t),
     code: {
       display: 'block',
       overflow: 'auto',
-      px: 3,
-      py: 3,
-      borderRadius: 'medium',
+      padding: t.space[3],
+      borderRadius: t.radii.medium,
       lineHeight: 'inherit',
       wordWrap: 'normal',
       wordBreak: 'normal'
@@ -200,22 +208,22 @@ const code = {
     }
   },
   code: {
-    px: 1,
-    py: '0.125rem',
-    borderRadius: 'small',
-    bg: '#272822',
+    padding: `0.125rem ${t.space[1]}`,
+    borderRadius: t.radii.small,
+    background: '#272822',
     color: '#f8f8f2',
-    fontFamily: 'mono',
+    fontFamily: t.fonts.mono,
     fontSize: '87.5%',
     // fontVariantLigatures: 'common-ligatures',
-    lineHeight: 'dense'
+    lineHeight: t.lineHeights.dense
   }
   // kbd, samp
-}
+})
 
-const table = {
+/** @type {Interpolation} */
+const table = t => ({
   table: {
-    ...block,
+    ...block(t),
     display: 'block',
     overflow: 'auto',
     width: '100%',
@@ -223,25 +231,26 @@ const table = {
     borderSpacing: 0
   },
   'th, td': {
-    px: 3,
-    py: 2,
+    padding: `${t.space[2]} ${t.space[3]}`,
     textAlign: 'left',
-    border: 1
+    border: `1px solid ${t.colors.border}`
   },
   th: {
-    fontWeight: 'bold'
+    fontWeight: t.fontWeights.bold
   }
-}
+})
 
-const form = {
+/** @type {Interpolation} */
+const form = t => ({
   textarea: {
     appearance: 'none',
     overflow: 'auto',
     resize: 'vertical'
   }
-}
+})
 
-const more = {
+/** @type {Interpolation} */
+const more = t => ({
   // '[data-title]': {
   //   position: 'relative',
   //   ':after': {
@@ -254,7 +263,7 @@ const more = {
   //     px: 2,
   //     py: 1,
   //     borderRadius: 'medium',
-  //     bg: alpha('dark', 0.9),
+  //     background: rgba('dark', 0.9),
   //     color: 'white',
   //     fontSize: '87.5%',
   //     textOverflow: 'ellipsis',
@@ -272,18 +281,18 @@ const more = {
   //     }
   //   }
   // }
-}
+})
 
-export default {
-  ...variables,
-  ...pseudo,
-  ...reboot,
-  ...typography,
-  ...list,
-  ...image,
-  ...link,
-  ...code,
-  ...table,
-  ...form,
-  ...more
-}
+export default t => ({
+  ...variables(t),
+  ...pseudo(t),
+  ...reboot(t),
+  ...typography(t),
+  ...list(t),
+  ...image(t),
+  ...link(t),
+  ...code(t),
+  ...table(t),
+  ...form(t),
+  ...more(t)
+})

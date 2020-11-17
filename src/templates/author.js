@@ -13,14 +13,15 @@ export default ({ data: { author, posts } }) => (
     <Cover image={author.cover} />
     <Hero>
       <Avatar
+        size={160}
         name={author.name}
         image={author.avatar}
-        sx={{ mb: 3, size: 160, boxShadow: 'light' }}
+        css={t => ({ marginBottom: t.space[3], boxShadow: t.shadows.light })}
       />
       <h1>{author.name}</h1>
       <p>{author.bio || `包含 ${posts.totalCount} 个内容`}</p>
     </Hero>
-    <Container row sx={{ mb: 6 }}>
+    <Container row css={t => ({ marginBottom: t.space[6] })}>
       {posts.nodes.map(node => (
         <Card post={node} key={node.id} />
       ))}

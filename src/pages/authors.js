@@ -7,7 +7,7 @@ import { Layout, Container, Button, Link, Hero } from '../components'
 export default ({ data: { authors } }) => (
   <Layout title="全部作者">
     <Hero title="作者" subtitle={`总计 ${authors.totalCount} 位作者`} />
-    <Container width="inner" sx={{ mb: 9 }}>
+    <Container width="inner" css={t => ({ marginBottom: t.space[9] })}>
       {authors.nodes.map(item => (
         <Button
           key={item.name}
@@ -15,7 +15,7 @@ export default ({ data: { authors } }) => (
           variant="ghost"
           to={item.permalink}
           children={item.name}
-          sx={{ mx: 3, my: 2 }}
+          css={t => ({ margin: `${t.space[2]} ${t.space[3]}` })}
         />
       ))}
     </Container>

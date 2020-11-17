@@ -13,7 +13,7 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import createEmotionServer from '@emotion/server/create-instance'
 
-import cache from './cache'
+import cache from './emotion-cache'
 
 export { wrapRootElement } from './gatsby-browser'
 

@@ -4,14 +4,6 @@
 
 import React from 'react'
 
-// export default ({ as: Tag = 'div', width = 'container', ...props }) => (
-//   <Tag {...props} sx={{ maxWidth: width, mx: 'auto', px: 3 }} />
-// )
-
-// export default ({ as: Tag = 'div', ...props }) => (
-//   <Tag {...props} sx={{ display: 'flex', flexWrap: 'wrap', mx: -3 }} />
-// )
-
 export default ({
   as: Tag = 'div',
   width = 'container',
@@ -20,12 +12,14 @@ export default ({
 }) => (
   <Tag
     {...props}
-    sx={{
+    css={t => ({
       display: row && 'flex',
       flexWrap: row && 'wrap',
-      maxWidth: width,
-      mx: 'auto',
-      px: row || 3
-    }}
+      maxWidth: t.sizes[width] ?? width,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      paddingLeft: row || t.space[3],
+      paddingRight: row || t.space[3]
+    })}
   />
 )

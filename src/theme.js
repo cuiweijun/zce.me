@@ -9,7 +9,19 @@
 // light, dark
 // text, background, border
 
+// https://tailwindcss.com/docs/breakpoints
+const breakpoints = ['640px', '768px', '1024px', '1280px']
+
+const screens = {
+  sm: `@media (min-width: ${breakpoints[0]})`,
+  md: `@media (min-width: ${breakpoints[1]})`,
+  lg: `@media (min-width: ${breakpoints[2]})`,
+  xl: `@media (min-width: ${breakpoints[3]})`
+}
+
 export default {
+  breakpoints,
+  screens,
   colors: {
     primary: '#15aabf',
     muted: '#717a82',
@@ -47,16 +59,17 @@ export default {
     light: 300,
     normal: 400,
     bold: 600,
-    bolder: 700
+    bolder: 700,
+    heading: 500
   },
   lineHeights: {
     solid: 1,
     dense: 1.125,
     normal: 1.5,
     loose: 1.75,
-    double: 2
+    double: 2,
+    heading: 1.2
   },
-  breakpoints: ['640px', '768px', '1024px', '1280px'],
   space: [
     0,
     '0.25rem',
@@ -98,6 +111,15 @@ export default {
     light: '0 0.125rem 0.25rem rgba(0, 0, 0, 0.2)',
     medium: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.2)',
     severe: '0 0.5rem 1rem rgba(0, 0, 0, 0.2)'
+  },
+  zIndices: {
+    dropdown: 1000,
+    sticky: 1020,
+    fixed: 1030,
+    backdrop: 1040,
+    modal: 1050,
+    popover: 1060,
+    tooltip: 1070
   },
   modes: {
     dark: {

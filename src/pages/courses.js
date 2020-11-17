@@ -7,7 +7,7 @@ export default ({ data: { courses } }) => (
   <Layout title="全部课程">
     <Cover />
     <Hero title="课程" subtitle={`目前共有 ${courses.totalCount} 套课程`} />
-    <Container row sx={{ mb: 6 }}>
+    <Container row css={t => ({ marginBottom: t.space[6] })}>
       {courses.nodes.map(node => (
         <Card post={node} key={node.id} />
       ))}

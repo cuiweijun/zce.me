@@ -3,14 +3,12 @@
  */
 
 import React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import { Link } from 'gatsby'
 
 const isHash = input => /^#/.test(input)
 const isAbsolute = input => /^http/.test(input)
 
 export default ({ to, ...props }) => {
-  // variant = `variants.links.${variant}`
-
   const styles = {
     color: 'currentColor',
     ':hover': {
@@ -20,9 +18,9 @@ export default ({ to, ...props }) => {
 
   if (isHash(to) || isAbsolute(to)) {
     // eslint-disable-next-line
-    return <a {...props} href={to} sx={styles} />
+    return <a {...props} href={to} css={styles} />
   }
 
   // activeClassName="active" partiallyActive
-  return <GatsbyLink {...props} to={to} sx={styles} />
+  return <Link {...props} to={to} css={styles} />
 }

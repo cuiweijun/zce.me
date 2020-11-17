@@ -7,8 +7,6 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { get } from '../utils'
-
 const query = graphql`
   query HeadComponent {
     config {
@@ -34,19 +32,19 @@ const query = graphql`
   }
 `
 
-const getImage = (cover, defaultCover, baseurl) => {
+const getImage = (cover, defaultCover, baseUrl) => {
   cover = cover || defaultCover
   const res = {}
   if (typeof cover === 'string') {
-    res.url = /^http/.test(cover) ? cover : baseurl + cover
-  } else if (get(cover, 'childImageSharp.fluid')) {
-    res.url = baseurl + get(cover, 'childImageSharp.fluid.src')
-    res.width = get(cover, 'childImageSharp.fluid.presentationWidth')
-    res.height = get(cover, 'childImageSharp.fluid.presentationHeight')
-  } else if (get(cover, 'childImageSharp.fixed')) {
-    res.url = baseurl + get(cover, 'childImageSharp.fixed.src')
-    res.width = get(cover, 'childImageSharp.fixed.width')
-    res.height = get(cover, 'childImageSharp.fixed.height')
+    res.url = /^http/.test(cover) ? cover : baseUrl + cover
+  } else if (cover?.childImageSharp?.fluid) {
+    res.url = baseUrl + cover.childImageSharp.fluid.src
+    res.width = cover.childImageSharp.fluid.presentationWidth
+    res.height = cover.childImageSharp.fluid.presentationHeight
+  } else if (cover?.childImageSharp?.fixed) {
+    res.url = baseUrl + cover.childImageSharr.fixed.src
+    res.width = cover.childImageSharr.fixed.width
+    res.height = cover.childImageSharr.fixed.height
   }
   return res
 }

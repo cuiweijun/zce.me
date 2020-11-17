@@ -3,50 +3,37 @@
  */
 
 import React from 'react'
+import { useTheme } from '@emotion/react'
 
 import Button from './button'
-import { useThemeMode } from '../utils'
 
 export default () => {
-  const [mode, setMode] = useThemeMode()
+  const { mode, setMode } = useTheme()
   const isDark = mode === 'dark'
   const title = `切换至${isDark ? '「亮色」' : '「暗色」'}模式`
   const toggle = () => setMode(isDark ? 'default' : 'dark')
 
   const icon = (
     <span
-      sx={{
+      css={{
         display: 'block',
-        // overflow: isDark ? 'visible' : 'hidden',
         position: 'relative',
-        size: 24,
-        borderRadius: 'circle',
-        // border: isDark ? '4px solid currentColor' : 0,
+        width: 24,
+        height: 24,
+        borderRadius: 99,
         boxShadow: isDark ? 'none' : 'inset 8px -8px 0px 0px currentColor',
-        bg: isDark ? 'currentColor' : 'transparent',
+        background: isDark ? 'currentColor' : 'transparent',
         transform: isDark ? 'scale(0.425)' : 'scale(0.8)',
         transition: 'box-shadow 0.3s, transform 0.3s',
         willChange: 'transform',
-        // ':before': {
-        //   position: 'absolute',
-        //   right: '-9px',
-        //   top: '-9px',
-        //   size: 24,
-        //   // border: isDark ? '2px solid currentColor' : 0,
-        //   borderRadius: 'circle',
-        //   content: '""',
-        //   opacity: isDark ? 0 : 1,
-        //   transform: isDark ? 'translate(14px, -14px)' : 'translate(0, 0)',
-        //   transition: 'opacity 0.3s, transform 0.3s',
-        //   willChange: 'transform'
-        // },
         ':after': {
           position: 'absolute',
           top: '50%',
           left: '50%',
           margin: '-4px 0 0 -4px',
-          borderRadius: 'circle',
-          size: 8,
+          borderRadius: 99,
+          width: 8,
+          height: 8,
           content: '""',
           boxShadow: `0 -23px 0 currentColor,
             0 23px 0 currentColor,
@@ -72,11 +59,11 @@ export default () => {
       title={title}
       aria-label={title}
       onClick={toggle}
-      sx={{
-        color: 'muted',
+      css={t => ({
+        color: t.colors.muted,
         // transform: 'scale(0.75)',
-        ':hover': { color: 'muted' }
-      }}
+        ':hover': { color: t.colors.muted }
+      })}
     />
   )
 }

@@ -21,41 +21,44 @@ const formatDuration = d => `${pad(d / 60)}:${pad(d % 60)}`
 const Main = ({ current, fields, excerpt, html }) => (
   <Tabs
     initial={1}
-    sx={{
+    css={t => ({
       flex: '3 1 32rem',
-      p: 3,
-      borderRight: 1
-    }}
+      padding: t.space[3],
+      borderRight: `1px solid ${t.colors.border}`
+    })}
   >
     <section id="intro" name="简介">
       <div
-        sx={{ mb: 4, px: 3, py: 4, lineHeight: 'loose' }}
+        css={t => ({
+          marginBottom: t.space[4],
+          padding: `${t.space[4]} ${t.space[3]}`,
+          lineHeight: t.lineHeights.loose
+        })}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </section>
     <section id="toc" name="目录">
       <div
-        sx={{
-          py: 3,
+        css={t => ({
+          padding: `${t.space[3]} 0`,
           counterReset: 'video',
           a: {
             display: 'flex',
             alignItems: 'center',
-            px: 3,
-            py: 2,
-            borderBottom: 1,
+            padding: `${t.space[2]} ${t.space[3]}`,
+            borderBottom: `1px solid ${t.colors.border}`,
             textDecoration: 'none',
-            lineHeight: 'loose',
+            lineHeight: t.lineHeights.loose,
             ':last-child': {
               border: 0
             }
           },
           small: {
-            ml: 'auto',
-            fontFamily: 'mono',
-            color: 'muted'
+            marginLeft: 'auto',
+            fontFamily: t.fonts.mono,
+            color: t.colors.muted
           }
-        }}
+        })}
       >
         {fields.sections.map((item, i) => (
           <Link key={i} to={getVideoLink(fields.permalink, i)}>
@@ -73,7 +76,7 @@ const Main = ({ current, fields, excerpt, html }) => (
           title={fields.title}
           excerpt={excerpt}
           permalink={fields.permalink}
-          sx={{ px: 3 }}
+          css={t => ({ padding: `0 ${t.space[3]}` })}
         />
       </section>
     )}
@@ -82,38 +85,40 @@ const Main = ({ current, fields, excerpt, html }) => (
 
 const AsideSection = ({ title, children }) => (
   <section
-    sx={{
-      p: 3,
+    css={t => ({
+      padding: t.space[3],
       ':not(:last-child)': {
-        borderBottom: 1
+        borderBottom: `1px solid ${t.colors.border}`
       }
-    }}
+    })}
   >
-    <span sx={{ fontWeight: 'bold' }}>{title}: </span>
+    <span css={t => ({ fontWeight: t.fontWeights.bold })}>{title}: </span>
     {children}
   </section>
 )
 
 const Aside = ({ video, fields, related }) => (
   <aside
-    sx={{
+    css={t => ({
       position: 'sticky',
       top: 0,
       alignSelf: 'flex-start',
       flex: '1 1 16rem',
-      p: 3,
-      pl: [3, null, 0],
-      lineHeight: 'loose',
-      color: 'muted',
+      padding: t.space[3],
+      lineHeight: t.lineHeights.loose,
+      color: t.colors.muted,
       a: {
         ':not(:last-child)': {
-          mr: 1,
+          marginRight: t.space[1],
           ':after': {
             content: '"\\002C"'
           }
         }
+      },
+      [t.screens.lg]: {
+        paddingLeft: 0
       }
-    }}
+    })}
   >
     {video && (
       <AsideSection title="课程">
@@ -158,7 +163,7 @@ const Aside = ({ video, fields, related }) => (
       </AsideSection>
     )}
     <AsideSection title="相关推荐">
-      <ul sx={{ mt: 2 }}>
+      <ul css={t => ({ marginTop: t.space[2] })}>
         {related.nodes.map(i => (
           <li key={i.id}>
             <Link to={i.fields.permalink}>{i.fields.title}</Link>
@@ -187,7 +192,7 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
         <Hero
           title={video ? video.title : fields.title}
           subtitle={fields.description}
-          sx={{ textAlign: 'left' }}
+          css={{ textAlign: 'left' }}
         />
       )}
       {video && (
@@ -195,10 +200,10 @@ export default ({ data: { course, related }, pageContext: { current } }) => {
           {...video}
           autoplay
           onEnded={onEnded}
-          sx={{ maxHeight: t => `calc(100vh - ${t.sizes.nav})` }}
+          css={t => ({ maxHeight: `calc(100vh - ${t.sizes.nav})` })}
         />
       )}
-      <section sx={{ bg: 'background' }}>
+      <section css={t => ({ background: t.colors.background })}>
         <Container row>
           <Main
             current={current}

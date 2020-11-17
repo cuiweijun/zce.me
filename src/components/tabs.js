@@ -11,10 +11,10 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
       <div
         role="tablist"
         aria-orientation="horizontal"
-        sx={{
+        css={t => ({
           display: 'flex',
-          borderBottom: 2
-        }}
+          borderBottom: `2px solid ${t.colors.border}`
+        })}
       >
         {React.Children.map(children, (item, i) => (
           <a
@@ -27,21 +27,20 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
             aria-selected={current === i}
             onClick={() => setCurrent(i)}
             children={item.props.name}
-            sx={{
-              mb: '-2px',
-              px: 3,
-              py: 2,
-              borderBottom: 2,
-              color: 'muted',
+            css={t => ({
+              marginBottom: '-2px',
+              padding: `${t.space[2]} ${t.space[3]}`,
+              borderBottom: `2px solid ${t.colors.border}`,
+              color: t.colors.muted,
               transition: 'border 0.3s, color 0.3s',
               ':hover': {
                 textDecoration: 'none'
               },
               '&[aria-selected=true]': {
-                borderColor: 'primary',
-                color: 'primary'
+                borderColor: t.colors.primary,
+                color: t.colors.primary
               }
-            }}
+            })}
           />
         ))}
       </div>
@@ -53,7 +52,7 @@ export default ({ as: Tag = 'div', initial = 0, children, ...props }) => {
           role="tabpanel"
           aria-labelledby={`${item.props.id || i}-tab`}
           children={item.props.children}
-          sx={{ display: current === i || 'none' }}
+          css={{ display: current === i || 'none' }}
         />
       ))}
     </Tag>

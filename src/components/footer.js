@@ -41,16 +41,37 @@ const query = graphql`
 `
 
 const Widget = ({ title, width, children }) => (
-  <section sx={{ width: width, mb: 4, px: 3 }}>
-    <h4 sx={{ fontWeight: 'light', mb: 2 }} children={title} />
+  <section
+    css={t => ({
+      width: '100%',
+      marginBottom: t.space[4],
+      paddingLeft: t.space[3],
+      paddingRight: t.space[3],
+      [t.screens.sm]: width[0] && {
+        width: width[0]
+      },
+      [t.screens.md]: width[1] && {
+        width: width[1]
+      },
+      [t.screens.lg]: width[2] && {
+        width: width[2]
+      }
+    })}
+  >
+    <h4
+      css={t => ({ fontWeight: t.fontWeights.light, marginBottom: t.space[2] })}
+      children={title}
+    />
     {children}
   </section>
 )
 
 const Follow = ({ socials }) => (
-  <Widget title="社交媒体" width={['100%', null, null, '45%']}>
-    <p sx={{ mb: 3 }}>我们会将最新的、最有意思的内容直接发送到您的收件箱。</p>
-    <form sx={{ display: 'flex', mb: 3 }}>
+  <Widget title="社交媒体" width={[null, null, '45%']}>
+    <p css={t => ({ marginBottom: t.space[3] })}>
+      我们会将最新的、最有意思的内容直接发送到您的收件箱。
+    </p>
+    <form css={t => ({ display: 'flex', marginBottom: t.space[3] })}>
       <Input
         type="email"
         name="email"
@@ -58,7 +79,7 @@ const Follow = ({ socials }) => (
         autoComplete="off"
         aria-label="输入您的邮箱"
         aria-describedby="btn_send"
-        sx={{ flex: 1, borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
+        css={{ flex: 1, borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
       />
       <Button
         color="border"
@@ -66,18 +87,34 @@ const Follow = ({ socials }) => (
         icon="send"
         id="btn_send"
         aria-label="订阅"
-        sx={{
-          px: 3,
+        css={t => ({
+          paddingLeft: t.space[3],
+          paddingRight: t.space[3],
           borderLeft: 0,
           borderTopLeftRadius: 0,
           borderBottomLeftRadius: 0,
           color: 'currentColor'
-        }}
+        })}
       />
     </form>
-    <ul sx={{ mx: -1, pl: 0, listStyle: 'none' }}>
+    <ul
+      css={t => ({
+        marginLeft: '-' + t.space[1],
+        marginRight: '-' + t.space[1],
+        paddingLeft: 0,
+        listStyle: 'none'
+      })}
+    >
       {socials.map(i => (
-        <li key={i.name} sx={{ display: 'inline-block', mx: 1, mb: 2 }}>
+        <li
+          key={i.name}
+          css={t => ({
+            display: 'inline-block',
+            marginLeft: t.space[1],
+            marginRight: t.space[1],
+            marginBottom: t.space[2]
+          })}
+        >
           <Button
             as={Link}
             to={i.link || '/'}
@@ -87,7 +124,7 @@ const Follow = ({ socials }) => (
             color="border"
             variant="outline"
             icon={i.icon}
-            sx={{ color: 'currentColor' }}
+            css={{ color: 'currentColor' }}
           />
         </li>
       ))}
@@ -96,25 +133,31 @@ const Follow = ({ socials }) => (
 )
 
 const Tags = ({ tags }) => (
-  <Widget title="标签" width={['100%', null, '55%', '25%']}>
-    <ul sx={{ pl: 0, listStyle: 'none', lineHeight: 'loose' }}>
+  <Widget title="标签" width={[null, '55%', '25%']}>
+    <ul
+      css={t => ({
+        padding: 0,
+        listStyle: 'none',
+        lineHeight: t.lineHeights.loose
+      })}
+    >
       {tags.map(i => (
         <li
           key={i.name}
-          sx={{
+          css={t => ({
             display: 'inline-block',
-            mr: 1,
+            marginRight: t.space[1],
             ':after': { content: '"\\002C"' }
-          }}
+          })}
         >
           <Link
             to={i.permalink}
             children={i.name}
-            sx={{ ':before': { content: '"\\0023"' } }}
+            css={{ ':before': { content: '"\\0023"' } }}
           />
         </li>
       ))}
-      <li sx={{ display: 'inline-block' }}>
+      <li css={{ display: 'inline-block' }}>
         <Link to="/tags/" children="更多 &rarr;" />
       </li>
     </ul>
@@ -122,12 +165,18 @@ const Tags = ({ tags }) => (
 )
 
 const Links = ({ links }) => (
-  <Widget title="链接" width={['100%', '50%', '25%', '15%']}>
-    <ul sx={{ px: 1, listStyle: 'none' }}>
+  <Widget title="链接" width={['50%', '25%', '15%']}>
+    <ul css={t => ({ paddingLeft: t.space[1], listStyle: 'none' })}>
       {links.map(i => (
         <li
           key={i.text}
-          sx={{ ':before': { content: '"\\279F"', mr: 1, opacity: 0.7 } }}
+          css={t => ({
+            ':before': {
+              content: '"\\279F"',
+              marginRight: t.space[1],
+              opacity: 0.7
+            }
+          })}
         >
           <Link to={i.link} children={i.text} />
         </li>
@@ -137,39 +186,49 @@ const Links = ({ links }) => (
 )
 
 const Subscription = ({ subscription }) => (
-  <Widget title="订阅" width={['100%', '50%', '20%', '15%']}>
+  <Widget title="订阅" width={['50%', '20%', '15%']}>
     <img
       alt={subscription.name}
       title={subscription.name}
       src={subscription.qrcode}
-      sx={{ display: 'block', mx: 'auto', maxWidth: 140 }}
+      css={{ display: 'block', margin: '0 auto', width: 140 }}
     />
   </Widget>
 )
 
 const Copyright = ({ name, url }) => (
   <div
-    sx={{
+    css={t => ({
       display: 'flex',
-      flexDirection: ['column', 'row'],
-      pt: 3,
-      borderTop: 1
-    }}
+      flexDirection: 'column',
+      padding: `${t.space[3]} 0`,
+      borderTop: `1px solid ${t.colors.border}`,
+      [t.screens.sm]: {
+        flexDirection: 'row'
+      }
+    })}
   >
     <span>
       &copy; {new Date().getFullYear()} <Link to={url} children={name} />.
       保留所有权利.
     </span>
-    <ul sx={{ flex: 1, mb: 0, ml: 2, pl: 0 }}>
-      <li sx={{ display: 'inline', mr: 2 }}>
+    <ul
+      css={t => ({
+        flex: 1,
+        marginBottom: 0,
+        marginLeft: t.space[2],
+        paddingLeft: 0
+      })}
+    >
+      <li css={t => ({ display: 'inline', marginRight: t.space[2] })}>
         <Link to="/privacy-policy/" children="隐私政策" />
       </li>
-      <li sx={{ display: 'inline', mr: 2 }}>
+      <li css={t => ({ display: 'inline', marginRight: t.space[2] })}>
         <Link to="/terms-of-service/" children="服务条款" />
       </li>
     </ul>
     <span
-      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      css={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
     >
       <Link
         to="https://github.com/zce/zce.me"
@@ -177,7 +236,7 @@ const Copyright = ({ name, url }) => (
         target="_blank"
         rel="noopener noreferrer"
         children="&lt;/&gt;"
-        sx={{ mr: 1 }}
+        css={t => ({ marginRight: t.space[1] })}
       />
       with
       {/* prettier-ignore */}
@@ -196,7 +255,7 @@ const Copyright = ({ name, url }) => (
         target="_blank"
         rel="noopener noreferrer"
         children="zce"
-        sx={{ ml: 1 }}
+        css={t => ({ marginLeft: t.space[1] })}
       />
     </span>
   </div>
@@ -207,14 +266,17 @@ export default () => {
 
   return (
     <footer
-      sx={{
-        py: 7,
-        borderTop: 1,
-        bg: 'background',
-        color: 'muted',
-        fontSize: 'sm',
-        textAlign: ['center', 'left']
-      }}
+      css={t => ({
+        paddingTop: t.space[7],
+        borderTop: `1px solid ${t.colors.border}`,
+        background: t.colors.background,
+        color: t.colors.muted,
+        fontSize: t.fontSizes.sm,
+        textAlign: 'center',
+        [t.screens.sm]: {
+          textAlign: 'left'
+        }
+      })}
     >
       <Container>
         <Row as="aside">

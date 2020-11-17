@@ -63,7 +63,7 @@ socials:
     icon: qq
     link: http://wpa.qq.com/msgrd?v=3&uin=27102514&site=qq&menu=yes
   - name: 哔哩哔哩
-    icon: bilibili
+    icon: tv
     link: https://space.bilibili.com/210242179
   - name: 优酷
     icon: youku

@@ -26,16 +26,17 @@ const Brand = ({ name }) => (
   <Link
     to="/"
     aria-label="回到首页"
-    sx={{
+    css={t => ({
       display: 'flex',
       alignItems: 'center',
-      px: 1,
-      fontSize: 'xl',
+      paddingLeft: t.space[1],
+      paddingRight: t.space[1],
+      fontSize: t.fontSizes.xl,
       ':hover': { textDecoration: 'none' }
-    }}
+    })}
   >
     {/* prettier-ignore */}
-    <svg viewBox="0 0 472 450" aria-hidden="true" sx={{ size: '25px', mr: 2 }}>
+    <svg viewBox="0 0 472 450" aria-hidden="true" css={t => ({ width: 25, height: 25, marginRight: t.space[2] })}>
       <defs>
         <filter id="shadow" x="-12.7%" y="-13.4%" width="125.4%" height="126.7%" filterUnits="objectBoundingBox">
           <feOffset in="SourceAlpha" result="offset-outer" />
@@ -47,7 +48,7 @@ const Brand = ({ name }) => (
       <mask id="mask" fill="#fff">
         <path d="M472 114.26L203.029 335.74H407.1L472 449.48H64.9L0 335.74l268.971-221.48H64.9L0 .52h407.1z" />
       </mask>
-      <g mask="url(#mask)" sx={{ fill: 'primary' }}>
+      <g mask="url(#mask)" css={t => ({ fill: t.colors.primary })}>
         <path d="M0 0h472v449H0z" />
       </g>
       <g mask="url(#mask)">
@@ -60,38 +61,43 @@ const Brand = ({ name }) => (
 
 const Menu = ({ items }) => (
   <ul
-    sx={{
+    css={t => ({
       display: 'flex',
       overflowX: 'auto',
       flex: 1,
-      mb: 0,
-      mx: [1, 3],
-      px: 1,
+      marginBottom: 0,
+      marginLeft: t.space[1],
+      marginRight: t.space[1],
+      paddingLeft: t.space[1],
+      paddingRight: t.space[1],
       listStyle: 'none',
       whiteSpace: 'nowrap',
-      maskImage: [
+      maskImage:
         'linear-gradient(to right, rgba(0, 0, 0, 0), #000 1em, #000 93%, rgba(0, 0, 0, 0))',
-        'none'
-      ],
       WebkitOverflowScrolling: 'touch',
       MsOverflowScrolling: 'touch',
       MsOverflowStyle: 'none',
       '::-webkit-scrollbar': {
         display: 'none'
+      },
+      [t.screens.sm]: {
+        marginLeft: t.space[3],
+        marginRight: t.space[3],
+        maskImage: 'none'
       }
-    }}
+    })}
   >
     {items.map(i => (
       <li key={i.link}>
         <Link
           to={i.link}
           children={i.text}
-          sx={{
+          css={t => ({
             display: 'block',
             opacity: 0.9,
-            p: 2,
+            padding: t.space[2],
             ':hover': { textDecoration: 'none' }
-          }}
+          })}
         />
       </li>
     ))}
@@ -102,24 +108,30 @@ export default () => {
   const { meta } = useStaticQuery(query)
   return (
     <header
-      sx={{ ':before': { display: 'block', content: '""', height: 'nav' } }}
+      css={t => ({
+        ':before': { display: 'block', content: '""', height: t.sizes.nav }
+      })}
     >
       <nav
         aria-label="主要导航"
-        sx={{
+        css={t => ({
           position: 'fixed',
           top: 0,
-          zIndex: 30,
+          zIndex: t.zIndices.sticky,
           width: '100%',
-          borderBottom: 1,
-          bg: 'background',
+          borderBottom: `1px solid ${t.colors.border}`,
+          background: t.colors.background,
           transform: `translateY(${usePinned() ? '0%' : '-100%'})`,
           transition: 'transform 0.3s linear',
           willChange: 'transform'
-        }}
+        })}
       >
         <Container
-          sx={{ display: 'flex', alignItems: 'center', height: 'nav' }}
+          css={t => ({
+            display: 'flex',
+            alignItems: 'center',
+            height: t.sizes.nav
+          })}
         >
           <Brand name={meta.name} />
           <Menu items={meta.navigation} />

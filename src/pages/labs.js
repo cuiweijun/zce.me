@@ -14,11 +14,11 @@ export default () => {
     <Layout title="实验室">
       <Hero title="实验室" subtitle="新特性、新组件、新尝试" />
       <Container
-        sx={{
+        css={t => ({
           h2: { textAlign: 'center' },
-          h3: { mt: 5 },
-          hr: { my: 8 }
-        }}
+          h3: { marginTop: t.space[5] },
+          hr: { margin: t.space[8] }
+        })}
       >
         <div>
           <h2>Serverless functions</h2>
@@ -28,6 +28,7 @@ export default () => {
         </div>
 
         <hr />
+
         <div>
           <h2>Environment Variables</h2>
           <p>
@@ -37,7 +38,12 @@ export default () => {
 
         <hr />
 
-        <div sx={{ div: { mx: -2, mb: 3 }, button: { mr: 2, mb: 3 } }}>
+        <div
+          css={t => ({
+            div: { margin: `0 -${t.space[2]} ${t.space[3]}` },
+            button: { margin: `0 ${t.space[2]} ${t.space[3]}` }
+          })}
+        >
           <h2>Buttons</h2>
           <h3>Colors</h3>
           <Button color="primary">Primary</Button>
@@ -156,7 +162,7 @@ export default () => {
 
         <div>
           <h2>Tabs</h2>
-          <Tabs sx={{ mb: 7 }}>
+          <Tabs css={t => ({ marginBottom: t.space[6] })}>
             <section id="intro" name="介绍">
               <p>介绍内容</p>
             </section>
@@ -167,7 +173,7 @@ export default () => {
               <p>讨论内容</p>
             </section>
           </Tabs>
-          <Tabs sx={{ mb: 7 }}>
+          <Tabs css={t => ({ marginBottom: t.space[6] })}>
             <section name="介绍">
               <p>介绍内容</p>
             </section>

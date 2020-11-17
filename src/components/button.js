@@ -3,9 +3,12 @@
  */
 
 import React from 'react'
+import { darken, getLuminance } from 'polished'
+import { useTheme } from '@emotion/react'
 
 import Icon from './icon'
-import { darken, readable } from '../utils'
+
+const readable = (c, l, d) => (getLuminance(c) > 0.4 ? d : l)
 
 export default ({
   as: Tag = 'button',
@@ -16,42 +19,43 @@ export default ({
   children,
   ...props
 }) => {
+  const t = useTheme()
+
+  color = t.colors[color] || color
+
   const sizes = {
     sm: {
-      px: 2,
-      py: 1,
-      borderRadius: 'small',
-      fontSize: 'sm'
+      padding: `${t.space[1]} ${t.space[2]}`,
+      borderRadius: t.radii.small,
+      fontSize: t.fontSizes.sm
     },
     md: {
-      px: 3,
-      py: 2,
-      borderRadius: 'medium',
-      fontSize: 'md'
+      padding: `${t.space[2]} ${t.space[3]}`,
+      borderRadius: t.radii.medium,
+      fontSize: t.fontSizes.md
     },
     lg: {
-      px: 3,
-      py: 2,
-      borderRadius: 'medium',
-      fontSize: 'lg'
+      padding: `${t.space[2]} ${t.space[3]}`,
+      borderRadius: t.radii.medium,
+      fontSize: t.fontSizes.lg
     }
   }
 
   const variants = {
     outline: {
-      bg: 'transparent',
+      background: 'transparent',
       color: color
     },
     ghost: {
       borderColor: 'transparent',
-      bg: 'transparent',
+      background: 'transparent',
       color: color
     },
     pill: {
-      borderRadius: 'pill'
+      borderRadius: t.radii.pill
     },
     elevated: {
-      borderColor: darken(color, 0.1),
+      borderColor: darken(0.1, color),
       boxShadow: '0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06)'
     }
   }
@@ -61,18 +65,18 @@ export default ({
   if (icon) {
     const iconSizes = { sm: 16, md: 18, lg: 22 }
     icon =
-      typeof icon === 'string' ? (
+      typeof icon !== 'string' ? (
+        icon
+      ) : (
         <Icon
           name={icon}
           size={iconSizes[size]}
-          sx={children ? { mr: 1 } : null}
+          css={children && (t => ({ marginRight: t.space[1] }))}
         />
-      ) : (
-        icon
       )
 
     if (!children) {
-      mixins.px = mixins.py
+      mixins.padding = mixins.padding.split(' ')[0]
       mixins.lineHeight = 'solid'
     }
   }
@@ -80,35 +84,35 @@ export default ({
   return (
     <Tag
       {...props}
-      sx={{
+      css={{
         appearance: 'none',
         display: 'inline-block',
-        m: 0,
-        px: 3,
-        py: 2,
-        border: 1,
+        margin: 0,
+        padding: `${t.space[2]} ${t.space[3]}`,
+        border: `1px solid ${t.colors.border}`,
         borderColor: color,
-        borderRadius: 'medium',
-        bg: color,
-        color: readable(color, 'white', 'dark'),
+        borderRadius: t.radii.medium,
+        background: color,
+        color: readable(color, '#fff', t.colors.dark),
         fontSize: 'inherit',
-        fontWeight: 'bold',
+        fontWeight: t.fontWeights.bold,
         lineHeight: 'inherit',
         textAlign: 'center',
         textDecoration: 'none',
+        textShadow: 'none',
         cursor: 'pointer',
         userSelect: 'none',
         transition: 'border 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s',
         ':hover': {
-          borderColor: darken(color, 0.05),
-          bg: darken(color, 0.05),
-          color: readable(color, 'white', 'dark'),
+          borderColor: darken(0.05, color),
+          background: darken(0.05, color),
+          color: readable(color, '#fff', t.colors.dark),
           textDecoration: 'none'
         },
         ':active': {
-          borderColor: darken(color, 0.15),
-          bg: darken(color, 0.15),
-          color: readable(color, 'white', 'dark')
+          borderColor: darken(0.15, color),
+          background: darken(0.15, color),
+          color: readable(color, '#fff', t.colors.dark)
         },
         ':focus': {
           boxShadow: 'outline',
@@ -118,8 +122,6 @@ export default ({
           opacity: 0.5,
           cursor: 'default'
         },
-        // // pass variant prop to sx
-        // variant: `variants.buttons.${variant}`,
         ...mixins
       }}
     >

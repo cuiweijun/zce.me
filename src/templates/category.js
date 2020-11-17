@@ -15,7 +15,7 @@ export default ({ data: { term, posts } }) => (
       title={term.name}
       subtitle={term.description || `包含 ${posts.totalCount} 个内容`}
     />
-    <Container row sx={{ mb: 6 }}>
+    <Container row css={t => ({ marginBottom: t.space[6] })}>
       {posts.nodes.map(node => (
         <Card post={node} key={node.id} />
       ))}

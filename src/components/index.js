@@ -2,7 +2,6 @@
  * Components entry
  */
 
-// import '@emotion/react/types/css-prop'
 export { default as Container } from './container'
 export { default as Row } from './row'
 export { default as Link } from './link'

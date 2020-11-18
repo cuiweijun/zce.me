@@ -1,4 +1,3 @@
-import {} from '@emotion/react/types/css-prop'
 import theme from './theme'
 
 declare module '@emotion/react' {

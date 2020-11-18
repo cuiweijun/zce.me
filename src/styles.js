@@ -2,38 +2,35 @@
  * Global styles
  */
 
-/** @typedef {import('@emotion/serialize').Interpolation<import('@emotion/react').Theme>} Interpolation */
-import { rgba, darken, lighten, getLuminance } from 'polished'
+import { rgba, darken, lighten } from 'polished'
 
-const readable = (c, l, d) => (getLuminance(c) > 0.4 ? d : l)
-
-/** @type {Interpolation} */
-const variables = t => ({
-  ':root': Object.keys(t.colors).reduce(
-    (prev, item) => ({ ...prev, [`--c-${item}`]: t.colors[item] }),
-    {}
-  )
-})
-
-/** @type {Interpolation} */
 const block = t => ({
   margin: `0 0 ${t.space[3]}`
 })
 
-/** @type {Interpolation} */
-const pseudo = t => ({
-  '::selection': {
-    background: rgba(t.colors.primary, 0.6),
-    color: readable(t.colors.primary),
-    textShadow: 'text'
-  }
+const heading = t => ({
+  ...block(t),
+  lineHeight: t.lineHeights.heading,
+  fontWeight: t.fontWeights.heading
 })
 
-/** @type {Interpolation} */
-const reboot = t => ({
+/** @type {import('@emotion/serialize').Interpolation<import('@emotion/react').Theme>} */
+const styles = t => ({
+  // variables
+  ':root': Object.entries(t.colors).reduce(
+    (prev, [k, v]) => ({ ...prev, [`--c-${k}`]: v }),
+    {}
+  ),
+  // pseudo
+  '::selection': {
+    background: rgba(t.colors.primary, 0.8),
+    color: '#fff', // t.colors.background,
+    textShadow: 'text'
+  },
   '*, *:after, *:before': {
     boxSizing: 'border-box'
   },
+  // reboot
   body: {
     margin: 0,
     color: t.colors.text,
@@ -67,40 +64,30 @@ const reboot = t => ({
   },
   svg: {
     verticalAlign: 'text-bottom'
-  }
-})
-
-/** @type {Interpolation} */
-const heading = t => ({
-  ...block(t),
-  lineHeight: t.lineHeights.heading,
-  fontWeight: t.fontWeights.heading
-})
-
-/** @type {Interpolation} */
-const typography = t => ({
+  },
+  // typography
   h1: {
-    ...heading,
+    ...heading(t),
     fontSize: t.fontSizes[7]
   },
   h2: {
-    ...heading,
+    ...heading(t),
     fontSize: t.fontSizes[6]
   },
   h3: {
-    ...heading,
+    ...heading(t),
     fontSize: t.fontSizes[5]
   },
   h4: {
-    ...heading,
+    ...heading(t),
     fontSize: t.fontSizes[4]
   },
   h5: {
-    ...heading,
+    ...heading(t),
     fontSize: t.fontSizes[3]
   },
   h6: {
-    ...heading,
+    ...heading(t),
     fontSize: t.fontSizes[2]
   },
   p: {
@@ -115,11 +102,8 @@ const typography = t => ({
     '> :last-child': {
       marginBottom: 0
     }
-  }
-})
-
-/** @type {Interpolation} */
-const list = t => ({
+  },
+  // list
   'ol, ul, dl': {
     ...block(t)
   },
@@ -128,34 +112,31 @@ const list = t => ({
   },
   'ol ol, ul ul, ol ul, ul ol': {
     marginBottom: 0
-  }
-})
-
-/** @type {Interpolation} */
-const image = t => ({
-  img: {
-    maxWidth: '100%'
-  }
-})
-
-/** @type {Interpolation} */
-const link = t => ({
-  a: {
-    color: t.colors.primary,
-    textDecoration: 'none',
-    transition: 'color 0.25s',
-    ':hover': {
-      color: darken(0.05, t.colors.primary),
-      textDecoration: 'underline'
-    },
-    ':active': {
-      color: darken(0.1, t.colors.primary)
-    }
-  }
-})
-
-/** @type {Interpolation} */
-const code = t => ({
+  },
+  // table
+  table: {
+    ...block(t),
+    display: 'block',
+    overflow: 'auto',
+    width: '100%',
+    borderCollapse: 'collapse',
+    borderSpacing: 0
+  },
+  'th, td': {
+    padding: `${t.space[2]} ${t.space[3]}`,
+    textAlign: 'left',
+    border: `1px solid ${t.colors.border}`
+  },
+  th: {
+    fontWeight: t.fontWeights.bold
+  },
+  // form
+  textarea: {
+    appearance: 'none',
+    overflow: 'auto',
+    resize: 'vertical'
+  },
+  // code
   pre: {
     ...block(t),
     code: {
@@ -216,83 +197,24 @@ const code = t => ({
     fontSize: '87.5%',
     // fontVariantLigatures: 'common-ligatures',
     lineHeight: t.lineHeights.dense
-  }
-  // kbd, samp
-})
-
-/** @type {Interpolation} */
-const table = t => ({
-  table: {
-    ...block(t),
-    display: 'block',
-    overflow: 'auto',
-    width: '100%',
-    borderCollapse: 'collapse',
-    borderSpacing: 0
   },
-  'th, td': {
-    padding: `${t.space[2]} ${t.space[3]}`,
-    textAlign: 'left',
-    border: `1px solid ${t.colors.border}`
+  // image
+  img: {
+    maxWidth: '100%'
   },
-  th: {
-    fontWeight: t.fontWeights.bold
+  // link
+  a: {
+    color: t.colors.primary,
+    textDecoration: 'none',
+    transition: 'color 0.25s',
+    ':hover': {
+      color: darken(0.05, t.colors.primary),
+      textDecoration: 'underline'
+    },
+    ':active': {
+      color: darken(0.1, t.colors.primary)
+    }
   }
 })
 
-/** @type {Interpolation} */
-const form = t => ({
-  textarea: {
-    appearance: 'none',
-    overflow: 'auto',
-    resize: 'vertical'
-  }
-})
-
-/** @type {Interpolation} */
-const more = t => ({
-  // '[data-title]': {
-  //   position: 'relative',
-  //   ':after': {
-  //     position: 'absolute',
-  //     left: '50%',
-  //     bottom: '100%',
-  //     zIndex: 70,
-  //     overflow: 'hidden',
-  //     display: 'block',
-  //     px: 2,
-  //     py: 1,
-  //     borderRadius: 'medium',
-  //     background: rgba('dark', 0.9),
-  //     color: 'white',
-  //     fontSize: '87.5%',
-  //     textOverflow: 'ellipsis',
-  //     whiteSpace: 'pre',
-  //     content: 'attr(data-title)',
-  //     opacity: 0,
-  //     pointerEvents: 'none',
-  //     transform: t => `translate(-50%, ${t.space[2]})`,
-  //     transition: 'opacity .2s, transform .2s'
-  //   },
-  //   ':hover': {
-  //     ':after': {
-  //       opacity: 1,
-  //       transform: t => `translate(-50%, -${t.space[1]})`
-  //     }
-  //   }
-  // }
-})
-
-export default t => ({
-  ...variables(t),
-  ...pseudo(t),
-  ...reboot(t),
-  ...typography(t),
-  ...list(t),
-  ...image(t),
-  ...link(t),
-  ...code(t),
-  ...table(t),
-  ...form(t),
-  ...more(t)
-})
+export default styles

@@ -119,10 +119,10 @@ export default ({ data: { featured, posts, courses, about, meta } }) => (
       title={meta.name}
       subtitle={meta.description}
       css={{
-        paddingTop: '20rem',
-        paddingBottom: '20rem',
-        h1: { fontSize: '8rem' },
-        p: { fontSize: '1.5rem' }
+        paddingTop: '16vw',
+        paddingBottom: '16vw',
+        h1: { fontSize: 'calc(4rem + 2.5vw)' },
+        p: { fontSize: 'calc(1rem + 0.5vw)' }
       }}
     />
 
